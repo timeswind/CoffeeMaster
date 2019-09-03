@@ -13,6 +13,10 @@
 		5C0E399E231EB2E500892CF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E399D231EB2E500892CF1 /* Assets.xcassets */; };
 		5C0E39A1231EB2E500892CF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E399F231EB2E500892CF1 /* LaunchScreen.storyboard */; };
 		5C0E39AC231EB2E500892CF1 /* WordScrambleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E39AB231EB2E500892CF1 /* WordScrambleTests.swift */; };
+		5C0E39BA231EB36B00892CF1 /* Words5 in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E39B6231EB36B00892CF1 /* Words5 */; };
+		5C0E39BB231EB36B00892CF1 /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E39B7231EB36B00892CF1 /* WordModel.swift */; };
+		5C0E39BC231EB36B00892CF1 /* Words4 in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E39B8231EB36B00892CF1 /* Words4 */; };
+		5C0E39BD231EB36B00892CF1 /* Words6 in Resources */ = {isa = PBXBuildFile; fileRef = 5C0E39B9231EB36B00892CF1 /* Words6 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		5C0E39A7231EB2E500892CF1 /* WordScrambleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordScrambleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0E39AB231EB2E500892CF1 /* WordScrambleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScrambleTests.swift; sourceTree = "<group>"; };
 		5C0E39AD231EB2E500892CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C0E39B6231EB36B00892CF1 /* Words5 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Words5; sourceTree = "<group>"; };
+		5C0E39B7231EB36B00892CF1 /* WordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
+		5C0E39B8231EB36B00892CF1 /* Words4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Words4; sourceTree = "<group>"; };
+		5C0E39B9231EB36B00892CF1 /* Words6 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Words6; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,10 @@
 		5C0E3995231EB2E400892CF1 /* WordScramble */ = {
 			isa = PBXGroup;
 			children = (
+				5C0E39B7231EB36B00892CF1 /* WordModel.swift */,
+				5C0E39B8231EB36B00892CF1 /* Words4 */,
+				5C0E39B6231EB36B00892CF1 /* Words5 */,
+				5C0E39B9231EB36B00892CF1 /* Words6 */,
 				5C0E3996231EB2E400892CF1 /* AppDelegate.swift */,
 				5C0E3998231EB2E400892CF1 /* ViewController.swift */,
 				5C0E399A231EB2E400892CF1 /* Main.storyboard */,
@@ -177,8 +189,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C0E39BC231EB36B00892CF1 /* Words4 in Resources */,
 				5C0E39A1231EB2E500892CF1 /* LaunchScreen.storyboard in Resources */,
 				5C0E399E231EB2E500892CF1 /* Assets.xcassets in Resources */,
+				5C0E39BD231EB36B00892CF1 /* Words6 in Resources */,
+				5C0E39BA231EB36B00892CF1 /* Words5 in Resources */,
 				5C0E399C231EB2E400892CF1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C0E3999231EB2E400892CF1 /* ViewController.swift in Sources */,
+				5C0E39BB231EB36B00892CF1 /* WordModel.swift in Sources */,
 				5C0E3997231EB2E400892CF1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
