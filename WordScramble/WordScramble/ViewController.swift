@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     let DEFULT_WORD_SIZE:Int! = 4
+    var currentWordSize: Int!
     let wordModel = WordModel()
     @IBOutlet weak var WordDisplayLabel: UILabel!
     @IBOutlet weak var ResultLabel: UILabel!
@@ -29,13 +30,11 @@ class ViewController: UIViewController {
         //initialize UI element status
         CheckButton.isEnabled = false
         UndoButton.isEnabled = false
-        WordDisplayLabel.text = " "
+        WordDisplayLabel.text = ""
         WordSegments.removeAllSegments()
     }
 
     @IBAction func NewWordOnClick(_ sender: Any) {
-        var currentWordSize: Int!
-        
         //generate new word based on selected word size
         if let wordSizeTitle = ChooseWordLengthSegment.titleForSegment(at: ChooseWordLengthSegment.selectedSegmentIndex) {
              currentWordSize = Int(wordSizeTitle)
@@ -62,7 +61,25 @@ class ViewController: UIViewController {
     
     func updateWordLabelWithNewChar(newChar: Character!) {
         if let currentWordDisplayLabelText = WordDisplayLabel.text {
-            WordDisplayLabel.text = currentWordDisplayLabelText + String(newChar)
+            // no input exceeds the length of the word
+            if currentWordDisplayLabelText.count < currentWordSize {
+                WordDisplayLabel.text = currentWordDisplayLabelText + String(newChar)
+                // enable the undo button once there is at least 1 char
+                if currentWordDisplayLabelText.count == 0 {
+                    UndoButton.isEnabled = true
+                }
+            }
+        }
+    }
+    
+    @IBAction func Undo(_ sender: Any) {
+        if let currentWordDisplayLabelText = WordDisplayLabel.text {
+            if currentWordDisplayLabelText.count > 0 {
+                WordDisplayLabel.text = (String)(currentWordDisplayLabelText.prefix(currentWordDisplayLabelText.count - 1))
+                if currentWordDisplayLabelText.count == 1 {
+                    UndoButton.isEnabled = false
+                }
+            }
         }
     }
     
