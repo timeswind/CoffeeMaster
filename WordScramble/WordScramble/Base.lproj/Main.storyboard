@@ -100,6 +100,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="CheckButton" destination="SFQ-pC-vRY" id="8Q7-wN-jDQ"/>
+                        <outlet property="ChooseWordLengthSegment" destination="ugd-rX-FTq" id="ZVc-vX-Z77"/>
+                        <outlet property="NewWordButton" destination="MCM-OJ-TBy" id="Q95-v6-zUl"/>
+                        <outlet property="ResultLabel" destination="eiq-cZ-BOT" id="Ra9-I7-KYw"/>
+                        <outlet property="UndoButton" destination="qA6-f3-KYY" id="1ra-tP-Nzs"/>
+                        <outlet property="WordDisplayLabel" destination="CgF-H1-uEl" id="0cG-eu-mNh"/>
+                        <outlet property="WordSegments" destination="KZA-Db-WdW" id="Nov-pr-zoy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
