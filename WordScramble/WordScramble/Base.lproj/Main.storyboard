@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,97 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WordScramble" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ugd-rX-FTq">
+                                <rect key="frame" x="44" y="790" width="326" height="29"/>
+                                <segments>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                    <segment title="6"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Word Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEn-py-EQv">
+                                <rect key="frame" x="44" y="761" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Scramble" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBZ-BJ-NCk">
+                                <rect key="frame" x="118" y="88" width="178" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="result label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiq-cZ-BOT">
+                                <rect key="frame" x="137.5" y="430" width="139" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgF-H1-uEl">
+                                <rect key="frame" x="135" y="147" width="144" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KZA-Db-WdW">
+                                <rect key="frame" x="153.5" y="236" width="107" height="29"/>
+                                <segments>
+                                    <segment title="Word"/>
+                                    <segment title="Select"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qA6-f3-KYY">
+                                <rect key="frame" x="40" y="324" width="48" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Undo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFQ-pC-vRY">
+                                <rect key="frame" x="320" y="324" width="57" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Check"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCM-OJ-TBy">
+                                <rect key="frame" x="161.5" y="488" width="91" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="New Word"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ugd-rX-FTq" firstAttribute="top" secondItem="jEn-py-EQv" secondAttribute="bottom" constant="8" id="4lh-tS-3Bv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ugd-rX-FTq" secondAttribute="bottom" constant="44" id="6zZ-Yb-Nl3"/>
+                            <constraint firstItem="jBZ-BJ-NCk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Vf-MK-Th3"/>
+                            <constraint firstItem="KZA-Db-WdW" firstAttribute="top" secondItem="CgF-H1-uEl" secondAttribute="bottom" constant="30" id="AN1-Tb-FUN"/>
+                            <constraint firstItem="MCM-OJ-TBy" firstAttribute="top" secondItem="eiq-cZ-BOT" secondAttribute="bottom" constant="22" id="LhB-mM-3aE"/>
+                            <constraint firstItem="ugd-rX-FTq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MP6-GC-DEP"/>
+                            <constraint firstItem="SFQ-pC-vRY" firstAttribute="top" secondItem="KZA-Db-WdW" secondAttribute="bottom" constant="60" id="TOk-IX-uaR"/>
+                            <constraint firstItem="KZA-Db-WdW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vef-xX-iMT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ugd-rX-FTq" secondAttribute="trailing" constant="44" id="Zfu-37-G0o"/>
+                            <constraint firstItem="jEn-py-EQv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bEd-Yc-uXL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jEn-py-EQv" secondAttribute="trailing" constant="208" id="bTm-Sd-dyc"/>
+                            <constraint firstItem="CgF-H1-uEl" firstAttribute="top" secondItem="jBZ-BJ-NCk" secondAttribute="bottom" constant="26" id="bgt-ww-ver"/>
+                            <constraint firstItem="qA6-f3-KYY" firstAttribute="top" secondItem="KZA-Db-WdW" secondAttribute="bottom" constant="60" id="cCW-sX-aDO"/>
+                            <constraint firstItem="qA6-f3-KYY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="cKn-ce-rAj"/>
+                            <constraint firstItem="eiq-cZ-BOT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eDs-bW-ISx"/>
+                            <constraint firstItem="MCM-OJ-TBy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fPb-Pa-IIo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SFQ-pC-vRY" secondAttribute="trailing" constant="37" id="frl-sD-myV"/>
+                            <constraint firstItem="SFQ-pC-vRY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qA6-f3-KYY" secondAttribute="trailing" constant="8" symbolic="YES" id="iFG-zc-VPd"/>
+                            <constraint firstItem="eiq-cZ-BOT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j74-T9-C46"/>
+                            <constraint firstItem="CgF-H1-uEl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pP5-We-Boh"/>
+                            <constraint firstItem="ugd-rX-FTq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qoC-5H-fQI"/>
+                            <constraint firstItem="jBZ-BJ-NCk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="yFc-wc-xPB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </scene>
     </scenes>
 </document>

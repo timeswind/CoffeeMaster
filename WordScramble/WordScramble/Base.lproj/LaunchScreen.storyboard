@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Scramble" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VC-xM-Th7">
-                                <rect key="frame" x="121.5" y="44" width="171.5" height="44"/>
+                                <rect key="frame" x="121.5" y="426" width="171.5" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="00f-2I-f05"/>
                                 </constraints>
@@ -27,23 +27,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hPu-S3-Dl6">
-                                <rect key="frame" x="44" y="790" width="326" height="29"/>
-                                <segments>
-                                    <segment title="4"/>
-                                    <segment title="5"/>
-                                    <segment title="6"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hPu-S3-Dl6" secondAttribute="trailing" constant="44" id="0tx-fm-Ucq"/>
-                            <constraint firstItem="hPu-S3-Dl6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7pX-Ko-ahc"/>
                             <constraint firstItem="1VC-xM-Th7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="D5z-if-Rcu"/>
-                            <constraint firstItem="hPu-S3-Dl6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ILR-BU-6PI"/>
-                            <constraint firstItem="1VC-xM-Th7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="es3-GB-DpZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hPu-S3-Dl6" secondAttribute="bottom" constant="44" id="ioB-h6-2rR"/>
+                            <constraint firstItem="1VC-xM-Th7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="DE9-QX-LXq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
