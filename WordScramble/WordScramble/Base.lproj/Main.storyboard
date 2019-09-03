@@ -56,6 +56,9 @@
                                     <segment title="Word"/>
                                     <segment title="Select"/>
                                 </segments>
+                                <connections>
+                                    <action selector="CharOnChoose:" destination="BYZ-38-t0r" eventType="valueChanged" id="6vM-f7-Weo"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qA6-f3-KYY">
                                 <rect key="frame" x="40" y="324" width="48" height="36"/>
@@ -71,6 +74,9 @@
                                 <rect key="frame" x="161.5" y="488" width="91" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="New Word"/>
+                                <connections>
+                                    <action selector="NewWordOnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fw8-sE-fAO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
