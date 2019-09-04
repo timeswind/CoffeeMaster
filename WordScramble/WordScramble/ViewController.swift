@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     let DEFULT_WORD_SIZE:Int! = 4
     var currentWordSize: Int!
+    var correctAnswer: String?;
+    var wordIndexesSelected = [Int]()
+    
     let wordModel = WordModel()
     @IBOutlet weak var WordDisplayLabel: UILabel!
     @IBOutlet weak var ResultLabel: UILabel!
@@ -19,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var UndoButton: UIButton!
     @IBOutlet weak var CheckButton: UIButton!
     @IBOutlet weak var NewWordButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.resetAll()
@@ -31,10 +35,13 @@ class ViewController: UIViewController {
         CheckButton.isEnabled = false
         UndoButton.isEnabled = false
         WordDisplayLabel.text = ""
+        ResultLabel.text = "Click \"Check\" to see result"
+        ResultLabel.textColor = UIColor.black
         WordSegments.removeAllSegments()
     }
 
     @IBAction func NewWordOnClick(_ sender: Any) {
+        resetAll()
         //generate new word based on selected word size
         if let wordSizeTitle = ChooseWordLengthSegment.titleForSegment(at: ChooseWordLengthSegment.selectedSegmentIndex) {
              currentWordSize = Int(wordSizeTitle)
@@ -48,6 +55,7 @@ class ViewController: UIViewController {
     }
     
     func updateWordSegmentWithNewWord(newWord: String!) {
+        correctAnswer = newWord
         var charArray = [Character](newWord)
         charArray.shuffle();
         //reset the segment
@@ -68,6 +76,11 @@ class ViewController: UIViewController {
                 if currentWordDisplayLabelText.count == 0 {
                     UndoButton.isEnabled = true
                 }
+                
+                // enable the check button
+                if currentWordDisplayLabelText.count == currentWordSize - 1 {
+                    CheckButton.isEnabled = true
+                }
             }
         }
     }
@@ -76,9 +89,25 @@ class ViewController: UIViewController {
         if let currentWordDisplayLabelText = WordDisplayLabel.text {
             if currentWordDisplayLabelText.count > 0 {
                 WordDisplayLabel.text = (String)(currentWordDisplayLabelText.prefix(currentWordDisplayLabelText.count - 1))
+                
+                //last char could be reselect
+                wordIndexesSelected.popLast()
+                
                 if currentWordDisplayLabelText.count == 1 {
                     UndoButton.isEnabled = false
                 }
+            }
+        }
+    }
+    
+    @IBAction func Check(_ sender: Any) {
+        if let currentWordDisplayLabelText = WordDisplayLabel.text {
+            if currentWordDisplayLabelText == correctAnswer {
+                ResultLabel.text = "Correct!"
+                ResultLabel.textColor = UIColor.green
+            } else {
+                ResultLabel.text = "Wrong!"
+                ResultLabel.textColor = UIColor.red
             }
         }
     }
@@ -88,13 +117,19 @@ class ViewController: UIViewController {
         
         //generate new word based on selected word size
         if let segTitle = WordSegments.titleForSegment(at: WordSegments.selectedSegmentIndex) {
-            choosedChar = segTitle.first
+            //each char could be selected only once
+            if !(wordIndexesSelected.contains(WordSegments.selectedSegmentIndex)) {
+                wordIndexesSelected.append(WordSegments.selectedSegmentIndex)
+                choosedChar = segTitle.first
+                //print(choosedChar!)
+                updateWordLabelWithNewChar(newChar: choosedChar!)
+            } else {
+                
+            }
         }
         
         //let the segment selet process act like a button click
         WordSegments.selectedSegmentIndex = -1
-        //print(choosedChar!)
-        updateWordLabelWithNewChar(newChar: choosedChar!)
 
     }
 }
