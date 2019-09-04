@@ -13,8 +13,11 @@ class ViewController: UIViewController {
     var currentWordSize: Int!
     var correctAnswer: String?;
     var wordIndexesSelected = [Int]()
+    var correctCount: Int! = 0
+    var tryoutCount: Int! = 0
     
     let wordModel = WordModel()
+    
     @IBOutlet weak var WordDisplayLabel: UILabel!
     @IBOutlet weak var ResultLabel: UILabel!
     @IBOutlet weak var WordSegments: UISegmentedControl!
@@ -50,7 +53,7 @@ class ViewController: UIViewController {
         }
         wordModel.setCurrentWordSize(newSize: currentWordSize)
         updateWordSegmentWithNewWord(newWord: wordModel.randomWord)
-        
+        tryoutCount += 1
         //print(wordModel.randomWord)
     }
     
@@ -91,7 +94,7 @@ class ViewController: UIViewController {
                 WordDisplayLabel.text = (String)(currentWordDisplayLabelText.prefix(currentWordDisplayLabelText.count - 1))
                 
                 //last char could be reselect
-                wordIndexesSelected.popLast()
+                _ = wordIndexesSelected.popLast()
                 
                 if currentWordDisplayLabelText.count == 1 {
                     UndoButton.isEnabled = false
@@ -105,6 +108,8 @@ class ViewController: UIViewController {
             if currentWordDisplayLabelText == correctAnswer {
                 ResultLabel.text = "Correct!"
                 ResultLabel.textColor = UIColor.green
+                CheckButton.isEnabled = false
+                correctCount += 1
             } else {
                 ResultLabel.text = "Wrong!"
                 ResultLabel.textColor = UIColor.red
