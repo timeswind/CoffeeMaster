@@ -113,13 +113,14 @@ class ViewController: UIViewController {
     @IBAction func Check(_ sender: Any) {
         if let currentWordDisplayLabelText = WordDisplayLabel.text {
             if currentWordDisplayLabelText == correctAnswer {
-                ResultLabel.text = "Correct!"
+                ResultLabel.text = wordModel.correctResponse
                 ResultLabel.textColor = UIColor.green
                 CheckButton.isEnabled = false
+                UndoButton.isEnabled = false
                 correctCount += 1
                 updateProgressLabel()
             } else {
-                ResultLabel.text = "Wrong!"
+                ResultLabel.text = wordModel.incorrectResponse
                 ResultLabel.textColor = UIColor.red
             }
         }

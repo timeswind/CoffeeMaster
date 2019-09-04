@@ -47,6 +47,24 @@ class WordModel {
         return result
     }
     
+    var correctResponse: String {
+        get {
+            let theCorrectResponses = ["Well Done!", "Great!", "Awesome!"]
+            let bound = 3
+            let index = Int(arc4random_uniform(UInt32(bound)))
+            return theCorrectResponses[index]
+        }
+    }
+    
+    var incorrectResponse: String {
+        get {
+            let theIncorrectResponse = ["Try again", "It is close", "Guess again"]
+            let bound = 3
+            let index = Int(arc4random_uniform(UInt32(bound)))
+            return theIncorrectResponse[index]
+        }
+    }
+    
     var randomWord : String {
         get  {
             let theWords = words[currentWordSize]!
