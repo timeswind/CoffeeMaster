@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var WordDisplayLabel: UILabel!
     @IBOutlet weak var ResultLabel: UILabel!
+    @IBOutlet weak var ProgressLabel: UILabel!
     @IBOutlet weak var WordSegments: UISegmentedControl!
     @IBOutlet weak var ChooseWordLengthSegment: UISegmentedControl!
     @IBOutlet weak var UndoButton: UIButton!
@@ -28,12 +29,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.resetAll()
+        self.newRound()
         
         // Do any additional setup after loading the view.
     }
     
-    func resetAll() {
+    func newRound() {
         //initialize UI element status
         CheckButton.isEnabled = false
         UndoButton.isEnabled = false
@@ -41,10 +42,16 @@ class ViewController: UIViewController {
         ResultLabel.text = "Click \"Check\" to see result"
         ResultLabel.textColor = UIColor.black
         WordSegments.removeAllSegments()
+        wordIndexesSelected = [Int]()
+        updateProgressLabel()
+    }
+    
+    func updateProgressLabel() {
+        ProgressLabel.text = "\(correctCount ?? 0) out of \(tryoutCount ?? 0) Correct"
     }
 
     @IBAction func NewWordOnClick(_ sender: Any) {
-        resetAll()
+        newRound()
         //generate new word based on selected word size
         if let wordSizeTitle = ChooseWordLengthSegment.titleForSegment(at: ChooseWordLengthSegment.selectedSegmentIndex) {
              currentWordSize = Int(wordSizeTitle)
@@ -110,6 +117,7 @@ class ViewController: UIViewController {
                 ResultLabel.textColor = UIColor.green
                 CheckButton.isEnabled = false
                 correctCount += 1
+                updateProgressLabel()
             } else {
                 ResultLabel.text = "Wrong!"
                 ResultLabel.textColor = UIColor.red

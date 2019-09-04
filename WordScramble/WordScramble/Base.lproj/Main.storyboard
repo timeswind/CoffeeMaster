@@ -87,9 +87,16 @@
                                     <action selector="NewWordOnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fw8-sE-fAO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBc-SG-aOs">
+                                <rect key="frame" x="173" y="409" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="eiq-cZ-BOT" firstAttribute="top" secondItem="jBc-SG-aOs" secondAttribute="bottom" id="3Cw-t7-xYl"/>
                             <constraint firstItem="ugd-rX-FTq" firstAttribute="top" secondItem="jEn-py-EQv" secondAttribute="bottom" constant="8" id="4lh-tS-3Bv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ugd-rX-FTq" secondAttribute="bottom" constant="44" id="6zZ-Yb-Nl3"/>
                             <constraint firstItem="jBZ-BJ-NCk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Vf-MK-Th3"/>
@@ -109,6 +116,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SFQ-pC-vRY" secondAttribute="trailing" constant="37" id="frl-sD-myV"/>
                             <constraint firstItem="SFQ-pC-vRY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qA6-f3-KYY" secondAttribute="trailing" constant="8" symbolic="YES" id="iFG-zc-VPd"/>
                             <constraint firstItem="eiq-cZ-BOT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j74-T9-C46"/>
+                            <constraint firstItem="jBc-SG-aOs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kX1-dc-NsP"/>
                             <constraint firstItem="CgF-H1-uEl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pP5-We-Boh"/>
                             <constraint firstItem="ugd-rX-FTq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qoC-5H-fQI"/>
                             <constraint firstItem="jBZ-BJ-NCk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="yFc-wc-xPB"/>
@@ -119,6 +127,7 @@
                         <outlet property="CheckButton" destination="SFQ-pC-vRY" id="8Q7-wN-jDQ"/>
                         <outlet property="ChooseWordLengthSegment" destination="ugd-rX-FTq" id="ZVc-vX-Z77"/>
                         <outlet property="NewWordButton" destination="MCM-OJ-TBy" id="Q95-v6-zUl"/>
+                        <outlet property="ProgressLabel" destination="jBc-SG-aOs" id="1ER-kF-5Wl"/>
                         <outlet property="ResultLabel" destination="eiq-cZ-BOT" id="Ra9-I7-KYw"/>
                         <outlet property="UndoButton" destination="qA6-f3-KYY" id="1ra-tP-Nzs"/>
                         <outlet property="WordDisplayLabel" destination="CgF-H1-uEl" id="0cG-eu-mNh"/>
