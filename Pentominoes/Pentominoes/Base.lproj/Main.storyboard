@@ -147,6 +147,7 @@
                         <outlet property="board3Button" destination="mm0-yb-DZE" id="5VB-x8-2u5"/>
                         <outlet property="board4Button" destination="DaE-8s-a2R" id="f1i-tK-riK"/>
                         <outlet property="board5Button" destination="U7r-dR-xWP" id="vgl-FN-Pf1"/>
+                        <outlet property="displayBoard" destination="pM4-Cb-CcC" id="R2F-Mv-xEq"/>
                         <outlet property="hintButton" destination="h4a-2i-8zf" id="wL7-oz-Cpn"/>
                         <outlet property="mainBoard" destination="eZi-qN-s4r" id="h7M-70-9jR"/>
                         <outlet property="resetButton" destination="anx-h9-aqq" id="BWQ-JV-Wpi"/>

@@ -22,9 +22,40 @@ class ViewController: UIViewController {
     @IBOutlet weak var hintButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
+    @IBOutlet weak var displayBoard: UIView!
+    
+    let pentominoModel = PentominoModel()
+    
+    let PIECE_ROW_COUNT = 2
+    let PIECE_COLUMN_COUNT = 6
+    var TOTAL_PIECE_COUNT:Int {
+        get {
+            return PIECE_ROW_COUNT + PIECE_COLUMN_COUNT
+        }
+    }
+    
+    //piecename:uiview
+    var pieceViews: [String:UIImageView] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let allPiecePicNames = pentominoModel.allPiecePicNames
+        let allPieceSymbles = pentominoModel.allPieceSymbles
+        for i in 0..<TOTAL_PIECE_COUNT {
+//            let frame = CGRect.zero
+            let image = UIImage(named: allPiecePicNames[i])!
+            let pieceImageView = UIImageView(image: image)
+            pieceViews.updateValue(pieceImageView, forKey: allPieceSymbles[i])
+            displayBoard.addSubview(pieceImageView)
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        for (key, pieceImageView) in pieceViews {
+            pieceImageView.frame=CGRect(x: 200, y: 200, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
+            
+        }
     }
 
     @IBAction func changeBoard(_ sender: Any) {

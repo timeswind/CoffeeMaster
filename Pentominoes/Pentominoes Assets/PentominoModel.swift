@@ -18,10 +18,11 @@ struct Position : Codable {
 
 // A solution is a dictionary mapping piece names ("T", "F", etc) to positions
 // All solutions are read in and maintained in an array
+let allNameSymbles:[String] = ["F", "I", "L", "N", "P", "T", "U", "V", "W", "X", "Y", "Z"]
 typealias Solution = [String:Position]
 typealias Solutions = [Solution]
 
-class Model {
+class PentominoModel {
 
     let allSolutions : Solutions //[[String:[String:Int]]]
     init () {
@@ -35,6 +36,18 @@ class Model {
         } catch {
             print(error)
             allSolutions = []
+        }
+    }
+    
+    var allPieceSymbles:[String] {
+        get {
+            return allNameSymbles
+        }
+    }
+    
+    var allPiecePicNames:[String] {
+        get {
+            return allNameSymbles.map { "Piece\($0)@3x.png" }
         }
     }
 
