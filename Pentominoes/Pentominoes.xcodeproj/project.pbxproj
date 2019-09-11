@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5CED54B223295DD9007D5D1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED54B123295DD9007D5D1A /* AppDelegate.swift */; };
 		5CED54B423295DD9007D5D1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED54B323295DD9007D5D1A /* ViewController.swift */; };
-		5CED54B723295DD9007D5D1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CED54B523295DD9007D5D1A /* Main.storyboard */; };
+		5CED54B723295DD9007D5D1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CED54B523295DD9007D5D1A /* Main.storyboard */; settings = {ASSET_TAGS = (0, ); }; };
 		5CED54B923295DDA007D5D1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CED54B823295DDA007D5D1A /* Assets.xcassets */; };
 		5CED54BC23295DDA007D5D1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CED54BA23295DDA007D5D1A /* LaunchScreen.storyboard */; };
 		5CED54C723295DDA007D5D1A /* PentominoesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED54C623295DDA007D5D1A /* PentominoesTests.swift */; };
@@ -226,6 +226,9 @@
 		5CED54A623295DD9007D5D1A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					0,
+				);
 				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Mingtian Yang";

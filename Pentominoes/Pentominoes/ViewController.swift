@@ -27,6 +27,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func changeBoard(_ sender: Any) {
+        let senderButton:UIButton = sender as! UIButton
+        let tag = senderButton.tag
+        mainBoard.image = UIImage(named: "Board\(tag)@3x.png")
+    }
+    
 }
 

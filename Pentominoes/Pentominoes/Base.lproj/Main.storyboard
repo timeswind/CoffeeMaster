@@ -25,45 +25,60 @@
                                     <constraint firstAttribute="width" constant="420" id="gYg-G8-Epk"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm0-yb-DZE">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm0-yb-DZE">
                                 <rect key="frame" x="614" y="60" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="aoc-6S-A3I"/>
                                     <constraint firstAttribute="height" constant="120" id="u8w-GI-rsP"/>
                                 </constraints>
                                 <state key="normal" image="Board3button.png"/>
+                                <connections>
+                                    <action selector="changeBoard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ykn-Ej-0m2"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7r-dR-xWP">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7r-dR-xWP">
                                 <rect key="frame" x="614" y="340" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="K4n-tO-dcB"/>
                                     <constraint firstAttribute="width" constant="120" id="zO9-QA-qJA"/>
                                 </constraints>
                                 <state key="normal" image="Board5button.png"/>
+                                <connections>
+                                    <action selector="changeBoard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hjf-rr-qUl"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaE-8s-a2R">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaE-8s-a2R">
                                 <rect key="frame" x="614" y="200" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="J63-sj-ZCc"/>
                                     <constraint firstAttribute="width" constant="120" id="hdg-KY-uU6"/>
                                 </constraints>
                                 <state key="normal" image="Board4button.png"/>
+                                <connections>
+                                    <action selector="changeBoard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ByI-ve-nQz"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ar-ru-Rqt">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ar-ru-Rqt">
                                 <rect key="frame" x="34" y="340" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="chf-RT-Xbo"/>
                                     <constraint firstAttribute="height" constant="120" id="gQb-Wc-jsQ"/>
                                 </constraints>
                                 <state key="normal" image="Board2button.png"/>
+                                <connections>
+                                    <action selector="changeBoard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bC9-CK-Qfd"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bq-Jo-Ryq">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bq-Jo-Ryq">
                                 <rect key="frame" x="34" y="200" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="RP3-oi-KBq"/>
                                     <constraint firstAttribute="width" constant="120" id="dPw-48-AkA"/>
                                 </constraints>
                                 <state key="normal" image="Board1button.png"/>
+                                <connections>
+                                    <action selector="changeBoard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NR4-6T-2wm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEX-Gh-Xm9">
                                 <rect key="frame" x="34" y="60" width="120" height="120"/>
@@ -72,6 +87,9 @@
                                     <constraint firstAttribute="height" constant="120" id="Rqh-Pm-tIL"/>
                                 </constraints>
                                 <state key="normal" image="Board0button.png"/>
+                                <connections>
+                                    <action selector="changeBoard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YTW-3R-qox"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xR-5C-ZPO">
                                 <rect key="frame" x="70" y="480" width="48" height="36"/>
@@ -122,6 +140,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="board0Button" destination="UEX-Gh-Xm9" id="pKH-ST-ILp"/>
+                        <outlet property="board1Button" destination="7Bq-Jo-Ryq" id="lAb-Jj-Cgb"/>
+                        <outlet property="board2Button" destination="1ar-ru-Rqt" id="cP0-4N-fkt"/>
+                        <outlet property="board3Button" destination="mm0-yb-DZE" id="5VB-x8-2u5"/>
+                        <outlet property="board4Button" destination="DaE-8s-a2R" id="f1i-tK-riK"/>
+                        <outlet property="board5Button" destination="U7r-dR-xWP" id="vgl-FN-Pf1"/>
+                        <outlet property="hintButton" destination="h4a-2i-8zf" id="wL7-oz-Cpn"/>
+                        <outlet property="mainBoard" destination="eZi-qN-s4r" id="h7M-70-9jR"/>
+                        <outlet property="resetButton" destination="anx-h9-aqq" id="BWQ-JV-Wpi"/>
+                        <outlet property="solveButton" destination="6xR-5C-ZPO" id="QBl-lZ-olZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
