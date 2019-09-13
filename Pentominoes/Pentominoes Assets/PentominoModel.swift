@@ -47,7 +47,7 @@ class PentominoModel {
     
     var allPiecePicNames:[String] {
         get {
-            return allNameSymbles.map { "Piece\($0)@3x.png" }
+            return allNameSymbles.map { "Piece\($0).png" }
         }
     }
 

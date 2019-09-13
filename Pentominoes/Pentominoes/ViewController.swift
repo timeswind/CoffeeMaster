@@ -90,9 +90,35 @@ class ViewController: UIViewController {
                     pieceImageView.frame = newFrame
                 }
             }
+            
+            solveButton.isEnabled = false
+            hintButton.isEnabled = false
         }
 
         
+    }
+    
+    @IBAction func reset(_ sender: Any) {
+        for (index, pieceViewEntry) in pieceViews.enumerated() {
+            
+            let displayBoardWidth = displayBoard.bounds.width - CGFloat(SAFE_BORDER_WIDTH*2)
+            let displayBoardHeight = displayBoard.bounds.height - CGFloat(SAFE_BORDER_WIDTH*2)
+            
+            let pieceWidth = displayBoardWidth / CGFloat(PIECE_COLUMN_COUNT)
+            let pieceHeight = displayBoardHeight / CGFloat(PIECE_ROW_COUNT)
+            
+            let positionX = CGFloat(index % PIECE_COLUMN_COUNT) * pieceWidth + CGFloat(SAFE_BORDER_WIDTH)
+            let positionY = CGFloat(index / PIECE_COLUMN_COUNT) * pieceHeight + CGFloat(SAFE_BORDER_WIDTH)
+            
+            
+            UIView.animate(withDuration: 1) {
+                pieceViewEntry.value.transform = CGAffineTransform.identity
+                let frame = CGRect(x: positionX, y: positionY, width: pieceViewEntry.value.frame.width, height: pieceViewEntry.value.frame.height)
+                pieceViewEntry.value.frame = frame
+            }
+        }
+        solveButton.isEnabled = true
+        hintButton.isEnabled = true
     }
     
     @IBAction func changeBoard(_ sender: Any) {
