@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     
     let pentominoModel = PentominoModel()
     var currentBoard = 0
+    var status = "ready to play"
     
     let PIECE_ROW_COUNT = 2
     let PIECE_COLUMN_COUNT = 6
@@ -49,22 +50,25 @@ class ViewController: UIViewController {
             pieceViews.updateValue(pieceImageView, forKey: allPieceSymbles[i])
             displayBoard.addSubview(pieceImageView)
         }
+        resetButton.isEnabled = false
     }
     
     override func viewDidLayoutSubviews() {
-        for (index, pieceImageViewEntry) in pieceViews.enumerated() {
-            let pieceImageView = pieceImageViewEntry.value
-            
-            let displayBoardWidth = displayBoard.bounds.width - CGFloat(SAFE_BORDER_WIDTH*2)
-            let displayBoardHeight = displayBoard.bounds.height - CGFloat(SAFE_BORDER_WIDTH*2)
-            
-            let pieceWidth = displayBoardWidth / CGFloat(PIECE_COLUMN_COUNT)
-            let pieceHeight = displayBoardHeight / CGFloat(PIECE_ROW_COUNT)
-
-            let positionX = CGFloat(index % PIECE_COLUMN_COUNT) * pieceWidth + CGFloat(SAFE_BORDER_WIDTH)
-            let positionY = CGFloat(index / PIECE_COLUMN_COUNT) * pieceHeight + CGFloat(SAFE_BORDER_WIDTH)
-
-            pieceImageView.frame = CGRect(x: positionX, y: positionY, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
+        if (status == "ready to play") {
+            for (index, pieceImageViewEntry) in pieceViews.enumerated() {
+                let pieceImageView = pieceImageViewEntry.value
+                
+                let displayBoardWidth = displayBoard.bounds.width - CGFloat(SAFE_BORDER_WIDTH*2)
+                let displayBoardHeight = displayBoard.bounds.height - CGFloat(SAFE_BORDER_WIDTH*2)
+                
+                let pieceWidth = displayBoardWidth / CGFloat(PIECE_COLUMN_COUNT)
+                let pieceHeight = displayBoardHeight / CGFloat(PIECE_ROW_COUNT)
+                
+                let positionX = CGFloat(index % PIECE_COLUMN_COUNT) * pieceWidth + CGFloat(SAFE_BORDER_WIDTH)
+                let positionY = CGFloat(index / PIECE_COLUMN_COUNT) * pieceHeight + CGFloat(SAFE_BORDER_WIDTH)
+                
+                pieceImageView.frame = CGRect(x: positionX, y: positionY, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
+            }
         }
     }
 
@@ -81,44 +85,60 @@ class ViewController: UIViewController {
                 let rotation = CGAffineTransform(rotationAngle: CGFloat(position.rotations) * CGFloat.pi / 2)
                 let flipping = position.isFlipped ? CGAffineTransform(scaleX: -1.0, y: 1.0) : CGAffineTransform(scaleX: 1.0, y: 1.0)
                 let fullTransformation = flipping.concatenating(rotation)
-
-                
-                UIView.animate(withDuration: 1) {
+            
+                UIView.animate(withDuration: 1, animations: {
                     pieceImageView.transform = fullTransformation
                     let frame = CGRect(x: x, y: y, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
                     let newFrame = self.mainBoard.convert(frame, to: self.displayBoard)
                     pieceImageView.frame = newFrame
+                }) { (complete) in
+                    if (complete) {
+                        let newFrame = self.displayBoard.convert(pieceImageView.frame, to: self.mainBoard)
+                        pieceImageView.frame = newFrame
+                        self.mainBoard.addSubview(pieceImageView)
+                    }
                 }
             }
             
             solveButton.isEnabled = false
             hintButton.isEnabled = false
+            resetButton.isEnabled = true
+            status = "finished"
         }
 
         
     }
     
     @IBAction func reset(_ sender: Any) {
+
         for (index, pieceViewEntry) in pieceViews.enumerated() {
+            let pieceImageView = pieceViewEntry.value
+            let newFrame = self.mainBoard.convert(pieceImageView.frame, to: self.displayBoard)
+            self.displayBoard.addSubview(pieceImageView)
+            pieceImageView.frame = newFrame
+
             
-            let displayBoardWidth = displayBoard.bounds.width - CGFloat(SAFE_BORDER_WIDTH*2)
-            let displayBoardHeight = displayBoard.bounds.height - CGFloat(SAFE_BORDER_WIDTH*2)
-            
+            let displayBoardWidth = displayBoard.bounds.width - CGFloat(SAFE_BORDER_WIDTH * 2)
+            let displayBoardHeight = displayBoard.bounds.height - CGFloat(SAFE_BORDER_WIDTH * 2)
+
             let pieceWidth = displayBoardWidth / CGFloat(PIECE_COLUMN_COUNT)
             let pieceHeight = displayBoardHeight / CGFloat(PIECE_ROW_COUNT)
-            
+
             let positionX = CGFloat(index % PIECE_COLUMN_COUNT) * pieceWidth + CGFloat(SAFE_BORDER_WIDTH)
             let positionY = CGFloat(index / PIECE_COLUMN_COUNT) * pieceHeight + CGFloat(SAFE_BORDER_WIDTH)
-            
-            
-            UIView.animate(withDuration: 1) {
-                pieceViewEntry.value.transform = CGAffineTransform.identity
-                let frame = CGRect(x: positionX, y: positionY, width: pieceViewEntry.value.frame.width, height: pieceViewEntry.value.frame.height)
-                pieceViewEntry.value.frame = frame
-            }
+
+            let newFrame2 = CGRect(x: positionX, y: positionY, width: pieceImageView.bounds.width, height: pieceImageView.bounds.height)
+
+            UIView.animate(withDuration: 1, animations: {
+                pieceImageView.transform = CGAffineTransform.identity
+                pieceImageView.frame = newFrame2
+            })
         }
+        
         solveButton.isEnabled = true
         hintButton.isEnabled = true
+        resetButton.isEnabled = false
+        status = "ready to play"
     }
     
     @IBAction func changeBoard(_ sender: Any) {
