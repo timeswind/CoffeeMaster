@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var displayBoard: UIView!
     
     let pentominoModel = PentominoModel()
+    var currentBoard = 0
     
     let PIECE_ROW_COUNT = 2
     let PIECE_COLUMN_COUNT = 6
@@ -43,13 +44,11 @@ class ViewController: UIViewController {
         let allPiecePicNames = pentominoModel.allPiecePicNames
         let allPieceSymbles = pentominoModel.allPieceSymbles
         for i in 0..<TOTAL_PIECE_COUNT {
-//            let frame = CGRect.zero
             let image = UIImage(named: allPiecePicNames[i])!
             let pieceImageView = UIImageView(image: image)
             pieceViews.updateValue(pieceImageView, forKey: allPieceSymbles[i])
             displayBoard.addSubview(pieceImageView)
         }
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,14 +64,41 @@ class ViewController: UIViewController {
             let positionX = CGFloat(index % PIECE_COLUMN_COUNT) * pieceWidth + CGFloat(SAFE_BORDER_WIDTH)
             let positionY = CGFloat(index / PIECE_COLUMN_COUNT) * pieceHeight + CGFloat(SAFE_BORDER_WIDTH)
 
-            pieceImageView.frame=CGRect(x: positionX, y: positionY, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
-            
+            pieceImageView.frame = CGRect(x: positionX, y: positionY, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
         }
     }
 
+    @IBAction func solve(_ sender: Any) {
+        let solutions = pentominoModel.allSolutions
+        if (currentBoard != 0) {
+            let solution = solutions[currentBoard - 1]
+            
+            for (key, pieceImageView) in pieceViews {
+
+                let position = solution[key]!
+                let x = CGFloat(position.x * 30)
+                let y = CGFloat(position.y * 30)
+                let rotation = CGAffineTransform(rotationAngle: CGFloat(position.rotations) * CGFloat.pi / 2)
+                let flipping = position.isFlipped ? CGAffineTransform(scaleX: -1.0, y: 1.0) : CGAffineTransform(scaleX: 1.0, y: 1.0)
+                let fullTransformation = flipping.concatenating(rotation)
+
+                
+                UIView.animate(withDuration: 1) {
+                    pieceImageView.transform = fullTransformation
+                    let frame = CGRect(x: x, y: y, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
+                    let newFrame = self.mainBoard.convert(frame, to: self.displayBoard)
+                    pieceImageView.frame = newFrame
+                }
+            }
+        }
+
+        
+    }
+    
     @IBAction func changeBoard(_ sender: Any) {
         let senderButton:UIButton = sender as! UIButton
         let tag = senderButton.tag
+        currentBoard = tag
         mainBoard.image = UIImage(named: "Board\(tag)@3x.png")
     }
     

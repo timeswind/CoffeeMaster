@@ -95,6 +95,9 @@
                                 <rect key="frame" x="70" y="480" width="48" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Solve"/>
+                                <connections>
+                                    <action selector="solve:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mgu-ox-QNG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anx-h9-aqq">
                                 <rect key="frame" x="649" y="480" width="50" height="36"/>
