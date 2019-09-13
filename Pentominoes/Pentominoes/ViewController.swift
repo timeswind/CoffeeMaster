@@ -28,9 +28,10 @@ class ViewController: UIViewController {
     
     let PIECE_ROW_COUNT = 2
     let PIECE_COLUMN_COUNT = 6
+    let SAFE_BORDER_WIDTH = 20
     var TOTAL_PIECE_COUNT:Int {
         get {
-            return PIECE_ROW_COUNT + PIECE_COLUMN_COUNT
+            return PIECE_ROW_COUNT * PIECE_COLUMN_COUNT
         }
     }
     
@@ -52,8 +53,19 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        for (key, pieceImageView) in pieceViews {
-            pieceImageView.frame=CGRect(x: 200, y: 200, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
+        for (index, pieceImageViewEntry) in pieceViews.enumerated() {
+            let pieceImageView = pieceImageViewEntry.value
+            
+            let displayBoardWidth = displayBoard.bounds.width - CGFloat(SAFE_BORDER_WIDTH*2)
+            let displayBoardHeight = displayBoard.bounds.height - CGFloat(SAFE_BORDER_WIDTH*2)
+            
+            let pieceWidth = displayBoardWidth / CGFloat(PIECE_COLUMN_COUNT)
+            let pieceHeight = displayBoardHeight / CGFloat(PIECE_ROW_COUNT)
+
+            let positionX = CGFloat(index % PIECE_COLUMN_COUNT) * pieceWidth + CGFloat(SAFE_BORDER_WIDTH)
+            let positionY = CGFloat(index / PIECE_COLUMN_COUNT) * pieceHeight + CGFloat(SAFE_BORDER_WIDTH)
+
+            pieceImageView.frame=CGRect(x: positionX, y: positionY, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
             
         }
     }
