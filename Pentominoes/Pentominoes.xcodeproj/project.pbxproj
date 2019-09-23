@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C39AFB423385C96006EE658 /* Dictionary+findvaluekey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39AFB323385C96006EE658 /* Dictionary+findvaluekey.swift */; };
 		5C3B01E42330468500B5635C /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 5C3B01E32330468500B5635C /* AppIcon.appiconset */; };
+		5CCCAA8023393AD200EA3826 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCCAA7F23393AD200EA3826 /* HintViewController.swift */; };
 		5CED54B223295DD9007D5D1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED54B123295DD9007D5D1A /* AppDelegate.swift */; };
 		5CED54B423295DD9007D5D1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED54B323295DD9007D5D1A /* ViewController.swift */; };
 		5CED54B723295DD9007D5D1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CED54B523295DD9007D5D1A /* Main.storyboard */; settings = {ASSET_TAGS = (0, ); }; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		5C39AFB323385C96006EE658 /* Dictionary+findvaluekey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+findvaluekey.swift"; sourceTree = "<group>"; };
 		5C3B01E32330468500B5635C /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
+		5CCCAA7F23393AD200EA3826 /* HintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintViewController.swift; sourceTree = "<group>"; };
 		5CED54AE23295DD9007D5D1A /* Pentominoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pentominoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CED54B123295DD9007D5D1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CED54B323295DD9007D5D1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				5CED54B823295DDA007D5D1A /* Assets.xcassets */,
 				5CED54BA23295DDA007D5D1A /* LaunchScreen.storyboard */,
 				5CED54BD23295DDA007D5D1A /* Info.plist */,
+				5CCCAA7F23393AD200EA3826 /* HintViewController.swift */,
 			);
 			path = Pentominoes;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				5C39AFB423385C96006EE658 /* Dictionary+findvaluekey.swift in Sources */,
 				5CED54B423295DD9007D5D1A /* ViewController.swift in Sources */,
+				5CCCAA8023393AD200EA3826 /* HintViewController.swift in Sources */,
 				5CED54B223295DD9007D5D1A /* AppDelegate.swift in Sources */,
 				5CED54D223295E5F007D5D1A /* PentominoModel.swift in Sources */,
 			);

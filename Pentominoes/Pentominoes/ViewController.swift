@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     
     let pentominoModel = PentominoModel()
     var currentBoard = 0
+    var hintCount = 0
     var status = "ready to play"
     var panningInitialPositionInDisplayBoard:CGPoint?
     
@@ -311,11 +312,24 @@ class ViewController: UIViewController {
         let tag = senderButton.tag
         if (tag == 0) {
             solveButton.isEnabled = false
+            hintButton.isEnabled = false
         } else {
             solveButton.isEnabled = true
+            hintButton.isEnabled = true
         }
+        hintCount = 0
         currentBoard = tag
         mainBoard.image = UIImage(named: "Board\(tag)@3x.png")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showHint") {
+            let hintViewController = segue.destination as! HintViewController
+            hintViewController.board = currentBoard
+            hintViewController.pentominoModel = self.pentominoModel
+            hintCount += 1
+            hintViewController.hintCount = hintCount
+        }
     }
     
 }
