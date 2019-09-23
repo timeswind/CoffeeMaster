@@ -98,11 +98,31 @@ class ViewController: UIViewController {
             } else {
                 piecePosition!.rotations += 1
             }
-            rotation = CGAffineTransform(rotationAngle: CGFloat(piecePosition!.rotations) * CGFloat.pi / 2)
+            
+            if (piecePosition!.isFlipped) {
+                rotation = CGAffineTransform(rotationAngle: CGFloat(piecePosition!.rotations) * CGFloat.pi / 2)
+            } else {
+                rotation = CGAffineTransform(rotationAngle: CGFloat(piecePosition!.rotations) * CGFloat.pi / 2)
+            }
             
         } else if method == "flip" {
             piecePosition!.isFlipped = !piecePosition!.isFlipped
-            flipping = piecePosition!.isFlipped ? CGAffineTransform(scaleX: -1.0, y: 1.0) : CGAffineTransform(scaleX: 1.0, y: 1.0)
+            if (piecePosition!.isFlipped) {
+                switch(piecePosition!.rotations) {
+                case 0:
+                    flipping = CGAffineTransform(scaleX: -1.0, y: 1.0)
+                case 1:
+                    flipping = CGAffineTransform(scaleX: 1.0, y: -1.0)
+                case 2:
+                    flipping = CGAffineTransform(scaleX: -1.0, y: 1.0)
+                case 3:
+                    flipping = CGAffineTransform(scaleX: 1.0, y: -1.0)
+                default:
+                    flipping = CGAffineTransform(scaleX: -1.0, y: 1.0)
+                }
+            } else {
+                flipping = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            }
         }
         print(piecePosition!)
         self.piecePositions.updateValue(piecePosition!, forKey: pieceKey)
@@ -120,6 +140,7 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         if (status == "ready to play") {
+            print("viewDidLayoutSubviews")
             for (key, pieceImageView) in pieceViews {
                 let index = Array(pieceViews.keys).firstIndex(of: key)!
                 let displayBoardWidth = displayBoard.bounds.width - CGFloat(SAFE_BORDER_WIDTH*2)
