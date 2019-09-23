@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     let pentominoModel = PentominoModel()
     var currentBoard = 0
     var status = "ready to play"
+    var panningInitialPositionInDisplayBoard:CGPoint?
     
     let PIECE_ROW_COUNT = 2
     let PIECE_COLUMN_COUNT = 6
@@ -50,35 +51,88 @@ class ViewController: UIViewController {
         for i in 0..<TOTAL_PIECE_COUNT {
             let image = UIImage(named: allPiecePicNames[i])!
             let pieceImageView = UIImageView(image: image)
-            pieceImageView.isUserInteractionEnabled = true
             pieceViews.updateValue(pieceImageView, forKey: allPieceSymbles[i])
-            
-            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap(_:)))
-            tap.numberOfTapsRequired = 1
-            pieceImageView.addGestureRecognizer(tap)
-
-            let doubleTap = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(_:)))
-            doubleTap.numberOfTapsRequired = 2
-            pieceImageView.addGestureRecognizer(doubleTap)
-            
-            tap.require(toFail: doubleTap)
-            
+            addPlayingGustureForPiece(pieceView: pieceImageView)
             displayBoard.addSubview(pieceImageView)
         }
         resetButton.isEnabled = false
+        solveButton.isEnabled = false
+        mainBoard.isUserInteractionEnabled = true
+    }
+    
+    func addPlayingGustureForPiece(pieceView: UIImageView) {
+        pieceView.isUserInteractionEnabled = true
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap(_:)))
+        tap.numberOfTapsRequired = 1
+        pieceView.addGestureRecognizer(tap)
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(_:)))
+        doubleTap.numberOfTapsRequired = 2
+        pieceView.addGestureRecognizer(doubleTap)
+        
+        tap.require(toFail: doubleTap)
+        
+        let panRecognizer = UIPanGestureRecognizer(target:self, action:#selector(self.handlePaning(_:)))
+        pieceView.addGestureRecognizer(panRecognizer)
     }
     
     @objc func handleSingleTap(_ sender: UITapGestureRecognizer? = nil) {
+        print("single tap")
         let pieceImageView = sender?.view as! UIImageView
         let pieceName = pieceViews.allKeys(forValue: pieceImageView).first!
         transform(pieceWithKey: pieceName, by: "rotate")
     }
     
     @objc func handleDoubleTap(_ sender: UITapGestureRecognizer? = nil) {
-        print("double tap")
         let pieceImageView = sender?.view as! UIImageView
         let pieceName = pieceViews.allKeys(forValue: pieceImageView).first!
         transform(pieceWithKey: pieceName, by: "flip")
+    }
+    
+    @objc func handlePaning(_ sender: UIPanGestureRecognizer? = nil) {
+        let pieceImageView = sender?.view as! UIImageView
+        if let location = sender?.location(in: self.view) {
+            move(piece: pieceImageView, locationInScreen: location)
+        }
+        
+        if (sender?.state == UIGestureRecognizer.State.began ) {
+            panningInitialPositionInDisplayBoard = pieceImageView.frame.origin
+        }
+        
+        let isInDisplayBoard = self.displayBoard.bounds.contains(sender!.location(in: self.displayBoard))
+        let isInMainBoard = self.mainBoard.bounds.contains(sender!.location(in: self.mainBoard))
+        
+        if (sender?.state == UIGestureRecognizer.State.changed ) {
+            if ((!isInMainBoard && isInDisplayBoard)){
+                let newFrame = pieceImageView.superview!.convert(pieceImageView.frame, to: self.displayBoard)
+                pieceImageView.frame = newFrame
+                addPlayingGustureForPiece(pieceView: pieceImageView)
+                displayBoard.addSubview(pieceImageView)
+            } else if ((isInMainBoard && !isInDisplayBoard)) {
+                let newFrame = pieceImageView.superview!.convert(pieceImageView.frame, to: self.mainBoard)
+                pieceImageView.frame = newFrame
+                addPlayingGustureForPiece(pieceView: pieceImageView)
+                mainBoard.addSubview(pieceImageView)
+            }
+        }
+        
+        if (sender?.state == UIGestureRecognizer.State.ended ) {
+            if ((!isInMainBoard && !isInDisplayBoard) || (isInMainBoard && isInDisplayBoard)) {
+                moveWithAnimate(forPiece: pieceImageView, to: panningInitialPositionInDisplayBoard!)
+            }
+        }
+    }
+    
+    func move(piece pieceImageView:UIImageView, locationInScreen location: CGPoint) {
+        let locationInBoard = self.view.convert(location, to: pieceImageView.superview)
+        pieceImageView.center = locationInBoard
+    }
+    
+    func moveWithAnimate(forPiece pieceView:UIImageView, to origin:CGPoint) {
+        UIView.animate(withDuration: 0.3, animations: {
+            pieceView.frame.origin = origin
+        })
     }
     
     func transform(pieceWithKey pieceKey:String, by method:String) {
@@ -124,7 +178,7 @@ class ViewController: UIViewController {
                 flipping = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }
         }
-        print(piecePosition!)
+        
         self.piecePositions.updateValue(piecePosition!, forKey: pieceKey)
 
         let fullTransformation = flipping.concatenating(rotation)
@@ -165,7 +219,11 @@ class ViewController: UIViewController {
             let solution = solutions[currentBoard - 1]
             
             for (key, pieceImageView) in pieceViews {
-
+                if pieceImageView.superview == self.mainBoard {
+                    let newFrame = self.mainBoard.convert(pieceImageView.frame, to: self.displayBoard)
+                    pieceImageView.frame = newFrame
+                    self.displayBoard.addSubview(pieceImageView)
+                }
                 let position = solution[key]!
                 let x = CGFloat(position.x * 30)
                 let y = CGFloat(position.y * 30)
@@ -231,6 +289,7 @@ class ViewController: UIViewController {
     @IBAction func changeBoard(_ sender: Any) {
         let senderButton:UIButton = sender as! UIButton
         let tag = senderButton.tag
+        solveButton.isEnabled = true
         currentBoard = tag
         mainBoard.image = UIImage(named: "Board\(tag)@3x.png")
     }
