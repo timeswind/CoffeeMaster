@@ -97,6 +97,7 @@ class ViewController: UIViewController {
         
         if (sender?.state == UIGestureRecognizer.State.began ) {
             panningInitialPositionInDisplayBoard = pieceImageView.frame.origin
+            scaleWithAnimate(forPiece: pieceImageView, to: 1.1)
         }
         
         let isInDisplayBoard = self.displayBoard.bounds.contains(sender!.location(in: self.displayBoard))
@@ -120,6 +121,9 @@ class ViewController: UIViewController {
             if ((!isInMainBoard && !isInDisplayBoard) || (isInMainBoard && isInDisplayBoard)) {
                 moveWithAnimate(forPiece: pieceImageView, to: panningInitialPositionInDisplayBoard!)
             }
+            scaleWithAnimate(forPiece: pieceImageView, to: 1.0)
+            pieceImageView.frame.origin.x = CGFloat(Int(pieceImageView.frame.origin.x/30) * 30)
+            pieceImageView.frame.origin.y = CGFloat(Int(pieceImageView.frame.origin.y/30) * 30)
         }
     }
     
@@ -132,6 +136,12 @@ class ViewController: UIViewController {
     func moveWithAnimate(forPiece pieceView:UIImageView, to origin:CGPoint) {
         UIView.animate(withDuration: 0.3, animations: {
             pieceView.frame.origin = origin
+        })
+    }
+    
+    func scaleWithAnimate(forPiece pieceView:UIImageView, to maginitude:CGFloat) {
+        UIView.animate(withDuration: 0.3, animations: {
+            pieceView.transform = CGAffineTransform(scaleX: maginitude, y: maginitude)
         })
     }
     
