@@ -56,6 +56,7 @@ class ViewController: UIViewController {
             addPlayingGustureForPiece(pieceView: pieceImageView)
             displayBoard.addSubview(pieceImageView)
         }
+        hintButton.isEnabled = false
         resetButton.isEnabled = false
         solveButton.isEnabled = false
         mainBoard.isUserInteractionEnabled = true
@@ -301,6 +302,7 @@ class ViewController: UIViewController {
             })
         }
         
+        hintCount = 0
         solveButton.isEnabled = true
         hintButton.isEnabled = true
         resetButton.isEnabled = false
