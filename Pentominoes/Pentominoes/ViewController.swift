@@ -78,7 +78,6 @@ class ViewController: UIViewController {
     }
     
     @objc func handleSingleTap(_ sender: UITapGestureRecognizer? = nil) {
-        print("single tap")
         let pieceImageView = sender?.view as! UIImageView
         let pieceName = pieceViews.allKeys(forValue: pieceImageView).first!
         transform(pieceWithKey: pieceName, by: "rotate")
@@ -125,6 +124,7 @@ class ViewController: UIViewController {
     }
     
     func move(piece pieceImageView:UIImageView, locationInScreen location: CGPoint) {
+        playing()
         let locationInBoard = self.view.convert(location, to: pieceImageView.superview)
         pieceImageView.center = locationInBoard
     }
@@ -135,7 +135,13 @@ class ViewController: UIViewController {
         })
     }
     
+    func playing() {
+        status = "playing"
+        resetButton.isEnabled = true
+    }
+    
     func transform(pieceWithKey pieceKey:String, by method:String) {
+        playing()
         let pieceImageView = pieceViews[pieceKey]!
         var piecePosition: Position?
         for (key, position) in piecePositions {
@@ -258,10 +264,14 @@ class ViewController: UIViewController {
 
         for (index, pieceViewEntry) in pieceViews.enumerated() {
             let pieceImageView = pieceViewEntry.value
-            let newFrame = self.mainBoard.convert(pieceImageView.frame, to: self.displayBoard)
-            self.displayBoard.addSubview(pieceImageView)
-            pieceImageView.frame = newFrame
-
+            if pieceImageView.superview == self.mainBoard {
+                let newFrame = self.mainBoard.convert(pieceImageView.frame, to: self.displayBoard)
+                pieceImageView.frame = newFrame
+                self.displayBoard.addSubview(pieceImageView)
+            }
+//            let newFrame = self.mainBoard.convert(pieceImageView.frame, to: self.displayBoard)
+//            self.displayBoard.addSubview(pieceImageView)
+//            pieceImageView.frame = newFrame
             
             let displayBoardWidth = displayBoard.bounds.width - CGFloat(SAFE_BORDER_WIDTH * 2)
             let displayBoardHeight = displayBoard.bounds.height - CGFloat(SAFE_BORDER_WIDTH * 2)
@@ -289,7 +299,11 @@ class ViewController: UIViewController {
     @IBAction func changeBoard(_ sender: Any) {
         let senderButton:UIButton = sender as! UIButton
         let tag = senderButton.tag
-        solveButton.isEnabled = true
+        if (tag == 0) {
+            solveButton.isEnabled = false
+        } else {
+            solveButton.isEnabled = true
+        }
         currentBoard = tag
         mainBoard.image = UIImage(named: "Board\(tag)@3x.png")
     }
