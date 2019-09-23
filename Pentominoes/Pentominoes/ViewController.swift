@@ -40,6 +40,9 @@ class ViewController: UIViewController {
     //piecename:uiview
     var pieceViews: [String:UIImageView] = [:]
     
+    //piecename:position
+    var piecePositions: [String:Position] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let allPiecePicNames = pentominoModel.allPiecePicNames
@@ -48,16 +51,52 @@ class ViewController: UIViewController {
             let image = UIImage(named: allPiecePicNames[i])!
             let pieceImageView = UIImageView(image: image)
             pieceViews.updateValue(pieceImageView, forKey: allPieceSymbles[i])
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+            pieceImageView.addGestureRecognizer(tap)
+            pieceImageView.isUserInteractionEnabled = true
             displayBoard.addSubview(pieceImageView)
         }
         resetButton.isEnabled = false
     }
     
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        let pieceImageView = sender?.view as! UIImageView
+        let pieceName = pieceViews.allKeys(forValue: pieceImageView).first!
+        transform(pieceWithKey: pieceName, by: "rotate")
+
+    }
+    
+    func transform(pieceWithKey pieceKey:String, by method:String) {
+        let pieceImageView = pieceViews[pieceKey]!
+        var piecePosition: Position?
+        for (key, position) in piecePositions {
+            if key == pieceKey{
+                piecePosition = position
+            }
+        }
+        var rotation = CGAffineTransform(rotationAngle: CGFloat(1) * CGFloat.pi / 2)
+        
+        if (((piecePosition?.rotations) != nil) && piecePosition!.rotations >= 0) {
+            let numOfRotations = piecePosition!.rotations + 1
+            rotation = CGAffineTransform(rotationAngle: CGFloat(numOfRotations) * CGFloat.pi / 2)
+        } else {
+            
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            pieceImageView.transform = rotation
+        }) { (complete) in
+            if (complete) {
+                
+            }
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         if (status == "ready to play") {
-            for (index, pieceImageViewEntry) in pieceViews.enumerated() {
-                let pieceImageView = pieceImageViewEntry.value
-                
+            for (key, pieceImageView) in pieceViews {
+                let index = Array(pieceViews.keys).firstIndex(of: key)!
                 let displayBoardWidth = displayBoard.bounds.width - CGFloat(SAFE_BORDER_WIDTH*2)
                 let displayBoardHeight = displayBoard.bounds.height - CGFloat(SAFE_BORDER_WIDTH*2)
                 
@@ -68,6 +107,8 @@ class ViewController: UIViewController {
                 let positionY = CGFloat(index / PIECE_COLUMN_COUNT) * pieceHeight + CGFloat(SAFE_BORDER_WIDTH)
                 
                 pieceImageView.frame = CGRect(x: positionX, y: positionY, width: pieceImageView.frame.width, height: pieceImageView.frame.height)
+                let position: Position = Position(x: 0, y: 0, isFlipped: false, rotations: 0)
+                piecePositions.updateValue(position, forKey: key)
             }
         }
     }

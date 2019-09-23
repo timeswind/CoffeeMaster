@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C39AFB423385C96006EE658 /* Dictionary+findvaluekey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C39AFB323385C96006EE658 /* Dictionary+findvaluekey.swift */; };
 		5C3B01E42330468500B5635C /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 5C3B01E32330468500B5635C /* AppIcon.appiconset */; };
 		5CED54B223295DD9007D5D1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED54B123295DD9007D5D1A /* AppDelegate.swift */; };
 		5CED54B423295DD9007D5D1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED54B323295DD9007D5D1A /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C39AFB323385C96006EE658 /* Dictionary+findvaluekey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+findvaluekey.swift"; sourceTree = "<group>"; };
 		5C3B01E32330468500B5635C /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		5CED54AE23295DD9007D5D1A /* Pentominoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pentominoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CED54B123295DD9007D5D1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		5CED54B023295DD9007D5D1A /* Pentominoes */ = {
 			isa = PBXGroup;
 			children = (
+				5C39AFB323385C96006EE658 /* Dictionary+findvaluekey.swift */,
 				5CED550423295EA6007D5D1A /* Solutions.plist */,
 				5CED54D323295E74007D5D1A /* Image Assets */,
 				5CED54D123295E5F007D5D1A /* PentominoModel.swift */,
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C39AFB423385C96006EE658 /* Dictionary+findvaluekey.swift in Sources */,
 				5CED54B423295DD9007D5D1A /* ViewController.swift in Sources */,
 				5CED54B223295DD9007D5D1A /* AppDelegate.swift in Sources */,
 				5CED54D223295E5F007D5D1A /* PentominoModel.swift in Sources */,
