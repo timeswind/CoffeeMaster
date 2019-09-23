@@ -50,21 +50,35 @@ class ViewController: UIViewController {
         for i in 0..<TOTAL_PIECE_COUNT {
             let image = UIImage(named: allPiecePicNames[i])!
             let pieceImageView = UIImageView(image: image)
-            pieceViews.updateValue(pieceImageView, forKey: allPieceSymbles[i])
-            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-            pieceImageView.addGestureRecognizer(tap)
             pieceImageView.isUserInteractionEnabled = true
+            pieceViews.updateValue(pieceImageView, forKey: allPieceSymbles[i])
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap(_:)))
+            tap.numberOfTapsRequired = 1
+            pieceImageView.addGestureRecognizer(tap)
+
+            let doubleTap = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(_:)))
+            doubleTap.numberOfTapsRequired = 2
+            pieceImageView.addGestureRecognizer(doubleTap)
+            
+            tap.require(toFail: doubleTap)
+            
             displayBoard.addSubview(pieceImageView)
         }
         resetButton.isEnabled = false
     }
     
-    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        // handling code
+    @objc func handleSingleTap(_ sender: UITapGestureRecognizer? = nil) {
         let pieceImageView = sender?.view as! UIImageView
         let pieceName = pieceViews.allKeys(forValue: pieceImageView).first!
         transform(pieceWithKey: pieceName, by: "rotate")
-
+    }
+    
+    @objc func handleDoubleTap(_ sender: UITapGestureRecognizer? = nil) {
+        print("double tap")
+        let pieceImageView = sender?.view as! UIImageView
+        let pieceName = pieceViews.allKeys(forValue: pieceImageView).first!
+        transform(pieceWithKey: pieceName, by: "flip")
     }
     
     func transform(pieceWithKey pieceKey:String, by method:String) {
@@ -75,17 +89,28 @@ class ViewController: UIViewController {
                 piecePosition = position
             }
         }
-        var rotation = CGAffineTransform(rotationAngle: CGFloat(1) * CGFloat.pi / 2)
-        
-        if (((piecePosition?.rotations) != nil) && piecePosition!.rotations >= 0) {
-            let numOfRotations = piecePosition!.rotations + 1
-            rotation = CGAffineTransform(rotationAngle: CGFloat(numOfRotations) * CGFloat.pi / 2)
-        } else {
+        var rotation = CGAffineTransform(rotationAngle: CGFloat(piecePosition!.rotations) * CGFloat.pi / 2)
+        var flipping = piecePosition!.isFlipped ? CGAffineTransform(scaleX: -1.0, y: 1.0) : CGAffineTransform(scaleX: 1.0, y: 1.0)
+
+        if (method == "rotate") {
+            if (piecePosition!.rotations == 3) {
+                piecePosition!.rotations = 0
+            } else {
+                piecePosition!.rotations += 1
+            }
+            rotation = CGAffineTransform(rotationAngle: CGFloat(piecePosition!.rotations) * CGFloat.pi / 2)
             
+        } else if method == "flip" {
+            piecePosition!.isFlipped = !piecePosition!.isFlipped
+            flipping = piecePosition!.isFlipped ? CGAffineTransform(scaleX: -1.0, y: 1.0) : CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
-        
+        print(piecePosition!)
+        self.piecePositions.updateValue(piecePosition!, forKey: pieceKey)
+
+        let fullTransformation = flipping.concatenating(rotation)
+
         UIView.animate(withDuration: 0.3, animations: {
-            pieceImageView.transform = rotation
+            pieceImageView.transform = fullTransformation
         }) { (complete) in
             if (complete) {
                 
