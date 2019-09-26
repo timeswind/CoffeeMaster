@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Park : Codable {
     var name : String
@@ -40,6 +41,12 @@ class ParksModel {
         }
     }
     
+    var parkCount:Int {
+        get {
+            return allParks.count
+        }
+    }
+    
     func ParkImageCount(forPark name: String) -> Int {
         for park in allParks {
             if (park.name == name) {
@@ -47,5 +54,20 @@ class ParksModel {
             }
         }
         return 0
+    }
+}
+
+extension CGFloat {
+    static func random() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
+
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(red:   .random(),
+                       green: .random(),
+                       blue:  .random(),
+                       alpha: 1.0)
     }
 }
