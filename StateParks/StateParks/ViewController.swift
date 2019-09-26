@@ -35,15 +35,14 @@ class ViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
-        print("viewDidLayoutSubviews")
         let size = self.MasterScrollView.bounds.size
-        
+
         MasterScrollView.contentSize = CGSize(width: size.width * CGFloat(parksModel.parkCount), height: size.height)
         for (index, name) in parksModel.allParkNames.enumerated() {
             let articleScrollView = articleScrollViews[index]
             let frame = CGRect(origin: CGPoint(x: CGFloat(index) * size.width, y: 0.0), size: size)
             articleScrollView.frame = frame
-            articleScrollView.backgroundColor = UIColor.random()
+//            articleScrollView.backgroundColor = UIColor.random()
             let parkImageCount = parksModel.ParkImageCount(forPark: name)
             setUpArticleScrollView(for: articleScrollView, parkName: name, imageCount: parkImageCount)
         }
@@ -51,16 +50,25 @@ class ViewController: UIViewController {
     
     func setUpArticleScrollView(for articleScrollView: UIScrollView, parkName: String, imageCount: Int) {
             let size = articleScrollView.bounds.size
+            let halfHeight = size.height / 2
             articleScrollView.contentSize = CGSize(width: size.width, height: size.height * CGFloat(imageCount))
-            for i in 0..<imageCount {
+            for i in 1..<(imageCount+1) {
                 let image = UIImage(named: "\(parkName)0\(i)")
+                let imageContainerView = UIView(frame: CGRect.zero)
                 let parkImageView = UIImageView(image: image)
-                let frame = CGRect(origin: CGPoint(x: 0.0, y: CGFloat(i) * size.height), size: size)
-                print(CGFloat(i) * size.height)
-                articleScrollView.addSubview(parkImageView)
-                articleScrollView.bringSubviewToFront(parkImageView)
-                parkImageView.frame = frame
+                let frame = CGRect(origin: CGPoint(x: 0.0, y: CGFloat(i - 1) * size.height), size: size)
+                imageContainerView.frame = frame
+//                imageContainerView.backgroundColor = .random()
+                imageContainerView.addSubview(parkImageView)
+                parkImageView.center = CGPoint(x: imageContainerView.center.x, y: parkImageView.center.y - (parkImageView.frame.height / 2) + halfHeight)
+                articleScrollView.addSubview(imageContainerView)
+                let parkTitle = UILabel(frame: CGRect(x: 22, y: 44, width: size.width - 88, height: 88))
+                let font = UIFont.systemFont(ofSize: 35, weight: .bold)
+                parkTitle.text = parkName
+                parkTitle.font = font
+                articleScrollView.addSubview(parkTitle)
             }
+//        self.view.setNeedsLayout()
 //            let parkTitle = UILabel(frame: CGRect.zero)
 //            parkTitle.text = parkName
     }
