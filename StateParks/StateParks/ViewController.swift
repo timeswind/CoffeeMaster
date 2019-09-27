@@ -19,6 +19,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     var currentArticlePage = 0
     var currentSectionPage = 0
     
+    
+    var articleImageViews = [Int: SectionImageViews]()
+    typealias SectionImageViews = [Int: UIView]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.MasterScrollView.delegate = self
@@ -50,21 +54,28 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             for subviews in articleScrollView.subviews {
                 subviews.removeFromSuperview()
             }
-            setUpArticleScrollView(for: articleScrollView, parkName: name, imageCount: parkImageCount)
+            setUpArticleScrollView(for: articleScrollView, parkName: name, imageCount: parkImageCount, page: index)
         }
         articleScrollViews[currentArticlePage].contentOffset = CGPoint(x: 0.0, y: CGFloat(self.currentSectionPage) * size.height)
         articleScrollViews[currentArticlePage].delegate = self
     }
     
-    func setUpArticleScrollView(for articleScrollView: UIScrollView, parkName: String, imageCount: Int) {
+    func setUpArticleScrollView(for articleScrollView: UIScrollView, parkName: String, imageCount: Int, page: Int) {
+            for view in articleScrollView.subviews {
+                view.removeFromSuperview()
+            }
+            articleScrollView.minimumZoomScale = 1
+            articleScrollView.maximumZoomScale = 10
+        
             let size = articleScrollView.bounds.size
             let maxImageWidth = articleScrollView.bounds.size.width
             let maxImageHeight = articleScrollView.bounds.size.height
             let halfHeight = size.height / 2
         
             articleScrollView.contentSize = CGSize(width: size.width, height: size.height * CGFloat(imageCount))
-            for i in 1..<(imageCount+1) {
-                let image = UIImage(named: "\(parkName)0\(i)")
+            var sectionImageViews: SectionImageViews = [Int: UIImageView]()
+            for i in 0..<imageCount {
+                let image = UIImage(named: "\(parkName)0\(i + 1)")
                 let imageContainerView = UIView(frame: CGRect.zero)
                 let parkImageView = UIImageView(image: image)
                 
@@ -74,11 +85,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                     ratio = maxImageHeight / parkImageView.frame.height
                 }
                 parkImageView.frame.size = CGSize(width: ratio *  parkImageView.frame.width, height: ratio *  parkImageView.frame.height)
-
                 
-                let imageContainerFrame = CGRect(origin: CGPoint(x: 0.0, y: CGFloat(i - 1) * size.height), size: size)
+                let imageContainerFrame = CGRect(origin: CGPoint(x: 0.0, y: CGFloat(i) * size.height), size: size)
                 imageContainerView.frame = imageContainerFrame
                 imageContainerView.addSubview(parkImageView)
+                sectionImageViews.updateValue(imageContainerView, forKey: i)
                 parkImageView.center = CGPoint(x: imageContainerView.center.x, y: parkImageView.center.y - (parkImageView.frame.height / 2) + halfHeight)
                 articleScrollView.addSubview(imageContainerView)
                 let parkTitle = UILabel(frame: CGRect(x: 22, y: 44, width: size.width - 88, height: 88))
@@ -86,10 +97,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 parkTitle.text = parkName
                 parkTitle.font = font
                 articleScrollView.addSubview(parkTitle)
-
             }
+        
         articleScrollView.showsVerticalScrollIndicator = false
         articleScrollView.showsVerticalScrollIndicator = true
+        articleImageViews.updateValue(sectionImageViews, forKey: page)
 //        self.view.setNeedsLayout()
 //            let parkTitle = UILabel(frame: CGRect.zero)
 //            parkTitle.text = parkName
@@ -112,6 +124,28 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
             } else {
                 MasterScrollView.contentSize = CGSize(width: size.width * CGFloat(parksModel.parkCount), height: size.height)
+            }
+        }
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return articleImageViews[currentArticlePage]![currentSectionPage]
+    }
+    
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        
+        for theView in scrollView.subviews {
+            if theView != view {
+                theView.isHidden = true
+            }
+        }
+    }
+    
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        if (scale == CGFloat(1)) {
+            self.setUpArticleScrollView(for: scrollView, parkName: parksModel.allParkNames[currentArticlePage], imageCount: parksModel.ParkImageCount(forPark: parksModel.allParkNames[currentArticlePage]), page:currentArticlePage)
+            for theView in scrollView.subviews {
+                theView.isHidden = false
             }
         }
     }
