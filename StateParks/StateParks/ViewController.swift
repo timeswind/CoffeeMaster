@@ -15,10 +15,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     var articleScrollViews = [UIScrollView]()
     
     let parksModel = ParksModel()
-    
     var currentArticlePage = 0
     var currentSectionPage = 0
-    
+    var isZoomed = false
     
     var articleImageViews = [Int: SectionImageViews]()
     typealias SectionImageViews = [Int: UIView]
@@ -73,6 +72,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             let halfHeight = size.height / 2
         
             articleScrollView.contentSize = CGSize(width: size.width, height: size.height * CGFloat(imageCount))
+            articleScrollView.contentOffset = CGPoint(x: 0, y: size.height * CGFloat(currentSectionPage))
+
             var sectionImageViews: SectionImageViews = [Int: UIImageView]()
             for i in 0..<imageCount {
                 let image = UIImage(named: "\(parkName)0\(i + 1)")
@@ -129,24 +130,52 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return articleImageViews[currentArticlePage]![currentSectionPage]
-    }
-    
-    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-        
-        for theView in scrollView.subviews {
-            if theView != view {
-                theView.isHidden = true
-            }
+        if (scrollView == self.MasterScrollView) {
+            return nil
+        } else {
+            return articleImageViews[currentArticlePage]![currentSectionPage]
         }
     }
     
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        let size = self.MasterScrollView.bounds.size
+
+        if (scrollView == self.MasterScrollView) {
+            print("Ignore")
+        } else {
+            if (!isZoomed) {
+                for childView in scrollView.subviews {
+                    if childView != view {
+                        childView.isHidden = true
+                    }
+                }
+                
+                
+                scrollView.isPagingEnabled = false
+                
+                MasterScrollView.isScrollEnabled = false
+
+                scrollView.contentSize = CGSize(width: size.width, height: size.height)
+                view?.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+                
+                isZoomed = true
+                print("Hit")
+            }
+
+        }
+    }
+
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        if (scale == CGFloat(1)) {
+        if (scale <= CGFloat(1)) {
+            MasterScrollView.isScrollEnabled = true
+
+            
             self.setUpArticleScrollView(for: scrollView, parkName: parksModel.allParkNames[currentArticlePage], imageCount: parksModel.ParkImageCount(forPark: parksModel.allParkNames[currentArticlePage]), page:currentArticlePage)
+            scrollView.isPagingEnabled = true
             for theView in scrollView.subviews {
                 theView.isHidden = false
             }
+            isZoomed = false
         }
     }
 
