@@ -46,6 +46,10 @@
 		5C37201F233CFDE20033EBC1 /* Ricketts Glen03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C371FFF233CFDE20033EBC1 /* Ricketts Glen03.png */; };
 		5C372020233CFDE20033EBC1 /* Ohiopyle03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C372000233CFDE20033EBC1 /* Ohiopyle03.png */; };
 		5C372021233CFDE20033EBC1 /* Parks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C372001233CFDE20033EBC1 /* Parks.plist */; };
+		5C992D6F234948260064B40D /* phase2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C992D6E234948260064B40D /* phase2.storyboard */; };
+		5C992D7123499B880064B40D /* StateParks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C992D7023499B880064B40D /* StateParks.plist */; };
+		5C992D7323499CFE0064B40D /* StateParksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C992D7223499CFE0064B40D /* StateParksTableViewController.swift */; };
+		5C992D7523499D110064B40D /* StateParksCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C992D7423499D110064B40D /* StateParksCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +106,10 @@
 		5C371FFF233CFDE20033EBC1 /* Ricketts Glen03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ricketts Glen03.png"; sourceTree = "<group>"; };
 		5C372000233CFDE20033EBC1 /* Ohiopyle03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ohiopyle03.png; sourceTree = "<group>"; };
 		5C372001233CFDE20033EBC1 /* Parks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Parks.plist; sourceTree = "<group>"; };
+		5C992D6E234948260064B40D /* phase2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = phase2.storyboard; sourceTree = "<group>"; };
+		5C992D7023499B880064B40D /* StateParks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StateParks.plist; sourceTree = "<group>"; };
+		5C992D7223499CFE0064B40D /* StateParksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParksTableViewController.swift; sourceTree = "<group>"; };
+		5C992D7423499D110064B40D /* StateParksCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParksCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,11 +154,14 @@
 			children = (
 				5C371FBC233CFAB10033EBC1 /* AppDelegate.swift */,
 				5C371FBE233CFAB10033EBC1 /* ViewController.swift */,
+				5C992D7223499CFE0064B40D /* StateParksTableViewController.swift */,
+				5C992D7423499D110064B40D /* StateParksCollectionViewController.swift */,
 				5C371FC0233CFAB10033EBC1 /* Main.storyboard */,
 				5C371FC3233CFAB20033EBC1 /* Assets.xcassets */,
 				5C371FC5233CFAB20033EBC1 /* LaunchScreen.storyboard */,
 				5C371FC8233CFAB20033EBC1 /* Info.plist */,
 				5C371FDC233CFAD60033EBC1 /* ParksModel.swift */,
+				5C992D6E234948260064B40D /* phase2.storyboard */,
 			);
 			path = StateParks;
 			sourceTree = "<group>";
@@ -167,6 +178,7 @@
 		5C371FE1233CFDE20033EBC1 /* Parks Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5C992D7023499B880064B40D /* StateParks.plist */,
 				5C371FE2233CFDE20033EBC1 /* Black Moshannon01.png */,
 				5C371FE3233CFDE20033EBC1 /* Leonard Harrison02.png */,
 				5C371FE4233CFDE20033EBC1 /* Leonard Harrison03.png */,
@@ -311,10 +323,12 @@
 				5C372013233CFDE20033EBC1 /* Whipple Dam03.png in Resources */,
 				5C37201E233CFDE20033EBC1 /* Ricketts Glen02.png in Resources */,
 				5C37200A233CFDE20033EBC1 /* Black Moshannon05.png in Resources */,
+				5C992D6F234948260064B40D /* phase2.storyboard in Resources */,
 				5C37201F233CFDE20033EBC1 /* Ricketts Glen03.png in Resources */,
 				5C371FC4233CFAB20033EBC1 /* Assets.xcassets in Resources */,
 				5C372006233CFDE20033EBC1 /* Leonard Harrison01.png in Resources */,
 				5C372017233CFDE20033EBC1 /* Ricketts Glen05.png in Resources */,
+				5C992D7123499B880064B40D /* StateParks.plist in Resources */,
 				5C372019233CFDE20033EBC1 /* Ohiopyle01.png in Resources */,
 				5C371FC2233CFAB10033EBC1 /* Main.storyboard in Resources */,
 				5C372011233CFDE20033EBC1 /* Cherry Springs05.png in Resources */,
@@ -339,6 +353,8 @@
 				5C371FBF233CFAB10033EBC1 /* ViewController.swift in Sources */,
 				5C371FBD233CFAB10033EBC1 /* AppDelegate.swift in Sources */,
 				5C371FDD233CFAD60033EBC1 /* ParksModel.swift in Sources */,
+				5C992D7523499D110064B40D /* StateParksCollectionViewController.swift in Sources */,
+				5C992D7323499CFE0064B40D /* StateParksTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

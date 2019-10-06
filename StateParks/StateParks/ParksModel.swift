@@ -9,24 +9,36 @@
 import Foundation
 import UIKit
 
-struct Park : Codable {
-    var name : String
-    var count : Int
+//struct Park : Codable {
+//    var name : String
+//    var count : Int
+//}
+
+//phase2
+struct StatePark: Codable {
+    var name: String
+    var photos: [StateParkPhoto]
 }
 
-typealias Parks = [Park]
+struct StateParkPhoto: Codable {
+    var imageName: String
+    var capition: [String]
+}
+
+//typealias Parks = [Park]
+typealias StateParks = [StatePark]
+
 
 class ParksModel {
-    let allParks: Parks
+    let allParks: StateParks
     
     init() {
         let mainBundle = Bundle.main
-        let parksListURL = mainBundle.url(forResource: "Parks", withExtension: "plist")
-
+        let parksListURL = mainBundle.url(forResource: "StateParks", withExtension: "plist")
         do {
             let data = try Data(contentsOf: parksListURL!)
             let decoder = PropertyListDecoder()
-            allParks = try decoder.decode(Parks.self, from: data)
+            allParks = try decoder.decode(StateParks.self, from: data)
         } catch {
             print(error)
             allParks = []
@@ -35,7 +47,7 @@ class ParksModel {
     
     var allParkNames:[String] {
         get {
-            return allParks.map({(park:Park) in
+            return allParks.map({(park:StatePark) in
                 return park.name
             })
         }
@@ -47,10 +59,12 @@ class ParksModel {
         }
     }
     
+    
+    
     func ParkImageCount(forPark name: String) -> Int {
         for park in allParks {
             if (park.name == name) {
-                return park.count
+                return park.photos.count
             }
         }
         return 0
