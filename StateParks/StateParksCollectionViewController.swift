@@ -8,18 +8,19 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class StateParksCollectionViewController: UICollectionViewController {
+    let parkModel = ParksModel.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -38,22 +39,22 @@ class StateParksCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return parkModel.parkCount
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return parkModel.ParkImageCount(forSection: section)
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stateParkCollectionCell", for: indexPath)
+        cell.backgroundColor = .blue
     
         return cell
     }
+    
 
     // MARK: UICollectionViewDelegate
 

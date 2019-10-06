@@ -22,7 +22,7 @@ struct StatePark: Codable {
 
 struct StateParkPhoto: Codable {
     var imageName: String
-    var capition: [String]
+    var caption: String
 }
 
 //typealias Parks = [Park]
@@ -30,6 +30,8 @@ typealias StateParks = [StatePark]
 
 
 class ParksModel {
+    static let shared = ParksModel()
+    
     let allParks: StateParks
     
     init() {
@@ -47,10 +49,16 @@ class ParksModel {
     
     var allParkNames:[String] {
         get {
-            return allParks.map({(park:StatePark) in
-                return park.name
+            return allParks.map({(sp:StatePark) in
+                return sp.name
             })
         }
+    }
+    
+    func parkPhotoForIndexPath(indexPath: IndexPath) -> StateParkPhoto {
+        let section = indexPath.section
+        let row = indexPath.row
+        return allParks[section].photos[row]
     }
     
     var parkCount:Int {
@@ -59,7 +67,14 @@ class ParksModel {
         }
     }
     
+    func ParkName(forSection section: Int) -> String {
+        return allParks[section].name
+    }
     
+    
+    func ParkImageCount(forSection section: Int) -> Int {
+        return allParks[section].photos.count
+    }
     
     func ParkImageCount(forPark name: String) -> Int {
         for park in allParks {
