@@ -35,21 +35,36 @@ class StateParksTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "stateParkTableCell", for: indexPath)
-        cell.textLabel?.text = parkModel.ParkName(forSection: indexPath.section)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "stateParkTableCell", for: indexPath) as! StateParkTableViewCell
+        let parkPhoto = parkModel.parkPhotoForIndexPath(indexPath: indexPath)
+        cell.captionLabel?.text = parkPhoto.caption
+        
+        let image = UIImage(named: parkPhoto.imageName)
+        cell.parkImageView.image = image
+
         // Configure the cell...
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let parkTitle = UILabel(frame: CGRect.zero)
         
+        let parkTitle = UILabel(frame: CGRect.zero)
+        parkTitle.textAlignment = .center
+        parkTitle.backgroundColor = .black
+        parkTitle.textColor = .white
         parkTitle.text = parkModel.ParkName(forSection: section)
         
         return parkTitle
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 88.0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 22.0
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

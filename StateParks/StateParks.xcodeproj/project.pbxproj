@@ -50,6 +50,8 @@
 		5C992D7123499B880064B40D /* StateParks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C992D7023499B880064B40D /* StateParks.plist */; };
 		5C992D7323499CFE0064B40D /* StateParksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C992D7223499CFE0064B40D /* StateParksTableViewController.swift */; };
 		5C992D7523499D110064B40D /* StateParksCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C992D7423499D110064B40D /* StateParksCollectionViewController.swift */; };
+		5CF0F89E234A3411007B5621 /* StateParkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0F89D234A3411007B5621 /* StateParkCollectionViewCell.swift */; };
+		5CF0F8A0234A342B007B5621 /* StateParkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0F89F234A342B007B5621 /* StateParkTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		5C992D7023499B880064B40D /* StateParks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StateParks.plist; sourceTree = "<group>"; };
 		5C992D7223499CFE0064B40D /* StateParksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParksTableViewController.swift; sourceTree = "<group>"; };
 		5C992D7423499D110064B40D /* StateParksCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParksCollectionViewController.swift; sourceTree = "<group>"; };
+		5CF0F89D234A3411007B5621 /* StateParkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParkCollectionViewCell.swift; sourceTree = "<group>"; };
+		5CF0F89F234A342B007B5621 /* StateParkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParkTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,8 @@
 				5C371FC0233CFAB10033EBC1 /* Main.storyboard */,
 				5C371FC5233CFAB20033EBC1 /* LaunchScreen.storyboard */,
 				5C992D6E234948260064B40D /* phase2.storyboard */,
+				5CF0F89D234A3411007B5621 /* StateParkCollectionViewCell.swift */,
+				5CF0F89F234A342B007B5621 /* StateParkTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -374,10 +380,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CF0F8A0234A342B007B5621 /* StateParkTableViewCell.swift in Sources */,
 				5C371FBF233CFAB10033EBC1 /* ViewController.swift in Sources */,
 				5C371FBD233CFAB10033EBC1 /* AppDelegate.swift in Sources */,
 				5C371FDD233CFAD60033EBC1 /* ParksModel.swift in Sources */,
 				5C992D7523499D110064B40D /* StateParksCollectionViewController.swift in Sources */,
+				5CF0F89E234A3411007B5621 /* StateParkCollectionViewCell.swift in Sources */,
 				5C992D7323499CFE0064B40D /* StateParksTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

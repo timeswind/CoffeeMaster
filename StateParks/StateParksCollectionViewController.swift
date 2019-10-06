@@ -49,13 +49,42 @@ class StateParksCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stateParkCollectionCell", for: indexPath)
-        cell.backgroundColor = .blue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stateParkCollectionCell", for: indexPath) as! StateParkCollectionViewCell
+        let parkPhoto = parkModel.parkPhotoForIndexPath(indexPath: indexPath)
+
+        let image = UIImage(named: parkPhoto.imageName)
+        cell.parkImage.image = image
     
         return cell
     }
     
-
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+            
+        case UICollectionView.elementKindSectionHeader:
+            
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "stateParkCollectionSectionHeader", for: indexPath)
+            
+            let parkTitle = UILabel(frame: CGRect(x: 0, y: 0, width: collectionView.bounds.width, height: 44.0))
+            parkTitle.textAlignment = .center
+            parkTitle.backgroundColor = .black
+            parkTitle.textColor = .white
+            parkTitle.text = parkModel.ParkName(forSection: indexPath.section)
+            headerView.backgroundColor = UIColor.black
+            
+            headerView.addSubview(parkTitle)
+            
+            return headerView
+            
+        case UICollectionView.elementKindSectionFooter:
+            assert(false, "Unexpected element kind")
+            
+        default:
+            
+            assert(false, "Unexpected element kind")
+        }
+    }
+    
     // MARK: UICollectionViewDelegate
 
     /*
