@@ -11,10 +11,15 @@ import UIKit
 class StateParksTableViewController: UITableViewController {
     let parkModel = ParksModel.shared
     
+    var identityFrame:CGRect?
+    var identityContentSize:CGSize?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.alwaysBounceVertical = false
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -65,6 +70,63 @@ class StateParksTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 22.0
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tableCell = self.tableView.cellForRow(at: indexPath) as! StateParkTableViewCell
+        let imageView = tableCell.parkImageView
+    
+        let newImageView = UIImageView(image: imageView!.image)
+        
+        
+        newImageView.frame = tableCell.convert(imageView!.frame, to: self.tableView)
+        
+        identityFrame = newImageView.frame
+
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        
+        self.view.addSubview(newImageView)
+        
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+        
+        self.tableView.isScrollEnabled = false
+//        self.identityContentSize = self.tableView.contentSize
+//        self.tableView.contentSize = self.tableView.bounds.size
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            newImageView.frame = UIScreen.main.bounds
+            newImageView.frame = newImageView.frame.offsetBy(dx: 0, dy: self.tableView.contentOffset.y)
+
+            newImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            newImageView.backgroundColor = .white
+        }, completion: { finished in
+        })
+        
+    }
+
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            imageView.frame = self.identityFrame!
+            imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            imageView.backgroundColor = .black
+        }, completion: { finished in
+            self.tableView.isScrollEnabled = true
+//            self.tableView.contentSize = self.identityContentSize!
+            sender.view?.removeFromSuperview()
+        })
+
+    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
