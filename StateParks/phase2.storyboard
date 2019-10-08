@@ -17,6 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="ldn-iw-yDp" kind="relationship" relationship="viewControllers" id="zp9-O5-L4n"/>
@@ -27,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="-3308" y="-308"/>
         </scene>
-        <!--State Parks Table View Controller-->
+        <!--Table-->
         <scene sceneID="WEJ-sO-0DX">
             <objects>
                 <tableViewController id="ldn-iw-yDp" customClass="StateParksTableViewController" customModule="StateParks" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,14 +78,14 @@
                             <outlet property="delegate" destination="ldn-iw-yDp" id="Uvf-SG-pvz"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" selectedImage="Black Moshannon01.png" systemItem="more" id="0Nf-Ub-H3S"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="icons8-table-50" selectedImage="icons8-table-50" id="0Nf-Ub-H3S"/>
                     <navigationItem key="navigationItem" id="UD0-fC-Udz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlA-9v-Oso" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2330.434782608696" y="-483.48214285714283"/>
         </scene>
-        <!--Item-->
+        <!--Collection-->
         <scene sceneID="ZEs-z2-kyP">
             <objects>
                 <collectionViewController id="I17-ll-lMQ" customClass="StateParksCollectionViewController" customModule="StateParks" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,7 +134,7 @@
                             <outlet property="delegate" destination="I17-ll-lMQ" id="d8J-th-MwX"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="gMW-7u-FDU"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="icons8-data-grid-50" selectedImage="icons8-data-grid-50" id="gMW-7u-FDU"/>
                     <navigationItem key="navigationItem" id="yLe-ec-Cj7"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2G-5a-Xbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,6 +143,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Black Moshannon01.png" width="750" height="181.5"/>
+        <image name="icons8-data-grid-50" width="50" height="50"/>
+        <image name="icons8-table-50" width="50" height="50"/>
     </resources>
 </document>
