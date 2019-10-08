@@ -31,6 +31,15 @@ class StateParksTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func viewDidLayoutSubviews() {
+        if let imageZoomView = self.imageZoomScrollView {
+            imageZoomView.frame = UIScreen.main.bounds
+            if let image = imageZoomView.subviews.first {
+                image.frame = UIScreen.main.bounds
+            }
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -147,11 +156,11 @@ class StateParksTableViewController: UITableViewController {
             self.tableView.isScrollEnabled = true
             
             imageView.frame = self.imageZoomScrollView!.convert(imageView.frame, to: self.tableView)
-            self.tableView.addSubview(imageView)
             
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
                 self.imageZoomScrollView!.frame = self.identityFrame!
                 imageView.frame = self.view.convert(self.identityFrame!, to: self.tableView)
+                self.tableView.addSubview(imageView)
                 //            imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
                 imageView.backgroundColor = .clear
                 self.imageZoomScrollView!.backgroundColor = .clear

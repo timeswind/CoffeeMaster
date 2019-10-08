@@ -36,6 +36,15 @@ class StateParksCollectionViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func viewDidLayoutSubviews() {
+        if let imageZoomView = self.imageZoomScrollView {
+            imageZoomView.frame = UIScreen.main.bounds
+            if let image = imageZoomView.subviews.first {
+                image.frame = UIScreen.main.bounds
+            }
+        }
+    }
 
     // MARK: UICollectionViewDataSource
 
