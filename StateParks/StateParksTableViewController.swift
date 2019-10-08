@@ -9,17 +9,16 @@
 import UIKit
 
 class StateParksTableViewController: UITableViewController {
-    let parkModel = ParksModel.shared
     
+    let parkModel = ParksModel.shared
+    var imageZoomScrollView: UIScrollView?
     var identityFrame:CGRect?
-    var identityContentSize:CGSize?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.alwaysBounceVertical = false
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -71,61 +70,91 @@ class StateParksTableViewController: UITableViewController {
         return 22.0
     }
     
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 88.0
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 22.0
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tableCell = self.tableView.cellForRow(at: indexPath) as! StateParkTableViewCell
         let imageView = tableCell.parkImageView
+        
+        let frame = tableCell.convert(imageView!.frame, to: self.view)
+        
+        self.imageZoomScrollView = UIScrollView(frame: frame)
+        self.identityFrame = frame
+        self.imageZoomScrollView?.delegate = self
+        self.imageZoomScrollView?.minimumZoomScale = 1.0
+        self.imageZoomScrollView?.maximumZoomScale = 10.0
+        
+        self.view.addSubview(self.imageZoomScrollView!)
     
-        let newImageView = UIImageView(image: imageView!.image)
+        let copyImageView = UIImageView(image: imageView!.image)
+        copyImageView.frame = tableCell.convert(imageView!.frame, to: self.imageZoomScrollView!)
+        self.imageZoomScrollView!.addSubview(copyImageView)
         
-        
-        newImageView.frame = tableCell.convert(imageView!.frame, to: self.tableView)
-        
-        identityFrame = newImageView.frame
-
-        newImageView.backgroundColor = .black
-        newImageView.contentMode = .scaleAspectFit
-        newImageView.isUserInteractionEnabled = true
+        copyImageView.backgroundColor = .clear
+        copyImageView.contentMode = .scaleAspectFit
+        copyImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        newImageView.addGestureRecognizer(tap)
-        
-        self.view.addSubview(newImageView)
+        copyImageView.addGestureRecognizer(tap)
         
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
-        
         self.tableView.isScrollEnabled = false
-//        self.identityContentSize = self.tableView.contentSize
-//        self.tableView.contentSize = self.tableView.bounds.size
-        
         
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-            newImageView.frame = UIScreen.main.bounds
-            newImageView.frame = newImageView.frame.offsetBy(dx: 0, dy: self.tableView.contentOffset.y)
+            self.imageZoomScrollView!.frame = UIScreen.main.bounds
+            self.imageZoomScrollView!.frame = self.imageZoomScrollView!.frame.offsetBy(dx: 0, dy: self.tableView.contentOffset.y)
+            self.imageZoomScrollView!.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.imageZoomScrollView!.backgroundColor = .white
 
-            newImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
-            newImageView.backgroundColor = .white
+            copyImageView.frame = UIScreen.main.bounds
+            copyImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            copyImageView.backgroundColor = .white
         }, completion: { finished in
+            self.imageZoomScrollView?.zoomScale = 1.0
         })
-        
     }
 
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
-        let imageView = sender.view as! UIImageView
-        self.navigationController?.isNavigationBarHidden = false
-        self.tabBarController?.tabBar.isHidden = false
-        
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-            imageView.frame = self.identityFrame!
-            imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
-            imageView.backgroundColor = .black
-        }, completion: { finished in
+        if (self.imageZoomScrollView?.zoomScale == 1.0) {
+            let imageView = sender.view as! UIImageView
+            self.navigationController?.isNavigationBarHidden = false
+            self.tabBarController?.tabBar.isHidden = false
             self.tableView.isScrollEnabled = true
-//            self.tableView.contentSize = self.identityContentSize!
-            sender.view?.removeFromSuperview()
-        })
-
+            
+            imageView.frame = self.imageZoomScrollView!.convert(imageView.frame, to: self.tableView)
+            self.tableView.addSubview(imageView)
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+                self.imageZoomScrollView!.frame = self.identityFrame!
+                imageView.frame = self.view.convert(self.identityFrame!, to: self.tableView)
+                //            imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                imageView.backgroundColor = .clear
+                self.imageZoomScrollView!.backgroundColor = .clear
+            }, completion: { finished in
+                sender.view?.removeFromSuperview()
+                self.imageZoomScrollView?.removeFromSuperview()
+                self.imageZoomScrollView = nil
+            })
+        }
     }
     
+    override func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        if scrollView == self.imageZoomScrollView! {
+            return self.imageZoomScrollView!.subviews.first
+        } else {
+            return nil
+        }
+    }
     
     /*
     // Override to support conditional editing of the table view.

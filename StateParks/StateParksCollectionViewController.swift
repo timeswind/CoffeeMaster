@@ -10,7 +10,9 @@ import UIKit
 
 class StateParksCollectionViewController: UICollectionViewController {
     let parkModel = ParksModel.shared
-
+    var imageZoomScrollView: UIScrollView?
+    var identityFrame:CGRect?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
@@ -82,6 +84,81 @@ class StateParksCollectionViewController: UICollectionViewController {
         default:
             
             assert(false, "Unexpected element kind")
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let collectionCell = self.collectionView.cellForItem(at: indexPath) as! StateParkCollectionViewCell
+        let imageView = collectionCell.parkImage
+        
+        let frame = collectionCell.convert(imageView!.frame, to: self.view)
+        
+        self.imageZoomScrollView = UIScrollView(frame: frame)
+        self.identityFrame = frame
+        self.imageZoomScrollView?.delegate = self
+        self.imageZoomScrollView?.minimumZoomScale = 1.0
+        self.imageZoomScrollView?.maximumZoomScale = 10.0
+        self.view.addSubview(self.imageZoomScrollView!)
+        
+        let copyImageView = UIImageView(image: imageView!.image)
+        copyImageView.frame = collectionCell.convert(imageView!.frame, to: self.imageZoomScrollView!)
+        self.imageZoomScrollView!.addSubview(copyImageView)
+        
+        copyImageView.backgroundColor = .clear
+        copyImageView.contentMode = .scaleAspectFit
+        copyImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        copyImageView.addGestureRecognizer(tap)
+        
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+        self.collectionView.isScrollEnabled = false
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            self.imageZoomScrollView!.frame = UIScreen.main.bounds
+//            self.imageZoomScrollView!.frame = self.imageZoomScrollView!.frame.offsetBy(dx: 0, dy: self.collectionView.contentOffset.y)
+            self.imageZoomScrollView!.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.imageZoomScrollView!.backgroundColor = .white
+            
+            copyImageView.frame = UIScreen.main.bounds
+            copyImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            copyImageView.backgroundColor = .white
+        }, completion: { finished in
+            self.imageZoomScrollView?.zoomScale = 1.0
+        })
+    }
+    
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        if (self.imageZoomScrollView?.zoomScale == 1.0) {
+            let imageView = sender.view as! UIImageView
+            self.navigationController?.isNavigationBarHidden = false
+            self.tabBarController?.tabBar.isHidden = false
+            self.collectionView.isScrollEnabled = true
+            self.imageZoomScrollView!.backgroundColor = .clear
+            imageView.backgroundColor = .clear
+
+            imageView.frame = self.imageZoomScrollView!.convert(imageView.frame, to: self.collectionView)
+            self.collectionView.addSubview(imageView)
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+                self.imageZoomScrollView!.frame = self.identityFrame!
+                imageView.frame = self.view.convert(self.identityFrame!, to: self.collectionView)
+
+                //            imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }, completion: { finished in
+                sender.view?.removeFromSuperview()
+                self.imageZoomScrollView?.removeFromSuperview()
+                self.imageZoomScrollView = nil
+            })
+        }
+    }
+    
+    override func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        if scrollView == self.imageZoomScrollView! {
+            return self.imageZoomScrollView!.subviews.first
+        } else {
+            return nil
         }
     }
     
