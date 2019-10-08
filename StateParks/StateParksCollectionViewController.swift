@@ -110,9 +110,7 @@ class StateParksCollectionViewController: UICollectionViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         copyImageView.addGestureRecognizer(tap)
         
-        self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
-        self.collectionView.isScrollEnabled = false
         
         
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
@@ -126,15 +124,14 @@ class StateParksCollectionViewController: UICollectionViewController {
             copyImageView.backgroundColor = .white
         }, completion: { finished in
             self.imageZoomScrollView?.zoomScale = 1.0
+            self.collectionView.isScrollEnabled = false
         })
     }
     
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         if (self.imageZoomScrollView?.zoomScale == 1.0) {
             let imageView = sender.view as! UIImageView
-            self.navigationController?.isNavigationBarHidden = false
             self.tabBarController?.tabBar.isHidden = false
-            self.collectionView.isScrollEnabled = true
             self.imageZoomScrollView!.backgroundColor = .clear
             imageView.backgroundColor = .clear
 
@@ -150,6 +147,7 @@ class StateParksCollectionViewController: UICollectionViewController {
                 sender.view?.removeFromSuperview()
                 self.imageZoomScrollView?.removeFromSuperview()
                 self.imageZoomScrollView = nil
+                self.collectionView.isScrollEnabled = true
             })
         }
     }

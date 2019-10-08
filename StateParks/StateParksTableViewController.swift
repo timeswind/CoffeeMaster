@@ -13,12 +13,16 @@ class StateParksTableViewController: UITableViewController {
     let parkModel = ParksModel.shared
     var imageZoomScrollView: UIScrollView?
     var identityFrame:CGRect?
+    var isSectionExpended:[Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
+        
+        for _ in 0...(parkModel.parkCount - 1 ){
+            isSectionExpended.append(true)
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,7 +39,7 @@ class StateParksTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return parkModel.ParkImageCount(forSection: section)
+        return isSectionExpended[section] ? parkModel.ParkImageCount(forSection: section) : 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,8 +56,12 @@ class StateParksTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+        let tap = UITapGestureRecognizer(target: self, action:#selector(self.handleHeaderOnTap(_:)))
         let parkTitle = UILabel(frame: CGRect.zero)
+        parkTitle.tag = section
+        parkTitle.isUserInteractionEnabled = true
+        parkTitle.addGestureRecognizer(tap)
+
         parkTitle.textAlignment = .center
         parkTitle.backgroundColor = .black
         parkTitle.textColor = .white
@@ -123,6 +131,13 @@ class StateParksTableViewController: UITableViewController {
             self.imageZoomScrollView?.zoomScale = 1.0
         })
     }
+    
+    @objc func handleHeaderOnTap(_ sender: UITapGestureRecognizer) {
+        let header = sender.view as! UILabel
+        let section = header.tag
+        self.isSectionExpended[section] = !self.isSectionExpended[section]
+        self.tableView.reloadSections([section], with: UITableView.RowAnimation.automatic)
+    }
 
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         if (self.imageZoomScrollView?.zoomScale == 1.0) {
@@ -155,6 +170,7 @@ class StateParksTableViewController: UITableViewController {
             return nil
         }
     }
+    
     
     /*
     // Override to support conditional editing of the table view.
