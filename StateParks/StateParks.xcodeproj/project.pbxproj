@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C07793F23510C6700AED369 /* phase3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C07793E23510C6700AED369 /* phase3.storyboard */; };
 		5C371FBD233CFAB10033EBC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C371FBC233CFAB10033EBC1 /* AppDelegate.swift */; };
 		5C371FBF233CFAB10033EBC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C371FBE233CFAB10033EBC1 /* ViewController.swift */; };
 		5C371FC2233CFAB10033EBC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C371FC0233CFAB10033EBC1 /* Main.storyboard */; };
@@ -46,6 +47,8 @@
 		5C37201F233CFDE20033EBC1 /* Ricketts Glen03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C371FFF233CFDE20033EBC1 /* Ricketts Glen03.png */; };
 		5C372020233CFDE20033EBC1 /* Ohiopyle03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C372000233CFDE20033EBC1 /* Ohiopyle03.png */; };
 		5C372021233CFDE20033EBC1 /* Parks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C372001233CFDE20033EBC1 /* Parks.plist */; };
+		5C58BABC2352C0F400435B56 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58BABB2352C0F400435B56 /* MasterViewController.swift */; };
+		5C58BABE2352C6E000435B56 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58BABD2352C6E000435B56 /* DetailViewController.swift */; };
 		5C992D6F234948260064B40D /* phase2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C992D6E234948260064B40D /* phase2.storyboard */; };
 		5C992D7123499B880064B40D /* StateParks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C992D7023499B880064B40D /* StateParks.plist */; };
 		5C992D7323499CFE0064B40D /* StateParksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C992D7223499CFE0064B40D /* StateParksTableViewController.swift */; };
@@ -65,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C07793E23510C6700AED369 /* phase3.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = phase3.storyboard; sourceTree = "<group>"; };
 		5C371FB9233CFAB10033EBC1 /* StateParks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateParks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C371FBC233CFAB10033EBC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C371FBE233CFAB10033EBC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 		5C371FFF233CFDE20033EBC1 /* Ricketts Glen03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ricketts Glen03.png"; sourceTree = "<group>"; };
 		5C372000233CFDE20033EBC1 /* Ohiopyle03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ohiopyle03.png; sourceTree = "<group>"; };
 		5C372001233CFDE20033EBC1 /* Parks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Parks.plist; sourceTree = "<group>"; };
+		5C58BABB2352C0F400435B56 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		5C58BABD2352C6E000435B56 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5C992D6E234948260064B40D /* phase2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = phase2.storyboard; sourceTree = "<group>"; };
 		5C992D7023499B880064B40D /* StateParks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StateParks.plist; sourceTree = "<group>"; };
 		5C992D7223499CFE0064B40D /* StateParksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParksTableViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +237,7 @@
 				5C992D6E234948260064B40D /* phase2.storyboard */,
 				5CF0F89D234A3411007B5621 /* StateParkCollectionViewCell.swift */,
 				5CF0F89F234A342B007B5621 /* StateParkTableViewCell.swift */,
+				5C07793E23510C6700AED369 /* phase3.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -241,6 +248,8 @@
 				5C371FBE233CFAB10033EBC1 /* ViewController.swift */,
 				5C992D7223499CFE0064B40D /* StateParksTableViewController.swift */,
 				5C992D7423499D110064B40D /* StateParksCollectionViewController.swift */,
+				5C58BABB2352C0F400435B56 /* MasterViewController.swift */,
+				5C58BABD2352C6E000435B56 /* DetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 				5C372015233CFDE20033EBC1 /* Whipple Dam01.png in Resources */,
 				5C37201C233CFDE20033EBC1 /* Whipple Dam05.png in Resources */,
 				5C372016233CFDE20033EBC1 /* Ricketts Glen04.png in Resources */,
+				5C07793F23510C6700AED369 /* phase3.storyboard in Resources */,
 				5C372014233CFDE20033EBC1 /* Ohiopyle04.png in Resources */,
 				5C37201A233CFDE20033EBC1 /* Whipple Dam04.png in Resources */,
 				5C37201D233CFDE20033EBC1 /* Ohiopyle02.png in Resources */,
@@ -380,6 +390,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C58BABE2352C6E000435B56 /* DetailViewController.swift in Sources */,
+				5C58BABC2352C0F400435B56 /* MasterViewController.swift in Sources */,
 				5CF0F8A0234A342B007B5621 /* StateParkTableViewCell.swift in Sources */,
 				5C371FBF233CFAB10033EBC1 /* ViewController.swift in Sources */,
 				5C371FBD233CFAB10033EBC1 /* AppDelegate.swift in Sources */,

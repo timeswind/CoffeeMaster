@@ -67,6 +67,12 @@ class ParksModel {
         }
     }
     
+    func ParkObject(forSection section: Int) -> StatePark {
+        
+        return allParks[section]
+        
+    }
+    
     func ParkName(forSection section: Int) -> String {
         return allParks[section].name
     }

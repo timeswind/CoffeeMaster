@@ -100,45 +100,45 @@ class StateParksTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tableCell = self.tableView.cellForRow(at: indexPath) as! StateParkTableViewCell
-        let imageView = tableCell.parkImageView
-        
-        let frame = tableCell.convert(imageView!.frame, to: self.view)
-        
-        self.imageZoomScrollView = UIScrollView(frame: frame)
-        self.identityFrame = frame
-        self.imageZoomScrollView?.delegate = self
-        self.imageZoomScrollView?.minimumZoomScale = 1.0
-        self.imageZoomScrollView?.maximumZoomScale = 10.0
-        
-        self.view.addSubview(self.imageZoomScrollView!)
-    
-        let copyImageView = UIImageView(image: imageView!.image)
-        copyImageView.frame = tableCell.convert(imageView!.frame, to: self.imageZoomScrollView!)
-        self.imageZoomScrollView!.addSubview(copyImageView)
-        
-        copyImageView.backgroundColor = .clear
-        copyImageView.contentMode = .scaleAspectFit
-        copyImageView.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        copyImageView.addGestureRecognizer(tap)
-        
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
-        self.tableView.isScrollEnabled = false
-        
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-            self.imageZoomScrollView!.frame = UIScreen.main.bounds
-            self.imageZoomScrollView!.frame = self.imageZoomScrollView!.frame.offsetBy(dx: 0, dy: self.tableView.contentOffset.y)
-            self.imageZoomScrollView!.transform = CGAffineTransform(scaleX: 1, y: 1)
-            self.imageZoomScrollView!.backgroundColor = .white
-
-            copyImageView.frame = UIScreen.main.bounds
-            copyImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
-            copyImageView.backgroundColor = .white
-        }, completion: { finished in
-            self.imageZoomScrollView?.zoomScale = 1.0
-        })
+//        let tableCell = self.tableView.cellForRow(at: indexPath) as! StateParkTableViewCell
+//        let imageView = tableCell.parkImageView
+//        
+//        let frame = tableCell.convert(imageView!.frame, to: self.view)
+//        
+//        self.imageZoomScrollView = UIScrollView(frame: frame)
+//        self.identityFrame = frame
+//        self.imageZoomScrollView?.delegate = self
+//        self.imageZoomScrollView?.minimumZoomScale = 1.0
+//        self.imageZoomScrollView?.maximumZoomScale = 10.0
+//        
+//        self.view.addSubview(self.imageZoomScrollView!)
+//    
+//        let copyImageView = UIImageView(image: imageView!.image)
+//        copyImageView.frame = tableCell.convert(imageView!.frame, to: self.imageZoomScrollView!)
+//        self.imageZoomScrollView!.addSubview(copyImageView)
+//        
+//        copyImageView.backgroundColor = .clear
+//        copyImageView.contentMode = .scaleAspectFit
+//        copyImageView.isUserInteractionEnabled = true
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+//        copyImageView.addGestureRecognizer(tap)
+//        
+//        self.navigationController?.isNavigationBarHidden = true
+//        self.tabBarController?.tabBar.isHidden = true
+//        self.tableView.isScrollEnabled = false
+//        
+//        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+//            self.imageZoomScrollView!.frame = UIScreen.main.bounds
+//            self.imageZoomScrollView!.frame = self.imageZoomScrollView!.frame.offsetBy(dx: 0, dy: self.tableView.contentOffset.y)
+//            self.imageZoomScrollView!.transform = CGAffineTransform(scaleX: 1, y: 1)
+//            self.imageZoomScrollView!.backgroundColor = .white
+//
+//            copyImageView.frame = UIScreen.main.bounds
+//            copyImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+//            copyImageView.backgroundColor = .white
+//        }, completion: { finished in
+//            self.imageZoomScrollView?.zoomScale = 1.0
+//        })
     }
     
     @objc func handleHeaderOnTap(_ sender: UITapGestureRecognizer) {
