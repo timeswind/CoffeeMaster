@@ -55,6 +55,7 @@
 		5C992D7523499D110064B40D /* StateParksCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C992D7423499D110064B40D /* StateParksCollectionViewController.swift */; };
 		5CADD86B2354E04300827558 /* InstructionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADD86A2354E04300827558 /* InstructionPageViewController.swift */; };
 		5CADD86D2354E16A00827558 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADD86C2354E16A00827558 /* InstructionViewController.swift */; };
+		5CDB488923551AF60059FBDA /* InstructionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB488823551AF60059FBDA /* InstructionModel.swift */; };
 		5CF0F89E234A3411007B5621 /* StateParkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0F89D234A3411007B5621 /* StateParkCollectionViewCell.swift */; };
 		5CF0F8A0234A342B007B5621 /* StateParkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0F89F234A342B007B5621 /* StateParkTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		5C992D7423499D110064B40D /* StateParksCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParksCollectionViewController.swift; sourceTree = "<group>"; };
 		5CADD86A2354E04300827558 /* InstructionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPageViewController.swift; sourceTree = "<group>"; };
 		5CADD86C2354E16A00827558 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
+		5CDB488823551AF60059FBDA /* InstructionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionModel.swift; sourceTree = "<group>"; };
 		5CF0F89D234A3411007B5621 /* StateParkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParkCollectionViewCell.swift; sourceTree = "<group>"; };
 		5CF0F89F234A342B007B5621 /* StateParkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParkTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				5C371FDC233CFAD60033EBC1 /* ParksModel.swift */,
+				5CDB488823551AF60059FBDA /* InstructionModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				5C58BABE2352C6E000435B56 /* DetailViewController.swift in Sources */,
 				5C58BABC2352C0F400435B56 /* MasterViewController.swift in Sources */,
 				5CF0F8A0234A342B007B5621 /* StateParkTableViewCell.swift in Sources */,
+				5CDB488923551AF60059FBDA /* InstructionModel.swift in Sources */,
 				5C371FBF233CFAB10033EBC1 /* ViewController.swift in Sources */,
 				5C371FBD233CFAB10033EBC1 /* AppDelegate.swift in Sources */,
 				5C371FDD233CFAD60033EBC1 /* ParksModel.swift in Sources */,

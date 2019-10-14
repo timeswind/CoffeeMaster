@@ -23,7 +23,9 @@ class MasterViewController: UITableViewController {
         for _ in 0...(parkModel.parkCount - 1 ){
             isSectionExpended.append(true)
         }
+        
         // Do any additional setup after loading the view.
+        firstTimeLaunch()
                 
         if let split = splitViewController {
             split.preferredDisplayMode = .allVisible
@@ -36,6 +38,12 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+    }
+    
+    // MARK: - Functions
+    
+    func firstTimeLaunch() {
+        self.performSegue(withIdentifier: "showInstruction", sender: self)
     }
     
     

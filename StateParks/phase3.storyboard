@@ -133,6 +133,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="hoa-yL-BWF"/>
+                    <connections>
+                        <segue destination="TFB-Xv-uqR" kind="presentation" identifier="showInstruction" id="tt2-dF-D8w"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcm-Sq-He4" sceneMemberID="firstResponder"/>
             </objects>
