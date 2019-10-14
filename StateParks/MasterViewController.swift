@@ -19,13 +19,15 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+        self.title = "State Parks"
         for _ in 0...(parkModel.parkCount - 1 ){
             isSectionExpended.append(true)
         }
         // Do any additional setup after loading the view.
-        
+                
         if let split = splitViewController {
+            split.preferredDisplayMode = .allVisible
+//            split.delegate = self
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
@@ -98,7 +100,7 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88.0
+        return 100.0
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -106,7 +108,7 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88.0
+        return 100.0
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
@@ -116,8 +118,6 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
-
-    
     
 }
 
