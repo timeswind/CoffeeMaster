@@ -11,22 +11,23 @@ import UIKit
 
 struct Instruction: Codable {
     var imageName: String
+    var index: Int
     var description: String
 }
-typealias Instructions = [Instruction]
 
 class InstructionModel {
     static let shared = InstructionModel()
     
-    var instructions: Instructions = Instructions()
+    var instructions:[Instruction] = []
     
     init() {
-        instructions.append(Instruction(imageName: "first.png", description: "collapsable sections"))
-        instructions.append(Instruction(imageName: "secound.png", description: "tappable cells to display image"))
-        instructions.append(Instruction(imageName: "third.png", description: "full image view with caption"))
+        instructions.append(Instruction(imageName: "first.png",index: 0, description: "Collapsable sections (1/3) ->"))
+        instructions.append(Instruction(imageName: "second.png",index: 1, description: "Tappable cells to display image (2/3) ->"))
+        instructions.append(Instruction(imageName: "third.png",index: 2, description: "Full image view with caption (3/3)"))
     }
     
     func instructionForPage(page: Int) -> Instruction {
         return instructions[page]
     }
+
 }

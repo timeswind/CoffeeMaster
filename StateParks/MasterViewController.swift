@@ -10,6 +10,8 @@ import UIKit
 
 class MasterViewController: UITableViewController {
     let parkModel = ParksModel.shared
+    let instructionModel = InstructionModel.shared
+
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
     var isSectionExpended:[Bool] = []
@@ -43,7 +45,15 @@ class MasterViewController: UITableViewController {
     // MARK: - Functions
     
     func firstTimeLaunch() {
-        self.performSegue(withIdentifier: "showInstruction", sender: self)
+        print(instructionModel.instructions)
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            print("First launch, setting UserDefault.")
+            self.performSegue(withIdentifier: "showInstruction", sender: self)
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
     }
     
     

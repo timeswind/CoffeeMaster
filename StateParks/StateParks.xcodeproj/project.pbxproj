@@ -56,6 +56,9 @@
 		5CADD86B2354E04300827558 /* InstructionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADD86A2354E04300827558 /* InstructionPageViewController.swift */; };
 		5CADD86D2354E16A00827558 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADD86C2354E16A00827558 /* InstructionViewController.swift */; };
 		5CDB488923551AF60059FBDA /* InstructionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB488823551AF60059FBDA /* InstructionModel.swift */; };
+		5CDB488D235547270059FBDA /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB488A235547270059FBDA /* first.png */; };
+		5CDB488E235547270059FBDA /* third.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB488B235547270059FBDA /* third.png */; };
+		5CDB488F235547270059FBDA /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDB488C235547270059FBDA /* second.png */; };
 		5CF0F89E234A3411007B5621 /* StateParkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0F89D234A3411007B5621 /* StateParkCollectionViewCell.swift */; };
 		5CF0F8A0234A342B007B5621 /* StateParkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0F89F234A342B007B5621 /* StateParkTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -124,6 +127,9 @@
 		5CADD86A2354E04300827558 /* InstructionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPageViewController.swift; sourceTree = "<group>"; };
 		5CADD86C2354E16A00827558 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		5CDB488823551AF60059FBDA /* InstructionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionModel.swift; sourceTree = "<group>"; };
+		5CDB488A235547270059FBDA /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = "StateParks/Parks Assets/first.png"; sourceTree = SOURCE_ROOT; };
+		5CDB488B235547270059FBDA /* third.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = third.png; path = "StateParks/Parks Assets/third.png"; sourceTree = SOURCE_ROOT; };
+		5CDB488C235547270059FBDA /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = "StateParks/Parks Assets/second.png"; sourceTree = SOURCE_ROOT; };
 		5CF0F89D234A3411007B5621 /* StateParkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParkCollectionViewCell.swift; sourceTree = "<group>"; };
 		5CF0F89F234A342B007B5621 /* StateParkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateParkTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +209,9 @@
 				5C371FEB233CFDE20033EBC1 /* Cherry Springs01.png */,
 				5C371FEC233CFDE20033EBC1 /* Cherry Springs02.png */,
 				5C371FED233CFDE20033EBC1 /* Cherry Springs03.png */,
+				5CDB488A235547270059FBDA /* first.png */,
+				5CDB488C235547270059FBDA /* second.png */,
+				5CDB488B235547270059FBDA /* third.png */,
 				5C371FEE233CFDE20033EBC1 /* Cherry Springs07.png */,
 				5C371FEF233CFDE20033EBC1 /* Cherry Springs06.png */,
 				5C371FF0233CFDE20033EBC1 /* Cherry Springs04.png */,
@@ -245,8 +254,6 @@
 				5CF0F89D234A3411007B5621 /* StateParkCollectionViewCell.swift */,
 				5CF0F89F234A342B007B5621 /* StateParkTableViewCell.swift */,
 				5C07793E23510C6700AED369 /* phase3.storyboard */,
-				5CADD86A2354E04300827558 /* InstructionPageViewController.swift */,
-				5CADD86C2354E16A00827558 /* InstructionViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -257,6 +264,8 @@
 				5C371FBE233CFAB10033EBC1 /* ViewController.swift */,
 				5C992D7223499CFE0064B40D /* StateParksTableViewController.swift */,
 				5C992D7423499D110064B40D /* StateParksCollectionViewController.swift */,
+				5CADD86A2354E04300827558 /* InstructionPageViewController.swift */,
+				5CADD86C2354E16A00827558 /* InstructionViewController.swift */,
 				5C58BABB2352C0F400435B56 /* MasterViewController.swift */,
 				5C58BABD2352C6E000435B56 /* DetailViewController.swift */,
 			);
@@ -361,6 +370,7 @@
 				5C372003233CFDE20033EBC1 /* Leonard Harrison02.png in Resources */,
 				5C372009233CFDE20033EBC1 /* Black Moshannon04.png in Resources */,
 				5C372004233CFDE20033EBC1 /* Leonard Harrison03.png in Resources */,
+				5CDB488F235547270059FBDA /* second.png in Resources */,
 				5C37200C233CFDE20033EBC1 /* Cherry Springs02.png in Resources */,
 				5C371FC7233CFAB20033EBC1 /* LaunchScreen.storyboard in Resources */,
 				5C37200B233CFDE20033EBC1 /* Cherry Springs01.png in Resources */,
@@ -375,11 +385,13 @@
 				5C992D6F234948260064B40D /* phase2.storyboard in Resources */,
 				5C37201F233CFDE20033EBC1 /* Ricketts Glen03.png in Resources */,
 				5C371FC4233CFAB20033EBC1 /* Assets.xcassets in Resources */,
+				5CDB488E235547270059FBDA /* third.png in Resources */,
 				5C372006233CFDE20033EBC1 /* Leonard Harrison01.png in Resources */,
 				5C372017233CFDE20033EBC1 /* Ricketts Glen05.png in Resources */,
 				5C992D7123499B880064B40D /* StateParks.plist in Resources */,
 				5C372019233CFDE20033EBC1 /* Ohiopyle01.png in Resources */,
 				5C371FC2233CFAB10033EBC1 /* Main.storyboard in Resources */,
+				5CDB488D235547270059FBDA /* first.png in Resources */,
 				5C372011233CFDE20033EBC1 /* Cherry Springs05.png in Resources */,
 				5C372002233CFDE20033EBC1 /* Black Moshannon01.png in Resources */,
 			);

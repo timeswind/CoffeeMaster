@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Caption" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-zQ-hjd">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Select image to view detail" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-zQ-hjd">
                                 <rect key="frame" x="19" y="119" width="376" height="21"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -174,9 +174,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHE-mp-bOE">
+                                <rect key="frame" x="186" y="807" width="43" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="dismissself:" destination="AwF-gU-crJ" eventType="touchUpInside" id="Gz7-14-2F2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="vHE-mp-bOE" firstAttribute="bottom" secondItem="Yqk-ng-3PF" secondAttribute="bottom" constant="-19" id="GwP-3t-SrH"/>
+                            <constraint firstItem="vHE-mp-bOE" firstAttribute="centerX" secondItem="bM9-Be-P27" secondAttribute="centerX" id="MkW-hn-qVY"/>
                             <constraint firstItem="Yqk-ng-3PF" firstAttribute="trailing" secondItem="ixV-t3-e3i" secondAttribute="trailing" constant="20" id="NBr-3G-Llh"/>
                             <constraint firstItem="ixV-t3-e3i" firstAttribute="top" secondItem="oQV-zC-BAJ" secondAttribute="bottom" constant="22" id="QtU-z2-nSQ"/>
                             <constraint firstItem="oQV-zC-BAJ" firstAttribute="centerX" secondItem="bM9-Be-P27" secondAttribute="centerX" id="cyc-an-Cjo"/>
@@ -187,6 +197,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yqk-ng-3PF"/>
                     </view>
+                    <connections>
+                        <outlet property="instructionDescription" destination="ixV-t3-e3i" id="tXJ-qD-4Mn"/>
+                        <outlet property="instructionImage" destination="oQV-zC-BAJ" id="Lrx-v0-zuQ"/>
+                        <outlet property="startButton" destination="vHE-mp-bOE" id="QZX-ob-g6c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9n-sv-y1C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
