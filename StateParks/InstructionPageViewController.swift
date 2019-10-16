@@ -75,4 +75,9 @@ extension InstructionPageViewController: UIPageViewControllerDataSource, UIPageV
         }
     }
     
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        let parentVC = pageViewController.parent as! InstructionContainerViewController
+        let index = (pageViewController.viewControllers!.first as! InstructionViewController).instructionObject!.index
+        parentVC.updatePage(page: index)
+    }
 }

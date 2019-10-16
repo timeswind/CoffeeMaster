@@ -45,7 +45,8 @@ class MasterViewController: UITableViewController {
     // MARK: - Functions
     
     func firstTimeLaunch() {
-        print(instructionModel.instructions)
+//        self.performSegue(withIdentifier: "showInstruction", sender: self) // for text only
+
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
             print("Not first launch.")

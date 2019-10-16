@@ -18,7 +18,7 @@ class InstructionViewController: UIViewController {
         // Update the user interface for the detail item.
         if let instruction = instructionObject {
             if let textview = instructionDescription {
-                textview.font = UIFont.systemFont(ofSize: 28)
+                textview.font = UIFont.systemFont(ofSize: 24)
                 textview.text = instruction.description
             }
             if let imageview = instructionImage {

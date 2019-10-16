@@ -134,20 +134,50 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="hoa-yL-BWF"/>
                     <connections>
-                        <segue destination="TFB-Xv-uqR" kind="presentation" identifier="showInstruction" id="tt2-dF-D8w"/>
+                        <segue destination="lSR-Oz-hlZ" kind="presentation" identifier="showInstruction" id="sJq-z2-R4N"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcm-Sq-He4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="708.69565217391312" y="-630.13392857142856"/>
         </scene>
-        <!--Instruction Page View Controller-->
-        <scene sceneID="5ee-uv-ISn">
+        <!--Instruction Container View Controller-->
+        <scene sceneID="8ne-xc-KyP">
             <objects>
-                <pageViewController storyboardIdentifier="InstructionPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="TFB-Xv-uqR" customClass="InstructionPageViewController" customModule="StateParks" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xh8-KX-jfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="InstructionContainerViewController" id="lSR-Oz-hlZ" customClass="InstructionContainerViewController" customModule="StateParks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CxY-KM-6ZG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KmU-bO-rrm">
+                                <rect key="frame" x="20" y="20" width="374" height="741"/>
+                                <connections>
+                                    <segue destination="b99-JN-Hrm" kind="embed" id="ODr-se-JIe"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="N1U-bT-Nz8">
+                                <rect key="frame" x="0.0" y="771" width="414" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nK9-Rr-jxv" firstAttribute="trailing" secondItem="N1U-bT-Nz8" secondAttribute="trailing" id="8D5-2J-Q0b"/>
+                            <constraint firstItem="N1U-bT-Nz8" firstAttribute="top" secondItem="KmU-bO-rrm" secondAttribute="bottom" constant="10" id="8FB-9j-yHs"/>
+                            <constraint firstItem="KmU-bO-rrm" firstAttribute="leading" secondItem="nK9-Rr-jxv" secondAttribute="leading" constant="20" id="9Jp-8S-PNe"/>
+                            <constraint firstItem="nK9-Rr-jxv" firstAttribute="trailing" secondItem="KmU-bO-rrm" secondAttribute="trailing" constant="20" id="JLH-oQ-PoK"/>
+                            <constraint firstItem="KmU-bO-rrm" firstAttribute="top" secondItem="nK9-Rr-jxv" secondAttribute="top" constant="20" id="cFu-iU-1cS"/>
+                            <constraint firstItem="N1U-bT-Nz8" firstAttribute="leading" secondItem="nK9-Rr-jxv" secondAttribute="leading" id="eSS-Uv-1Gk"/>
+                            <constraint firstItem="N1U-bT-Nz8" firstAttribute="bottom" secondItem="nK9-Rr-jxv" secondAttribute="bottom" id="tX1-Fb-AEF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nK9-Rr-jxv"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="N1U-bT-Nz8" id="6pj-1L-m55"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0BY-Qe-Ypa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="-633"/>
+            <point key="canvasLocation" x="1457.9710144927537" y="-630.13392857142856"/>
         </scene>
         <!--Instruction View Controller-->
         <scene sceneID="gu9-GB-Iv6">
@@ -175,7 +205,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHE-mp-bOE">
-                                <rect key="frame" x="186" y="807" width="43" height="36"/>
+                                <rect key="frame" x="185.5" y="807" width="43" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
@@ -205,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9n-sv-y1C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2192.753623188406" y="-630.13392857142856"/>
+            <point key="canvasLocation" x="2961" y="-1025"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Ki-Tz-ofY">
@@ -222,6 +252,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3o-Je-ohF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
+        </scene>
+        <!--Instruction Page View Controller-->
+        <scene sceneID="9yf-ae-iQY">
+            <objects>
+                <viewController storyboardIdentifier="InstructionPageViewController" id="b99-JN-Hrm" customClass="InstructionPageViewController" customModule="StateParks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NnV-55-rXo">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="741"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1MR-58-NSp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2262" y="-1047"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
