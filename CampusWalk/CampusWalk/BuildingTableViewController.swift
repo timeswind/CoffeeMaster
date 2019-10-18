@@ -16,6 +16,7 @@ protocol BuildingTableViewControllerDelegate:class {
 class BuildingTableViewController: UITableViewController {
     
     var delegate:BuildingTableViewControllerDelegate?
+    let mapModel = MapModel.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,16 +36,49 @@ class BuildingTableViewController: UITableViewController {
     
     // MARK: - Table view data source
 
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        // 1
+        return mapModel.buildingDic.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        // 2
+        let key = mapModel.buildingKeys[section]
+        if let buildings = mapModel.buildingDic[key] {
+            return buildings.count
+        }
+            
         return 0
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 3
+        let cell = tableView.dequeueReusableCell(withIdentifier: "buildingsCell", for: indexPath) as! BuildingTableViewCell
+          
+        // Configure the cell...
+        let key = mapModel.buildingKeys[indexPath.section]
+        if let buildings = mapModel.buildingDic[key] {
+            let building = buildings[indexPath.row]
+            cell.name?.text = building.name
+            cell.buildingImageView.image = UIImage(named: building.photo)
+            
+        }
+
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return mapModel.buildingKeys[section]
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return mapModel.buildingKeys
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
