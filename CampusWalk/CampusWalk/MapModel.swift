@@ -13,8 +13,8 @@ struct Building:Codable {
     var name: String
     var opp_bldg_code: Int
     var year_constructed: Int
-    var latitude: Float
-    var longitude: Float
+    var latitude: Float64
+    var longitude: Float64
     var photo: String
 }
 

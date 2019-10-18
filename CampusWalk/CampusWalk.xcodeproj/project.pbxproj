@@ -47,6 +47,7 @@
 		5C45DBEF235A717E00625742 /* smeal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBCF235A717E00625742 /* smeal.jpg */; };
 		5C45DBF0235A717E00625742 /* carnegie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBD0235A717E00625742 /* carnegie.jpg */; };
 		5C62ABC3235A759800FC7CA5 /* buildings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C62ABC2235A759800FC7CA5 /* buildings.plist */; };
+		5C62ABC5235A795300FC7CA5 /* BuildingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62ABC4235A795300FC7CA5 /* BuildingTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		5C45DBCF235A717E00625742 /* smeal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smeal.jpg; sourceTree = "<group>"; };
 		5C45DBD0235A717E00625742 /* carnegie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carnegie.jpg; sourceTree = "<group>"; };
 		5C62ABC2235A759800FC7CA5 /* buildings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = buildings.plist; sourceTree = "<group>"; };
+		5C62ABC4235A795300FC7CA5 /* BuildingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				5C45DB8E235A6EC000625742 /* SceneDelegate.swift */,
 				5C45DB90235A6EC000625742 /* ViewController.swift */,
 				5C45DB92235A6EC000625742 /* Main.storyboard */,
+				5C62ABC4235A795300FC7CA5 /* BuildingTableViewController.swift */,
 				5C45DB95235A6EC200625742 /* Assets.xcassets */,
 				5C45DB97235A6EC200625742 /* LaunchScreen.storyboard */,
 				5C45DB9A235A6EC200625742 /* Info.plist */,
@@ -349,6 +352,7 @@
 			files = (
 				5C45DBAF235A701F00625742 /* MapModel.swift in Sources */,
 				5C45DB91235A6EC000625742 /* ViewController.swift in Sources */,
+				5C62ABC5235A795300FC7CA5 /* BuildingTableViewController.swift in Sources */,
 				5C45DB8D235A6EC000625742 /* AppDelegate.swift in Sources */,
 				5C45DB8F235A6EC000625742 /* SceneDelegate.swift in Sources */,
 			);
