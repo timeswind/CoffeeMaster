@@ -14,6 +14,39 @@
 		5C45DB96235A6EC200625742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DB95235A6EC200625742 /* Assets.xcassets */; };
 		5C45DB99235A6EC200625742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DB97235A6EC200625742 /* LaunchScreen.storyboard */; };
 		5C45DBA4235A6EC200625742 /* CampusWalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45DBA3235A6EC200625742 /* CampusWalkTests.swift */; };
+		5C45DBAF235A701F00625742 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45DBAE235A701F00625742 /* MapModel.swift */; };
+		5C45DBD2235A717E00625742 /* appliedscience.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBB2235A717E00625742 /* appliedscience.jpg */; };
+		5C45DBD3235A717E00625742 /* beaver.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBB3235A717E00625742 /* beaver.jpg */; };
+		5C45DBD4235A717E00625742 /* chandlee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBB4235A717E00625742 /* chandlee.jpg */; };
+		5C45DBD5235A717E00625742 /* ageng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBB5235A717E00625742 /* ageng.jpg */; };
+		5C45DBD6235A717E00625742 /* armsby.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBB6235A717E00625742 /* armsby.jpg */; };
+		5C45DBD7235A717E00625742 /* borland.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBB7235A717E00625742 /* borland.jpg */; };
+		5C45DBD8235A717E00625742 /* chapel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBB8235A717E00625742 /* chapel.jpg */; };
+		5C45DBD9235A717E00625742 /* engunit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBB9235A717E00625742 /* engunit.jpg */; };
+		5C45DBDA235A717E00625742 /* eeeast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBBA235A717E00625742 /* eeeast.jpg */; };
+		5C45DBDB235A717E00625742 /* earthengineeringsciences.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBBB235A717E00625742 /* earthengineeringsciences.jpg */; };
+		5C45DBDC235A717E00625742 /* biomechanics.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBBC235A717E00625742 /* biomechanics.jpg */; };
+		5C45DBDD235A717E00625742 /* chambers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBBD235A717E00625742 /* chambers.jpg */; };
+		5C45DBDE235A717E00625742 /* eisenhowerparking.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBBE235A717E00625742 /* eisenhowerparking.jpg */; };
+		5C45DBDF235A717E00625742 /* eewest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBBF235A717E00625742 /* eewest.jpg */; };
+		5C45DBE0235A717E00625742 /* chemistry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC0235A717E00625742 /* chemistry.jpg */; };
+		5C45DBE1235A717E00625742 /* boucke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC1235A717E00625742 /* boucke.jpg */; };
+		5C45DBE2235A717E00625742 /* eisenhower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC2235A717E00625742 /* eisenhower.jpg */; };
+		5C45DBE3235A717E00625742 /* deike.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC3235A717E00625742 /* deike.jpg */; };
+		5C45DBE4235A717E00625742 /* arts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC4235A717E00625742 /* arts.jpg */; };
+		5C45DBE5235A717E00625742 /* computer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC5235A717E00625742 /* computer.jpg */; };
+		5C45DBE6235A717E00625742 /* davey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC6235A717E00625742 /* davey.jpg */; };
+		5C45DBE7235A717E00625742 /* brycejordan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC7235A717E00625742 /* brycejordan.jpg */; };
+		5C45DBE8235A717E00625742 /* brumbaugh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC8235A717E00625742 /* brumbaugh.jpg */; };
+		5C45DBE9235A717E00625742 /* buckhout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBC9235A717E00625742 /* buckhout.jpg */; };
+		5C45DBEA235A717E00625742 /* agadmin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBCA235A717E00625742 /* agadmin.jpg */; };
+		5C45DBEB235A717E00625742 /* burrowes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBCB235A717E00625742 /* burrowes.jpg */; };
+		5C45DBEC235A717E00625742 /* atherton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBCC235A717E00625742 /* atherton.jpg */; };
+		5C45DBED235A717E00625742 /* businessbuilding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBCD235A717E00625742 /* businessbuilding.jpg */; };
+		5C45DBEE235A717E00625742 /* carpenter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBCE235A717E00625742 /* carpenter.jpg */; };
+		5C45DBEF235A717E00625742 /* smeal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBCF235A717E00625742 /* smeal.jpg */; };
+		5C45DBF0235A717E00625742 /* carnegie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C45DBD0235A717E00625742 /* carnegie.jpg */; };
+		5C62ABC3235A759800FC7CA5 /* buildings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C62ABC2235A759800FC7CA5 /* buildings.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +71,39 @@
 		5C45DB9F235A6EC200625742 /* CampusWalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CampusWalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C45DBA3235A6EC200625742 /* CampusWalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusWalkTests.swift; sourceTree = "<group>"; };
 		5C45DBA5235A6EC200625742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C45DBAE235A701F00625742 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		5C45DBB2235A717E00625742 /* appliedscience.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = appliedscience.jpg; sourceTree = "<group>"; };
+		5C45DBB3235A717E00625742 /* beaver.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beaver.jpg; sourceTree = "<group>"; };
+		5C45DBB4235A717E00625742 /* chandlee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chandlee.jpg; sourceTree = "<group>"; };
+		5C45DBB5235A717E00625742 /* ageng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ageng.jpg; sourceTree = "<group>"; };
+		5C45DBB6235A717E00625742 /* armsby.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = armsby.jpg; sourceTree = "<group>"; };
+		5C45DBB7235A717E00625742 /* borland.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = borland.jpg; sourceTree = "<group>"; };
+		5C45DBB8235A717E00625742 /* chapel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chapel.jpg; sourceTree = "<group>"; };
+		5C45DBB9235A717E00625742 /* engunit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = engunit.jpg; sourceTree = "<group>"; };
+		5C45DBBA235A717E00625742 /* eeeast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eeeast.jpg; sourceTree = "<group>"; };
+		5C45DBBB235A717E00625742 /* earthengineeringsciences.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earthengineeringsciences.jpg; sourceTree = "<group>"; };
+		5C45DBBC235A717E00625742 /* biomechanics.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = biomechanics.jpg; sourceTree = "<group>"; };
+		5C45DBBD235A717E00625742 /* chambers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chambers.jpg; sourceTree = "<group>"; };
+		5C45DBBE235A717E00625742 /* eisenhowerparking.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eisenhowerparking.jpg; sourceTree = "<group>"; };
+		5C45DBBF235A717E00625742 /* eewest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eewest.jpg; sourceTree = "<group>"; };
+		5C45DBC0235A717E00625742 /* chemistry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chemistry.jpg; sourceTree = "<group>"; };
+		5C45DBC1235A717E00625742 /* boucke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boucke.jpg; sourceTree = "<group>"; };
+		5C45DBC2235A717E00625742 /* eisenhower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eisenhower.jpg; sourceTree = "<group>"; };
+		5C45DBC3235A717E00625742 /* deike.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = deike.jpg; sourceTree = "<group>"; };
+		5C45DBC4235A717E00625742 /* arts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arts.jpg; sourceTree = "<group>"; };
+		5C45DBC5235A717E00625742 /* computer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = computer.jpg; sourceTree = "<group>"; };
+		5C45DBC6235A717E00625742 /* davey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davey.jpg; sourceTree = "<group>"; };
+		5C45DBC7235A717E00625742 /* brycejordan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brycejordan.jpg; sourceTree = "<group>"; };
+		5C45DBC8235A717E00625742 /* brumbaugh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brumbaugh.jpg; sourceTree = "<group>"; };
+		5C45DBC9235A717E00625742 /* buckhout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = buckhout.jpg; sourceTree = "<group>"; };
+		5C45DBCA235A717E00625742 /* agadmin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = agadmin.jpg; sourceTree = "<group>"; };
+		5C45DBCB235A717E00625742 /* burrowes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burrowes.jpg; sourceTree = "<group>"; };
+		5C45DBCC235A717E00625742 /* atherton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = atherton.jpg; sourceTree = "<group>"; };
+		5C45DBCD235A717E00625742 /* businessbuilding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = businessbuilding.jpg; sourceTree = "<group>"; };
+		5C45DBCE235A717E00625742 /* carpenter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carpenter.jpg; sourceTree = "<group>"; };
+		5C45DBCF235A717E00625742 /* smeal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smeal.jpg; sourceTree = "<group>"; };
+		5C45DBD0235A717E00625742 /* carnegie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carnegie.jpg; sourceTree = "<group>"; };
+		5C62ABC2235A759800FC7CA5 /* buildings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = buildings.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				5C45DB8B235A6EC000625742 /* CampusWalk */,
+				5C45DBB0235A717E00625742 /* Campus Assets */,
 				5C45DBA2235A6EC200625742 /* CampusWalkTests */,
 				5C45DB8A235A6EC000625742 /* Products */,
 			);
@@ -86,6 +153,7 @@
 				5C45DB95235A6EC200625742 /* Assets.xcassets */,
 				5C45DB97235A6EC200625742 /* LaunchScreen.storyboard */,
 				5C45DB9A235A6EC200625742 /* Info.plist */,
+				5C45DBAE235A701F00625742 /* MapModel.swift */,
 			);
 			path = CampusWalk;
 			sourceTree = "<group>";
@@ -97,6 +165,53 @@
 				5C45DBA5235A6EC200625742 /* Info.plist */,
 			);
 			path = CampusWalkTests;
+			sourceTree = "<group>";
+		};
+		5C45DBB0235A717E00625742 /* Campus Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5C62ABC2235A759800FC7CA5 /* buildings.plist */,
+				5C45DBB1235A717E00625742 /* buildings */,
+			);
+			path = "Campus Assets";
+			sourceTree = SOURCE_ROOT;
+		};
+		5C45DBB1235A717E00625742 /* buildings */ = {
+			isa = PBXGroup;
+			children = (
+				5C45DBB2235A717E00625742 /* appliedscience.jpg */,
+				5C45DBB3235A717E00625742 /* beaver.jpg */,
+				5C45DBB4235A717E00625742 /* chandlee.jpg */,
+				5C45DBB5235A717E00625742 /* ageng.jpg */,
+				5C45DBB6235A717E00625742 /* armsby.jpg */,
+				5C45DBB7235A717E00625742 /* borland.jpg */,
+				5C45DBB8235A717E00625742 /* chapel.jpg */,
+				5C45DBB9235A717E00625742 /* engunit.jpg */,
+				5C45DBBA235A717E00625742 /* eeeast.jpg */,
+				5C45DBBB235A717E00625742 /* earthengineeringsciences.jpg */,
+				5C45DBBC235A717E00625742 /* biomechanics.jpg */,
+				5C45DBBD235A717E00625742 /* chambers.jpg */,
+				5C45DBBE235A717E00625742 /* eisenhowerparking.jpg */,
+				5C45DBBF235A717E00625742 /* eewest.jpg */,
+				5C45DBC0235A717E00625742 /* chemistry.jpg */,
+				5C45DBC1235A717E00625742 /* boucke.jpg */,
+				5C45DBC2235A717E00625742 /* eisenhower.jpg */,
+				5C45DBC3235A717E00625742 /* deike.jpg */,
+				5C45DBC4235A717E00625742 /* arts.jpg */,
+				5C45DBC5235A717E00625742 /* computer.jpg */,
+				5C45DBC6235A717E00625742 /* davey.jpg */,
+				5C45DBC7235A717E00625742 /* brycejordan.jpg */,
+				5C45DBC8235A717E00625742 /* brumbaugh.jpg */,
+				5C45DBC9235A717E00625742 /* buckhout.jpg */,
+				5C45DBCA235A717E00625742 /* agadmin.jpg */,
+				5C45DBCB235A717E00625742 /* burrowes.jpg */,
+				5C45DBCC235A717E00625742 /* atherton.jpg */,
+				5C45DBCD235A717E00625742 /* businessbuilding.jpg */,
+				5C45DBCE235A717E00625742 /* carpenter.jpg */,
+				5C45DBCF235A717E00625742 /* smeal.jpg */,
+				5C45DBD0235A717E00625742 /* carnegie.jpg */,
+			);
+			path = buildings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +297,7 @@
 			files = (
 				5C45DB99235A6EC200625742 /* LaunchScreen.storyboard in Resources */,
 				5C45DB96235A6EC200625742 /* Assets.xcassets in Resources */,
+				5C62ABC3235A759800FC7CA5 /* buildings.plist in Resources */,
 				5C45DB94235A6EC000625742 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +306,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C45DBEB235A717E00625742 /* burrowes.jpg in Resources */,
+				5C45DBE9235A717E00625742 /* buckhout.jpg in Resources */,
+				5C45DBE8235A717E00625742 /* brumbaugh.jpg in Resources */,
+				5C45DBE0235A717E00625742 /* chemistry.jpg in Resources */,
+				5C45DBD4235A717E00625742 /* chandlee.jpg in Resources */,
+				5C45DBE1235A717E00625742 /* boucke.jpg in Resources */,
+				5C45DBDE235A717E00625742 /* eisenhowerparking.jpg in Resources */,
+				5C45DBDF235A717E00625742 /* eewest.jpg in Resources */,
+				5C45DBEE235A717E00625742 /* carpenter.jpg in Resources */,
+				5C45DBD6235A717E00625742 /* armsby.jpg in Resources */,
+				5C45DBED235A717E00625742 /* businessbuilding.jpg in Resources */,
+				5C45DBD8235A717E00625742 /* chapel.jpg in Resources */,
+				5C45DBE7235A717E00625742 /* brycejordan.jpg in Resources */,
+				5C45DBF0235A717E00625742 /* carnegie.jpg in Resources */,
+				5C45DBE4235A717E00625742 /* arts.jpg in Resources */,
+				5C45DBD7235A717E00625742 /* borland.jpg in Resources */,
+				5C45DBD9235A717E00625742 /* engunit.jpg in Resources */,
+				5C45DBD3235A717E00625742 /* beaver.jpg in Resources */,
+				5C45DBD5235A717E00625742 /* ageng.jpg in Resources */,
+				5C45DBD2235A717E00625742 /* appliedscience.jpg in Resources */,
+				5C45DBDD235A717E00625742 /* chambers.jpg in Resources */,
+				5C45DBE5235A717E00625742 /* computer.jpg in Resources */,
+				5C45DBE2235A717E00625742 /* eisenhower.jpg in Resources */,
+				5C45DBE6235A717E00625742 /* davey.jpg in Resources */,
+				5C45DBDC235A717E00625742 /* biomechanics.jpg in Resources */,
+				5C45DBEA235A717E00625742 /* agadmin.jpg in Resources */,
+				5C45DBEC235A717E00625742 /* atherton.jpg in Resources */,
+				5C45DBDA235A717E00625742 /* eeeast.jpg in Resources */,
+				5C45DBE3235A717E00625742 /* deike.jpg in Resources */,
+				5C45DBEF235A717E00625742 /* smeal.jpg in Resources */,
+				5C45DBDB235A717E00625742 /* earthengineeringsciences.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C45DBAF235A701F00625742 /* MapModel.swift in Sources */,
 				5C45DB91235A6EC000625742 /* ViewController.swift in Sources */,
 				5C45DB8D235A6EC000625742 /* AppDelegate.swift in Sources */,
 				5C45DB8F235A6EC000625742 /* SceneDelegate.swift in Sources */,
@@ -364,7 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CampusWalk/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -382,7 +530,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CampusWalk/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
