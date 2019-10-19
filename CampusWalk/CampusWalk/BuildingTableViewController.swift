@@ -35,15 +35,11 @@ class BuildingTableViewController: UITableViewController {
     
     
     // MARK: - Table view data source
-
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // 1
         return mapModel.buildingDic.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 2
         let key = mapModel.buildingKeys[section]
         if let buildings = mapModel.buildingDic[key] {
             return buildings.count
@@ -53,16 +49,13 @@ class BuildingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 3
         let cell = tableView.dequeueReusableCell(withIdentifier: "buildingsCell", for: indexPath) as! BuildingTableViewCell
           
         // Configure the cell...
         let key = mapModel.buildingKeys[indexPath.section]
         if let buildings = mapModel.buildingDic[key] {
             let building = buildings[indexPath.row]
-            cell.name?.text = building.name
-            cell.buildingImageView.image = UIImage(named: building.photo)
-            
+            cell.name.text = building.name
         }
 
         return cell
@@ -77,8 +70,17 @@ class BuildingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 44.0
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let key = mapModel.buildingKeys[indexPath.section]
+        if let buildings = mapModel.buildingDic[key] {
+            let building = buildings[indexPath.row]
+            self.delegate?.dismissBySelect(building: building)
+        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
