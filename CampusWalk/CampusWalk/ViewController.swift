@@ -22,25 +22,70 @@ class BuildingPin:MKPointAnnotation {
 }
 
 
-class ViewController: UIViewController, MKMapViewDelegate, BuildingTableViewControllerDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, BuildingTableViewControllerDelegate {
 
     let mapModel = MapModel.shared
     
+    @IBOutlet weak var toggleFavoriteBuildingsButton: UIButton!
     @IBOutlet weak var showListButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    
+    var locationManager:CLLocationManager!
+    
+    var favoriteBuildingAnnotations:[BuildingPin] = []
+    
+    var showFavoriteBuildings:Bool = true
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         self.mapView.delegate = self
         let delta = 0.014
         let span = MKCoordinateSpan.init(latitudeDelta: delta, longitudeDelta: delta)
         let region = MKCoordinateRegion(center: mapModel.center, span: span)
         mapView.setRegion(region, animated: true)
         
+        let buttonItem = MKUserTrackingBarButtonItem(mapView: mapView)
+        self.navigationItem.rightBarButtonItem = buttonItem
+        
+        self.toggleFavoriteBuildingsButton.setTitle("Hide Favorite Buildings", for: .normal)
+        self.showFavoriteBuildings = true
+        
+        determineCurrentLocation()
+        
     }
 
     func dismissed() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+
+    @IBAction func toggleFavorite(_ sender: Any) {
+        self.showFavoriteBuildings = !showFavoriteBuildings
+        if (self.showFavoriteBuildings) {
+        self.toggleFavoriteBuildingsButton.setTitle("Hide Favorite Buildings", for: .normal)
+            self.addFavoriteBuildingsToMap()
+        } else {
+            self.toggleFavoriteBuildingsButton.setTitle("Show Favorite Buildings", for: .normal)
+            self.removeFavoriteBuildingFromMap()
+        }
+    }
+    
+    func addFavoriteBuildingsToMap() {
+        self.mapView.addAnnotations(self.favoriteBuildingAnnotations)
+    }
+    
+    func removeFavoriteBuildingFromMap() {
+        self.mapView.removeAnnotations(self.mapView.annotations.filter({ (annotation) -> Bool in
+            if (annotation is BuildingPin) {
+                let BAnnotation = annotation as! BuildingPin
+                return BAnnotation.isFavorite
+            } else {
+                return false
+            }
+        }))
     }
     
     func dismissBySelect(building: Building) {
@@ -104,25 +149,55 @@ class ViewController: UIViewController, MKMapViewDelegate, BuildingTableViewCont
         }
     }
     
+    func addToFavorite(annotation: BuildingPin) {
+        self.mapView.removeAnnotation(annotation)
+        annotation.isFavorite = true
+        self.favoriteBuildingAnnotations.append(annotation)
+        self.mapView.addAnnotation(annotation)
+    }
+    
+    func removeFromFavorite(annotation: BuildingPin) {
+        self.mapView.removeAnnotation(annotation)
+        if let indexToRemove = self.favoriteBuildingAnnotations.firstIndex(where: { $0 == annotation }) {
+            self.favoriteBuildingAnnotations.remove(at: indexToRemove)
+            annotation.isFavorite = false
+            self.mapView.addAnnotation(annotation)
+        }
+    }
+    
+    
     func deletePin(annotation: MKAnnotation) {
         self.mapView.removeAnnotation(annotation)
+        if (annotation is BuildingPin && (annotation as! BuildingPin).isFavorite) {
+            let BuildingAnnotation = annotation as! BuildingPin
+            if let indexToRemove = self.favoriteBuildingAnnotations.firstIndex(where: { $0 == BuildingAnnotation }) {
+                self.favoriteBuildingAnnotations.remove(at: indexToRemove)
+                BuildingAnnotation.isFavorite = false
+            }
+        }
     }
     
     @objc func displayActionSheet(_ sender: Any) {
         if let annotation = self.mapView.selectedAnnotations.first {
-            var favoriteAction: UIAlertAction = UIAlertAction(title: "Add Favorite", style: .default)
+            var favoriteAction: UIAlertAction = UIAlertAction(title: "Add Favorite", style: .default) { (UIAlertAction) in
+                self.addToFavorite(annotation: annotation as! BuildingPin)
+            }
             
             if (annotation is BuildingPin) {
                 let buildingAnnotation = annotation as! BuildingPin
                 if buildingAnnotation.isFavorite {
-                    favoriteAction = UIAlertAction(title: "Remove Favorite", style: .default)
+                    favoriteAction = UIAlertAction(title: "Remove Favorite", style: .default) { (UIAlertAction) in
+                        let BuildingAnnotation = annotation as! BuildingPin
+                        self.removeFromFavorite(annotation: BuildingAnnotation)
+                    }
+                    
                 }
             }
              
             let optionMenu = UIAlertController(title: annotation.title!, message: "Choose Option", preferredStyle: .actionSheet)
                 
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
-                self.deletePin(annotation: annotation)
+             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
+                   self.deletePin(annotation: annotation)
             }
                 
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -135,6 +210,30 @@ class ViewController: UIViewController, MKMapViewDelegate, BuildingTableViewCont
         }
 
     }
+    
+    func determineCurrentLocation()
+    {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    // MARK: - MAPKIT DELEGATE
+    
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+        if mode == .none {
+            self.mapView.showsUserLocation = false
+        } else {
+            self.mapView.showsUserLocation = true
+        }
+    }
+    
+    // MARK: - Location Manager
 
 }
 

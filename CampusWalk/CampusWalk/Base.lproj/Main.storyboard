@@ -19,24 +19,36 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dga-Ei-JUc">
-                                <rect key="frame" x="157" y="818" width="100" height="44"/>
+                                <rect key="frame" x="175.5" y="818" width="63" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="JKL-3j-g8A"/>
-                                    <constraint firstAttribute="width" constant="100" id="X84-Hn-E3s"/>
                                 </constraints>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Buildings"/>
                                 <connections>
                                     <segue destination="jbz-H7-TWx" kind="popoverPresentation" identifier="showBuildings" popoverAnchorView="dga-Ei-JUc" id="dnd-Un-aHC">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFh-bE-OK3">
+                                <rect key="frame" x="192" y="782" width="30" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleFavorite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6c9-jy-gkg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="dga-Ei-JUc" firstAttribute="top" secondItem="AFh-bE-OK3" secondAttribute="bottom" constant="8" id="2m7-Pn-JxL"/>
                             <constraint firstItem="tg3-n6-eVL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4mf-EE-nyc"/>
+                            <constraint firstItem="AFh-bE-OK3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5SL-8Z-QnF"/>
                             <constraint firstItem="dga-Ei-JUc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7GZ-9W-fqD"/>
                             <constraint firstItem="tg3-n6-eVL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NV4-gO-zb0"/>
                             <constraint firstItem="dga-Ei-JUc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="W04-2O-Eyb"/>
@@ -49,6 +61,7 @@
                     <connections>
                         <outlet property="mapView" destination="tg3-n6-eVL" id="84B-xu-9Cw"/>
                         <outlet property="showListButton" destination="dga-Ei-JUc" id="4wg-ai-NXE"/>
+                        <outlet property="toggleFavoriteBuildingsButton" destination="AFh-bE-OK3" id="rND-Dm-E1f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -72,7 +85,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiR-Xy-mw8">
-                                            <rect key="frame" x="20" y="12" width="42" height="20.5"/>
+                                            <rect key="frame" x="20" y="12" width="354" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -81,6 +94,7 @@
                                     <constraints>
                                         <constraint firstItem="QiR-Xy-mw8" firstAttribute="leading" secondItem="S0c-II-PPY" secondAttribute="leadingMargin" id="ZSD-CK-vbz"/>
                                         <constraint firstItem="QiR-Xy-mw8" firstAttribute="centerY" secondItem="S0c-II-PPY" secondAttribute="centerY" id="lv0-dA-SJQ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QiR-Xy-mw8" secondAttribute="trailing" constant="20" id="ppz-qG-ddv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
