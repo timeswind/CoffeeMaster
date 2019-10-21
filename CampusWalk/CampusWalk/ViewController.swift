@@ -22,7 +22,7 @@ class BuildingPin:MKPointAnnotation {
 }
 
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, BuildingTableViewControllerDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, BuildingViewControllerDelegate {
 
     let mapModel = MapModel.shared
     
@@ -141,7 +141,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         switch segue.identifier {
         case "showBuildings":
             let nav = segue.destination as! UINavigationController
-            let tableViewVC = nav.topViewController as! BuildingTableViewController
+            let tableViewVC = nav.topViewController as! BuildingViewController
             tableViewVC.delegate = self
         default:
             break

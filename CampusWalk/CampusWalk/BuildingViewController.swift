@@ -8,19 +8,23 @@
 
 import UIKit
 
-protocol BuildingTableViewControllerDelegate:class {
+protocol BuildingViewControllerDelegate:class {
     func dismissed()
     func dismissBySelect(building:Building)
 }
 
-class BuildingTableViewController: UITableViewController {
+class BuildingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var delegate:BuildingTableViewControllerDelegate?
+    @IBOutlet weak var myTableView: UITableView!
+    var delegate:BuildingViewControllerDelegate?
     let mapModel = MapModel.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(close))
+        
+        self.myTableView.delegate = self
+        self.myTableView.dataSource = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,11 +39,11 @@ class BuildingTableViewController: UITableViewController {
     
     
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return mapModel.buildingDic.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let key = mapModel.buildingKeys[section]
         if let buildings = mapModel.buildingDic[key] {
             return buildings.count
@@ -48,7 +52,7 @@ class BuildingTableViewController: UITableViewController {
         return 0
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "buildingsCell", for: indexPath) as! BuildingTableViewCell
           
         // Configure the cell...
@@ -61,19 +65,19 @@ class BuildingTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mapModel.buildingKeys[section]
     }
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return mapModel.buildingKeys
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44.0
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let key = mapModel.buildingKeys[indexPath.section]
         if let buildings = mapModel.buildingDic[key] {
             let building = buildings[indexPath.row]
