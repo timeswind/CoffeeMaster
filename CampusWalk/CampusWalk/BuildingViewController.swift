@@ -11,12 +11,15 @@ import UIKit
 protocol BuildingViewControllerDelegate:class {
     func dismissed()
     func dismissBySelect(building:Building)
+    func dismissBySelectFavorite(building annotation:BuildingPin)
 }
 
 class BuildingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var myTableView: UITableView!
     var delegate:BuildingViewControllerDelegate?
+    var favoriteBuildingAnnotations: [BuildingPin] = []
     let mapModel = MapModel.shared
 
     override func viewDidLoad() {
@@ -25,12 +28,12 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.myTableView.delegate = self
         self.myTableView.dataSource = self
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.segmentControl.addTarget(self, action: #selector(segmentOnTouch), for: .valueChanged)
+        
+    }
+    
+    @objc func segmentOnTouch() {
+        self.myTableView.reloadData()
     }
 
     @objc func close() {
@@ -40,37 +43,68 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
-        return mapModel.buildingDic.count
+        switch self.segmentControl.selectedSegmentIndex {
+        case 0:
+            return mapModel.buildingDic.count
+        case 1:
+            return 1
+        default:
+            return mapModel.buildingDic.count
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let key = mapModel.buildingKeys[section]
-        if let buildings = mapModel.buildingDic[key] {
-            return buildings.count
+        switch self.segmentControl.selectedSegmentIndex {
+        case 1:
+            return self.favoriteBuildingAnnotations.count
+        default:
+            let key = mapModel.buildingKeys[section]
+            if let buildings = mapModel.buildingDic[key] {
+                return buildings.count
+            }
+                
+            return 0
         }
-            
-        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "buildingsCell", for: indexPath) as! BuildingTableViewCell
-          
-        // Configure the cell...
-        let key = mapModel.buildingKeys[indexPath.section]
-        if let buildings = mapModel.buildingDic[key] {
-            let building = buildings[indexPath.row]
-            cell.name.text = building.name
-        }
 
-        return cell
+        switch self.segmentControl.selectedSegmentIndex {
+        case 1:
+            let buildingName = self.favoriteBuildingAnnotations[indexPath.row].title
+            cell.name.text = buildingName
+            return cell
+        default:
+            // Configure the cell...
+            let key = mapModel.buildingKeys[indexPath.section]
+            if let buildings = mapModel.buildingDic[key] {
+                let building = buildings[indexPath.row]
+                cell.name.text = building.name
+            }
+
+            return cell
+        }
+          
+
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return mapModel.buildingKeys[section]
+        switch self.segmentControl.selectedSegmentIndex {
+        case 1:
+            return "Saved Favorite Buildings"
+        default:
+            return mapModel.buildingKeys[section]
+        }
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return mapModel.buildingKeys
+        switch self.segmentControl.selectedSegmentIndex {
+        case 1:
+            return []
+        default:
+            return mapModel.buildingKeys
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -78,11 +112,17 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let key = mapModel.buildingKeys[indexPath.section]
-        if let buildings = mapModel.buildingDic[key] {
-            let building = buildings[indexPath.row]
-            self.delegate?.dismissBySelect(building: building)
+        switch self.segmentControl.selectedSegmentIndex {
+        case 1:
+            self.delegate?.dismissBySelectFavorite(building: self.favoriteBuildingAnnotations[indexPath.row])
+        default:
+            let key = mapModel.buildingKeys[indexPath.section]
+            if let buildings = mapModel.buildingDic[key] {
+                let building = buildings[indexPath.row]
+                self.delegate?.dismissBySelect(building: building)
+            }
         }
+
     }
     
     /*

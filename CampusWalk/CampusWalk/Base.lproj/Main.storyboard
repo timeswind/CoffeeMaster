@@ -71,48 +71,6 @@
             <point key="canvasLocation" x="1047.8260869565217" y="113.83928571428571"/>
         </scene>
         <!--Buildings-->
-        <scene sceneID="Szf-lu-EgK">
-            <objects>
-                <tableViewController id="Xkv-MC-wRq" customClass="BuildingTableViewController" customModule="CampusWalk" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="zSW-VQ-wuu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buildingsCell" rowHeight="44" id="M8K-2n-rHV" customClass="BuildingTableViewCell" customModule="CampusWalk" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M8K-2n-rHV" id="S0c-II-PPY">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiR-Xy-mw8">
-                                            <rect key="frame" x="20" y="12" width="354" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="QiR-Xy-mw8" firstAttribute="leading" secondItem="S0c-II-PPY" secondAttribute="leadingMargin" id="ZSD-CK-vbz"/>
-                                        <constraint firstItem="QiR-Xy-mw8" firstAttribute="centerY" secondItem="S0c-II-PPY" secondAttribute="centerY" id="lv0-dA-SJQ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="QiR-Xy-mw8" secondAttribute="trailing" constant="20" id="ppz-qG-ddv"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Xkv-MC-wRq" id="Vll-PI-DLW"/>
-                            <outlet property="delegate" destination="Xkv-MC-wRq" id="kk7-wI-rBi"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Buildings" id="gMl-T1-Ic0"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T27-RE-QHS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3646" y="114"/>
-        </scene>
-        <!--Buildings-->
         <scene sceneID="4j1-Fa-qic">
             <objects>
                 <viewController id="Vgi-tb-Utj" customClass="BuildingViewController" customModule="CampusWalk" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,20 +83,21 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buildingsCell" id="sI1-ch-Qjd" customClass="BuildingTableViewCell" customModule="CampusWalk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sI1-ch-Qjd" id="v45-J5-Pai">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-XY-h8t">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UUE-XY-h8t" secondAttribute="trailing" id="8aQ-Ec-jV5"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="UUE-XY-h8t" secondAttribute="bottom" id="V0B-sS-Qax"/>
                                                 <constraint firstItem="UUE-XY-h8t" firstAttribute="leading" secondItem="v45-J5-Pai" secondAttribute="leadingMargin" id="a8p-FD-8H5"/>
                                                 <constraint firstItem="UUE-XY-h8t" firstAttribute="top" secondItem="v45-J5-Pai" secondAttribute="topMargin" id="cZE-zZ-i82"/>
@@ -173,6 +132,7 @@
                     <navigationItem key="navigationItem" title="Buildings" id="O9q-Jh-xm9"/>
                     <connections>
                         <outlet property="myTableView" destination="SHo-z8-RJT" id="Net-ux-9ho"/>
+                        <outlet property="segmentControl" destination="sOv-N4-AUI" id="3BD-8P-Yda"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rst-Ax-3R2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

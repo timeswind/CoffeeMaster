@@ -87,14 +87,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     @IBAction func toggleFavorite(_ sender: Any) {
-        self.showFavoriteBuildings = !showFavoriteBuildings
         if (self.showFavoriteBuildings) {
-        self.toggleFavoriteBuildingsButton.setTitle("Hide Favorite Buildings", for: .normal)
-            self.addFavoriteBuildingsToMap()
+            self.setFavoriteBuildingsHidden()
         } else {
-            self.toggleFavoriteBuildingsButton.setTitle("Show Favorite Buildings", for: .normal)
-            self.removeFavoriteBuildingFromMap()
+            self.setFavoriteBuildingsVisiable()
         }
+    }
+    
+    func setFavoriteBuildingsVisiable() {
+        self.showFavoriteBuildings = true
+        self.toggleFavoriteBuildingsButton.setTitle("Hide Favorite Buildings", for: .normal)
+        self.addFavoriteBuildingsToMap()
+    }
+    
+    func setFavoriteBuildingsHidden() {
+        self.showFavoriteBuildings = false
+        self.toggleFavoriteBuildingsButton.setTitle("Show Favorite Buildings", for: .normal)
+        self.removeFavoriteBuildingFromMap()
     }
     
     func addFavoriteBuildingsToMap() {
@@ -115,6 +124,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func dismissBySelect(building: Building) {
         self.dismiss(animated: true, completion: {
             self.addBuildingPin(building: building)
+        })
+    }
+    
+    func dismissBySelectFavorite(building annotation: BuildingPin) {
+        self.dismiss(animated: true, completion: {
+            self.setFavoriteBuildingsVisiable()
+            self.mapView.setCenter(annotation.coordinate, animated: true)
         })
     }
     
@@ -141,8 +157,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         switch segue.identifier {
         case "showBuildings":
             let nav = segue.destination as! UINavigationController
-            let tableViewVC = nav.topViewController as! BuildingViewController
-            tableViewVC.delegate = self
+            let buildingVC = nav.topViewController as! BuildingViewController
+            buildingVC.favoriteBuildingAnnotations = self.favoriteBuildingAnnotations
+            buildingVC.delegate = self
         default:
             break
         }
