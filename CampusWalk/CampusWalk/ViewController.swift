@@ -27,7 +27,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     let mapModel = MapModel.shared
     
     @IBOutlet weak var toggleFavoriteBuildingsButton: UIButton!
-    @IBOutlet weak var showListButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager:CLLocationManager!
@@ -40,7 +39,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         self.mapView.delegate = self
         let delta = 0.014
         let span = MKCoordinateSpan.init(latitudeDelta: delta, longitudeDelta: delta)
@@ -54,7 +52,25 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.showFavoriteBuildings = true
         
         determineCurrentLocation()
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        setupButton()
+    }
+    
+    func setupButton() {
+        let shadowSize : CGFloat = 5.0
+        let shadowPath = UIBezierPath(rect: CGRect(x: -shadowSize / 2,
+                                                   y: (-shadowSize / 2) + 3,
+                                                   width: self.toggleFavoriteBuildingsButton.frame.size.width + shadowSize,
+                                                   height: self.toggleFavoriteBuildingsButton.frame.size.height + shadowSize))
+        self.toggleFavoriteBuildingsButton.layer.masksToBounds = false
+        self.toggleFavoriteBuildingsButton.layer.cornerRadius = 3
+        self.toggleFavoriteBuildingsButton.layer.shadowColor = UIColor.gray.cgColor
+        self.toggleFavoriteBuildingsButton.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.toggleFavoriteBuildingsButton.layer.shadowOpacity = 0.5
+        self.toggleFavoriteBuildingsButton.layer.shadowPath = shadowPath.cgPath
+        self.toggleFavoriteBuildingsButton.contentEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
     }
 
     func dismissed() {
@@ -95,7 +111,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func addBuildingPin(building: Building) {
-        print(building)
         let buildingAnnotation = BuildingPin(building: building, isFavorite: false)
         self.mapView.removeAnnotations(self.mapView.annotations.filter({ (annotation) -> Bool in
             if (annotation is BuildingPin) {

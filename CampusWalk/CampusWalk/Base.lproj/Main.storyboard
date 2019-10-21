@@ -18,24 +18,10 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tg3-n6-eVL">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dga-Ei-JUc">
-                                <rect key="frame" x="175.5" y="818" width="63" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="JKL-3j-g8A"/>
-                                </constraints>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Buildings"/>
-                                <connections>
-                                    <segue destination="jbz-H7-TWx" kind="popoverPresentation" identifier="showBuildings" popoverAnchorView="dga-Ei-JUc" id="dnd-Un-aHC">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFh-bE-OK3">
-                                <rect key="frame" x="192" y="782" width="30" height="28"/>
+                                <rect key="frame" x="192" y="832" width="30" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -46,21 +32,24 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="dga-Ei-JUc" firstAttribute="top" secondItem="AFh-bE-OK3" secondAttribute="bottom" constant="8" id="2m7-Pn-JxL"/>
                             <constraint firstItem="tg3-n6-eVL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4mf-EE-nyc"/>
-                            <constraint firstItem="AFh-bE-OK3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5SL-8Z-QnF"/>
-                            <constraint firstItem="dga-Ei-JUc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7GZ-9W-fqD"/>
+                            <constraint firstItem="AFh-bE-OK3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6Xz-6p-e6R"/>
                             <constraint firstItem="tg3-n6-eVL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NV4-gO-zb0"/>
-                            <constraint firstItem="dga-Ei-JUc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="W04-2O-Eyb"/>
+                            <constraint firstItem="AFh-bE-OK3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SJI-1X-6TC"/>
                             <constraint firstItem="tg3-n6-eVL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eIn-MO-YhF"/>
                             <constraint firstAttribute="bottom" secondItem="tg3-n6-eVL" secondAttribute="bottom" id="elw-BG-WCg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Campus Walk" id="Wju-kP-W11"/>
+                    <navigationItem key="navigationItem" title="Campus Walk" id="Wju-kP-W11">
+                        <barButtonItem key="leftBarButtonItem" title="Buildings" id="Cny-He-XXw">
+                            <connections>
+                                <segue destination="jbz-H7-TWx" kind="presentation" identifier="showBuildings" id="y2q-rC-jKy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="tg3-n6-eVL" id="84B-xu-9Cw"/>
-                        <outlet property="showListButton" destination="dga-Ei-JUc" id="4wg-ai-NXE"/>
                         <outlet property="toggleFavoriteBuildingsButton" destination="AFh-bE-OK3" id="rND-Dm-E1f"/>
                     </connections>
                 </viewController>
