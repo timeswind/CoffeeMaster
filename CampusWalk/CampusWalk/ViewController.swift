@@ -26,6 +26,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     let mapModel = MapModel.shared
     
+    @IBOutlet weak var mapDisplayTypeButton: UIButton!
     @IBOutlet weak var toggleFavoriteBuildingsButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -44,14 +45,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let span = MKCoordinateSpan.init(latitudeDelta: delta, longitudeDelta: delta)
         let region = MKCoordinateRegion(center: mapModel.center, span: span)
         mapView.setRegion(region, animated: true)
-        
+        mapView.mapType = .standard
+
         let buttonItem = MKUserTrackingBarButtonItem(mapView: mapView)
         self.navigationItem.rightBarButtonItem = buttonItem
         
         self.toggleFavoriteBuildingsButton.setTitle("Hide Favorite Buildings", for: .normal)
         self.showFavoriteBuildings = true
-        
-        determineCurrentLocation()
+        self.mapDisplayTypeButton.setTitle("Standard", for: .normal)
     }
     
     override func viewDidLayoutSubviews() {
@@ -59,25 +60,32 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func setupButton() {
-        let shadowSize : CGFloat = 5.0
-        let shadowPath = UIBezierPath(rect: CGRect(x: -shadowSize / 2,
-                                                   y: (-shadowSize / 2) + 3,
-                                                   width: self.toggleFavoriteBuildingsButton.frame.size.width + shadowSize,
-                                                   height: self.toggleFavoriteBuildingsButton.frame.size.height + shadowSize))
-        self.toggleFavoriteBuildingsButton.layer.masksToBounds = false
-        self.toggleFavoriteBuildingsButton.layer.cornerRadius = 3
-        self.toggleFavoriteBuildingsButton.layer.shadowColor = UIColor.gray.cgColor
-        self.toggleFavoriteBuildingsButton.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        self.toggleFavoriteBuildingsButton.layer.shadowOpacity = 0.5
-        self.toggleFavoriteBuildingsButton.layer.shadowPath = shadowPath.cgPath
-        self.toggleFavoriteBuildingsButton.contentEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
+        self.toggleFavoriteBuildingsButton.addShadow()
+        self.mapDisplayTypeButton.addShadow()
     }
 
     func dismissed() {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    @IBAction func toggleMapviewType(_ sender: Any) {
+        
+        switch self.mapView.mapType {
+        case .standard:
+            self.mapView.mapType = .hybrid
+            self.mapDisplayTypeButton.setTitle("Hybrid", for: .normal)
+        case .hybrid:
+            self.mapView.mapType = .satellite
+            self.mapDisplayTypeButton.setTitle("Satellite", for: .normal)
+        case .satellite:
+            self.mapView.mapType = .standard
+            self.mapDisplayTypeButton.setTitle("Standard", for: .normal)
+        default:
+            break
+        }
+        
+    }
+    
     @IBAction func toggleFavorite(_ sender: Any) {
         self.showFavoriteBuildings = !showFavoriteBuildings
         if (self.showFavoriteBuildings) {
@@ -226,29 +234,50 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     }
     
-    func determineCurrentLocation()
-    {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-        }
-    }
+//    func determineCurrentLocation()
+//    {
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestWhenInUseAuthorization()
+//
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.startUpdatingLocation()
+//        }
+//    }
     
     // MARK: - MAPKIT DELEGATE
     
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
         if mode == .none {
             self.mapView.showsUserLocation = false
-        } else {
-            self.mapView.showsUserLocation = true
         }
     }
     
     // MARK: - Location Manager
-
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        case .restricted:
+            let alertController = UIAlertController(title: "Location Service Restricted", message:
+                 "Part of app's feature is restircted", preferredStyle: .alert)
+             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+             self.present(alertController, animated: true, completion: nil)
+            break
+        case .denied:
+            let alertController = UIAlertController(title: "Location Service Denied", message:
+                 "You can re-enable the location access in Settings app", preferredStyle: .alert)
+             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+             self.present(alertController, animated: true, completion: nil)
+            break
+        default:
+            break
+        }
+    }
 }
 

@@ -18,6 +18,7 @@
 		5C5C0E7F235CF5E4002192F1 /* buildings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C5C0E7E235CF5E4002192F1 /* buildings.plist */; };
 		5C62ABC5235A795300FC7CA5 /* BuildingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62ABC4235A795300FC7CA5 /* BuildingTableViewController.swift */; };
 		5C62ABC7235A83A700FC7CA5 /* BuildingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */; };
+		5CBFB24C235DFD43002B6871 /* Button+addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		5C5C0E7E235CF5E4002192F1 /* buildings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = buildings.plist; sourceTree = "<group>"; };
 		5C62ABC4235A795300FC7CA5 /* BuildingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewController.swift; sourceTree = "<group>"; };
 		5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewCell.swift; sourceTree = "<group>"; };
+		5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+addShadow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				5C45DB9A235A6EC200625742 /* Info.plist */,
 				5C45DBAE235A701F00625742 /* MapModel.swift */,
 				5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */,
+				5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */,
 			);
 			path = CampusWalk;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				5C62ABC5235A795300FC7CA5 /* BuildingTableViewController.swift in Sources */,
 				5C45DB8D235A6EC000625742 /* AppDelegate.swift in Sources */,
 				5C45DB8F235A6EC000625742 /* SceneDelegate.swift in Sources */,
+				5CBFB24C235DFD43002B6871 /* Button+addShadow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
