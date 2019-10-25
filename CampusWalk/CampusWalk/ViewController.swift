@@ -160,6 +160,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let buildingVC = nav.topViewController as! BuildingViewController
             buildingVC.favoriteBuildingAnnotations = self.favoriteBuildingAnnotations
             buildingVC.delegate = self
+        case "pickLocation":
+            let nav = segue.destination as! UINavigationController
+            let buildingVC = nav.topViewController as! BuildingViewController
+            buildingVC.favoriteBuildingAnnotations = self.favoriteBuildingAnnotations
+            buildingVC.delegate = self
+            buildingVC.showUserLocation = true
         default:
             break
         }
@@ -205,6 +211,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+    
+    
     func getDirections(from: MKMapItem, to: MKMapItem, completion: @escaping(MKDirections.Response?)->()) {
         let request = MKDirections.Request()
         request.source = from
@@ -249,18 +257,37 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let optionMenu = UIAlertController(title: annotation.title!, message: "Choose Option", preferredStyle: .actionSheet)
                 
              let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
-                   self.deletePin(annotation: annotation)
+                self.deletePin(annotation: annotation)
+            }
+            
+            let directionFromAction: UIAlertAction = UIAlertAction(title: "Direction from", style: .default) { (UIAlertAction) in
+                self.showLocationsForSelect()
+            }
+            
+            let directionToAction: UIAlertAction = UIAlertAction(title: "Direction to", style: .default) { (UIAlertAction) in
+                self.showLocationsForSelect()
+            }
+            
+            let showDetailAction: UIAlertAction = UIAlertAction(title: "Details", style: .default) { (UIAlertAction) in
+                self.showLocationsForSelect()
             }
                 
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
                 
             optionMenu.addAction(deleteAction)
             optionMenu.addAction(favoriteAction)
+            optionMenu.addAction(directionFromAction)
+            optionMenu.addAction(directionToAction)
+            optionMenu.addAction(showDetailAction)
             optionMenu.addAction(cancelAction)
-                
+
             self.present(optionMenu, animated: true, completion: nil)
         }
 
+    }
+    
+    func showLocationsForSelect() {
+        self.performSegue(withIdentifier: "pickLocation", sender: self)
     }
     
 //    func determineCurrentLocation()

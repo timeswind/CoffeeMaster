@@ -21,6 +21,8 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
     var delegate:BuildingViewControllerDelegate?
     var favoriteBuildingAnnotations: [BuildingPin] = []
     let mapModel = MapModel.shared
+    
+    var showUserLocation: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +47,17 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
     func numberOfSections(in tableView: UITableView) -> Int {
         switch self.segmentControl.selectedSegmentIndex {
         case 0:
-            return mapModel.buildingDic.count
+            if (showUserLocation) {
+                return mapModel.buildingDic.count + 1
+            } else {
+                return mapModel.buildingDic.count
+            }
         case 1:
-            return 1
+            if (showUserLocation) {
+                return 2
+            } else {
+                return 1
+            }
         default:
             return mapModel.buildingDic.count
         }
@@ -56,14 +66,36 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch self.segmentControl.selectedSegmentIndex {
         case 1:
-            return self.favoriteBuildingAnnotations.count
-        default:
-            let key = mapModel.buildingKeys[section]
-            if let buildings = mapModel.buildingDic[key] {
-                return buildings.count
+            if (showUserLocation) {
+                if (section == 0) {
+                    return 1;
+                } else {
+                    return self.favoriteBuildingAnnotations.count
+                }
+            } else {
+                return self.favoriteBuildingAnnotations.count
             }
-                
-            return 0
+        default:
+            if (showUserLocation) {
+                if (section == 0) {
+                    return 1;
+                } else {
+                    let key = mapModel.buildingKeys[section - 1]
+                    if let buildings = mapModel.buildingDic[key] {
+                        return buildings.count
+                    }
+                        
+                    return 0
+                    
+                }
+            } else {
+                let key = mapModel.buildingKeys[section]
+                if let buildings = mapModel.buildingDic[key] {
+                    return buildings.count
+                }
+                    
+                return 0
+            }
         }
     }
 
@@ -72,18 +104,43 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
 
         switch self.segmentControl.selectedSegmentIndex {
         case 1:
-            let buildingName = self.favoriteBuildingAnnotations[indexPath.row].title
-            cell.name.text = buildingName
-            return cell
-        default:
-            // Configure the cell...
-            let key = mapModel.buildingKeys[indexPath.section]
-            if let buildings = mapModel.buildingDic[key] {
-                let building = buildings[indexPath.row]
-                cell.name.text = building.name
+            if (showUserLocation) {
+                if (indexPath.section == 0) {
+                    cell.name.text = "My Current Location"
+                    return cell
+                } else {
+                    let buildingName = self.favoriteBuildingAnnotations[indexPath.row].title
+                    cell.name.text = buildingName
+                    return cell
+                }
+            } else {
+                let buildingName = self.favoriteBuildingAnnotations[indexPath.row].title
+                cell.name.text = buildingName
+                return cell
             }
+        default:
+            if (showUserLocation) {
+                if (indexPath.section == 0) {
+                    cell.name.text = "My Current Location"
+                    return cell
+                } else {
+                    let key = mapModel.buildingKeys[indexPath.section - 1]
+                    if let buildings = mapModel.buildingDic[key] {
+                        let building = buildings[indexPath.row]
+                        cell.name.text = building.name
+                    }
 
-            return cell
+                    return cell
+                }
+            } else {
+                let key = mapModel.buildingKeys[indexPath.section]
+                if let buildings = mapModel.buildingDic[key] {
+                    let building = buildings[indexPath.row]
+                    cell.name.text = building.name
+                }
+
+                return cell
+            }
         }
           
 
@@ -92,9 +149,25 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch self.segmentControl.selectedSegmentIndex {
         case 1:
-            return "Saved Favorite Buildings"
+            if (showUserLocation) {
+                if (section == 0) {
+                    return "Location"
+                } else {
+                    return "Saved Favorite Buildings"
+                }
+            } else {
+                return "Saved Favorite Buildings"
+            }
         default:
-            return mapModel.buildingKeys[section]
+            if (showUserLocation) {
+                if (section == 0) {
+                    return "Location"
+                } else {
+                    return mapModel.buildingKeys[section - 1]
+                }
+            } else {
+                return mapModel.buildingKeys[section]
+            }
         }
     }
     
@@ -103,7 +176,14 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
         case 1:
             return []
         default:
-            return mapModel.buildingKeys
+            if (showUserLocation) {
+                var keys: [String] = [String]()
+                keys.append("_")
+                keys.append(contentsOf: mapModel.buildingKeys)
+                return keys
+            } else {
+                return mapModel.buildingKeys
+            }
         }
     }
     
