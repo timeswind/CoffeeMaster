@@ -205,6 +205,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+    func getDirections(from: MKMapItem, to: MKMapItem, completion: @escaping(MKDirections.Response?)->()) {
+        let request = MKDirections.Request()
+        request.source = from
+        request.destination = to
+        
+        let directions = MKDirections.init(request: request)
+        directions.calculate { (response, err) in
+            guard(err == nil) else { print(err!.localizedDescription);return }
+            completion(response)
+        }
+    }
+    
     
     func deletePin(annotation: MKAnnotation) {
         self.mapView.removeAnnotation(annotation)
@@ -266,9 +278,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     // MARK: - MAPKIT DELEGATE
     
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
-        if mode == .none {
-            self.mapView.showsUserLocation = false
-        }
+//        print(mode)
+//        if mode == .none {
+//            self.mapView.showsUserLocation = false
+//        }
     }
     
     // MARK: - Location Manager

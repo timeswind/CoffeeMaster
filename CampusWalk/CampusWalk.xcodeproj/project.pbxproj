@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C3C80FC236368DC00A31E75 /* oldmain.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5C3C80FB236368DC00A31E75 /* oldmain.gpx */; };
 		5C45DB8D235A6EC000625742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45DB8C235A6EC000625742 /* AppDelegate.swift */; };
 		5C45DB8F235A6EC000625742 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45DB8E235A6EC000625742 /* SceneDelegate.swift */; };
 		5C45DB91235A6EC000625742 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45DB90235A6EC000625742 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C3C80FB236368DC00A31E75 /* oldmain.gpx */ = {isa = PBXFileReference; lastKnownFileType = file; name = oldmain.gpx; path = "Campus Assets/oldmain.gpx"; sourceTree = SOURCE_ROOT; };
 		5C45DB89235A6EC000625742 /* CampusWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C45DB8C235A6EC000625742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C45DB8E235A6EC000625742 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				5C45DBAE235A701F00625742 /* MapModel.swift */,
 				5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */,
 				5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */,
+				5C3C80FB236368DC00A31E75 /* oldmain.gpx */,
 			);
 			path = CampusWalk;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				5C45DB99235A6EC200625742 /* LaunchScreen.storyboard in Resources */,
 				5C45DB96235A6EC200625742 /* Assets.xcassets in Resources */,
+				5C3C80FC236368DC00A31E75 /* oldmain.gpx in Resources */,
 				5C5C0E7F235CF5E4002192F1 /* buildings.plist in Resources */,
 				5C45DB94235A6EC000625742 /* Main.storyboard in Resources */,
 			);
