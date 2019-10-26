@@ -11,10 +11,15 @@ import MapKit
 
 class BuildingPin:MKPointAnnotation {
     var isFavorite: Bool = false
+    var isNavigation: Bool = false
+    var isDestination: Bool = false
+    var isSource: Bool = false
     var color:UIColor {return isFavorite ? UIColor.red : UIColor.blue}
+    var building:Building!
     
     init(building: Building, isFavorite: Bool) {
         super.init()
+        self.building = building
         self.coordinate = CLLocationCoordinate2D(latitude: building.latitude, longitude: building.longitude)
         self.title = building.name
         self.isFavorite = isFavorite
@@ -35,7 +40,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var favoriteBuildingAnnotations:[BuildingPin] = []
     
     var showFavoriteBuildings:Bool = true
-    
+    var direction:Bool = false
+    var selectedBuilding:MKMapItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,6 +127,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }))
     }
     
+    // MARK: - BUILDING LIST delegate
+    
     func dismissBySelect(building: Building) {
         self.dismiss(animated: true, completion: {
             self.addBuildingPin(building: building)
@@ -132,6 +140,62 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             self.setFavoriteBuildingsVisiable()
             self.mapView.setCenter(annotation.coordinate, animated: true)
         })
+    }
+    
+    func dismissBySelectforDirection(building: Building, direction: Bool) {
+    self.dismiss(animated: true, completion: {
+        if (direction) {
+            let buildingPin = self.addBuildingPinForNavigation(building: building, type: "destination")
+            let toLocation = MKMapItem(placemark: MKPlacemark(coordinate: buildingPin.coordinate))
+            if let fromLocation = self.selectedBuilding {
+                self.calculateDirection(from: fromLocation, to: toLocation)
+            }
+        } else {
+            let buildingPin = self.addBuildingPinForNavigation(building: building, type: "source")
+            let fromLocation = MKMapItem(placemark: MKPlacemark(coordinate: buildingPin.coordinate))
+            if let toLocation = self.selectedBuilding {
+                self.calculateDirection(from: fromLocation, to: toLocation)
+            }
+        }
+    })
+    }
+    
+    func dismissBySelectMyLocationforDirection(direction: Bool) {
+        self.dismiss(animated: true, completion: {
+            if (direction) {
+                let toLocation = MKMapItem.forCurrentLocation()
+                if let fromLocation = self.selectedBuilding {
+                    self.calculateDirection(from: fromLocation, to: toLocation)
+                }
+            } else {
+                let fromLocation = MKMapItem.forCurrentLocation()
+                if let toLocation = self.selectedBuilding {
+                    self.calculateDirection(from: fromLocation, to: toLocation)
+                }
+            }
+        })
+    }
+    
+    func addBuildingPinForNavigation(building: Building, type: String) -> BuildingPin {
+        let buildingNavigationAnnotation = BuildingPin(building: building, isFavorite: false)
+        buildingNavigationAnnotation.isNavigation = true
+        switch type {
+        case "destination":
+            buildingNavigationAnnotation.isDestination = true
+        case "source":
+            buildingNavigationAnnotation.isSource = true
+        default:
+            assert(false, "Unhandled Condition")
+        }
+        
+        self.mapView.addAnnotation(buildingNavigationAnnotation)
+        
+        let delta = 0.01
+        let span = MKCoordinateSpan.init(latitudeDelta: delta, longitudeDelta: delta)
+        let region = MKCoordinateRegion(center: buildingNavigationAnnotation.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+        
+        return buildingNavigationAnnotation
     }
     
     func addBuildingPin(building: Building) {
@@ -165,6 +229,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let buildingVC = nav.topViewController as! BuildingViewController
             buildingVC.favoriteBuildingAnnotations = self.favoriteBuildingAnnotations
             buildingVC.delegate = self
+            buildingVC.direction = self.direction
+            buildingVC.selectedBuilding = self.selectedBuilding
             buildingVC.showUserLocation = true
         default:
             break
@@ -180,6 +246,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let annotationView: MKPinAnnotationView! = (mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView) ?? MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             
             annotationView.pinTintColor = buildingAnnotation.color
+            if (buildingAnnotation.isDestination) {
+                annotationView.pinTintColor = .green
+            } else if (buildingAnnotation.isSource) {
+                annotationView.pinTintColor = .yellow
+            }
             annotationView.canShowCallout = true
 
             let btn = UIButton(type: .detailDisclosure)
@@ -211,6 +282,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+    func calculateDirection(from: MKMapItem, to: MKMapItem) {
+        self.getDirections(from: from, to: to) { (response) in
+            guard(response != nil) else { return }
+            
+            if let route = response?.routes.first {
+                let polyline = route.polyline
+                self.mapView.addOverlay(polyline)
+            }
+
+        }
+    }
+    
     
     
     func getDirections(from: MKMapItem, to: MKMapItem, completion: @escaping(MKDirections.Response?)->()) {
@@ -238,52 +321,85 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     @objc func displayActionSheet(_ sender: Any) {
+        
         if let annotation = self.mapView.selectedAnnotations.first {
-            var favoriteAction: UIAlertAction = UIAlertAction(title: "Add Favorite", style: .default) { (UIAlertAction) in
-                self.addToFavorite(annotation: annotation as! BuildingPin)
-            }
-            
             if (annotation is BuildingPin) {
                 let buildingAnnotation = annotation as! BuildingPin
+                var favoriteAction: UIAlertAction = UIAlertAction(title: "Add Favorite", style: .default) { (UIAlertAction) in
+                    self.addToFavorite(annotation: annotation as! BuildingPin)
+                }
                 if buildingAnnotation.isFavorite {
                     favoriteAction = UIAlertAction(title: "Remove Favorite", style: .default) { (UIAlertAction) in
                         let BuildingAnnotation = annotation as! BuildingPin
                         self.removeFromFavorite(annotation: BuildingAnnotation)
                     }
-                    
                 }
-            }
-             
-            let optionMenu = UIAlertController(title: annotation.title!, message: "Choose Option", preferredStyle: .actionSheet)
+                let optionMenu = UIAlertController(title: annotation.title!, message: "Choose Option", preferredStyle: .actionSheet)
+                    
+                 let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
+                    self.deletePin(annotation: annotation)
+                }
                 
-             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
-                self.deletePin(annotation: annotation)
-            }
-            
-            let directionFromAction: UIAlertAction = UIAlertAction(title: "Direction from", style: .default) { (UIAlertAction) in
-                self.showLocationsForSelect()
-            }
-            
-            let directionToAction: UIAlertAction = UIAlertAction(title: "Direction to", style: .default) { (UIAlertAction) in
-                self.showLocationsForSelect()
-            }
-            
-            let showDetailAction: UIAlertAction = UIAlertAction(title: "Details", style: .default) { (UIAlertAction) in
-                self.showLocationsForSelect()
-            }
+                let directionFromAction: UIAlertAction = UIAlertAction(title: "Direction from", style: .default) { (UIAlertAction) in
+                    self.clearNavigation()
+                    self.direction = false // backward direction
+                    self.setDestination(for: buildingAnnotation)
+                    self.selectedBuilding = MKMapItem(placemark: MKPlacemark(coordinate: annotation.coordinate))
+                    self.showLocationsForSelect()
+                }
                 
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                let directionToAction: UIAlertAction = UIAlertAction(title: "Direction to", style: .default) { (UIAlertAction) in
+                    self.clearNavigation()
+                    self.direction = true // forward direction
+                    self.setSource(for: buildingAnnotation)
+                    self.selectedBuilding = MKMapItem(placemark: MKPlacemark(coordinate: annotation.coordinate))
+                    self.showLocationsForSelect()
+                }
                 
-            optionMenu.addAction(deleteAction)
-            optionMenu.addAction(favoriteAction)
-            optionMenu.addAction(directionFromAction)
-            optionMenu.addAction(directionToAction)
-            optionMenu.addAction(showDetailAction)
-            optionMenu.addAction(cancelAction)
+                let showDetailAction: UIAlertAction = UIAlertAction(title: "Details", style: .default) { (UIAlertAction) in
+    //                self.showLocationsForSelect()
+                }
+                    
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                    
+                optionMenu.addAction(deleteAction)
+                optionMenu.addAction(favoriteAction)
+                optionMenu.addAction(directionFromAction)
+                optionMenu.addAction(directionToAction)
+                optionMenu.addAction(showDetailAction)
+                optionMenu.addAction(cancelAction)
 
-            self.present(optionMenu, animated: true, completion: nil)
+                self.present(optionMenu, animated: true, completion: nil)
+            }
         }
 
+    }
+    
+    func clearNavigation() {
+        self.mapView.removeAnnotations(self.mapView.annotations.filter({ (annotation) -> Bool in
+            if (annotation is BuildingPin) {
+                let BAnnotation = annotation as! BuildingPin
+                return BAnnotation.isNavigation
+            } else {
+                return true
+            }
+        }))
+    }
+    
+    func setSource(for pin: BuildingPin) {
+        let sourcePin = pin
+        sourcePin.isNavigation = true
+        sourcePin.isSource = true
+        mapView.removeAnnotation(pin)
+        mapView.addAnnotation(sourcePin)
+    }
+    
+    func setDestination(for pin: BuildingPin) {
+        let destinationPin = pin
+        destinationPin.isNavigation = true
+        destinationPin.isDestination = true
+        mapView.removeAnnotation(pin)
+        mapView.addAnnotation(destinationPin)
     }
     
     func showLocationsForSelect() {
@@ -310,6 +426,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 //            self.mapView.showsUserLocation = false
 //        }
     }
+    
+//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        return MKOverlayRenderer.
+//    }
     
     // MARK: - Location Manager
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

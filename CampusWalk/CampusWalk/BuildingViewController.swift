@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
 protocol BuildingViewControllerDelegate:class {
     func dismissed()
     func dismissBySelect(building:Building)
     func dismissBySelectFavorite(building annotation:BuildingPin)
+    
+    func dismissBySelectforDirection(building:Building, direction: Bool)
+    func dismissBySelectMyLocationforDirection(direction: Bool)
 }
 
 class BuildingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -23,6 +27,9 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
     let mapModel = MapModel.shared
     
     var showUserLocation: Bool = false
+    var direction:Bool = false
+    var selectedBuilding:MKMapItem?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -194,12 +201,33 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch self.segmentControl.selectedSegmentIndex {
         case 1:
-            self.delegate?.dismissBySelectFavorite(building: self.favoriteBuildingAnnotations[indexPath.row])
+            if (showUserLocation) {
+                if (indexPath.section == 0) {
+                    self.delegate?.dismissBySelectMyLocationforDirection(direction: self.direction)
+                } else {
+                    let building = self.favoriteBuildingAnnotations[indexPath.row].building
+                    self.delegate?.dismissBySelectforDirection(building: building!, direction: self.direction)
+                }
+            } else {
+                self.delegate?.dismissBySelectFavorite(building: self.favoriteBuildingAnnotations[indexPath.row])
+            }
         default:
-            let key = mapModel.buildingKeys[indexPath.section]
-            if let buildings = mapModel.buildingDic[key] {
-                let building = buildings[indexPath.row]
-                self.delegate?.dismissBySelect(building: building)
+            if (showUserLocation) {
+                if (indexPath.section == 0) {
+                    self.delegate?.dismissBySelectMyLocationforDirection(direction: self.direction)
+                } else {
+                    let key = mapModel.buildingKeys[indexPath.section - 1]
+                    if let buildings = mapModel.buildingDic[key] {
+                        let building = buildings[indexPath.row]
+                        self.delegate?.dismissBySelectforDirection(building: building, direction: self.direction)
+                    }
+                }
+            } else {
+                let key = mapModel.buildingKeys[indexPath.section]
+                if let buildings = mapModel.buildingDic[key] {
+                    let building = buildings[indexPath.row]
+                    self.delegate?.dismissBySelect(building: building)
+                }
             }
         }
 
