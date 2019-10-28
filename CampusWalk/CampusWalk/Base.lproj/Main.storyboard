@@ -39,13 +39,25 @@
                                     <action selector="toggleMapviewType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n50-U1-Epd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9J8-Qc-cCG">
+                                <rect key="frame" x="184" y="108" width="46" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearDirection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qxt-cP-iaA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="tg3-n6-eVL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4mf-EE-nyc"/>
+                            <constraint firstItem="9J8-Qc-cCG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="5Ne-gD-mbZ"/>
                             <constraint firstItem="AFh-bE-OK3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6Xz-6p-e6R"/>
                             <constraint firstItem="tg3-n6-eVL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NV4-gO-zb0"/>
                             <constraint firstItem="AFh-bE-OK3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SJI-1X-6TC"/>
+                            <constraint firstItem="9J8-Qc-cCG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wye-8f-aUP"/>
                             <constraint firstItem="v2n-S1-4uo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="d9B-bl-qAo"/>
                             <constraint firstItem="tg3-n6-eVL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eIn-MO-YhF"/>
                             <constraint firstAttribute="bottom" secondItem="tg3-n6-eVL" secondAttribute="bottom" id="elw-BG-WCg"/>
@@ -61,6 +73,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearDirectionButton" destination="9J8-Qc-cCG" id="lVk-nd-xm9"/>
                         <outlet property="mapDisplayTypeButton" destination="v2n-S1-4uo" id="qd9-dp-QgU"/>
                         <outlet property="mapView" destination="tg3-n6-eVL" id="84B-xu-9Cw"/>
                         <outlet property="toggleFavoriteBuildingsButton" destination="AFh-bE-OK3" id="rND-Dm-E1f"/>
@@ -84,14 +97,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buildingsCell" id="sI1-ch-Qjd" customClass="BuildingTableViewCell" customModule="CampusWalk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sI1-ch-Qjd" id="v45-J5-Pai">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-XY-h8t">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

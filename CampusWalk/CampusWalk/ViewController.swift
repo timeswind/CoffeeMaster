@@ -43,6 +43,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     var favoriteBuildingAnnotations:[BuildingPin] = []
     
+    @IBOutlet weak var clearDirectionButton: UIButton!
     var showFavoriteBuildings:Bool = true
     var direction:Bool = false
     var selectedBuilding:MKMapItem?
@@ -63,6 +64,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.toggleFavoriteBuildingsButton.setTitle("Hide Favorite Buildings", for: .normal)
         self.showFavoriteBuildings = true
         self.mapDisplayTypeButton.setTitle("Standard", for: .normal)
+        self.clearDirectionButton.isHidden = true
+        self.clearDirectionButton.setTitle("Clear Direction", for: .normal)
         self.toggleFavoriteBuildingsButton.isHidden = true
     }
     
@@ -71,6 +74,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func setupButton() {
+        self.clearDirectionButton.addShadow()
         self.toggleFavoriteBuildingsButton.addShadow()
         self.mapDisplayTypeButton.addShadow()
     }
@@ -95,6 +99,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             break
         }
         
+    }
+    
+    @IBAction func clearDirection(_ sender: Any) {
+        self.clearNavigation()
+        self.clearDirectionButton.isHidden = true
     }
     
     @IBAction func toggleFavorite(_ sender: Any) {
@@ -301,6 +310,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 let coordinates = route.polyline.coordinates
                 let directionPolyline = DirectionPolyline(coordinates: coordinates, count: coordinates.count)
                 self.mapView.addOverlay(directionPolyline)
+                self.clearDirectionButton.isHidden = false
             }
 
         }
