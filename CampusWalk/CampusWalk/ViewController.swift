@@ -270,6 +270,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.mapView.removeAnnotation(annotation)
         annotation.isFavorite = true
         self.favoriteBuildingAnnotations.append(annotation)
+        //add button hidden status change
+        self.toggleFavoriteBuildingsButton.isHidden = false
         self.mapView.addAnnotation(annotation)
     }
     
@@ -277,6 +279,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.mapView.removeAnnotation(annotation)
         if let indexToRemove = self.favoriteBuildingAnnotations.firstIndex(where: { $0 == annotation }) {
             self.favoriteBuildingAnnotations.remove(at: indexToRemove)
+            if (self.favoriteBuildingAnnotations.count == 0) {
+                //add button hidden status change
+                self.toggleFavoriteBuildingsButton.isHidden = true
+            }
             annotation.isFavorite = false
             self.mapView.addAnnotation(annotation)
         }
