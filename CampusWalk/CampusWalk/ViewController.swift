@@ -31,13 +31,18 @@ class DirectionPolyline : MKPolyline {
 }
 
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, BuildingViewControllerDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, BuildingViewControllerDelegate, StepByStepLsitTableViewControllerDelegate {
 
     let mapModel = MapModel.shared
     
     @IBOutlet weak var mapDisplayTypeButton: UIButton!
     @IBOutlet weak var toggleFavoriteBuildingsButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var stepByStepView: UIView!
+    @IBOutlet weak var stepByStepInstructionTextview: UITextView!
+    @IBOutlet weak var ETALabel: UILabel!
+    @IBOutlet weak var prevStepButton: UIButton!
+    @IBOutlet weak var nextStepButton: UIButton!
     
     var locationManager:CLLocationManager!
     
@@ -47,6 +52,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var showFavoriteBuildings:Bool = true
     var direction:Bool = false
     var selectedBuilding:MKMapItem?
+    var routeSteps: [MKRoute.Step] = []
+    var stepIndex = 0
+    var ETA: TimeInterval?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,28 +68,38 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
         let buttonItem = MKUserTrackingBarButtonItem(mapView: mapView)
         self.navigationItem.rightBarButtonItem = buttonItem
-        
+        self.initializeView()
+
+    }
+    
+    func initializeView() {
         self.toggleFavoriteBuildingsButton.setTitle("Hide Favorite Buildings", for: .normal)
         self.showFavoriteBuildings = true
         self.mapDisplayTypeButton.setTitle("Standard", for: .normal)
         self.clearDirectionButton.isHidden = true
         self.clearDirectionButton.setTitle("Clear Direction", for: .normal)
         self.toggleFavoriteBuildingsButton.isHidden = true
+        self.stepByStepView.isHidden = true
+        self.stepByStepInstructionTextview.text = "Retriving Step By Step Info ..."
+        self.stepByStepInstructionTextview.isEditable = false
+        self.stepByStepInstructionTextview.isSelectable = false
     }
     
     override func viewDidLayoutSubviews() {
-        setupButton()
+        setupButtons()
+        setupViews()
     }
     
-    func setupButton() {
+    func setupViews() {
+        self.stepByStepView.addViewShadow()
+    }
+    
+    func setupButtons() {
         self.clearDirectionButton.addShadow()
         self.toggleFavoriteBuildingsButton.addShadow()
         self.mapDisplayTypeButton.addShadow()
     }
-
-    func dismissed() {
-        self.dismiss(animated: true, completion: nil)
-    }
+    
     
     @IBAction func toggleMapviewType(_ sender: Any) {
         
@@ -99,6 +117,44 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             break
         }
         
+    }
+    
+    func zoomToRouteStep(step: MKRoute.Step) {
+        let center = step.polyline.coordinate
+        let delta = 0.002
+        let span = MKCoordinateSpan.init(latitudeDelta: delta, longitudeDelta: delta)
+        let region = MKCoordinateRegion(center: center, span: span)
+        mapView.setRegion(region, animated: true)
+    }
+    
+    @IBAction func prevStep(_ sender: Any) {
+        self.stepIndex = self.stepIndex - 1
+        let routeStep = self.routeSteps[self.stepIndex]
+        if (routeStep.instructions.count == 0) {
+            self.stepByStepInstructionTextview.text = "Heading in current direction"
+        } else {
+            self.stepByStepInstructionTextview.text = routeStep.instructions
+        }
+        self.zoomToRouteStep(step: routeStep)
+        if (self.stepIndex == 0) {
+            self.prevStepButton.isHidden = true
+        }
+        self.nextStepButton.isHidden = false
+    }
+    @IBAction func nextStep(_ sender: Any) {
+        self.stepIndex = self.stepIndex + 1
+        let routeStep = self.routeSteps[self.stepIndex]
+        self.stepByStepInstructionTextview.text = routeStep.instructions
+        self.zoomToRouteStep(step: routeStep)
+        if (self.stepIndex + 1 == self.routeSteps.count) {
+            self.nextStepButton.isHidden = true
+        }
+        self.prevStepButton.isHidden = false
+    }
+    @IBAction func showStepByStepDetailList(_ sender: Any) {
+        if (self.routeSteps.count > 0) {
+            self.performSegue(withIdentifier: "showStepByStepList", sender: nil)
+        }
     }
     
     @IBAction func clearDirection(_ sender: Any) {
@@ -142,6 +198,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     // MARK: - BUILDING LIST delegate
+    
+    func dismissed() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func dismissBySelect(building: Building) {
         self.dismiss(animated: true, completion: {
@@ -190,6 +250,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         })
     }
     
+    // MARK: - StepListDelegate
+    
+    func dismissStepByStepLsit() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func dismissStepByStepLsitBySelect(step: MKRoute.Step) {
+        self.dismiss(animated: true, completion: {
+            self.zoomToRouteStep(step: step)
+        })
+    }
+    
+    // MARK: - ADD PINS TO MAP
     func addBuildingPinForNavigation(building: Building, type: String) -> BuildingPin {
         let buildingNavigationAnnotation = BuildingPin(building: building, isFavorite: false)
         buildingNavigationAnnotation.isNavigation = true
@@ -231,6 +304,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.setRegion(region, animated: true)
     }
     
+    
+    // MARK: - Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showBuildings":
@@ -246,6 +321,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             buildingVC.direction = self.direction
             buildingVC.selectedBuilding = self.selectedBuilding
             buildingVC.showUserLocation = true
+        case "showStepByStepList":
+            let nav = segue.destination as! UINavigationController
+            let dvc = nav.topViewController as! StepByStepLsitTableViewController
+            dvc.steps = self.routeSteps
+            dvc.delegate = self
         default:
             break
         }
@@ -310,18 +390,51 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 let coordinates = route.polyline.coordinates
                 let directionPolyline = DirectionPolyline(coordinates: coordinates, count: coordinates.count)
                 self.mapView.addOverlay(directionPolyline)
-                self.clearDirectionButton.isHidden = false
+                self.enterNavigationMode()
+                self.showRouteStepByStep(steps: route.steps)
+                self.ETA = route.expectedTravelTime
+                self.ETALabel.text = "Expected Travel Time: \(self.formatETATime(duration: route.expectedTravelTime))"
             }
-
+            
         }
     }
     
+    func enterNavigationMode() {
+        self.clearDirectionButton.isHidden = false
+        self.toggleFavoriteBuildingsButton.isHidden = true
+        self.stepByStepView.isHidden = false
+        self.prevStepButton.isHidden = true
+        self.nextStepButton.isHidden = true
+    }
     
+    func exitNavigationMode() {
+        self.clearDirectionButton.isHidden = true
+        self.stepByStepView.isHidden = true
+        if (self.favoriteBuildingAnnotations.count > 0) {
+            self.toggleFavoriteBuildingsButton.isHidden = false
+        }
+    }
+    
+    func showRouteStepByStep(steps: [MKRoute.Step]) {
+        self.routeSteps = steps
+        self.stepIndex = 0
+        if (steps.count > 0) {
+            if (steps.count > 1) {
+                self.nextStepButton.isHidden = false
+            }
+            if (steps.first!.instructions.count == 0) {
+                self.stepByStepInstructionTextview.text = "Heading in current direction"
+            } else {
+                self.stepByStepInstructionTextview.text = steps.first?.instructions
+            }
+        }
+    }
     
     func getDirections(from: MKMapItem, to: MKMapItem, completion: @escaping(MKDirections.Response?)->()) {
         let request = MKDirections.Request()
         request.source = from
         request.destination = to
+        request.transportType = .walking
         
         let directions = MKDirections.init(request: request)
         directions.calculate { (response, err) in
@@ -412,6 +525,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         })
         
         self.mapView.removeOverlays(directionsOverlayToRemove)
+        self.exitNavigationMode()
     }
     
     func setSource(for pin: BuildingPin) {
@@ -432,6 +546,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func showLocationsForSelect() {
         self.performSegue(withIdentifier: "pickLocation", sender: self)
+    }
+    
+    func formatETATime(duration: TimeInterval) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.day, .hour, .minute, .second]
+        formatter.unitsStyle = .abbreviated
+        formatter.maximumUnitCount = 1
+
+        return formatter.string(from: duration)!
     }
     
 //    func determineCurrentLocation()
