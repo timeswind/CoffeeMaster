@@ -19,6 +19,7 @@
 		5C5C0E7F235CF5E4002192F1 /* buildings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C5C0E7E235CF5E4002192F1 /* buildings.plist */; };
 		5C62ABC5235A795300FC7CA5 /* BuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62ABC4235A795300FC7CA5 /* BuildingViewController.swift */; };
 		5C62ABC7235A83A700FC7CA5 /* BuildingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */; };
+		5C867EDA23672966003D5799 /* MKMultiPoint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */; };
 		5CBFB24C235DFD43002B6871 /* Button+addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C3C80FB236368DC00A31E75 /* oldmain.gpx */ = {isa = PBXFileReference; lastKnownFileType = file; name = oldmain.gpx; path = "Campus Assets/oldmain.gpx"; sourceTree = SOURCE_ROOT; };
+		5C3C80FB236368DC00A31E75 /* oldmain.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = oldmain.gpx; path = "Campus Assets/oldmain.gpx"; sourceTree = SOURCE_ROOT; };
 		5C45DB89235A6EC000625742 /* CampusWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CampusWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C45DB8C235A6EC000625742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C45DB8E235A6EC000625742 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		5C5C0E7E235CF5E4002192F1 /* buildings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = buildings.plist; sourceTree = "<group>"; };
 		5C62ABC4235A795300FC7CA5 /* BuildingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingViewController.swift; sourceTree = "<group>"; };
 		5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewCell.swift; sourceTree = "<group>"; };
+		5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMultiPoint+Ext.swift"; sourceTree = "<group>"; };
 		5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+addShadow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */,
 				5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */,
 				5C3C80FB236368DC00A31E75 /* oldmain.gpx */,
+				5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */,
 			);
 			path = CampusWalk;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			files = (
 				5C45DBAF235A701F00625742 /* MapModel.swift in Sources */,
 				5C62ABC7235A83A700FC7CA5 /* BuildingTableViewCell.swift in Sources */,
+				5C867EDA23672966003D5799 /* MKMultiPoint+Ext.swift in Sources */,
 				5C45DB91235A6EC000625742 /* ViewController.swift in Sources */,
 				5C62ABC5235A795300FC7CA5 /* BuildingViewController.swift in Sources */,
 				5C45DB8D235A6EC000625742 /* AppDelegate.swift in Sources */,

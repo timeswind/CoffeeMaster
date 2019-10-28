@@ -26,6 +26,10 @@ class BuildingPin:MKPointAnnotation {
     }
 }
 
+class DirectionPolyline : MKPolyline {
+    var color: UIColor = .blue
+}
+
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, BuildingViewControllerDelegate {
 
@@ -59,6 +63,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.toggleFavoriteBuildingsButton.setTitle("Hide Favorite Buildings", for: .normal)
         self.showFavoriteBuildings = true
         self.mapDisplayTypeButton.setTitle("Standard", for: .normal)
+        self.toggleFavoriteBuildingsButton.isHidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -293,8 +298,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             guard(response != nil) else { return }
             
             if let route = response?.routes.first {
-                let polyline = route.polyline
-                self.mapView.addOverlay(polyline)
+                let coordinates = route.polyline.coordinates
+                let directionPolyline = DirectionPolyline(coordinates: coordinates, count: coordinates.count)
+                self.mapView.addOverlay(directionPolyline)
             }
 
         }
@@ -318,11 +324,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func deletePin(annotation: MKAnnotation) {
         self.mapView.removeAnnotation(annotation)
         if (annotation is BuildingPin && (annotation as! BuildingPin).isFavorite) {
-            let BuildingAnnotation = annotation as! BuildingPin
-            if let indexToRemove = self.favoriteBuildingAnnotations.firstIndex(where: { $0 == BuildingAnnotation }) {
-                self.favoriteBuildingAnnotations.remove(at: indexToRemove)
-                BuildingAnnotation.isFavorite = false
-            }
+            self.removeFromFavorite(annotation: annotation as! BuildingPin)
         }
     }
     
@@ -390,6 +392,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 return true
             }
         }))
+        
+        let directionsOverlayToRemove = self.mapView.overlays.filter({(overlay) -> Bool in
+            if overlay is DirectionPolyline {
+                return true
+            } else {
+                return false
+            }
+        })
+        
+        self.mapView.removeOverlays(directionsOverlayToRemove)
     }
     
     func setSource(for pin: BuildingPin) {
@@ -433,9 +445,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 //        }
     }
     
-//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-//        return MKOverlayRenderer.
-//    }
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+
+      if overlay is DirectionPolyline {
+        let directionOverlay = overlay as! DirectionPolyline
+        let lineView = MKPolylineRenderer(overlay: overlay)
+        lineView.strokeColor = directionOverlay.color
+        lineView.lineWidth = 4
+        return lineView
+      }
+        
+      return MKOverlayRenderer()
+    }
     
     // MARK: - Location Manager
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
