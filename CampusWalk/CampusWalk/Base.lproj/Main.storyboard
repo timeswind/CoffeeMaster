@@ -109,9 +109,20 @@
                                     <action selector="clearDirection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qxt-cP-iaA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiV-Wb-G4A">
+                                <rect key="frame" x="274" y="794" width="120" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Hide My Location">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="hideMyLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="92i-Ra-vlF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qiV-Wb-G4A" secondAttribute="trailing" constant="20" id="1zL-G0-o8X"/>
                             <constraint firstItem="v2n-S1-4uo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4xt-1e-mYO"/>
                             <constraint firstItem="9J8-Qc-cCG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AAh-kR-bgB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X9m-jd-Qpf" secondAttribute="trailing" constant="20" id="J1f-MS-cmR"/>
@@ -119,6 +130,7 @@
                             <constraint firstItem="X9m-jd-Qpf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PB2-DS-XzA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v2n-S1-4uo" secondAttribute="trailing" constant="20" id="Tey-Q8-ssG"/>
                             <constraint firstItem="9J8-Qc-cCG" firstAttribute="top" secondItem="X9m-jd-Qpf" secondAttribute="bottom" constant="8" id="UOf-D4-0Rs"/>
+                            <constraint firstItem="v2n-S1-4uo" firstAttribute="top" secondItem="qiV-Wb-G4A" secondAttribute="bottom" constant="8" id="sAG-Wj-yWT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -132,6 +144,7 @@
                     <connections>
                         <outlet property="ETALabel" destination="X3E-Ss-5lH" id="QKa-4c-ESd"/>
                         <outlet property="clearDirectionButton" destination="9J8-Qc-cCG" id="lVk-nd-xm9"/>
+                        <outlet property="hideMyLocationButton" destination="qiV-Wb-G4A" id="uUs-MX-6gS"/>
                         <outlet property="mapDisplayTypeButton" destination="v2n-S1-4uo" id="qd9-dp-QgU"/>
                         <outlet property="mapView" destination="tg3-n6-eVL" id="84B-xu-9Cw"/>
                         <outlet property="nextStepButton" destination="Z2Z-Ki-rUm" id="DJv-Sp-mWD"/>
@@ -159,14 +172,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buildingsCell" id="sI1-ch-Qjd" customClass="BuildingTableViewCell" customModule="CampusWalk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sI1-ch-Qjd" id="v45-J5-Pai">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-XY-h8t">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

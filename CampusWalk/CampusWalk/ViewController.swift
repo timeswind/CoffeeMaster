@@ -43,6 +43,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var ETALabel: UILabel!
     @IBOutlet weak var prevStepButton: UIButton!
     @IBOutlet weak var nextStepButton: UIButton!
+    @IBOutlet weak var hideMyLocationButton: UIButton!
     
     var locationManager:CLLocationManager!
     
@@ -51,6 +52,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var clearDirectionButton: UIButton!
     var showFavoriteBuildings:Bool = true
     var direction:Bool = false
+    var isNavigationMode: Bool = false
     var selectedBuilding:MKMapItem?
     var routeSteps: [MKRoute.Step] = []
     var stepIndex = 0
@@ -83,6 +85,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.stepByStepInstructionTextview.text = "Retriving Step By Step Info ..."
         self.stepByStepInstructionTextview.isEditable = false
         self.stepByStepInstructionTextview.isSelectable = false
+        self.hideMyLocationButton.isHidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -98,6 +101,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.clearDirectionButton.addShadow()
         self.toggleFavoriteBuildingsButton.addShadow()
         self.mapDisplayTypeButton.addShadow()
+        self.hideMyLocationButton.addShadow()
     }
     
     
@@ -127,6 +131,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.setRegion(region, animated: true)
     }
     
+    @IBAction func hideMyLocation(_ sender: Any) {
+        self.mapView.showsUserLocation = false
+        self.hideMyLocationButton.isHidden = true
+        
+    }
     @IBAction func prevStep(_ sender: Any) {
         self.stepIndex = self.stepIndex - 1
         let routeStep = self.routeSteps[self.stepIndex]
@@ -237,6 +246,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func dismissBySelectMyLocationforDirection(direction: Bool) {
         self.dismiss(animated: true, completion: {
             if (direction) {
+                self.mapView.showsUserLocation = true
                 let toLocation = MKMapItem.forCurrentLocation()
                 if let fromLocation = self.selectedBuilding {
                     self.calculateDirection(from: fromLocation, to: toLocation)
@@ -405,6 +415,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.stepByStepView.isHidden = false
         self.prevStepButton.isHidden = true
         self.nextStepButton.isHidden = true
+        self.isNavigationMode = true
     }
     
     func exitNavigationMode() {
@@ -413,6 +424,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         if (self.favoriteBuildingAnnotations.count > 0) {
             self.toggleFavoriteBuildingsButton.isHidden = false
         }
+        
+        self.mapView.showsUserLocation = false
+        self.isNavigationMode = false
     }
     
     func showRouteStepByStep(steps: [MKRoute.Step]) {
@@ -572,10 +586,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     // MARK: - MAPKIT DELEGATE
     
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
-//        print(mode)
-//        if mode == .none {
-//            self.mapView.showsUserLocation = false
-//        }
+        if mode == .none {
+            if (!self.isNavigationMode) {
+                self.hideMyLocationButton.isHidden = false
+            }
+        }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
