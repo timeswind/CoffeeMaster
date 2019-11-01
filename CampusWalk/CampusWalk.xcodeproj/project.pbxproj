@@ -19,6 +19,7 @@
 		5C5C0E7F235CF5E4002192F1 /* buildings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C5C0E7E235CF5E4002192F1 /* buildings.plist */; };
 		5C62ABC5235A795300FC7CA5 /* BuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62ABC4235A795300FC7CA5 /* BuildingViewController.swift */; };
 		5C62ABC7235A83A700FC7CA5 /* BuildingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */; };
+		5C6E038C236C98920052F25C /* BuildingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E038B236C98920052F25C /* BuildingDetailViewController.swift */; };
 		5C867EDA23672966003D5799 /* MKMultiPoint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */; };
 		5C867EDC236752E4003D5799 /* StepByStepLsitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C867EDB236752E4003D5799 /* StepByStepLsitTableViewController.swift */; };
 		5CBFB24C235DFD43002B6871 /* Button+addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */; };
@@ -51,6 +52,7 @@
 		5C5C0E7E235CF5E4002192F1 /* buildings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = buildings.plist; sourceTree = "<group>"; };
 		5C62ABC4235A795300FC7CA5 /* BuildingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingViewController.swift; sourceTree = "<group>"; };
 		5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewCell.swift; sourceTree = "<group>"; };
+		5C6E038B236C98920052F25C /* BuildingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailViewController.swift; sourceTree = "<group>"; };
 		5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMultiPoint+Ext.swift"; sourceTree = "<group>"; };
 		5C867EDB236752E4003D5799 /* StepByStepLsitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepByStepLsitTableViewController.swift; sourceTree = "<group>"; };
 		5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+addShadow.swift"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				5C45DB8E235A6EC000625742 /* SceneDelegate.swift */,
 				5C45DB90235A6EC000625742 /* ViewController.swift */,
 				5C45DB92235A6EC000625742 /* Main.storyboard */,
+				5C6E038B236C98920052F25C /* BuildingDetailViewController.swift */,
 				5C867EDB236752E4003D5799 /* StepByStepLsitTableViewController.swift */,
 				5C62ABC4235A795300FC7CA5 /* BuildingViewController.swift */,
 				5C45DB95235A6EC200625742 /* Assets.xcassets */,
@@ -251,6 +254,7 @@
 				5C45DB8F235A6EC000625742 /* SceneDelegate.swift in Sources */,
 				5CBFB24C235DFD43002B6871 /* Button+addShadow.swift in Sources */,
 				5C867EDC236752E4003D5799 /* StepByStepLsitTableViewController.swift in Sources */,
+				5C6E038C236C98920052F25C /* BuildingDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

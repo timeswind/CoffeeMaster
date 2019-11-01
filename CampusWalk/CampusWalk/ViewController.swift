@@ -336,6 +336,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let dvc = nav.topViewController as! StepByStepLsitTableViewController
             dvc.steps = self.routeSteps
             dvc.delegate = self
+        case "showBuildingDetail":
+            let dvc = segue.destination as! BuildingDetailViewController
+            let building = sender as! Building
+            let buildingDetail = self.mapModel.getBuildingDetail(building: building)
+            dvc.initialize(building: building, buildingDetail: buildingDetail)
         default:
             break
         }
@@ -502,7 +507,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 }
                 
                 let showDetailAction: UIAlertAction = UIAlertAction(title: "Details", style: .default) { (UIAlertAction) in
-    //                self.showLocationsForSelect()
+                    self.performSegue(withIdentifier: "showBuildingDetail", sender: buildingAnnotation.building)
                 }
                     
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)

@@ -7,6 +7,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Building Detail View Controller-->
+        <scene sceneID="zE6-LT-DC2">
+            <objects>
+                <viewController id="W32-Vk-bYM" customClass="BuildingDetailViewController" customModule="CampusWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5WM-yX-G6Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QgI-YH-U0X"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lvW-lh-cpD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U9K-YF-BI0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252.1739130434783" y="-817.63392857142856"/>
+        </scene>
         <!--Campus Walk-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -153,6 +169,7 @@
                         <outlet property="stepByStepView" destination="X9m-jd-Qpf" id="SVa-qh-j3k"/>
                         <outlet property="toggleFavoriteBuildingsButton" destination="AFh-bE-OK3" id="rND-Dm-E1f"/>
                         <segue destination="jbz-H7-TWx" kind="presentation" identifier="pickLocation" id="9tJ-Mg-2HW"/>
+                        <segue destination="W32-Vk-bYM" kind="show" identifier="showBuildingDetail" id="hKQ-uy-0lt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -172,14 +189,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buildingsCell" id="sI1-ch-Qjd" customClass="BuildingTableViewCell" customModule="CampusWalk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sI1-ch-Qjd" id="v45-J5-Pai">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-XY-h8t">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
