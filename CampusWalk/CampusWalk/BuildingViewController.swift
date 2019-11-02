@@ -18,7 +18,7 @@ protocol BuildingViewControllerDelegate:class {
     func dismissBySelectMyLocationforDirection(direction: Bool)
 }
 
-class BuildingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BuildingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var myTableView: UITableView!
@@ -29,25 +29,114 @@ class BuildingViewController: UIViewController, UITableViewDelegate, UITableView
     var showUserLocation: Bool = false
     var direction:Bool = false
     var selectedBuilding:MKMapItem?
-    
+
+    let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(close))
         
-        self.myTableView.delegate = self
-        self.myTableView.dataSource = self
-        self.segmentControl.addTarget(self, action: #selector(segmentOnTouch), for: .valueChanged)
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.setEditing(true, animated: true)
+        // Do any additional setup after loading the view.
         
+        myTableView.delegate = self
+        myTableView.dataSource = self
+        segmentControl.addTarget(self, action: #selector(segmentOnTouch), for: .valueChanged)
+        
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.delegate = self
+        searchController.searchBar.showsScopeBar = false
+        searchController.searchBar.scopeButtonTitles = ["By Name", "By Year"]
+        
+        searchController.searchBar.showsCancelButton = true
+         
+        myTableView.tableHeaderView = searchController.searchBar
+        
+    }
+    
+    
+    //Mark: - Notification Handlers
+    @objc func keyboardWillShow(notification:Notification) {
+     
+    }
+    
+    @objc func keyboardWillHide(notification:Notification) {
+
     }
     
     @objc func segmentOnTouch() {
         self.myTableView.reloadData()
+        if (self.segmentControl.selectedSegmentIndex == 0) {
+            myTableView.tableHeaderView = searchController.searchBar
+        } else {
+            myTableView.tableHeaderView = nil
+        }
     }
 
     @objc func close() {
         self.delegate?.dismissed()
     }
+    
+     //MARK: UISearchBar Delegate
+     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        let topRow = IndexPath(row: 0, section: 0)
+//        self.myTableView.scrollToRow(at: topRow, at: .top, animated: true)
+        mapModel.resetFilter()
+        self.myTableView.reloadData()
+     }
+    
+    
+     
+     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+         searchController.searchBar.showsScopeBar = true
+     }
+     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+         searchController.searchBar.showsScopeBar = false
+     }
+     
+     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        if (selectedScope == 1) {
+            self.searchController.searchBar.searchTextField.keyboardType = .numberPad
+        } else if (selectedScope == 0) {
+            self.searchController.searchBar.searchTextField.keyboardType = .default
+        }
+        
+        self.searchController.searchBar.searchTextField.resignFirstResponder()
+        self.searchController.searchBar.searchTextField.becomeFirstResponder()
+     }
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (self.searchController.searchBar.selectedScopeButtonIndex == 0) {
+            return true
+        } else if (self.searchController.searchBar.selectedScopeButtonIndex == 1) {
+            let allowedCharacters = CharacterSet.decimalDigits
+            let characterSet = CharacterSet(charactersIn: text)
+            return allowedCharacters.isSuperset(of: characterSet)
+        } else {
+            return true
+        }
+    }
+    
+     
+     //MARK: UISearchResultsUpdating
+     func updateSearchResults(for searchController: UISearchController) {
+         let text = searchController.searchBar.text!
+         
+         if !text.isEmpty {
+            if (self.searchController.searchBar.selectedScopeButtonIndex == 0) {
+                let filter = {(building:Building) in building.name.contains(text)}
+                mapModel.updateFilter(filter: filter)
+            } else if (self.searchController.searchBar.selectedScopeButtonIndex == 1) {
+                let filter = {(building:Building) in building.year_constructed == Int(text)}
+                mapModel.updateFilter(filter: filter)
+            }
+            self.myTableView.reloadData()
+         }
+     }
     
     
     // MARK: - Table view data source

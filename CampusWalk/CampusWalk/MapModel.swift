@@ -37,7 +37,10 @@ typealias Buildings = [Building]
 class MapModel {
     static let shared = MapModel()
     
-    var allBuildings: Buildings
+    fileprivate var allBuildings: Buildings
+    fileprivate var buildings: Buildings
+
+    
     var buildingDic: [String:Buildings] = [String:Buildings]()
     var buildingKeys: [String] = [String]()
     var buildingDetailDic: [Building: BuildingDetail] = [Building: BuildingDetail]()
@@ -53,16 +56,20 @@ class MapModel {
             allBuildings = try decoder.decode(Buildings.self, from: data)
             // sort by name field letter
             allBuildings = allBuildings.sorted { $0.name < $1.name }
+            buildings = self.allBuildings
         } catch {
             print(error)
             allBuildings = []
+            buildings = []
         }
         extractIndex()
     }
     
     func extractIndex() {
-        let buildings = self.allBuildings
-        for building in buildings {
+        buildingKeys = [String]()
+        buildingDic = [String:Buildings]()
+        
+        for building in self.buildings {
             let buildingKey = String(building.name.prefix(1))
                 if let _ = buildingDic[buildingKey] {
                     buildingDic[buildingKey]!.append(building)
@@ -71,6 +78,16 @@ class MapModel {
                     buildingKeys.append(buildingKey)
                 }
         }
+    }
+    
+    func updateFilter(filter:(Building) -> Bool) {
+        buildings = allBuildings.filter(filter)
+        self.extractIndex()
+    }
+    
+    func resetFilter() {
+        self.buildings = allBuildings
+        self.extractIndex()
     }
     
     func buildingHasDeatil(building: Building) -> Bool {

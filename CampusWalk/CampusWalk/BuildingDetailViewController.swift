@@ -93,7 +93,7 @@ class BuildingDetailViewController: UIViewController, UITextViewDelegate {
         self.descriptionTextview.resignFirstResponder()
     }
     
-    //Mark: - Notification Handlers
+    //MARK: Notification Handlers
     @objc func keyboardWillShow(notification:Notification) {
         self.isKeyboardShow = true
         let userInfo = notification.userInfo!
