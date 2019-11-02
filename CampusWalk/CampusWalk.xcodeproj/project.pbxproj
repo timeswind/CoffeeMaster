@@ -20,6 +20,37 @@
 		5C62ABC5235A795300FC7CA5 /* BuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62ABC4235A795300FC7CA5 /* BuildingViewController.swift */; };
 		5C62ABC7235A83A700FC7CA5 /* BuildingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */; };
 		5C6E038C236C98920052F25C /* BuildingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E038B236C98920052F25C /* BuildingDetailViewController.swift */; };
+		5C6E03AD236CA5760052F25C /* appliedscience.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E038E236CA5760052F25C /* appliedscience.jpg */; };
+		5C6E03AE236CA5760052F25C /* beaver.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E038F236CA5760052F25C /* beaver.jpg */; };
+		5C6E03AF236CA5760052F25C /* chandlee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0390236CA5760052F25C /* chandlee.jpg */; };
+		5C6E03B0236CA5760052F25C /* ageng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0391236CA5760052F25C /* ageng.jpg */; };
+		5C6E03B1236CA5760052F25C /* armsby.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0392236CA5760052F25C /* armsby.jpg */; };
+		5C6E03B2236CA5760052F25C /* borland.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0393236CA5760052F25C /* borland.jpg */; };
+		5C6E03B3236CA5760052F25C /* chapel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0394236CA5760052F25C /* chapel.jpg */; };
+		5C6E03B4236CA5760052F25C /* engunit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0395236CA5760052F25C /* engunit.jpg */; };
+		5C6E03B5236CA5760052F25C /* eeeast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0396236CA5760052F25C /* eeeast.jpg */; };
+		5C6E03B6236CA5760052F25C /* earthengineeringsciences.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0397236CA5760052F25C /* earthengineeringsciences.jpg */; };
+		5C6E03B7236CA5760052F25C /* biomechanics.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0398236CA5760052F25C /* biomechanics.jpg */; };
+		5C6E03B8236CA5760052F25C /* chambers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E0399236CA5760052F25C /* chambers.jpg */; };
+		5C6E03B9236CA5760052F25C /* eisenhowerparking.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E039A236CA5760052F25C /* eisenhowerparking.jpg */; };
+		5C6E03BA236CA5760052F25C /* eewest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E039B236CA5760052F25C /* eewest.jpg */; };
+		5C6E03BB236CA5760052F25C /* chemistry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E039C236CA5760052F25C /* chemistry.jpg */; };
+		5C6E03BC236CA5760052F25C /* boucke.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E039D236CA5760052F25C /* boucke.jpg */; };
+		5C6E03BD236CA5760052F25C /* eisenhower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E039E236CA5760052F25C /* eisenhower.jpg */; };
+		5C6E03BE236CA5760052F25C /* deike.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E039F236CA5760052F25C /* deike.jpg */; };
+		5C6E03BF236CA5760052F25C /* arts.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A0236CA5760052F25C /* arts.jpg */; };
+		5C6E03C0236CA5760052F25C /* computer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A1236CA5760052F25C /* computer.jpg */; };
+		5C6E03C1236CA5760052F25C /* davey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A2236CA5760052F25C /* davey.jpg */; };
+		5C6E03C2236CA5760052F25C /* brycejordan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A3236CA5760052F25C /* brycejordan.jpg */; };
+		5C6E03C3236CA5760052F25C /* brumbaugh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A4236CA5760052F25C /* brumbaugh.jpg */; };
+		5C6E03C4236CA5760052F25C /* buckhout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A5236CA5760052F25C /* buckhout.jpg */; };
+		5C6E03C5236CA5760052F25C /* agadmin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A6236CA5760052F25C /* agadmin.jpg */; };
+		5C6E03C6236CA5760052F25C /* burrowes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A7236CA5760052F25C /* burrowes.jpg */; };
+		5C6E03C7236CA5760052F25C /* atherton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A8236CA5760052F25C /* atherton.jpg */; };
+		5C6E03C8236CA5760052F25C /* businessbuilding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03A9236CA5760052F25C /* businessbuilding.jpg */; };
+		5C6E03C9236CA5760052F25C /* carpenter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03AA236CA5760052F25C /* carpenter.jpg */; };
+		5C6E03CA236CA5760052F25C /* smeal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03AB236CA5760052F25C /* smeal.jpg */; };
+		5C6E03CB236CA5760052F25C /* carnegie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03AC236CA5760052F25C /* carnegie.jpg */; };
 		5C867EDA23672966003D5799 /* MKMultiPoint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */; };
 		5C867EDC236752E4003D5799 /* StepByStepLsitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C867EDB236752E4003D5799 /* StepByStepLsitTableViewController.swift */; };
 		5CBFB24C235DFD43002B6871 /* Button+addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */; };
@@ -53,6 +84,37 @@
 		5C62ABC4235A795300FC7CA5 /* BuildingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingViewController.swift; sourceTree = "<group>"; };
 		5C62ABC6235A83A700FC7CA5 /* BuildingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewCell.swift; sourceTree = "<group>"; };
 		5C6E038B236C98920052F25C /* BuildingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailViewController.swift; sourceTree = "<group>"; };
+		5C6E038E236CA5760052F25C /* appliedscience.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = appliedscience.jpg; sourceTree = "<group>"; };
+		5C6E038F236CA5760052F25C /* beaver.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beaver.jpg; sourceTree = "<group>"; };
+		5C6E0390236CA5760052F25C /* chandlee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chandlee.jpg; sourceTree = "<group>"; };
+		5C6E0391236CA5760052F25C /* ageng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ageng.jpg; sourceTree = "<group>"; };
+		5C6E0392236CA5760052F25C /* armsby.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = armsby.jpg; sourceTree = "<group>"; };
+		5C6E0393236CA5760052F25C /* borland.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = borland.jpg; sourceTree = "<group>"; };
+		5C6E0394236CA5760052F25C /* chapel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chapel.jpg; sourceTree = "<group>"; };
+		5C6E0395236CA5760052F25C /* engunit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = engunit.jpg; sourceTree = "<group>"; };
+		5C6E0396236CA5760052F25C /* eeeast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eeeast.jpg; sourceTree = "<group>"; };
+		5C6E0397236CA5760052F25C /* earthengineeringsciences.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earthengineeringsciences.jpg; sourceTree = "<group>"; };
+		5C6E0398236CA5760052F25C /* biomechanics.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = biomechanics.jpg; sourceTree = "<group>"; };
+		5C6E0399236CA5760052F25C /* chambers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chambers.jpg; sourceTree = "<group>"; };
+		5C6E039A236CA5760052F25C /* eisenhowerparking.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eisenhowerparking.jpg; sourceTree = "<group>"; };
+		5C6E039B236CA5760052F25C /* eewest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eewest.jpg; sourceTree = "<group>"; };
+		5C6E039C236CA5760052F25C /* chemistry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chemistry.jpg; sourceTree = "<group>"; };
+		5C6E039D236CA5760052F25C /* boucke.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boucke.jpg; sourceTree = "<group>"; };
+		5C6E039E236CA5760052F25C /* eisenhower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eisenhower.jpg; sourceTree = "<group>"; };
+		5C6E039F236CA5760052F25C /* deike.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = deike.jpg; sourceTree = "<group>"; };
+		5C6E03A0236CA5760052F25C /* arts.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arts.jpg; sourceTree = "<group>"; };
+		5C6E03A1236CA5760052F25C /* computer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = computer.jpg; sourceTree = "<group>"; };
+		5C6E03A2236CA5760052F25C /* davey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davey.jpg; sourceTree = "<group>"; };
+		5C6E03A3236CA5760052F25C /* brycejordan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brycejordan.jpg; sourceTree = "<group>"; };
+		5C6E03A4236CA5760052F25C /* brumbaugh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brumbaugh.jpg; sourceTree = "<group>"; };
+		5C6E03A5236CA5760052F25C /* buckhout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = buckhout.jpg; sourceTree = "<group>"; };
+		5C6E03A6236CA5760052F25C /* agadmin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = agadmin.jpg; sourceTree = "<group>"; };
+		5C6E03A7236CA5760052F25C /* burrowes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burrowes.jpg; sourceTree = "<group>"; };
+		5C6E03A8236CA5760052F25C /* atherton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = atherton.jpg; sourceTree = "<group>"; };
+		5C6E03A9236CA5760052F25C /* businessbuilding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = businessbuilding.jpg; sourceTree = "<group>"; };
+		5C6E03AA236CA5760052F25C /* carpenter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carpenter.jpg; sourceTree = "<group>"; };
+		5C6E03AB236CA5760052F25C /* smeal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smeal.jpg; sourceTree = "<group>"; };
+		5C6E03AC236CA5760052F25C /* carnegie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carnegie.jpg; sourceTree = "<group>"; };
 		5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMultiPoint+Ext.swift"; sourceTree = "<group>"; };
 		5C867EDB236752E4003D5799 /* StepByStepLsitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepByStepLsitTableViewController.swift; sourceTree = "<group>"; };
 		5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+addShadow.swift"; sourceTree = "<group>"; };
@@ -130,14 +192,45 @@
 			isa = PBXGroup;
 			children = (
 				5C5C0E7E235CF5E4002192F1 /* buildings.plist */,
-				5C5C0E7D235CF586002192F1 /* buildings */,
+				5C6E038D236CA5760052F25C /* buildings */,
 			);
 			path = "Campus Assets";
 			sourceTree = "<group>";
 		};
-		5C5C0E7D235CF586002192F1 /* buildings */ = {
+		5C6E038D236CA5760052F25C /* buildings */ = {
 			isa = PBXGroup;
 			children = (
+				5C6E038E236CA5760052F25C /* appliedscience.jpg */,
+				5C6E038F236CA5760052F25C /* beaver.jpg */,
+				5C6E0390236CA5760052F25C /* chandlee.jpg */,
+				5C6E0391236CA5760052F25C /* ageng.jpg */,
+				5C6E0392236CA5760052F25C /* armsby.jpg */,
+				5C6E0393236CA5760052F25C /* borland.jpg */,
+				5C6E0394236CA5760052F25C /* chapel.jpg */,
+				5C6E0395236CA5760052F25C /* engunit.jpg */,
+				5C6E0396236CA5760052F25C /* eeeast.jpg */,
+				5C6E0397236CA5760052F25C /* earthengineeringsciences.jpg */,
+				5C6E0398236CA5760052F25C /* biomechanics.jpg */,
+				5C6E0399236CA5760052F25C /* chambers.jpg */,
+				5C6E039A236CA5760052F25C /* eisenhowerparking.jpg */,
+				5C6E039B236CA5760052F25C /* eewest.jpg */,
+				5C6E039C236CA5760052F25C /* chemistry.jpg */,
+				5C6E039D236CA5760052F25C /* boucke.jpg */,
+				5C6E039E236CA5760052F25C /* eisenhower.jpg */,
+				5C6E039F236CA5760052F25C /* deike.jpg */,
+				5C6E03A0236CA5760052F25C /* arts.jpg */,
+				5C6E03A1236CA5760052F25C /* computer.jpg */,
+				5C6E03A2236CA5760052F25C /* davey.jpg */,
+				5C6E03A3236CA5760052F25C /* brycejordan.jpg */,
+				5C6E03A4236CA5760052F25C /* brumbaugh.jpg */,
+				5C6E03A5236CA5760052F25C /* buckhout.jpg */,
+				5C6E03A6236CA5760052F25C /* agadmin.jpg */,
+				5C6E03A7236CA5760052F25C /* burrowes.jpg */,
+				5C6E03A8236CA5760052F25C /* atherton.jpg */,
+				5C6E03A9236CA5760052F25C /* businessbuilding.jpg */,
+				5C6E03AA236CA5760052F25C /* carpenter.jpg */,
+				5C6E03AB236CA5760052F25C /* smeal.jpg */,
+				5C6E03AC236CA5760052F25C /* carnegie.jpg */,
 			);
 			path = buildings;
 			sourceTree = "<group>";
@@ -223,11 +316,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C6E03C8236CA5760052F25C /* businessbuilding.jpg in Resources */,
+				5C6E03C7236CA5760052F25C /* atherton.jpg in Resources */,
+				5C6E03BB236CA5760052F25C /* chemistry.jpg in Resources */,
+				5C6E03C5236CA5760052F25C /* agadmin.jpg in Resources */,
+				5C6E03BF236CA5760052F25C /* arts.jpg in Resources */,
+				5C6E03CB236CA5760052F25C /* carnegie.jpg in Resources */,
+				5C6E03AE236CA5760052F25C /* beaver.jpg in Resources */,
+				5C6E03B9236CA5760052F25C /* eisenhowerparking.jpg in Resources */,
+				5C6E03BE236CA5760052F25C /* deike.jpg in Resources */,
+				5C6E03B1236CA5760052F25C /* armsby.jpg in Resources */,
+				5C6E03BC236CA5760052F25C /* boucke.jpg in Resources */,
 				5C45DB99235A6EC200625742 /* LaunchScreen.storyboard in Resources */,
+				5C6E03C2236CA5760052F25C /* brycejordan.jpg in Resources */,
+				5C6E03B0236CA5760052F25C /* ageng.jpg in Resources */,
+				5C6E03C0236CA5760052F25C /* computer.jpg in Resources */,
+				5C6E03B7236CA5760052F25C /* biomechanics.jpg in Resources */,
+				5C6E03B2236CA5760052F25C /* borland.jpg in Resources */,
 				5C45DB96235A6EC200625742 /* Assets.xcassets in Resources */,
+				5C6E03BD236CA5760052F25C /* eisenhower.jpg in Resources */,
+				5C6E03B5236CA5760052F25C /* eeeast.jpg in Resources */,
+				5C6E03C1236CA5760052F25C /* davey.jpg in Resources */,
+				5C6E03C3236CA5760052F25C /* brumbaugh.jpg in Resources */,
+				5C6E03B4236CA5760052F25C /* engunit.jpg in Resources */,
+				5C6E03BA236CA5760052F25C /* eewest.jpg in Resources */,
+				5C6E03B8236CA5760052F25C /* chambers.jpg in Resources */,
+				5C6E03B3236CA5760052F25C /* chapel.jpg in Resources */,
+				5C6E03AD236CA5760052F25C /* appliedscience.jpg in Resources */,
 				5C3C80FC236368DC00A31E75 /* oldmain.gpx in Resources */,
 				5C5C0E7F235CF5E4002192F1 /* buildings.plist in Resources */,
 				5C45DB94235A6EC000625742 /* Main.storyboard in Resources */,
+				5C6E03C4236CA5760052F25C /* buckhout.jpg in Resources */,
+				5C6E03C9236CA5760052F25C /* carpenter.jpg in Resources */,
+				5C6E03AF236CA5760052F25C /* chandlee.jpg in Resources */,
+				5C6E03C6236CA5760052F25C /* burrowes.jpg in Resources */,
+				5C6E03CA236CA5760052F25C /* smeal.jpg in Resources */,
+				5C6E03B6236CA5760052F25C /* earthengineeringsciences.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

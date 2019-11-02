@@ -71,8 +71,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let buttonItem = MKUserTrackingBarButtonItem(mapView: mapView)
         self.navigationItem.rightBarButtonItem = buttonItem
         self.initializeView()
-
+//        self.test()
     }
+    
+//    func test() {
+//        let building = Building(name: "test building", opp_bldg_code: 0, year_constructed: 2019, latitude: 13, longitude: 14, photo: "beaver")
+//        
+//        self.performSegue(withIdentifier: "showBuildingDetail", sender: building)
+//    }
     
     func initializeView() {
         self.toggleFavoriteBuildingsButton.setTitle("Hide Favorite Buildings", for: .normal)
