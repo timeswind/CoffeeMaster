@@ -53,6 +53,7 @@
 		5C6E03CB236CA5760052F25C /* carnegie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E03AC236CA5760052F25C /* carnegie.jpg */; };
 		5C867EDA23672966003D5799 /* MKMultiPoint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */; };
 		5C867EDC236752E4003D5799 /* StepByStepLsitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C867EDB236752E4003D5799 /* StepByStepLsitTableViewController.swift */; };
+		5C91419D2371CB4300A8B0D0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C91419C2371CB4300A8B0D0 /* ImagePicker.swift */; };
 		5CBFB24C235DFD43002B6871 /* Button+addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		5C6E03AC236CA5760052F25C /* carnegie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carnegie.jpg; sourceTree = "<group>"; };
 		5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMultiPoint+Ext.swift"; sourceTree = "<group>"; };
 		5C867EDB236752E4003D5799 /* StepByStepLsitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepByStepLsitTableViewController.swift; sourceTree = "<group>"; };
+		5C91419C2371CB4300A8B0D0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+addShadow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 				5CBFB24B235DFD43002B6871 /* Button+addShadow.swift */,
 				5C3C80FB236368DC00A31E75 /* oldmain.gpx */,
 				5C867ED923672966003D5799 /* MKMultiPoint+Ext.swift */,
+				5C91419C2371CB4300A8B0D0 /* ImagePicker.swift */,
 			);
 			path = CampusWalk;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				5C62ABC5235A795300FC7CA5 /* BuildingViewController.swift in Sources */,
 				5C45DB8D235A6EC000625742 /* AppDelegate.swift in Sources */,
 				5C45DB8F235A6EC000625742 /* SceneDelegate.swift in Sources */,
+				5C91419D2371CB4300A8B0D0 /* ImagePicker.swift in Sources */,
 				5CBFB24C235DFD43002B6871 /* Button+addShadow.swift in Sources */,
 				5C867EDC236752E4003D5799 /* StepByStepLsitTableViewController.swift in Sources */,
 				5C6E038C236C98920052F25C /* BuildingDetailViewController.swift in Sources */,

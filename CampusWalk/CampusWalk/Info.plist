@@ -26,6 +26,10 @@
 	<string>Because we need to display your current location on the map</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Because we need to display your current location on the map</string>
+	<key>NSCameraUsageDescription</key>
+	<string>The app wants to take photos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The app wants to select photos</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
