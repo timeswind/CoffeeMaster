@@ -94,7 +94,6 @@ class BuildingDetailViewController: UIViewController, UITextViewDelegate, ImageP
             descriptionTextview.text = self.buildingDetail.description
             descriptionTextview.textColor = UIColor.black
         }
-        self.resizeDescriptionTextView()
         descriptionTextview.keyboardType = .asciiCapable
         descriptionTextview.keyboardDismissMode = .onDrag
         self.scrollView.addSubview(descriptionTextview)
@@ -104,6 +103,8 @@ class BuildingDetailViewController: UIViewController, UITextViewDelegate, ImageP
         
 
         self.view.addSubview(scrollView)
+        self.updateScrollViewConteneSize()
+        self.scrollView.setContentOffset(CGPoint.zero, animated: false)
     }
     
     @objc func selectPhoto(sender: UIButton!) {
@@ -123,6 +124,8 @@ class BuildingDetailViewController: UIViewController, UITextViewDelegate, ImageP
     func initialize(building: Building, buildingDetail: BuildingDetail) {
         self.building = building
         self.buildingDetail = buildingDetail
+        self.customizeImage = buildingDetail.customizeImage
+        self.title = building.name
     }
     
     @objc func doneEdit() {
@@ -183,7 +186,7 @@ class BuildingDetailViewController: UIViewController, UITextViewDelegate, ImageP
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        self.resizeDescriptionTextView()
+        self.updateScrollViewConteneSize()
         self.adjustScrollviewOffesetForDesctiptionViewInput()
     }
     
@@ -193,7 +196,9 @@ class BuildingDetailViewController: UIViewController, UITextViewDelegate, ImageP
         } else {
             self.buildingDetail.description = self.descriptionTextview.text
         }
-        self.buildingDetail.customizeImage = self.customizeImage
+        if (self.customizeImage != nil) {
+            self.buildingDetail.customizeImage = self.customizeImage
+        }
         mapModel.updateBuildingDetail(building: self.building, newBuildingDetail: self.buildingDetail)
     }
     
@@ -202,10 +207,10 @@ class BuildingDetailViewController: UIViewController, UITextViewDelegate, ImageP
         descriptionTextview.sizeToFit()
         let newSize = CGSize(width: size.width - 40, height: descriptionTextview.frame.size.height)
         descriptionTextview.frame = CGRect(origin: descriptionTextview.frame.origin, size: newSize)
-        self.updateScrollViewConteneSize()
     }
     
     func updateScrollViewConteneSize() {
+        resizeDescriptionTextView()
         var contentRect = CGRect.zero
 
         for view in scrollView.subviews {
