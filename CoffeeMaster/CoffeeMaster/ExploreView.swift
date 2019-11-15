@@ -9,8 +9,22 @@
 import SwiftUI
 
 struct ExploreView: View {
+    func search() {
+        print("search");
+    }
+
     var body: some View {
-        MapView()
+        NavigationView {
+        MapView().navigationBarTitle(Text(LocalizedStringKey("Exlopre"))).navigationBarItems(leading:
+        
+                            Button(action: {self.search()}) {
+                                Text("Quiz")
+                            },
+                            trailing:
+                                Button(action: {self.search()}) {
+                                    Text(LocalizedStringKey("Search"))
+                                })
+        }
     }
 }
 

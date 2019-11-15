@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  CoffeeMaster
+
+  Created by Mingtian Yang on 11/15/19.
+  Copyright © 2019 Mingtian Yang. All rights reserved.
+*/
+"Explore"="Explore";
+"Brew"="Brew";
+"Connect"="Connect";
+"Record"="Record";
+"Search"="Search";
+"Quiz"="Quiz";
+"Sttings"="Settings";

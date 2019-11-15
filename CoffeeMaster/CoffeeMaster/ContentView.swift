@@ -47,23 +47,10 @@ struct SearchView : View {
     let repos: [Repo]
     let onCommit: () -> Void
     
-    func search() {
-        print("search");
-    }
-
     var body: some View {
                 TabView(selection: $selection){
-                    NavigationView {
-                        ExploreView().navigationBarTitle(Text("Explore")).navigationBarItems(leading:
-        
-                            Button(action: {self.search()}) {
-                                Text("Quiz")
-                            },
-                            trailing:
-                                Button(action: {self.search()}) {
-                                    Text("Search")
-                                })
-                        }.tabItem {
+                        ExploreView()
+                        .tabItem {
                             if (selection == 0) {
                                 VStack {
                                     Image("explore-icon-select-100")
@@ -137,7 +124,7 @@ struct SearchView : View {
                                     RepoRow(repo: repo)
                                 }
                             }
-                        }.navigationBarTitle(Text("Search"))
+                            }.navigationBarTitle(Text("Search"))
 
                     }.tag(4)
                     .tabItem {
@@ -146,7 +133,8 @@ struct SearchView : View {
                             Text("Test")
                         }
                     }
-                }.accentColor(Color(UIColor.Theme.Accent))
+                    }.accentColor(Color(UIColor.Theme.Accent))
+                    .edgesIgnoringSafeArea(.top)
     }
 }
 
