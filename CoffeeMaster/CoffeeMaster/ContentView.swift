@@ -33,7 +33,7 @@ struct ContentView: View {
             query: $query,
             repos: store.state.repostate.searchResult,
             onCommit: fetch
-        ).onAppear(perform: fetch)
+        ).onAppear(perform: fetch).environment(\.locale, .init(identifier: store.state.settings.localization))
     }
 
     private func fetch() {

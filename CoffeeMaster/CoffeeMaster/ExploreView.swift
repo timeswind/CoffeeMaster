@@ -9,22 +9,34 @@
 import SwiftUI
 
 struct ExploreView: View {
+    @EnvironmentObject var store: Store<AppState, AppAction>
+    @State var isSettingPresented: Bool = false
+
     func search() {
         print("search");
+//        let setLanguageAction: AppAction = .settings(action: .setLocalization(localization: "en"))
+//        store.send(setLanguageAction)
+    }
+    
+    func showSettingsView() {
+        isSettingPresented = true;
     }
 
     var body: some View {
         NavigationView {
-        MapView().navigationBarTitle(Text(LocalizedStringKey("Exlopre"))).navigationBarItems(leading:
+        MapView().navigationBarTitle(Text(LocalizedStringKey("Explore"))).navigationBarItems(leading:
         
-                            Button(action: {self.search()}) {
-                                Text("Quiz")
+                            Button(action: {self.showSettingsView()}) {
+                                Text("Settings")
                             },
                             trailing:
                                 Button(action: {self.search()}) {
                                     Text(LocalizedStringKey("Search"))
                                 })
+        }.sheet(isPresented: $isSettingPresented) {
+            SettingsView(showModal: self.$isSettingPresented, supportedLanguages: self.store.state.settings.supportedLanguages).environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
+
     }
 }
 

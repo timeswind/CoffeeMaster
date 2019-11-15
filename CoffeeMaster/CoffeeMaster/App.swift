@@ -31,6 +31,7 @@ enum AppAction {
 
 enum SettingsAction {
     case setName(name: String)
+    case setLocalization(localization: String)
 }
 
 enum ReposAction {
@@ -58,6 +59,9 @@ let settingsReducer: Reducer<SettingsState, SettingsAction> = Reducer { state, a
     switch action {
     case let .setName(name):
         state.name = name
+    case let .setLocalization(string):
+        Bundle.setLanguage(lang: string)
+        state.localization = string
     }
 }
 
@@ -69,6 +73,8 @@ struct ReposState {
 
 struct SettingsState {
     var name: String = ""
+    var localization: String = ""
+    var supportedLanguages: [String] = ["English", "中文"]
 }
 
 struct AppState {
@@ -76,13 +82,12 @@ struct AppState {
     var repostate: ReposState
 }
 
-//struct AppState {
-//    var searchResult: [Repo] = []
-//}
+func getLocalization() -> String {
+    if let _ = UserDefaults.standard.string(forKey: "i18n_language") {} else {
+        UserDefaults.standard.set("en", forKey: "i18n_language")
+        UserDefaults.standard.synchronize()
+    }
 
-//let appReducer: Reducer<AppState, AppAction> = Reducer { state, action in
-//    switch action {
-//    case let .setSearchResults(repos):
-//        state.searchResult = repos
-//    }
-//}
+    let lang = UserDefaults.standard.string(forKey: "i18n_language")
+    return lang!
+}

@@ -11,4 +11,8 @@
 "Record"="Record";
 "Search"="Search";
 "Quiz"="Quiz";
-"Sttings"="Settings";
+"Settings"="Settings";
+"Dismiss"="Dismiss";
+
+/*Settings View*/
+"ChooseLanguage"="Choose Language";
