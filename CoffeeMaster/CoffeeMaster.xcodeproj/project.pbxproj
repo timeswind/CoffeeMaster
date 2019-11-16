@@ -9,6 +9,37 @@
 /* Begin PBXBuildFile section */
 		5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */; };
 		5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA44237F385C0082CFBD /* EnvironmentService.swift */; };
+		5C25FACB237F7A8F0082CFBD /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC1237F7A8E0082CFBD /* FirebaseCore.framework */; };
+		5C25FACC237F7A8F0082CFBD /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC1237F7A8E0082CFBD /* FirebaseCore.framework */; };
+		5C25FACD237F7A8F0082CFBD /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC2237F7A8E0082CFBD /* FirebaseInstanceID.framework */; };
+		5C25FACE237F7A8F0082CFBD /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC2237F7A8E0082CFBD /* FirebaseInstanceID.framework */; };
+		5C25FACF237F7A8F0082CFBD /* GoogleDataTransportCCTSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC3237F7A8E0082CFBD /* GoogleDataTransportCCTSupport.framework */; };
+		5C25FAD0237F7A8F0082CFBD /* GoogleDataTransportCCTSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC3237F7A8E0082CFBD /* GoogleDataTransportCCTSupport.framework */; };
+		5C25FAD1237F7A8F0082CFBD /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC4237F7A8E0082CFBD /* nanopb.framework */; };
+		5C25FAD2237F7A8F0082CFBD /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC4237F7A8E0082CFBD /* nanopb.framework */; };
+		5C25FAD3237F7A8F0082CFBD /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC5237F7A8E0082CFBD /* GoogleDataTransport.framework */; };
+		5C25FAD4237F7A8F0082CFBD /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC5237F7A8E0082CFBD /* GoogleDataTransport.framework */; };
+		5C25FAD5237F7A8F0082CFBD /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC6237F7A8E0082CFBD /* FirebaseCoreDiagnostics.framework */; };
+		5C25FAD6237F7A8F0082CFBD /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC6237F7A8E0082CFBD /* FirebaseCoreDiagnostics.framework */; };
+		5C25FAD7237F7A8F0082CFBD /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC7237F7A8E0082CFBD /* GoogleUtilities.framework */; };
+		5C25FAD8237F7A8F0082CFBD /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC7237F7A8E0082CFBD /* GoogleUtilities.framework */; };
+		5C25FAD9237F7A8F0082CFBD /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC8237F7A8E0082CFBD /* FirebaseAnalytics.framework */; };
+		5C25FADA237F7A8F0082CFBD /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC8237F7A8E0082CFBD /* FirebaseAnalytics.framework */; };
+		5C25FADB237F7A8F0082CFBD /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC9237F7A8F0082CFBD /* FIRAnalyticsConnector.framework */; };
+		5C25FADC237F7A8F0082CFBD /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC9237F7A8F0082CFBD /* FIRAnalyticsConnector.framework */; };
+		5C25FADD237F7A8F0082CFBD /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FACA237F7A8F0082CFBD /* GoogleAppMeasurement.framework */; };
+		5C25FADE237F7A8F0082CFBD /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FACA237F7A8F0082CFBD /* GoogleAppMeasurement.framework */; };
+		5C25FAE2237F7B610082CFBD /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAE0237F7B610082CFBD /* FirebaseStorage.framework */; };
+		5C25FAE3237F7B610082CFBD /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAE0237F7B610082CFBD /* FirebaseStorage.framework */; };
+		5C25FAE4237F7B610082CFBD /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAE1237F7B610082CFBD /* GTMSessionFetcher.framework */; };
+		5C25FAE5237F7B610082CFBD /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAE1237F7B610082CFBD /* GTMSessionFetcher.framework */; };
+		5C25FAE9237F7C2C0082CFBD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAE8237F7C170082CFBD /* libz.tbd */; };
+		5C25FAEA237F7C300082CFBD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAE7237F7C0F0082CFBD /* libsqlite3.tbd */; };
+		5C25FAEC237F7C4C0082CFBD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAEB237F7C430082CFBD /* libc++.tbd */; };
+		5C25FAF2237F83A80082CFBD /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF0237F83A80082CFBD /* GTMSessionFetcher.framework */; };
+		5C25FAF3237F83A80082CFBD /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF0237F83A80082CFBD /* GTMSessionFetcher.framework */; };
+		5C25FAF4237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */; };
+		5C25FAF5237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */; };
 		5C6A926C2379291D006D8E0E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* MapView.swift */; };
 		5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926D237929FF006D8E0E /* ExploreView.swift */; };
 		5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */; };
@@ -25,6 +56,15 @@
 		5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98C2374631C00996D91 /* Dependencies.swift */; };
 		5C80C98F2374634200996D91 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98E2374634200996D91 /* GithubService.swift */; };
 		5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */; };
+		5C9C800E237F871B0060C10E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C9C800D237F871B0060C10E /* GoogleService-Info.plist */; };
+		5C9C800F237F871B0060C10E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C9C800D237F871B0060C10E /* GoogleService-Info.plist */; };
+		5C9C8011237F8C680060C10E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8010237F8C680060C10E /* Utilities.swift */; };
+		5C9C8012237F8C680060C10E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8010237F8C680060C10E /* Utilities.swift */; };
+		5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */; };
+		5C9C8018237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */; };
+		5C9C801A237F93100060C10E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8019237F93100060C10E /* User.swift */; };
+		5C9C801B237F93100060C10E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8019237F93100060C10E /* User.swift */; };
+		5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */; };
 		5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */; };
 		5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +82,26 @@
 /* Begin PBXFileReference section */
 		5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Bundle+Localization.swift"; sourceTree = "<group>"; };
 		5C25FA44237F385C0082CFBD /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
+		5C25FAB9237F79DC0082CFBD /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		5C25FAC1237F7A8E0082CFBD /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		5C25FAC2237F7A8E0082CFBD /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		5C25FAC3237F7A8E0082CFBD /* GoogleDataTransportCCTSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleDataTransportCCTSupport.framework; sourceTree = "<group>"; };
+		5C25FAC4237F7A8E0082CFBD /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		5C25FAC5237F7A8E0082CFBD /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = "<group>"; };
+		5C25FAC6237F7A8E0082CFBD /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		5C25FAC7237F7A8E0082CFBD /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		5C25FAC8237F7A8E0082CFBD /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		5C25FAC9237F7A8F0082CFBD /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
+		5C25FACA237F7A8F0082CFBD /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		5C25FADF237F7ABF0082CFBD /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		5C25FAE0237F7B610082CFBD /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
+		5C25FAE1237F7B610082CFBD /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		5C25FAE7237F7C0F0082CFBD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		5C25FAE8237F7C170082CFBD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		5C25FAEB237F7C430082CFBD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		5C25FAF0237F83A80082CFBD /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
+		5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeMaster.entitlements; sourceTree = "<group>"; };
 		5C6A926B2379291D006D8E0E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5C6A926D237929FF006D8E0E /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewSectionView.swift; sourceTree = "<group>"; };
@@ -62,6 +122,11 @@
 		5C80C98C2374631C00996D91 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		5C80C98E2374634200996D91 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ThemeColor.swift"; sourceTree = "<group>"; };
+		5C9C800D237F871B0060C10E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5C9C8010237F8C680060C10E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegates.swift; sourceTree = "<group>"; };
+		5C9C8019237F93100060C10E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentWindowObject.swift; sourceTree = "<group>"; };
 		5CEEC7B2237EF63900E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5CEEC7B6237EFBEA00E3BDB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5CEEC7B8237EFBEF00E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -73,6 +138,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C25FAD9237F7A8F0082CFBD /* FirebaseAnalytics.framework in Frameworks */,
+				5C25FAD3237F7A8F0082CFBD /* GoogleDataTransport.framework in Frameworks */,
+				5C25FAEA237F7C300082CFBD /* libsqlite3.tbd in Frameworks */,
+				5C25FADD237F7A8F0082CFBD /* GoogleAppMeasurement.framework in Frameworks */,
+				5C25FACB237F7A8F0082CFBD /* FirebaseCore.framework in Frameworks */,
+				5C25FAE9237F7C2C0082CFBD /* libz.tbd in Frameworks */,
+				5C25FAEC237F7C4C0082CFBD /* libc++.tbd in Frameworks */,
+				5C25FAE4237F7B610082CFBD /* GTMSessionFetcher.framework in Frameworks */,
+				5C25FAF4237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */,
+				5C25FACF237F7A8F0082CFBD /* GoogleDataTransportCCTSupport.framework in Frameworks */,
+				5C25FADB237F7A8F0082CFBD /* FIRAnalyticsConnector.framework in Frameworks */,
+				5C25FAF2237F83A80082CFBD /* GTMSessionFetcher.framework in Frameworks */,
+				5C25FAD5237F7A8F0082CFBD /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				5C25FAE2237F7B610082CFBD /* FirebaseStorage.framework in Frameworks */,
+				5C25FAD1237F7A8F0082CFBD /* nanopb.framework in Frameworks */,
+				5C25FACD237F7A8F0082CFBD /* FirebaseInstanceID.framework in Frameworks */,
+				5C25FAD7237F7A8F0082CFBD /* GoogleUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,18 +162,74 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C25FADA237F7A8F0082CFBD /* FirebaseAnalytics.framework in Frameworks */,
+				5C25FAF5237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */,
+				5C25FAD4237F7A8F0082CFBD /* GoogleDataTransport.framework in Frameworks */,
+				5C25FADE237F7A8F0082CFBD /* GoogleAppMeasurement.framework in Frameworks */,
+				5C25FAF3237F83A80082CFBD /* GTMSessionFetcher.framework in Frameworks */,
+				5C25FACC237F7A8F0082CFBD /* FirebaseCore.framework in Frameworks */,
+				5C25FAE5237F7B610082CFBD /* GTMSessionFetcher.framework in Frameworks */,
+				5C25FAD0237F7A8F0082CFBD /* GoogleDataTransportCCTSupport.framework in Frameworks */,
+				5C25FADC237F7A8F0082CFBD /* FIRAnalyticsConnector.framework in Frameworks */,
+				5C25FAD6237F7A8F0082CFBD /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				5C25FAE3237F7B610082CFBD /* FirebaseStorage.framework in Frameworks */,
+				5C25FAD2237F7A8F0082CFBD /* nanopb.framework in Frameworks */,
+				5C25FACE237F7A8F0082CFBD /* FirebaseInstanceID.framework in Frameworks */,
+				5C25FAD8237F7A8F0082CFBD /* GoogleUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C25FAC0237F7A7D0082CFBD /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				5C25FADF237F7ABF0082CFBD /* Firebase.h */,
+				5C9C800D237F871B0060C10E /* GoogleService-Info.plist */,
+				5C25FAEF237F83A80082CFBD /* Auth */,
+				5C25FAE0237F7B610082CFBD /* FirebaseStorage.framework */,
+				5C25FAE1237F7B610082CFBD /* GTMSessionFetcher.framework */,
+				5C25FAC9237F7A8F0082CFBD /* FIRAnalyticsConnector.framework */,
+				5C25FAC8237F7A8E0082CFBD /* FirebaseAnalytics.framework */,
+				5C25FAC1237F7A8E0082CFBD /* FirebaseCore.framework */,
+				5C25FAC6237F7A8E0082CFBD /* FirebaseCoreDiagnostics.framework */,
+				5C25FAC2237F7A8E0082CFBD /* FirebaseInstanceID.framework */,
+				5C25FACA237F7A8F0082CFBD /* GoogleAppMeasurement.framework */,
+				5C25FAC5237F7A8E0082CFBD /* GoogleDataTransport.framework */,
+				5C25FAC3237F7A8E0082CFBD /* GoogleDataTransportCCTSupport.framework */,
+				5C25FAC7237F7A8E0082CFBD /* GoogleUtilities.framework */,
+				5C25FAC4237F7A8E0082CFBD /* nanopb.framework */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		5C25FAE6237F7C0F0082CFBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C25FAEB237F7C430082CFBD /* libc++.tbd */,
+				5C25FAE8237F7C170082CFBD /* libz.tbd */,
+				5C25FAE7237F7C0F0082CFBD /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C25FAEF237F83A80082CFBD /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				5C25FAF0237F83A80082CFBD /* GTMSessionFetcher.framework */,
+				5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		5C80C95723745F2600996D91 = {
 			isa = PBXGroup;
 			children = (
 				5C80C96223745F2600996D91 /* CoffeeMaster */,
 				5C80C97C23745F2900996D91 /* CoffeeMasterTests */,
 				5C80C96123745F2600996D91 /* Products */,
+				5C25FAE6237F7C0F0082CFBD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +245,8 @@
 		5C80C96223745F2600996D91 /* CoffeeMaster */ = {
 			isa = PBXGroup;
 			children = (
+				5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */,
+				5C25FAC0237F7A7D0082CFBD /* Firebase */,
 				5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */,
 				5CEEC7BD237F053700E3BDB0 /* Views */,
 				5CEEC7BF237F056500E3BDB0 /* Model */,
@@ -114,6 +254,7 @@
 				5C80C96C23745F2900996D91 /* Assets.xcassets */,
 				5C80C97123745F2900996D91 /* LaunchScreen.storyboard */,
 				5C80C97423745F2900996D91 /* Info.plist */,
+				5C25FAB9237F79DC0082CFBD /* module.modulemap */,
 				5C80C96723745F2600996D91 /* CoffeeMaster.xcdatamodeld */,
 				5C80C96E23745F2900996D91 /* Preview Content */,
 				5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */,
@@ -164,6 +305,7 @@
 			children = (
 				5C80C988237462A100996D91 /* Store.swift */,
 				5C80C98A237462D900996D91 /* App.swift */,
+				5C9C8019237F93100060C10E /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,11 +313,14 @@
 		5CEEC7C0237F057E00E3BDB0 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */,
 				5C80C98C2374631C00996D91 /* Dependencies.swift */,
 				5C80C98E2374634200996D91 /* GithubService.swift */,
 				5C80C96323745F2600996D91 /* AppDelegate.swift */,
 				5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */,
 				5C80C96523745F2600996D91 /* SceneDelegate.swift */,
+				5C9C8010237F8C680060C10E /* Utilities.swift */,
+				5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -264,6 +409,7 @@
 			files = (
 				5C80C97323745F2900996D91 /* LaunchScreen.storyboard in Resources */,
 				5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */,
+				5C9C800E237F871B0060C10E /* GoogleService-Info.plist in Resources */,
 				5C80C97023745F2900996D91 /* Preview Assets.xcassets in Resources */,
 				5C80C96D23745F2900996D91 /* Assets.xcassets in Resources */,
 			);
@@ -273,6 +419,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C9C800F237F871B0060C10E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,15 +436,19 @@
 				5C80C989237462A100996D91 /* Store.swift in Sources */,
 				5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */,
 				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
+				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,
+				5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,
 				5C80C96923745F2600996D91 /* CoffeeMaster.xcdatamodeld in Sources */,
 				5C80C96423745F2600996D91 /* AppDelegate.swift in Sources */,
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
 				5C6A926C2379291D006D8E0E /* MapView.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
+				5C9C801A237F93100060C10E /* User.swift in Sources */,
 				5C80C96B23745F2600996D91 /* ContentView.swift in Sources */,
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
+				5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +456,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C9C801B237F93100060C10E /* User.swift in Sources */,
+				5C9C8012237F8C680060C10E /* Utilities.swift in Sources */,
 				5C80C97E23745F2900996D91 /* CoffeeMasterTests.swift in Sources */,
+				5C9C8018237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +550,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -450,6 +605,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -461,19 +617,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoffeeMaster/CoffeeMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffeeMaster/Preview Content\"";
 				DEVELOPMENT_TEAM = 397U443WJR;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CoffeeMaster",
+					"$(PROJECT_DIR)/CoffeeMaster/Auth",
+				);
 				INFOPLIST_FILE = CoffeeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.sce.mky5089.CoffeeMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "/Users/mingtianyang/Documents/Penn\\ State/2019fall/cmpsc475/CoffeeMaster/CoffeeMaster";
 			};
 			name = Debug;
 		};
@@ -481,19 +645,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoffeeMaster/CoffeeMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffeeMaster/Preview Content\"";
 				DEVELOPMENT_TEAM = 397U443WJR;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CoffeeMaster",
+					"$(PROJECT_DIR)/CoffeeMaster/Auth",
+				);
 				INFOPLIST_FILE = CoffeeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.sce.mky5089.CoffeeMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "/Users/mingtianyang/Documents/Penn\\ State/2019fall/cmpsc475/CoffeeMaster/CoffeeMaster";
 			};
 			name = Release;
 		};
@@ -504,6 +676,22 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 397U443WJR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CoffeeMaster/Storage",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Firestore",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/DynamicLinks",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Functions",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Auth",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Database",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/InAppMessagingDisplay",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Messaging",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Analytics",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/InAppMessaging",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase",
+					"$(PROJECT_DIR)/CoffeeMaster",
+					"$(PROJECT_DIR)/CoffeeMaster/Auth",
+				);
 				INFOPLIST_FILE = CoffeeMasterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,6 +699,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.sce.mky5089.CoffeeMasterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -526,6 +715,22 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 397U443WJR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CoffeeMaster/Storage",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Firestore",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/DynamicLinks",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Functions",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Auth",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Database",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/InAppMessagingDisplay",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Messaging",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Analytics",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase/InAppMessaging",
+					"$(PROJECT_DIR)/CoffeeMaster/Firebase",
+					"$(PROJECT_DIR)/CoffeeMaster",
+					"$(PROJECT_DIR)/CoffeeMaster/Auth",
+				);
 				INFOPLIST_FILE = CoffeeMasterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -533,6 +738,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.sce.mky5089.CoffeeMasterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

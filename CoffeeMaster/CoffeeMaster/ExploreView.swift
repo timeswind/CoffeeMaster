@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ExploreView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @EnvironmentObject var environmentWindowObject: EnvironmentWindowObject
     @State var isSettingPresented: Bool = false
 
     func search() {
@@ -34,7 +35,7 @@ struct ExploreView: View {
                                     Text(LocalizedStringKey("Search"))
                                 })
         }.sheet(isPresented: $isSettingPresented) {
-            SettingsView(showModal: self.$isSettingPresented, supportedLanguages: self.store.state.settings.supportedLanguages).environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            SettingsView(showModal: self.$isSettingPresented, settingsState: self.store.state.settings).environmentObject(self.store).environmentObject(self.environmentWindowObject).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
 
     }

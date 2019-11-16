@@ -7,17 +7,20 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct EnvironmemtServices: ViewModifier {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let store = Store<AppState, AppAction>(initialState: AppState(settings: SettingsState(), repostate: ReposState()), appReducer: appReducer)
-    
     func body(content: Content) -> some View {
         print("EnvironmemtServices")
         let localization = getLocalization()
-        
         store.send(.settings(action: .setLocalization(localization: localization)))
+        
+        if Auth.auth().currentUser != nil {
+            store.send(.settings(action: .setUserSignInStatus(isSignedIn: true)))
+        }
         
         return content
             .environment(\.managedObjectContext, context)

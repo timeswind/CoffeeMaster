@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import Firebase
 
 enum RepoSideEffect: Effect {
     case repoSearch(query: String)
@@ -32,6 +33,9 @@ enum AppAction {
 enum SettingsAction {
     case setName(name: String)
     case setLocalization(localization: String)
+    case setUserSignInStatus(isSignedIn: Bool)
+    case setNounce(nounce: String)
+    case logout(with: Bool)
 }
 
 enum ReposAction {
@@ -62,6 +66,18 @@ let settingsReducer: Reducer<SettingsState, SettingsAction> = Reducer { state, a
     case let .setLocalization(string):
         Bundle.setLanguage(lang: string)
         state.localization = string
+    case let .setUserSignInStatus(isSignedIn):
+        state.signedIn = isSignedIn
+    case let .setNounce(nounce):
+        state.nounce = nounce
+    case let .logout(with):
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            state.signedIn = false
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
     }
 }
 
@@ -74,7 +90,9 @@ struct ReposState {
 struct SettingsState {
     var name: String = ""
     var localization: String = ""
-    var supportedLanguages: [String] = ["English", "中文"]
+    var supportedLanguages: [String: String] = ["English": "en", "中文": "zh-Hans"]
+    var signedIn: Bool = false
+    var nounce:String?
 }
 
 struct AppState {

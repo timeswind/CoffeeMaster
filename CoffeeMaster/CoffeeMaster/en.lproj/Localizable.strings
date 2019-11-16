@@ -13,6 +13,7 @@
 "Quiz"="Quiz";
 "Settings"="Settings";
 "Dismiss"="Dismiss";
+"Logout" = "Logout";
 
 /*Settings View*/
 "ChooseLanguage"="Choose Language";

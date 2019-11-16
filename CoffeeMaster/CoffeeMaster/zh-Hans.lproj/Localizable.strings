@@ -13,6 +13,7 @@
 "Quiz"="测一测";
 "Settings"="设置";
 "Dismiss"="关闭";
+"Logout" = "登出";
 
 /*Settings View*/
 "ChooseLanguage"="选择语言";
