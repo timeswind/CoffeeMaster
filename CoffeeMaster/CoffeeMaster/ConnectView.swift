@@ -14,7 +14,7 @@ struct ConnectView: View {
 
     
     private func fetch() {
-        store.send(RepoSideEffect.getAllPosts(query: ""))
+        store.send(AsyncSideEffect.getAllPosts(query: ""))
     }
     
     func post() {

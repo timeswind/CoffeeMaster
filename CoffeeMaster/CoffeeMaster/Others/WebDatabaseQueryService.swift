@@ -36,6 +36,7 @@ class WebDatabaseQueryService {
                     posts.append(post)
                     print("\(document.documentID) => \(document.data())")
                 }
+                print(posts)
                 subject.send(posts)
             }
         }
@@ -44,10 +45,12 @@ class WebDatabaseQueryService {
         return subject.eraseToAnyPublisher()
     }
     
-    func newPost(post: Post) {
+    func newPost(post: Post)  -> AnyPublisher<Post?, Error> {
         let postsRef = db.collection("posts")
         var newDocRef: DocumentReference? = nil
         
+        let subject = PassthroughSubject<Post?, Error>()
+
         newDocRef = postsRef.addDocument(data: [
             "title": post.title,
             "body": post.body,
@@ -58,11 +61,15 @@ class WebDatabaseQueryService {
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
+                subject.send(nil)
             } else {
                 print("Document added with ID: \(newDocRef!.documentID)")
+                var newpost = post
+                newpost.id = newDocRef!.documentID
+                subject.send(post)
             }
         }
-
+        return subject.eraseToAnyPublisher()
     }
-    
+
 }

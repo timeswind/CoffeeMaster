@@ -37,7 +37,7 @@ struct ContentView: View {
     }
 
     private func fetch() {
-        store.send(RepoSideEffect.repoSearch(query: query))
+        store.send(AsyncSideEffect.repoSearch(query: query))
     }
 }
 

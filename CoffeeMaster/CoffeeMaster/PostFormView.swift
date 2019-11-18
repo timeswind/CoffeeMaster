@@ -19,7 +19,9 @@ struct PostFormView: View {
         assert(store.state.settings.uid != nil)
         let post = Post(title: postTitle, body: postBody, created_by_uid: store.state.settings.uid!, allow_comment: true)
         let updatePostAction: AppAction = .connectview(action: .setCurrentEditingPost(post: post))
+
         store.send(updatePostAction)
+        store.send(AsyncSideEffect.newPost(post: post))
     }
     
     var body: some View {

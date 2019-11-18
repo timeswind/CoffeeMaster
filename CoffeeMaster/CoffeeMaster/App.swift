@@ -10,9 +10,10 @@ import Foundation
 import Combine
 import Firebase
 
-enum RepoSideEffect: Effect {
+enum AsyncSideEffect: Effect {
     case repoSearch(query: String)
     case getAllPosts(query: String)
+    case newPost(post: Post)
     
     func mapToAction() -> AnyPublisher<AppAction, Never> {
         switch self {
@@ -27,16 +28,35 @@ enum RepoSideEffect: Effect {
             return dependencies.webDatabaseQueryService
             .getAllPosts()
             .replaceError(with: [])
-                .map { let repoAction: ConnectViewAction = .setPosts(posts: $0)
-                    return AppAction.connectview(action: repoAction) }
+                .map { let connectViewAction: ConnectViewAction = .setPosts(posts: $0)
+                    return AppAction.connectview(action: connectViewAction) }
+            .eraseToAnyPublisher()
+        case let .newPost(post):
+            return dependencies.webDatabaseQueryService
+            .newPost(post: post)
+                .replaceError(with: nil)
+                .map {
+                    if ($0 != nil) {
+                        let connectViewAction: ConnectViewAction = .newPostAdded(post: $0!)
+                        return AppAction.connectview(action: connectViewAction)
+                    } else {
+                        return AppAction.emptyAction(action: .nilAction(nil: true))
+                    }
+            }
             .eraseToAnyPublisher()
         }
     }
 }
+
+enum EmptyAction {
+    case nilAction(nil: Bool)
+}
+
 enum AppAction {
     case repos(repos: ReposAction)
     case settings(action: SettingsAction)
     case connectview(action: ConnectViewAction)
+    case emptyAction(action: EmptyAction)
 }
 
 enum SettingsAction {
@@ -53,6 +73,7 @@ enum ReposAction {
 }
 
 enum ConnectViewAction {
+    case newPostAdded(post: Post)
     case setPosts(posts: [Post])
     case setCurrentEditingPost(post: Post)
 }
@@ -60,6 +81,8 @@ enum ConnectViewAction {
 
 let appReducer: Reducer<AppState, AppAction> = Reducer { state, action in
     switch action {
+    case let .emptyAction(action):
+        return
     case let .settings(action):
         settingsReducer.reduce(&state.settings, action)
     case let .repos(action):
@@ -82,9 +105,10 @@ let connectViewReducer: Reducer<ConnectViewState, ConnectViewAction> = Reducer {
         state.posts = posts
     case let .setCurrentEditingPost(post):
         state.composing_post = post
+    case let .newPostAdded(post):
+        state.posts.insert(post, at: 0)
     }
 }
-
 
 let settingsReducer: Reducer<SettingsState, SettingsAction> = Reducer { state, action in
     switch action {
