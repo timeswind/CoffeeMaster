@@ -40,6 +40,21 @@
 		5C25FAF3237F83A80082CFBD /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF0237F83A80082CFBD /* GTMSessionFetcher.framework */; };
 		5C25FAF4237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */; };
 		5C25FAF5237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */; };
+		5C479F112381D9E30026D613 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F092381D9E30026D613 /* gRPC-Core.framework */; };
+		5C479F122381D9E30026D613 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F092381D9E30026D613 /* gRPC-Core.framework */; };
+		5C479F132381D9E30026D613 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */; };
+		5C479F142381D9E30026D613 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */; };
+		5C479F152381D9E30026D613 /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C479F0C2381D9E30026D613 /* gRPCCertificates-Cpp.bundle */; };
+		5C479F162381D9E30026D613 /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C479F0C2381D9E30026D613 /* gRPCCertificates-Cpp.bundle */; };
+		5C479F172381D9E30026D613 /* BoringSSL-GRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0D2381D9E30026D613 /* BoringSSL-GRPC.framework */; };
+		5C479F182381D9E30026D613 /* BoringSSL-GRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0D2381D9E30026D613 /* BoringSSL-GRPC.framework */; };
+		5C479F192381D9E30026D613 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0E2381D9E30026D613 /* leveldb-library.framework */; };
+		5C479F1A2381D9E30026D613 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0E2381D9E30026D613 /* leveldb-library.framework */; };
+		5C479F1B2381D9E30026D613 /* abseil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0F2381D9E30026D613 /* abseil.framework */; };
+		5C479F1C2381D9E30026D613 /* abseil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0F2381D9E30026D613 /* abseil.framework */; };
+		5C479F1D2381D9E30026D613 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F102381D9E30026D613 /* gRPC-C++.framework */; };
+		5C479F1E2381D9E30026D613 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F102381D9E30026D613 /* gRPC-C++.framework */; };
+		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
 		5C6A926C2379291D006D8E0E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* MapView.swift */; };
 		5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926D237929FF006D8E0E /* ExploreView.swift */; };
 		5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */; };
@@ -56,14 +71,21 @@
 		5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98C2374631C00996D91 /* Dependencies.swift */; };
 		5C80C98F2374634200996D91 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98E2374634200996D91 /* GithubService.swift */; };
 		5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */; };
+		5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E722381AEDC0010EE0E /* ConnectView.swift */; };
+		5C8F6E752381B0420010EE0E /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E742381B0420010EE0E /* RecordView.swift */; };
+		5C8F6E772381B5F70010EE0E /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E762381B5F70010EE0E /* State.swift */; };
+		5C8F6E792381B6840010EE0E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E782381B6840010EE0E /* Post.swift */; };
+		5C8F6E7B2381BC080010EE0E /* WebDatabaseQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */; };
+		5C8F6E7E2381BC5E0010EE0E /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8F6E7C2381BC5D0010EE0E /* leveldb-library.framework */; };
+		5C8F6E7F2381BC5E0010EE0E /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8F6E7C2381BC5D0010EE0E /* leveldb-library.framework */; };
+		5C8F6E802381BC5E0010EE0E /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8F6E7D2381BC5E0010EE0E /* FirebaseDatabase.framework */; };
+		5C8F6E812381BC5E0010EE0E /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8F6E7D2381BC5E0010EE0E /* FirebaseDatabase.framework */; };
 		5C9C800E237F871B0060C10E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C9C800D237F871B0060C10E /* GoogleService-Info.plist */; };
 		5C9C800F237F871B0060C10E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C9C800D237F871B0060C10E /* GoogleService-Info.plist */; };
 		5C9C8011237F8C680060C10E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8010237F8C680060C10E /* Utilities.swift */; };
 		5C9C8012237F8C680060C10E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8010237F8C680060C10E /* Utilities.swift */; };
 		5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */; };
 		5C9C8018237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */; };
-		5C9C801A237F93100060C10E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8019237F93100060C10E /* User.swift */; };
-		5C9C801B237F93100060C10E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8019237F93100060C10E /* User.swift */; };
 		5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */; };
 		5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */; };
 		5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */; };
@@ -102,6 +124,14 @@
 		5C25FAF0237F83A80082CFBD /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
 		5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
 		5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeMaster.entitlements; sourceTree = "<group>"; };
+		5C479F092381D9E30026D613 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-Core.framework"; sourceTree = "<group>"; };
+		5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = "<group>"; };
+		5C479F0C2381D9E30026D613 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "gRPCCertificates-Cpp.bundle"; sourceTree = "<group>"; };
+		5C479F0D2381D9E30026D613 /* BoringSSL-GRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "BoringSSL-GRPC.framework"; sourceTree = "<group>"; };
+		5C479F0E2381D9E30026D613 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "leveldb-library.framework"; sourceTree = "<group>"; };
+		5C479F0F2381D9E30026D613 /* abseil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = abseil.framework; sourceTree = "<group>"; };
+		5C479F102381D9E30026D613 /* gRPC-C++.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-C++.framework"; sourceTree = "<group>"; };
+		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
 		5C6A926B2379291D006D8E0E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5C6A926D237929FF006D8E0E /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewSectionView.swift; sourceTree = "<group>"; };
@@ -122,10 +152,16 @@
 		5C80C98C2374631C00996D91 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		5C80C98E2374634200996D91 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ThemeColor.swift"; sourceTree = "<group>"; };
+		5C8F6E722381AEDC0010EE0E /* ConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectView.swift; sourceTree = "<group>"; };
+		5C8F6E742381B0420010EE0E /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		5C8F6E762381B5F70010EE0E /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		5C8F6E782381B6840010EE0E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDatabaseQueryService.swift; sourceTree = "<group>"; };
+		5C8F6E7C2381BC5D0010EE0E /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "leveldb-library.framework"; sourceTree = "<group>"; };
+		5C8F6E7D2381BC5E0010EE0E /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
 		5C9C800D237F871B0060C10E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C9C8010237F8C680060C10E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegates.swift; sourceTree = "<group>"; };
-		5C9C8019237F93100060C10E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentWindowObject.swift; sourceTree = "<group>"; };
 		5CEEC7B2237EF63900E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5CEEC7B6237EFBEA00E3BDB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -139,19 +175,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C25FAD9237F7A8F0082CFBD /* FirebaseAnalytics.framework in Frameworks */,
+				5C479F112381D9E30026D613 /* gRPC-Core.framework in Frameworks */,
+				5C479F132381D9E30026D613 /* FirebaseFirestore.framework in Frameworks */,
 				5C25FAD3237F7A8F0082CFBD /* GoogleDataTransport.framework in Frameworks */,
 				5C25FAEA237F7C300082CFBD /* libsqlite3.tbd in Frameworks */,
 				5C25FADD237F7A8F0082CFBD /* GoogleAppMeasurement.framework in Frameworks */,
 				5C25FACB237F7A8F0082CFBD /* FirebaseCore.framework in Frameworks */,
+				5C8F6E7E2381BC5E0010EE0E /* leveldb-library.framework in Frameworks */,
 				5C25FAE9237F7C2C0082CFBD /* libz.tbd in Frameworks */,
 				5C25FAEC237F7C4C0082CFBD /* libc++.tbd in Frameworks */,
 				5C25FAE4237F7B610082CFBD /* GTMSessionFetcher.framework in Frameworks */,
+				5C479F192381D9E30026D613 /* leveldb-library.framework in Frameworks */,
 				5C25FAF4237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */,
 				5C25FACF237F7A8F0082CFBD /* GoogleDataTransportCCTSupport.framework in Frameworks */,
 				5C25FADB237F7A8F0082CFBD /* FIRAnalyticsConnector.framework in Frameworks */,
+				5C479F172381D9E30026D613 /* BoringSSL-GRPC.framework in Frameworks */,
 				5C25FAF2237F83A80082CFBD /* GTMSessionFetcher.framework in Frameworks */,
+				5C8F6E802381BC5E0010EE0E /* FirebaseDatabase.framework in Frameworks */,
 				5C25FAD5237F7A8F0082CFBD /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				5C479F1D2381D9E30026D613 /* gRPC-C++.framework in Frameworks */,
 				5C25FAE2237F7B610082CFBD /* FirebaseStorage.framework in Frameworks */,
+				5C479F1B2381D9E30026D613 /* abseil.framework in Frameworks */,
 				5C25FAD1237F7A8F0082CFBD /* nanopb.framework in Frameworks */,
 				5C25FACD237F7A8F0082CFBD /* FirebaseInstanceID.framework in Frameworks */,
 				5C25FAD7237F7A8F0082CFBD /* GoogleUtilities.framework in Frameworks */,
@@ -164,18 +208,26 @@
 			files = (
 				5C25FADA237F7A8F0082CFBD /* FirebaseAnalytics.framework in Frameworks */,
 				5C25FAF5237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */,
+				5C479F1C2381D9E30026D613 /* abseil.framework in Frameworks */,
 				5C25FAD4237F7A8F0082CFBD /* GoogleDataTransport.framework in Frameworks */,
+				5C479F182381D9E30026D613 /* BoringSSL-GRPC.framework in Frameworks */,
 				5C25FADE237F7A8F0082CFBD /* GoogleAppMeasurement.framework in Frameworks */,
 				5C25FAF3237F83A80082CFBD /* GTMSessionFetcher.framework in Frameworks */,
+				5C479F142381D9E30026D613 /* FirebaseFirestore.framework in Frameworks */,
 				5C25FACC237F7A8F0082CFBD /* FirebaseCore.framework in Frameworks */,
 				5C25FAE5237F7B610082CFBD /* GTMSessionFetcher.framework in Frameworks */,
+				5C479F1A2381D9E30026D613 /* leveldb-library.framework in Frameworks */,
 				5C25FAD0237F7A8F0082CFBD /* GoogleDataTransportCCTSupport.framework in Frameworks */,
+				5C479F1E2381D9E30026D613 /* gRPC-C++.framework in Frameworks */,
 				5C25FADC237F7A8F0082CFBD /* FIRAnalyticsConnector.framework in Frameworks */,
+				5C479F122381D9E30026D613 /* gRPC-Core.framework in Frameworks */,
 				5C25FAD6237F7A8F0082CFBD /* FirebaseCoreDiagnostics.framework in Frameworks */,
 				5C25FAE3237F7B610082CFBD /* FirebaseStorage.framework in Frameworks */,
 				5C25FAD2237F7A8F0082CFBD /* nanopb.framework in Frameworks */,
+				5C8F6E812381BC5E0010EE0E /* FirebaseDatabase.framework in Frameworks */,
 				5C25FACE237F7A8F0082CFBD /* FirebaseInstanceID.framework in Frameworks */,
 				5C25FAD8237F7A8F0082CFBD /* GoogleUtilities.framework in Frameworks */,
+				5C8F6E7F2381BC5E0010EE0E /* leveldb-library.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,9 +242,12 @@
 				5C25FAEF237F83A80082CFBD /* Auth */,
 				5C25FAE0237F7B610082CFBD /* FirebaseStorage.framework */,
 				5C25FAE1237F7B610082CFBD /* GTMSessionFetcher.framework */,
+				5C479F082381D9E30026D613 /* Firestore */,
 				5C25FAC9237F7A8F0082CFBD /* FIRAnalyticsConnector.framework */,
 				5C25FAC8237F7A8E0082CFBD /* FirebaseAnalytics.framework */,
 				5C25FAC1237F7A8E0082CFBD /* FirebaseCore.framework */,
+				5C8F6E7D2381BC5E0010EE0E /* FirebaseDatabase.framework */,
+				5C8F6E7C2381BC5D0010EE0E /* leveldb-library.framework */,
 				5C25FAC6237F7A8E0082CFBD /* FirebaseCoreDiagnostics.framework */,
 				5C25FAC2237F7A8E0082CFBD /* FirebaseInstanceID.framework */,
 				5C25FACA237F7A8F0082CFBD /* GoogleAppMeasurement.framework */,
@@ -223,6 +278,37 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		5C479F082381D9E30026D613 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				5C479F092381D9E30026D613 /* gRPC-Core.framework */,
+				5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */,
+				5C479F0B2381D9E30026D613 /* Resources */,
+				5C479F0D2381D9E30026D613 /* BoringSSL-GRPC.framework */,
+				5C479F0E2381D9E30026D613 /* leveldb-library.framework */,
+				5C479F0F2381D9E30026D613 /* abseil.framework */,
+				5C479F102381D9E30026D613 /* gRPC-C++.framework */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		5C479F0B2381D9E30026D613 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5C479F0C2381D9E30026D613 /* gRPCCertificates-Cpp.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5C5F41192381E726005DBACE /* ConnectView */ = {
+			isa = PBXGroup;
+			children = (
+				5C8F6E722381AEDC0010EE0E /* ConnectView.swift */,
+				5C5F41172381E718005DBACE /* PostFormView.swift */,
+			);
+			name = ConnectView;
+			sourceTree = "<group>";
+		};
 		5C80C95723745F2600996D91 = {
 			isa = PBXGroup;
 			children = (
@@ -245,9 +331,9 @@
 		5C80C96223745F2600996D91 /* CoffeeMaster */ = {
 			isa = PBXGroup;
 			children = (
+				5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */,
 				5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */,
 				5C25FAC0237F7A7D0082CFBD /* Firebase */,
-				5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */,
 				5CEEC7BD237F053700E3BDB0 /* Views */,
 				5CEEC7BF237F056500E3BDB0 /* Model */,
 				5CEEC7C0237F057E00E3BDB0 /* Others */,
@@ -284,9 +370,8 @@
 			children = (
 				5C80C96A23745F2600996D91 /* ContentView.swift */,
 				5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */,
-				5C6A926D237929FF006D8E0E /* ExploreView.swift */,
-				5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */,
-				5C25FA44237F385C0082CFBD /* EnvironmentService.swift */,
+				5C8F6E742381B0420010EE0E /* RecordView.swift */,
+				5C5F41192381E726005DBACE /* ConnectView */,
 				5CEEC7BE237F054300E3BDB0 /* ExploreViews */,
 			);
 			name = Views;
@@ -295,6 +380,8 @@
 		5CEEC7BE237F054300E3BDB0 /* ExploreViews */ = {
 			isa = PBXGroup;
 			children = (
+				5C6A926D237929FF006D8E0E /* ExploreView.swift */,
+				5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */,
 				5C6A926B2379291D006D8E0E /* MapView.swift */,
 			);
 			name = ExploreViews;
@@ -305,7 +392,8 @@
 			children = (
 				5C80C988237462A100996D91 /* Store.swift */,
 				5C80C98A237462D900996D91 /* App.swift */,
-				5C9C8019237F93100060C10E /* User.swift */,
+				5C8F6E762381B5F70010EE0E /* State.swift */,
+				5C8F6E782381B6840010EE0E /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -313,7 +401,9 @@
 		5CEEC7C0237F057E00E3BDB0 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */,
 				5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */,
+				5C25FA44237F385C0082CFBD /* EnvironmentService.swift */,
 				5C80C98C2374631C00996D91 /* Dependencies.swift */,
 				5C80C98E2374634200996D91 /* GithubService.swift */,
 				5C80C96323745F2600996D91 /* AppDelegate.swift */,
@@ -408,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C80C97323745F2900996D91 /* LaunchScreen.storyboard in Resources */,
+				5C479F152381D9E30026D613 /* gRPCCertificates-Cpp.bundle in Resources */,
 				5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */,
 				5C9C800E237F871B0060C10E /* GoogleService-Info.plist in Resources */,
 				5C80C97023745F2900996D91 /* Preview Assets.xcassets in Resources */,
@@ -420,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9C800F237F871B0060C10E /* GoogleService-Info.plist in Resources */,
+				5C479F162381D9E30026D613 /* gRPCCertificates-Cpp.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +524,9 @@
 			files = (
 				5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */,
 				5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */,
+				5C8F6E7B2381BC080010EE0E /* WebDatabaseQueryService.swift in Sources */,
 				5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */,
+				5C8F6E772381B5F70010EE0E /* State.swift in Sources */,
 				5C80C989237462A100996D91 /* Store.swift in Sources */,
 				5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */,
 				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
@@ -440,14 +534,17 @@
 				5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,
 				5C80C96923745F2600996D91 /* CoffeeMaster.xcdatamodeld in Sources */,
 				5C80C96423745F2600996D91 /* AppDelegate.swift in Sources */,
+				5C8F6E752381B0420010EE0E /* RecordView.swift in Sources */,
+				5C8F6E792381B6840010EE0E /* Post.swift in Sources */,
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
 				5C6A926C2379291D006D8E0E /* MapView.swift in Sources */,
+				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
-				5C9C801A237F93100060C10E /* User.swift in Sources */,
 				5C80C96B23745F2600996D91 /* ContentView.swift in Sources */,
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
+				5C5F41182381E718005DBACE /* PostFormView.swift in Sources */,
 				5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,7 +553,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9C801B237F93100060C10E /* User.swift in Sources */,
 				5C9C8012237F8C680060C10E /* Utilities.swift in Sources */,
 				5C80C97E23745F2900996D91 /* CoffeeMasterTests.swift in Sources */,
 				5C9C8018237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,
@@ -626,6 +722,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CoffeeMaster",
 					"$(PROJECT_DIR)/CoffeeMaster/Auth",
+					"$(PROJECT_DIR)/CoffeeMaster/Firestore",
 				);
 				INFOPLIST_FILE = CoffeeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -654,6 +751,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CoffeeMaster",
 					"$(PROJECT_DIR)/CoffeeMaster/Auth",
+					"$(PROJECT_DIR)/CoffeeMaster/Firestore",
 				);
 				INFOPLIST_FILE = CoffeeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -691,6 +789,7 @@
 					"$(PROJECT_DIR)/CoffeeMaster/Firebase",
 					"$(PROJECT_DIR)/CoffeeMaster",
 					"$(PROJECT_DIR)/CoffeeMaster/Auth",
+					"$(PROJECT_DIR)/CoffeeMaster/Firestore",
 				);
 				INFOPLIST_FILE = CoffeeMasterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -730,6 +829,7 @@
 					"$(PROJECT_DIR)/CoffeeMaster/Firebase",
 					"$(PROJECT_DIR)/CoffeeMaster",
 					"$(PROJECT_DIR)/CoffeeMaster/Auth",
+					"$(PROJECT_DIR)/CoffeeMaster/Firestore",
 				);
 				INFOPLIST_FILE = CoffeeMasterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;

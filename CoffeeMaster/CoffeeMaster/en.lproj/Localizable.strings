@@ -14,6 +14,14 @@
 "Settings"="Settings";
 "Dismiss"="Dismiss";
 "Logout" = "Logout";
-
+"Account" = "Account";
+"General" = "General";
+"Write" = "Write";
+"Post" = "Post";
+"NewPost" = "New Post";
+"NewPostTitle" = "Post Title";
+"NewPostBody" = "Detail";
+"NewPostAllowComment" = "Allow Comment";
+"NewPostPostAction" = "Post";
 /*Settings View*/
 "ChooseLanguage"="Choose Language";

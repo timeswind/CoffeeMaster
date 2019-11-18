@@ -10,6 +10,7 @@ import Foundation
 
 struct Dependencies {
     var githubService: GithubService
+    var webDatabaseQueryService: WebDatabaseQueryService
 }
 
-let dependencies = Dependencies(githubService: GithubService())
+let dependencies = Dependencies(githubService: GithubService(), webDatabaseQueryService: WebDatabaseQueryService())

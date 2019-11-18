@@ -81,38 +81,36 @@ struct SearchView : View {
                     }
                     .tag(1)
 
-                    Text("Connect View")
-                        .font(.title)
-                        .tabItem {
-                            if (selection == 2) {
-                                VStack {
-                                    Image("community-icon-select-100")
-                                    Text("Connect")
-                                }
-                            } else {
-                                VStack {
-                                    Image("community-icon-unselect-100")
-                                    Text("Connect")
-                                }
+                    ConnectView()
+                    .tabItem {
+                        if (selection == 2) {
+                            VStack {
+                                Image("community-icon-select-100")
+                                Text(LocalizedStringKey("Connect"))
+                            }
+                        } else {
+                            VStack {
+                                Image("community-icon-unselect-100")
+                                Text(LocalizedStringKey("Connect"))
                             }
                         }
-                        .tag(2)
-                    Text("Record View")
-                        .font(.title)
-                        .tabItem {
-                            if (selection == 3) {
-                                VStack {
-                                    Image("record-icon-select-100")
-                                    Text("Record")
-                                }
-                            } else {
-                                VStack {
-                                    Image("record-icon-unselect-100")
-                                    Text("Record")
-                                }
+                    }
+                    .tag(2)
+                    RecordView()
+                    .tabItem {
+                        if (selection == 3) {
+                            VStack {
+                                Image("record-icon-select-100")
+                                Text(LocalizedStringKey("Connect"))
+                            }
+                        } else {
+                            VStack {
+                                Image("record-icon-unselect-100")
+                                Text(LocalizedStringKey("Connect"))
                             }
                         }
-                        .tag(3)
+                    }
+                    .tag(3)
                     NavigationView {
                         List {
                             TextField("Type something", text: $query, onCommit: onCommit)
@@ -135,40 +133,5 @@ struct SearchView : View {
                     }
                     }.accentColor(Color(UIColor.Theme.Accent))
                     .edgesIgnoringSafeArea(.top)
-    }
-}
-
-//import SwiftUI
-//
-//struct ContentView: View {
-//    @State private var selection = 0
-//
-//    var body: some View {
-//        TabView(selection: $selection){
-//            Text("First View")
-//                .font(.title)
-//                .tabItem {
-//                    VStack {
-//                        Image("first")
-//                        Text("First")
-//                    }
-//                }
-//                .tag(0)
-//            Text("Second View")
-//                .font(.title)
-//                .tabItem {
-//                    VStack {
-//                        Image("second")
-//                        Text("Second")
-//                    }
-//                }
-//                .tag(1)
-//        }
-//    }
-//}
-//
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

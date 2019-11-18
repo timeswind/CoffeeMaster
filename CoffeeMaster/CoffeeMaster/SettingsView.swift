@@ -51,7 +51,7 @@ struct SettingsView: View {
         
         return NavigationView{
             Form {
-                Section {
+                Section(header: Text(LocalizedStringKey("General"))) {
                     Picker(selection: p, label: Text(LocalizedStringKey("ChooseLanguage"))) {
                         ForEach(supportedLanguages, id: \.value) { langugae in
                             Text(langugae.key).tag(langugae.value)
@@ -59,22 +59,25 @@ struct SettingsView: View {
                     }
                 }
                 
-                if (!isUserSignedIn) {
-                    VStack {
-                        SignInWithApple().onTapGesture(perform: showAppleLogin)
+                Section(header: Text(LocalizedStringKey("Account"))) {
+                    if (!isUserSignedIn) {
+                        VStack {
+                            SignInWithApple().onTapGesture(perform: showAppleLogin)
+                        }
+                    } else {
+                        VStack {
+                            Button(action: {self.logout()}) {
+                                    Text(LocalizedStringKey("Logout"))
+                            }}
                     }
-                } else {
-                    VStack {
-                        Button(action: {self.logout()}) {
-                                Text(LocalizedStringKey("Logout"))
-                        }}
                 }
+            
             }.navigationBarTitle(LocalizedStringKey("Settings"))
                 .navigationBarItems(trailing:
                     Button(action: {self.showModal.toggle()}) {
                         Text(LocalizedStringKey("Dismiss"))
                 })
-        }.environment(\.locale, .init(identifier: store.state.settings.localization))
+        }.accentColor(Color(UIColor.Theme.Accent))
     }
     
     private func showAppleLogin() {

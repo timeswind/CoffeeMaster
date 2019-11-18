@@ -12,6 +12,7 @@ import Firebase
 
 enum RepoSideEffect: Effect {
     case repoSearch(query: String)
+    case getAllPosts(query: String)
     
     func mapToAction() -> AnyPublisher<AppAction, Never> {
         switch self {
@@ -22,24 +23,38 @@ enum RepoSideEffect: Effect {
                 .map { let repoAction: ReposAction = .setSearchResults(repos: $0)
                     return AppAction.repos(repos: repoAction) }
                 .eraseToAnyPublisher()
+        case let .getAllPosts(query):
+            return dependencies.webDatabaseQueryService
+            .getAllPosts()
+            .replaceError(with: [])
+                .map { let repoAction: ConnectViewAction = .setPosts(posts: $0)
+                    return AppAction.connectview(action: repoAction) }
+            .eraseToAnyPublisher()
         }
     }
 }
 enum AppAction {
     case repos(repos: ReposAction)
     case settings(action: SettingsAction)
+    case connectview(action: ConnectViewAction)
 }
 
 enum SettingsAction {
     case setName(name: String)
     case setLocalization(localization: String)
     case setUserSignInStatus(isSignedIn: Bool)
+    case setUserInfo(currentUser: User)
     case setNounce(nounce: String)
     case logout(with: Bool)
 }
 
 enum ReposAction {
     case setSearchResults(repos: [Repo])
+}
+
+enum ConnectViewAction {
+    case setPosts(posts: [Post])
+    case setCurrentEditingPost(post: Post)
 }
 
 
@@ -49,6 +64,8 @@ let appReducer: Reducer<AppState, AppAction> = Reducer { state, action in
         settingsReducer.reduce(&state.settings, action)
     case let .repos(action):
         reposReducer.reduce(&state.repostate, action)
+    case let .connectview(action):
+        connectViewReducer.reduce(&state.connectViewState, action)
     }
 }
 
@@ -59,6 +76,16 @@ let reposReducer: Reducer<ReposState, ReposAction> = Reducer { state, action in
     }
 }
 
+let connectViewReducer: Reducer<ConnectViewState, ConnectViewAction> = Reducer { state, action in
+    switch action {
+    case let .setPosts(posts):
+        state.posts = posts
+    case let .setCurrentEditingPost(post):
+        state.composing_post = post
+    }
+}
+
+
 let settingsReducer: Reducer<SettingsState, SettingsAction> = Reducer { state, action in
     switch action {
     case let .setName(name):
@@ -68,6 +95,8 @@ let settingsReducer: Reducer<SettingsState, SettingsAction> = Reducer { state, a
         state.localization = string
     case let .setUserSignInStatus(isSignedIn):
         state.signedIn = isSignedIn
+    case let .setUserInfo(currentUser):
+        state.uid = currentUser.uid
     case let .setNounce(nounce):
         state.nounce = nounce
     case let .logout(with):
@@ -81,24 +110,6 @@ let settingsReducer: Reducer<SettingsState, SettingsAction> = Reducer { state, a
     }
 }
 
-
-struct ReposState {
-    var searchResult: [Repo] = []
-}
-
-
-struct SettingsState {
-    var name: String = ""
-    var localization: String = ""
-    var supportedLanguages: [String: String] = ["English": "en", "中文": "zh-Hans"]
-    var signedIn: Bool = false
-    var nounce:String?
-}
-
-struct AppState {
-    var settings: SettingsState
-    var repostate: ReposState
-}
 
 func getLocalization() -> String {
     if let _ = UserDefaults.standard.string(forKey: "i18n_language") {} else {
