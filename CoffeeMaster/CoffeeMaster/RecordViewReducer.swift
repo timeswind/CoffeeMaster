@@ -30,26 +30,26 @@ struct RecordViewReducer {
 }
 
 enum RecordViewAsyncAction: Effect {
-    case getAllPosts(query: String)
-    case newPost(post: Post)
+    case getMyRecords(query: String)
+    case addRecord(record: Record)
     
     func mapToAction() -> AnyPublisher<AppAction, Never> {
         switch self {
-        case let .getAllPosts(query):
+        case let .getMyRecords(query):
             return dependencies.webDatabaseQueryService
-                .getAllPosts(query: query)
+                .getMyRecords(query: query)
             .replaceError(with: [])
-                .map { let connectViewAction: ConnectViewAction = .setPosts(posts: $0)
-                    return AppAction.connectview(action: connectViewAction) }
+                .map { let recordViewAction: RecordViewAction = .setRecords(records: $0)
+                    return AppAction.recordview(action: recordViewAction) }
             .eraseToAnyPublisher()
-        case let .newPost(post):
+        case let .addRecord(record):
             return dependencies.webDatabaseQueryService
-            .newPost(post: post)
+            .addRecord(record: record)
                 .replaceError(with: nil)
                 .map {
                     if ($0 != nil) {
-                        let connectViewAction: ConnectViewAction = .newPostAdded(post: $0!)
-                        return AppAction.connectview(action: connectViewAction)
+                        let recordViewAction: RecordViewAction = .newRecordAdded(record: $0!)
+                        return AppAction.recordview(action: recordViewAction)
                     } else {
                         return AppAction.emptyAction(action: .nilAction(nil: true))
                     }

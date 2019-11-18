@@ -67,7 +67,56 @@ class WebDatabaseQueryService {
                 print("Document added with ID: \(newDocRef!.documentID)")
                 var newpost = post
                 newpost.id = newDocRef!.documentID
-                subject.send(post)
+                subject.send(newpost)
+            }
+        }
+        return subject.eraseToAnyPublisher()
+    }
+    
+    // record
+    func getMyRecords(query: String) -> AnyPublisher<[Record], Error> {
+        let recordsRef = db.collection("records")
+
+        let subject = PassthroughSubject<[Record], Error>()
+        
+        recordsRef.getDocuments(source: .default) { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                var records: [Record] = []
+                for document in querySnapshot!.documents {
+                    var record = Record(dictionary: document.data())
+                    record.id = document.documentID
+                    records.append(record)
+                    print("\(document.documentID) => \(document.data())")
+                }
+                subject.send(records)
+            }
+        }
+        
+        return subject.eraseToAnyPublisher()
+    }
+    
+    func addRecord(record: Record)  -> AnyPublisher<Record?, Error> {
+        let recordsRef = db.collection("records")
+        var newDocRef: DocumentReference? = nil
+        
+        let subject = PassthroughSubject<Record?, Error>()
+
+        newDocRef = recordsRef.addDocument(data: [
+            "title": record.title,
+            "body": record.body,
+            "created_at": Timestamp(date: Date()),
+            "created_by_uid": record.created_by_uid
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                subject.send(nil)
+            } else {
+                print("Document added with ID: \(newDocRef!.documentID)")
+                var newrecord = record
+                newrecord.id = newDocRef!.documentID
+                subject.send(newrecord)
             }
         }
         return subject.eraseToAnyPublisher()

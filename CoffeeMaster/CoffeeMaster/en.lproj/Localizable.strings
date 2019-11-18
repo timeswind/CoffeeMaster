@@ -25,3 +25,8 @@
 "NewPostPostAction" = "Post";
 /*Settings View*/
 "ChooseLanguage"="Choose Language";
+/*AddRecordForm View*/
+"NewRecordTitle" = "Record Title";
+"NewRecordBody" = "Write anything you want";
+"NewRecord" = "New Record";
+"NewRecordRecordAction" = "Create";

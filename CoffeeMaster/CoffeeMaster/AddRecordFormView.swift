@@ -10,38 +10,37 @@ import SwiftUI
 
 struct AddRecordFormView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    @State private var postTitle: String = ""
-    @State private var postBody: String = ""
-    @State private var postAllowComment: Bool = true
+    @State private var recordTitle: String = ""
+    @State private var recordBody: String = ""
+    @State private var recordAllowComment: Bool = true
     
-    func post() {
+    func record() {
         assert(store.state.settings.uid != nil)
-        let post = Post(title: postTitle, body: postBody, created_by_uid: store.state.settings.uid!, allow_comment: true)
-        let updatePostAction: AppAction = .connectview(action: .setCurrentEditingPost(post: post))
+        let record = Record(title: recordTitle, body: recordBody, created_by_uid: store.state.settings.uid!)
         
-        store.send(ConnectViewAsyncAction.newPost(post: post))
+        store.send(RecordViewAsyncAction.addRecord(record: record))
     }
     
     func dismissSelf() {
-        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: false)))
+        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: false)))
     }
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                TextField(LocalizedStringKey("NewPostTitle"), text: $postTitle)
-                MultilineTextField(LocalizedStringKey("NewPostBody"), text: $postBody, onCommit: {
-                    print("Final text: \(self.postBody)")
+                TextField(LocalizedStringKey("NewRecordTitle"), text: $recordTitle)
+                MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {
+                    print("Final text: \(self.recordBody)")
                 })
                 Spacer()
             }.padding(20)
-                .navigationBarTitle(Text(LocalizedStringKey("NewPost")))
+                .navigationBarTitle(Text(LocalizedStringKey("NewRecord")))
                 .navigationBarItems(leading:
                     Button(action: {self.dismissSelf()}) {
                         Text(LocalizedStringKey("Dismiss"))
                     }
-                    ,trailing: Button(action: {self.post()}) {
-                        Text(LocalizedStringKey("NewPostPostAction"))
+                    ,trailing: Button(action: {self.record()}) {
+                        Text(LocalizedStringKey("NewRecordRecordAction"))
                     }
             )
         }.accentColor(Color(UIColor.Theme.Accent))

@@ -12,35 +12,40 @@ struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     
     private func fetch() {
-        store.send(ConnectViewAsyncAction.getAllPosts(query: ""))
+        store.send(RecordViewAsyncAction.getMyRecords(query: ""))
     }
     
-    func post() {
-        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: true)))
+    func showRecordForm() {
+        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: true)))
     }
     
     var body: some View {
         
-        let isNewRecordFormPresenting = Binding<Bool>(get: { () -> Bool in
-            return self.store.state.connectViewState.newPostFormPresented
+        let isAddRecordFormPresenting = Binding<Bool>(get: { () -> Bool in
+            return self.store.state.recordViewState.addRecordFormPresented
         }) { (isPresented) in }
         
         return NavigationView {
             RecordListView().navigationBarTitle(Text(LocalizedStringKey("Record"))).navigationBarItems(
                 trailing:
-                Button(action: {self.post()}) {
+                Button(action: {self.showRecordForm()}) {
                     Text(LocalizedStringKey("Write"))
-            })
-        }.sheet(isPresented: isNewRecordFormPresenting) {
+            }).onAppear(perform: fetch)
+        }.sheet(isPresented: isAddRecordFormPresenting) {
             AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
     }
 }
 
 struct RecordListView: View {
+    @EnvironmentObject var store: Store<AppState, AppAction>
     var body: some View {
-        List {
-            Text("RecordListView")
+        let records = store.state.recordViewState.records
+
+        return List {
+            ForEach(records, id: \.id) { record in
+                Text(record.title)
+            }
         }
     }
 }

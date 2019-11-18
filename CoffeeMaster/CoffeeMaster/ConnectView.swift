@@ -47,7 +47,6 @@ struct ConnectListView: View {
         return List {
             ForEach(posts, id: \.id) { post in
                 Text(post.title)
-                    .padding()
             }
         }
     }
