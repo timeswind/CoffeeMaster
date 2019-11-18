@@ -7,23 +7,16 @@
 //
 
 import Foundation
-import MapKit
 
 struct AppState {
     var settings: SettingsState
     var repostate: ReposState
-    var exploreViewState: ExploreViewState
     var connectViewState: ConnectViewState
     var recordViewState: RecordViewState
 }
 
 struct ReposState {
     var searchResult: [Repo] = []
-}
-
-struct ExploreViewState {
-    var map_coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-    var map_zoom_level: Int = 0
 }
 
 struct SettingsState {

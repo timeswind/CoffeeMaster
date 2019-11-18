@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -64,7 +64,7 @@
 		5C479F1D2381D9E30026D613 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F102381D9E30026D613 /* gRPC-C++.framework */; };
 		5C479F1E2381D9E30026D613 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F102381D9E30026D613 /* gRPC-C++.framework */; };
 		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
-		5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* ExploreMapView.swift */; };
+		5C6A926C2379291D006D8E0E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* MapView.swift */; };
 		5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926D237929FF006D8E0E /* ExploreView.swift */; };
 		5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */; };
 		5C80C96423745F2600996D91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C96323745F2600996D91 /* AppDelegate.swift */; };
@@ -96,6 +96,8 @@
 		5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */; };
 		5C9C8018237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */; };
 		5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */; };
+		5CE8457B238351190086EFC8 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE84579238350E30086EFC8 /* Mapbox.framework */; };
+		5CE8457C238351190086EFC8 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE84579238350E30086EFC8 /* Mapbox.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */; };
 		5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
@@ -110,7 +112,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5CE8457D238351190086EFC8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5CE8457C238351190086EFC8 /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5C21473F23834B3000AEFBFB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework"; sourceTree = "<group>"; };
 		5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Bundle+Localization.swift"; sourceTree = "<group>"; };
 		5C25FA44237F385C0082CFBD /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
 		5C25FAB9237F79DC0082CFBD /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
@@ -150,7 +167,7 @@
 		5C479F0F2381D9E30026D613 /* abseil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = abseil.framework; sourceTree = "<group>"; };
 		5C479F102381D9E30026D613 /* gRPC-C++.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-C++.framework"; sourceTree = "<group>"; };
 		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
-		5C6A926B2379291D006D8E0E /* ExploreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMapView.swift; sourceTree = "<group>"; };
+		5C6A926B2379291D006D8E0E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5C6A926D237929FF006D8E0E /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewSectionView.swift; sourceTree = "<group>"; };
 		5C80C96023745F2600996D91 /* CoffeeMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +198,9 @@
 		5C9C8010237F8C680060C10E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegates.swift; sourceTree = "<group>"; };
 		5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentWindowObject.swift; sourceTree = "<group>"; };
+		5CE8455F23834D100086EFC8 /* Mapbox.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mapbox.framework.dSYM; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework.dSYM"; sourceTree = "<group>"; };
+		5CE84575238350690086EFC8 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = CoffeeMaster/Mapbox.framework; sourceTree = "<group>"; };
+		5CE84579238350E30086EFC8 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = CoffeeMaster/Mapbox.framework; sourceTree = SOURCE_ROOT; };
 		5CEEC7B2237EF63900E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5CEEC7B6237EFBEA00E3BDB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5CEEC7B8237EFBEF00E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -203,6 +223,7 @@
 				5C25FAE9237F7C2C0082CFBD /* libz.tbd in Frameworks */,
 				5C25FAEC237F7C4C0082CFBD /* libc++.tbd in Frameworks */,
 				5C25FAE4237F7B610082CFBD /* GTMSessionFetcher.framework in Frameworks */,
+				5CE8457B238351190086EFC8 /* Mapbox.framework in Frameworks */,
 				5C479F192381D9E30026D613 /* leveldb-library.framework in Frameworks */,
 				5C25FAF4237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */,
 				5C25FACF237F7A8F0082CFBD /* GoogleDataTransportCCTSupport.framework in Frameworks */,
@@ -280,6 +301,9 @@
 		5C25FAE6237F7C0F0082CFBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CE84575238350690086EFC8 /* Mapbox.framework */,
+				5CE8455F23834D100086EFC8 /* Mapbox.framework.dSYM */,
+				5C21473F23834B3000AEFBFB /* Mapbox.framework */,
 				5C25FAEB237F7C430082CFBD /* libc++.tbd */,
 				5C25FAE8237F7C170082CFBD /* libz.tbd */,
 				5C25FAE7237F7C0F0082CFBD /* libsqlite3.tbd */,
@@ -378,6 +402,7 @@
 		5C80C96223745F2600996D91 /* CoffeeMaster */ = {
 			isa = PBXGroup;
 			children = (
+				5CE84579238350E30086EFC8 /* Mapbox.framework */,
 				5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */,
 				5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */,
 				5C25FAC0237F7A7D0082CFBD /* Firebase */,
@@ -429,7 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				5C6A926D237929FF006D8E0E /* ExploreView.swift */,
-				5C6A926B2379291D006D8E0E /* ExploreMapView.swift */,
+				5C6A926B2379291D006D8E0E /* MapView.swift */,
 				5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */,
 			);
 			name = ExploreViews;
@@ -476,6 +501,8 @@
 				5C80C95C23745F2600996D91 /* Sources */,
 				5C80C95D23745F2600996D91 /* Frameworks */,
 				5C80C95E23745F2600996D91 /* Resources */,
+				5CE8457D238351190086EFC8 /* Embed Frameworks */,
+				5C21474323834B4300AEFBFB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -524,7 +551,7 @@
 				};
 			};
 			buildConfigurationList = 5C80C95B23745F2600996D91 /* Build configuration list for PBXProject "CoffeeMaster" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -568,6 +595,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5C21474323834B4300AEFBFB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework/strip-frameworks.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5C80C95C23745F2600996D91 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -596,7 +643,7 @@
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
 				5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
-				5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */,
+				5C6A926C2379291D006D8E0E /* MapView.swift in Sources */,
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
 				5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
@@ -783,6 +830,7 @@
 					"$(PROJECT_DIR)/CoffeeMaster",
 					"$(PROJECT_DIR)/CoffeeMaster/Auth",
 					"$(PROJECT_DIR)/CoffeeMaster/Firestore",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = CoffeeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -812,6 +860,7 @@
 					"$(PROJECT_DIR)/CoffeeMaster",
 					"$(PROJECT_DIR)/CoffeeMaster/Auth",
 					"$(PROJECT_DIR)/CoffeeMaster/Firestore",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = CoffeeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
