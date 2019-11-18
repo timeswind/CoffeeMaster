@@ -64,7 +64,7 @@
 		5C479F1D2381D9E30026D613 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F102381D9E30026D613 /* gRPC-C++.framework */; };
 		5C479F1E2381D9E30026D613 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F102381D9E30026D613 /* gRPC-C++.framework */; };
 		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
-		5C6A926C2379291D006D8E0E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* MapView.swift */; };
+		5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* ExploreMapView.swift */; };
 		5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926D237929FF006D8E0E /* ExploreView.swift */; };
 		5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */; };
 		5C80C96423745F2600996D91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C96323745F2600996D91 /* AppDelegate.swift */; };
@@ -150,7 +150,7 @@
 		5C479F0F2381D9E30026D613 /* abseil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = abseil.framework; sourceTree = "<group>"; };
 		5C479F102381D9E30026D613 /* gRPC-C++.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-C++.framework"; sourceTree = "<group>"; };
 		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
-		5C6A926B2379291D006D8E0E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		5C6A926B2379291D006D8E0E /* ExploreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMapView.swift; sourceTree = "<group>"; };
 		5C6A926D237929FF006D8E0E /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewSectionView.swift; sourceTree = "<group>"; };
 		5C80C96023745F2600996D91 /* CoffeeMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -429,7 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				5C6A926D237929FF006D8E0E /* ExploreView.swift */,
-				5C6A926B2379291D006D8E0E /* MapView.swift */,
+				5C6A926B2379291D006D8E0E /* ExploreMapView.swift */,
 				5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */,
 			);
 			name = ExploreViews;
@@ -596,7 +596,7 @@
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
 				5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
-				5C6A926C2379291D006D8E0E /* MapView.swift in Sources */,
+				5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */,
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
 				5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,

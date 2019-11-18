@@ -12,7 +12,7 @@ import FirebaseAuth
 struct EnvironmemtServices: ViewModifier {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let store = Store<AppState, AppAction>(initialState: AppState(settings: SettingsState(), repostate: ReposState(), connectViewState: ConnectViewState(), recordViewState: RecordViewState()), appReducer: appReducer)
+    let store = Store<AppState, AppAction>(initialState: AppState(settings: SettingsState(), repostate: ReposState(),exploreViewState: ExploreViewState(), connectViewState: ConnectViewState(), recordViewState: RecordViewState()), appReducer: appReducer)
     func body(content: Content) -> some View {
         print("EnvironmemtServices")
         let localization = getLocalization()
