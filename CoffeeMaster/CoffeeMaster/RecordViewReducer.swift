@@ -8,22 +8,33 @@
 
 import Foundation
 import Combine
-import Firebase
+
+enum RecordViewAction {
+    case newRecordAdded(record: Record)
+    case setRecords(records: [Record])
+    case setAddRecordFormPresentStatus(isPresent: Bool)
+}
+
+struct RecordViewReducer {
+    let reducer: Reducer<RecordViewState, RecordViewAction> = Reducer { state, action in
+        switch action {
+        case let .setAddRecordFormPresentStatus(isPresent):
+            state.addRecordFormPresented = isPresent
+        case let .setRecords(records):
+            state.records = records
+        case let .newRecordAdded(record):
+            state.addRecordFormPresented = false
+            state.records.insert(record, at: 0)
+        }
+    }
+}
 
 enum RecordViewAsyncAction: Effect {
-    case repoSearch(query: String)
     case getAllPosts(query: String)
     case newPost(post: Post)
     
     func mapToAction() -> AnyPublisher<AppAction, Never> {
         switch self {
-        case let .repoSearch(query):
-            return dependencies.githubService
-                .searchPublisher(matching: query)
-                .replaceError(with: [])
-                .map { let repoAction: ReposAction = .setSearchResults(repos: $0)
-                    return AppAction.repos(repos: repoAction) }
-                .eraseToAnyPublisher()
         case let .getAllPosts(query):
             return dependencies.webDatabaseQueryService
                 .getAllPosts(query: query)
@@ -47,3 +58,6 @@ enum RecordViewAsyncAction: Effect {
         }
     }
 }
+
+
+let recordViewReducer = RecordViewReducer()

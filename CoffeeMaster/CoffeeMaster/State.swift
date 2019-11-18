@@ -12,6 +12,7 @@ struct AppState {
     var settings: SettingsState
     var repostate: ReposState
     var connectViewState: ConnectViewState
+    var recordViewState: RecordViewState
 }
 
 struct ReposState {
@@ -34,6 +35,6 @@ struct ConnectViewState {
 }
 
 struct RecordViewState {
-    var records: [Post] = []
-    var newPostFormPresented: Bool = false
+    var records: [Record] = []
+    var addRecordFormPresented: Bool = false
 }
