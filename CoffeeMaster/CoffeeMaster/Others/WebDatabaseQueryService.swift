@@ -21,7 +21,7 @@ class WebDatabaseQueryService {
         self.decoder = decoder
     }
     
-    func getAllPosts() -> AnyPublisher<[Post], Error> {
+    func getAllPosts(query: String) -> AnyPublisher<[Post], Error> {
         let postsRef = db.collection("posts")
 
         let subject = PassthroughSubject<[Post], Error>()

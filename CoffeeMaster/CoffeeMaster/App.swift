@@ -26,7 +26,7 @@ enum AsyncSideEffect: Effect {
                 .eraseToAnyPublisher()
         case let .getAllPosts(query):
             return dependencies.webDatabaseQueryService
-            .getAllPosts()
+                .getAllPosts(query: query)
             .replaceError(with: [])
                 .map { let connectViewAction: ConnectViewAction = .setPosts(posts: $0)
                     return AppAction.connectview(action: connectViewAction) }

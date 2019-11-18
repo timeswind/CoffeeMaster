@@ -40,6 +40,9 @@
 		5C25FAF3237F83A80082CFBD /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF0237F83A80082CFBD /* GTMSessionFetcher.framework */; };
 		5C25FAF4237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */; };
 		5C25FAF5237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */; };
+		5C3F46582382D219001CC647 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F46572382D219001CC647 /* Record.swift */; };
+		5C3F465B23830903001CC647 /* AddRecordForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465A23830903001CC647 /* AddRecordForm.swift */; };
+		5C3F465D23830933001CC647 /* MultiplineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465C23830933001CC647 /* MultiplineTextField.swift */; };
 		5C479F112381D9E30026D613 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F092381D9E30026D613 /* gRPC-Core.framework */; };
 		5C479F122381D9E30026D613 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F092381D9E30026D613 /* gRPC-Core.framework */; };
 		5C479F132381D9E30026D613 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */; };
@@ -124,6 +127,9 @@
 		5C25FAF0237F83A80082CFBD /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
 		5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
 		5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeMaster.entitlements; sourceTree = "<group>"; };
+		5C3F46572382D219001CC647 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		5C3F465A23830903001CC647 /* AddRecordForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordForm.swift; sourceTree = "<group>"; };
+		5C3F465C23830933001CC647 /* MultiplineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplineTextField.swift; sourceTree = "<group>"; };
 		5C479F092381D9E30026D613 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-Core.framework"; sourceTree = "<group>"; };
 		5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = "<group>"; };
 		5C479F0C2381D9E30026D613 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "gRPCCertificates-Cpp.bundle"; sourceTree = "<group>"; };
@@ -278,6 +284,23 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		5C3F4659238308C6001CC647 /* RecordView */ = {
+			isa = PBXGroup;
+			children = (
+				5C8F6E742381B0420010EE0E /* RecordView.swift */,
+				5C3F465A23830903001CC647 /* AddRecordForm.swift */,
+			);
+			name = RecordView;
+			sourceTree = "<group>";
+		};
+		5C3F465E2383093D001CC647 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5C3F465C23830933001CC647 /* MultiplineTextField.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		5C479F082381D9E30026D613 /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,9 +391,11 @@
 		5CEEC7BD237F053700E3BDB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5C6A926B2379291D006D8E0E /* MapView.swift */,
+				5C3F465E2383093D001CC647 /* Components */,
 				5C80C96A23745F2600996D91 /* ContentView.swift */,
 				5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */,
-				5C8F6E742381B0420010EE0E /* RecordView.swift */,
+				5C3F4659238308C6001CC647 /* RecordView */,
 				5C5F41192381E726005DBACE /* ConnectView */,
 				5CEEC7BE237F054300E3BDB0 /* ExploreViews */,
 			);
@@ -382,7 +407,6 @@
 			children = (
 				5C6A926D237929FF006D8E0E /* ExploreView.swift */,
 				5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */,
-				5C6A926B2379291D006D8E0E /* MapView.swift */,
 			);
 			name = ExploreViews;
 			sourceTree = "<group>";
@@ -394,6 +418,7 @@
 				5C80C98A237462D900996D91 /* App.swift */,
 				5C8F6E762381B5F70010EE0E /* State.swift */,
 				5C8F6E782381B6840010EE0E /* Post.swift */,
+				5C3F46572382D219001CC647 /* Record.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -522,8 +547,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C3F465D23830933001CC647 /* MultiplineTextField.swift in Sources */,
 				5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */,
 				5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */,
+				5C3F46582382D219001CC647 /* Record.swift in Sources */,
 				5C8F6E7B2381BC080010EE0E /* WebDatabaseQueryService.swift in Sources */,
 				5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */,
 				5C8F6E772381B5F70010EE0E /* State.swift in Sources */,
@@ -537,6 +564,7 @@
 				5C8F6E752381B0420010EE0E /* RecordView.swift in Sources */,
 				5C8F6E792381B6840010EE0E /* Post.swift in Sources */,
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
+				5C3F465B23830903001CC647 /* AddRecordForm.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
 				5C6A926C2379291D006D8E0E /* MapView.swift in Sources */,
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,

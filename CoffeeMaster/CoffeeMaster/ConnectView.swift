@@ -19,10 +19,6 @@ struct ConnectView: View {
         store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: true)))
     }
     
-    func s() {
-        return
-    }
-    
     var body: some View {
         
         let isNewPostFormPresenting = Binding<Bool>(get: { () -> Bool in

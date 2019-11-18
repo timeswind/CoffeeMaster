@@ -101,12 +101,12 @@ struct SearchView : View {
                         if (selection == 3) {
                             VStack {
                                 Image("record-icon-select-100")
-                                Text(LocalizedStringKey("Connect"))
+                                Text(LocalizedStringKey("Record"))
                             }
                         } else {
                             VStack {
                                 Image("record-icon-unselect-100")
-                                Text(LocalizedStringKey("Connect"))
+                                Text(LocalizedStringKey("Record"))
                             }
                         }
                     }

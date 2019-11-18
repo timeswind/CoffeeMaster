@@ -32,3 +32,8 @@ struct ConnectViewState {
     var composing_post: Post?
     var newPostFormPresented: Bool = false
 }
+
+struct RecordViewState {
+    var records: [Post] = []
+    var newPostFormPresented: Bool = false
+}
