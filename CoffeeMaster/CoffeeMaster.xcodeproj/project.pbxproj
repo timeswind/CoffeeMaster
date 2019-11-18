@@ -46,6 +46,9 @@
 		5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465F23830A83001CC647 /* RecordViewReducer.swift */; };
 		5C3F466223830AD9001CC647 /* ConnectViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466123830AD9001CC647 /* ConnectViewReducer.swift */; };
 		5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466423830D02001CC647 /* SettingsReducer.swift */; };
+		5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F4666238316CF001CC647 /* PostCardView.swift */; };
+		5C3F466923831AF8001CC647 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466823831AF8001CC647 /* PostDetailView.swift */; };
+		5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466A23831E71001CC647 /* ViewModifier.swift */; };
 		5C479F112381D9E30026D613 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F092381D9E30026D613 /* gRPC-Core.framework */; };
 		5C479F122381D9E30026D613 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F092381D9E30026D613 /* gRPC-Core.framework */; };
 		5C479F132381D9E30026D613 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */; };
@@ -136,6 +139,9 @@
 		5C3F465F23830A83001CC647 /* RecordViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewReducer.swift; sourceTree = "<group>"; };
 		5C3F466123830AD9001CC647 /* ConnectViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewReducer.swift; sourceTree = "<group>"; };
 		5C3F466423830D02001CC647 /* SettingsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducer.swift; sourceTree = "<group>"; };
+		5C3F4666238316CF001CC647 /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
+		5C3F466823831AF8001CC647 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		5C3F466A23831E71001CC647 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		5C479F092381D9E30026D613 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-Core.framework"; sourceTree = "<group>"; };
 		5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = "<group>"; };
 		5C479F0C2381D9E30026D613 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "gRPCCertificates-Cpp.bundle"; sourceTree = "<group>"; };
@@ -344,6 +350,8 @@
 			children = (
 				5C8F6E722381AEDC0010EE0E /* ConnectView.swift */,
 				5C5F41172381E718005DBACE /* PostFormView.swift */,
+				5C3F4666238316CF001CC647 /* PostCardView.swift */,
+				5C3F466823831AF8001CC647 /* PostDetailView.swift */,
 			);
 			name = ConnectView;
 			sourceTree = "<group>";
@@ -407,7 +415,6 @@
 		5CEEC7BD237F053700E3BDB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5C6A926B2379291D006D8E0E /* MapView.swift */,
 				5C3F465E2383093D001CC647 /* Components */,
 				5C80C96A23745F2600996D91 /* ContentView.swift */,
 				5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */,
@@ -422,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				5C6A926D237929FF006D8E0E /* ExploreView.swift */,
+				5C6A926B2379291D006D8E0E /* MapView.swift */,
 				5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */,
 			);
 			name = ExploreViews;
@@ -453,6 +461,7 @@
 				5C80C96523745F2600996D91 /* SceneDelegate.swift */,
 				5C9C8010237F8C680060C10E /* Utilities.swift */,
 				5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */,
+				5C3F466A23831E71001CC647 /* ViewModifier.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -567,6 +576,7 @@
 				5C3F465D23830933001CC647 /* MultiplineTextField.swift in Sources */,
 				5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */,
 				5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */,
+				5C3F466923831AF8001CC647 /* PostDetailView.swift in Sources */,
 				5C3F46582382D219001CC647 /* Record.swift in Sources */,
 				5C8F6E7B2381BC080010EE0E /* WebDatabaseQueryService.swift in Sources */,
 				5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */,
@@ -574,6 +584,7 @@
 				5C3F466223830AD9001CC647 /* ConnectViewReducer.swift in Sources */,
 				5C80C989237462A100996D91 /* Store.swift in Sources */,
 				5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */,
+				5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */,
 				5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */,
 				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,
@@ -593,6 +604,7 @@
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
 				5C5F41182381E718005DBACE /* PostFormView.swift in Sources */,
+				5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */,
 				5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

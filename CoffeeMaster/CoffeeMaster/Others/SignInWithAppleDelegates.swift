@@ -41,7 +41,6 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate {
         print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
         return
       }
-      // Initialize a Firebase credential.
       let credential = OAuthProvider.credential(withProviderID: "apple.com",
                                                 idToken: idTokenString,
                                                 rawNonce: nonce)

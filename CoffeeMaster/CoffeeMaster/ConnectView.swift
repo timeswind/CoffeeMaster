@@ -42,12 +42,19 @@ struct ConnectView: View {
 struct ConnectListView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     var body: some View {
-        let posts = store.state.connectViewState.posts
-
-        return List {
-            ForEach(posts, id: \.id) { post in
-                Text(post.title)
+        
+        return
+        ScrollView(.vertical, showsIndicators: false) {
+            if (self.store.state.connectViewState.posts.count > 0) {
+                ForEach(self.store.state.connectViewState.posts, id: \.id) { post in
+                        NavigationLink(destination: PostDetailView(post: post)) {
+                            PostCardView(post: post)
+                        }.padding(.horizontal)
+                }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+            } else {
+                EmptyView()
             }
         }
+
     }
 }

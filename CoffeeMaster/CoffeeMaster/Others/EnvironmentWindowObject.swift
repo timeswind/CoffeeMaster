@@ -13,4 +13,5 @@ class EnvironmentWindowObject: ObservableObject {
     
     init(window: UIWindow) {
         self.window = window
-    }}
+    }
+}

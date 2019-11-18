@@ -26,7 +26,6 @@ struct ExploreView: View {
     var body: some View {
         NavigationView {
         MapView().navigationBarTitle(Text(LocalizedStringKey("Explore"))).navigationBarItems(leading:
-        
                             Button(action: {self.showSettingsView()}) {
                                 Text("Settings")
                             },

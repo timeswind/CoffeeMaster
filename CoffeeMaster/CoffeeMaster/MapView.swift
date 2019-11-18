@@ -11,6 +11,7 @@ import MapKit
 
 struct MapView: UIViewRepresentable {
     typealias UIViewType = MKMapView;
+    @Binding var coordinate: CLLocationCoordinate2D
     
     func makeUIView(context: UIViewRepresentableContext<MapView>) -> MapView.UIViewType {
         MKMapView(frame: .zero)
@@ -22,11 +23,5 @@ struct MapView: UIViewRepresentable {
         let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         uiView.setRegion(region, animated: true)
-    }
-}
-
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
     }
 }
