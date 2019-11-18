@@ -30,4 +30,5 @@ struct SettingsState {
 struct ConnectViewState {
     var posts: [Post] = []
     var composing_post: Post?
+    var newPostFormPresented: Bool = false
 }

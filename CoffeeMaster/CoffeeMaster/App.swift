@@ -76,6 +76,7 @@ enum ConnectViewAction {
     case newPostAdded(post: Post)
     case setPosts(posts: [Post])
     case setCurrentEditingPost(post: Post)
+    case setNewPostFormPresentStatus(isPresent: Bool)
 }
 
 
@@ -101,11 +102,15 @@ let reposReducer: Reducer<ReposState, ReposAction> = Reducer { state, action in
 
 let connectViewReducer: Reducer<ConnectViewState, ConnectViewAction> = Reducer { state, action in
     switch action {
+    case let .setNewPostFormPresentStatus(isPresent):
+        state.newPostFormPresented = isPresent
     case let .setPosts(posts):
         state.posts = posts
     case let .setCurrentEditingPost(post):
         state.composing_post = post
     case let .newPostAdded(post):
+        state.newPostFormPresented = false
+        state.composing_post = nil
         state.posts.insert(post, at: 0)
     }
 }

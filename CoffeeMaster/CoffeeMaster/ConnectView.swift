@@ -10,26 +10,35 @@ import SwiftUI
 
 struct ConnectView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    @State var isNewPostFormPresenting: Bool = false
-
     
     private func fetch() {
         store.send(AsyncSideEffect.getAllPosts(query: ""))
     }
     
     func post() {
-        self.isNewPostFormPresenting = true
+        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: true)))
+    }
+    
+    func s() {
+        return
     }
     
     var body: some View {
-        NavigationView {
+        
+        let isNewPostFormPresenting = Binding<Bool>(get: { () -> Bool in
+            return self.store.state.connectViewState.newPostFormPresented
+        }) { (isPresented) in
+            
+        }
+        
+        return NavigationView {
             ConnectListView().navigationBarTitle(Text(LocalizedStringKey("Connect"))).navigationBarItems(
                 trailing:
                 Button(action: {self.post()}) {
                     Text(LocalizedStringKey("Post"))
             }).onAppear(perform: fetch)
-        }.sheet(isPresented: $isNewPostFormPresenting) {
-            PostFormView(showModal: self.$isNewPostFormPresenting).environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+        }.sheet(isPresented: isNewPostFormPresenting) {
+            PostFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
     }
 }
@@ -38,9 +47,11 @@ struct ConnectListView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     var body: some View {
         let posts = store.state.connectViewState.posts
+
         return List {
-            ForEach(posts) { post in
+            ForEach(posts, id: \.id) { post in
                 Text(post.title)
+                    .padding()
             }
         }
     }

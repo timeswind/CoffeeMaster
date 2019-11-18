@@ -32,7 +32,8 @@ class WebDatabaseQueryService {
             } else {
                 var posts: [Post] = []
                 for document in querySnapshot!.documents {
-                    let post = Post(dictionary: document.data())
+                    var post = Post(dictionary: document.data())
+                    post.id = document.documentID
                     posts.append(post)
                     print("\(document.documentID) => \(document.data())")
                 }

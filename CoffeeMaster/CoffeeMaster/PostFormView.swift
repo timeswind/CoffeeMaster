@@ -10,7 +10,6 @@ import SwiftUI
 
 struct PostFormView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    @Binding var showModal: Bool
     @State private var postTitle: String = ""
     @State private var postBody: String = ""
     @State private var postAllowComment: Bool = true
@@ -24,6 +23,10 @@ struct PostFormView: View {
         store.send(AsyncSideEffect.newPost(post: post))
     }
     
+    func dismissSelf() {
+        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: false)))
+    }
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -35,7 +38,7 @@ struct PostFormView: View {
             }.padding(20)
                 .navigationBarTitle(Text(LocalizedStringKey("NewPost")))
                 .navigationBarItems(leading:
-                    Button(action: {self.showModal.toggle()}) {
+                    Button(action: {self.dismissSelf()}) {
                         Text(LocalizedStringKey("Dismiss"))
                     }
                     ,trailing: Button(action: {self.post()}) {
