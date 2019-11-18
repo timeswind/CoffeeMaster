@@ -1,14 +1,14 @@
 //
-//  PostFormView.swift
+//  AddRecordForm.swift
 //  CoffeeMaster
 //
-//  Created by Mingtian Yang on 11/17/19.
+//  Created by Mingtian Yang on 11/18/19.
 //  Copyright © 2019 Mingtian Yang. All rights reserved.
 //
 
 import SwiftUI
 
-struct PostFormView: View {
+struct AddRecordFormView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State private var postTitle: String = ""
     @State private var postBody: String = ""
@@ -18,8 +18,7 @@ struct PostFormView: View {
         assert(store.state.settings.uid != nil)
         let post = Post(title: postTitle, body: postBody, created_by_uid: store.state.settings.uid!, allow_comment: true)
         let updatePostAction: AppAction = .connectview(action: .setCurrentEditingPost(post: post))
-
-        store.send(updatePostAction)
+        
         store.send(ConnectViewAsyncAction.newPost(post: post))
     }
     

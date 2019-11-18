@@ -12,7 +12,7 @@ struct ConnectView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     
     private func fetch() {
-        store.send(AsyncSideEffect.getAllPosts(query: ""))
+        store.send(ConnectViewAsyncAction.getAllPosts(query: ""))
     }
     
     func post() {

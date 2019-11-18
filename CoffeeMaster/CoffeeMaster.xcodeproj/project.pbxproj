@@ -41,8 +41,11 @@
 		5C25FAF4237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */; };
 		5C25FAF5237F83A80082CFBD /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */; };
 		5C3F46582382D219001CC647 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F46572382D219001CC647 /* Record.swift */; };
-		5C3F465B23830903001CC647 /* AddRecordForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465A23830903001CC647 /* AddRecordForm.swift */; };
+		5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465A23830903001CC647 /* AddRecordFormView.swift */; };
 		5C3F465D23830933001CC647 /* MultiplineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465C23830933001CC647 /* MultiplineTextField.swift */; };
+		5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465F23830A83001CC647 /* RecordViewReducer.swift */; };
+		5C3F466223830AD9001CC647 /* ConnectViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466123830AD9001CC647 /* ConnectViewReducer.swift */; };
+		5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466423830D02001CC647 /* SettingsReducer.swift */; };
 		5C479F112381D9E30026D613 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F092381D9E30026D613 /* gRPC-Core.framework */; };
 		5C479F122381D9E30026D613 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F092381D9E30026D613 /* gRPC-Core.framework */; };
 		5C479F132381D9E30026D613 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */; };
@@ -128,8 +131,11 @@
 		5C25FAF1237F83A80082CFBD /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
 		5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeMaster.entitlements; sourceTree = "<group>"; };
 		5C3F46572382D219001CC647 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		5C3F465A23830903001CC647 /* AddRecordForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordForm.swift; sourceTree = "<group>"; };
+		5C3F465A23830903001CC647 /* AddRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordFormView.swift; sourceTree = "<group>"; };
 		5C3F465C23830933001CC647 /* MultiplineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplineTextField.swift; sourceTree = "<group>"; };
+		5C3F465F23830A83001CC647 /* RecordViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewReducer.swift; sourceTree = "<group>"; };
+		5C3F466123830AD9001CC647 /* ConnectViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewReducer.swift; sourceTree = "<group>"; };
+		5C3F466423830D02001CC647 /* SettingsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducer.swift; sourceTree = "<group>"; };
 		5C479F092381D9E30026D613 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-Core.framework"; sourceTree = "<group>"; };
 		5C479F0A2381D9E30026D613 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = "<group>"; };
 		5C479F0C2381D9E30026D613 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "gRPCCertificates-Cpp.bundle"; sourceTree = "<group>"; };
@@ -288,7 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8F6E742381B0420010EE0E /* RecordView.swift */,
-				5C3F465A23830903001CC647 /* AddRecordForm.swift */,
+				5C3F465A23830903001CC647 /* AddRecordFormView.swift */,
 			);
 			name = RecordView;
 			sourceTree = "<group>";
@@ -299,6 +305,16 @@
 				5C3F465C23830933001CC647 /* MultiplineTextField.swift */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		5C3F466323830C30001CC647 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				5C3F465F23830A83001CC647 /* RecordViewReducer.swift */,
+				5C3F466123830AD9001CC647 /* ConnectViewReducer.swift */,
+				5C3F466423830D02001CC647 /* SettingsReducer.swift */,
+			);
+			name = Actions;
 			sourceTree = "<group>";
 		};
 		5C479F082381D9E30026D613 /* Firestore */ = {
@@ -414,9 +430,10 @@
 		5CEEC7BF237F056500E3BDB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5C80C988237462A100996D91 /* Store.swift */,
 				5C80C98A237462D900996D91 /* App.swift */,
+				5C80C988237462A100996D91 /* Store.swift */,
 				5C8F6E762381B5F70010EE0E /* State.swift */,
+				5C3F466323830C30001CC647 /* Actions */,
 				5C8F6E782381B6840010EE0E /* Post.swift */,
 				5C3F46572382D219001CC647 /* Record.swift */,
 			);
@@ -554,7 +571,9 @@
 				5C8F6E7B2381BC080010EE0E /* WebDatabaseQueryService.swift in Sources */,
 				5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */,
 				5C8F6E772381B5F70010EE0E /* State.swift in Sources */,
+				5C3F466223830AD9001CC647 /* ConnectViewReducer.swift in Sources */,
 				5C80C989237462A100996D91 /* Store.swift in Sources */,
+				5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */,
 				5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */,
 				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,
@@ -564,10 +583,11 @@
 				5C8F6E752381B0420010EE0E /* RecordView.swift in Sources */,
 				5C8F6E792381B6840010EE0E /* Post.swift in Sources */,
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
-				5C3F465B23830903001CC647 /* AddRecordForm.swift in Sources */,
+				5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
 				5C6A926C2379291D006D8E0E /* MapView.swift in Sources */,
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
+				5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
 				5C80C96B23745F2600996D91 /* ContentView.swift in Sources */,
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
