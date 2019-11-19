@@ -21,6 +21,11 @@ enum WeightUnit: String {
     case oz = "oz"
 }
 
+enum TemperatureUnit: String {
+    case C = "°C"
+    case F = "°F"
+}
+
 enum BrewStepType: String {
     case Coffee = "Coffee"
     case Water = "Water"
@@ -34,25 +39,55 @@ struct BrewMethod:Decodable {
 
 class BrewStep {
     var brewType: BrewStepType!
-    var weightAmount: Int = 0
+    
+    init(brewType: BrewStepType) {
+        self.brewType = brewType
+    }
+}
+
+class BrewStepCoffee: BrewStep {
     var weightUnit: WeightUnit
+    var coffeeAmount: Int = 0
     
     init(brewType: BrewStepType, weightUnit: WeightUnit) {
-        self.brewType = brewType
         self.weightUnit = weightUnit
+        super.init(brewType: brewType)
     }
-    
 }
+
+class BrewStepWater: BrewStep {
+    var weightUnit: WeightUnit
+    var temperatureUnit: TemperatureUnit
+    var waterTemperature: Int = 0
+    var waterAmount: Int = 0
+
+    init(brewType: BrewStepType, weightUnit: WeightUnit, temperatureUnit: TemperatureUnit) {
+        self.weightUnit = weightUnit
+        self.temperatureUnit = temperatureUnit
+        super.init(brewType: brewType)
+    }
+}
+
 
 class BrewGuide {
     var guideName: String = ""
     var guideDescription: String = ""
     var isPublic: Bool = false
     var baseBrewMethod: BrewMethod!
+    private var brewStepCoffee: BrewStepCoffee?
+    private var brewStepWater: BrewStepWater?
     private var brewSteps: [BrewStep] = []
     
     init(baseBrewMethod: BrewMethod) {
         self.baseBrewMethod = baseBrewMethod
+    }
+    
+    func setBrewStepCoffee(step: BrewStepCoffee) {
+        self.brewStepCoffee = step
+    }
+    
+    func setBrewStepWater(step: BrewStepWater) {
+        self.brewStepWater = step
     }
     
     func getBrewSteps() -> [BrewStep] {
@@ -60,7 +95,11 @@ class BrewGuide {
     }
     
     func add(brewStep: BrewStep) {
-        self.brewSteps.append(brewStep)
+        if (self.brewStepWater != nil && self.brewStepCoffee != nil) {
+            self.brewSteps.append(brewStep)
+        } else {
+            assert(true, "Logic Error")
+        }
     }
     
     func removeBrewStep(at index: Int) {

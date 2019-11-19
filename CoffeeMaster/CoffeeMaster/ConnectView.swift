@@ -43,8 +43,7 @@ struct ConnectListView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     var body: some View {
         
-        return
-        ScrollView(.vertical, showsIndicators: false) {
+        return ScrollView(.vertical, showsIndicators: false) {
             if (self.store.state.connectViewState.posts.count > 0) {
                 ForEach(self.store.state.connectViewState.posts, id: \.id) { post in
                         NavigationLink(destination: PostDetailView(post: post)) {
