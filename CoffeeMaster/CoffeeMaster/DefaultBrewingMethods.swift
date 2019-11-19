@@ -32,8 +32,8 @@ class DefaultBrewingGuides {
             .water(340).temperatue(forWater: 94)
         
         let chemexBrewGuide = BrewGuide(baseBrewMethod: chemexBrewMethod)
-            .setBrewStepCoffee(step: grindCoffee)
-            .setBrewStepWater(step: boilWater)
+            .grindCoffee(step: grindCoffee)
+            .boilWater(step: boilWater)
             .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(50).duration(10))
             .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
             .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Wait for the coffee to bloom").duration(15))
@@ -42,8 +42,8 @@ class DefaultBrewingGuides {
             .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(160).instruction("Slowly top up the brewer with another 160g of water").duration(30))
             .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Wait for the water to drain through the grounds. When done remove the filter and serve").duration(20))
         
-
-        
+        chemexBrewGuide.guideDescription = "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes"
+        chemexBrewGuide.guideName = chemexBrewMethod.name
         self.guides.append(chemexBrewGuide)
     }
     

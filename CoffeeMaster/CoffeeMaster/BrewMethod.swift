@@ -7,13 +7,24 @@
 //
 
 import Foundation
+import SwiftUI
 
-enum GrindSizeType: String {
-    case Coarse = "Coarse"
-    case Medium = "Medium"
-    case Fine = "Fine"
-    case ExtraFine = "ExtraFine"
-    case Turkish = "Turkish"
+enum GrindSizeType {
+    case Coarse
+    case Medium
+    case Fine
+    case ExtraFine
+    case Turkish
+    
+    var localizableString : String {
+        switch self {
+        case .Coarse: return "Coarse"
+        case .Medium: return "Medium"
+        case .Fine: return "Fine"
+        case .ExtraFine: return "ExtraFine"
+        case .Turkish: return "Turkish"
+        }
+    }
 }
 
 enum WeightUnit: String {
@@ -48,8 +59,8 @@ class BrewGuide {
     var guideDescription: String = ""
     var isPublic: Bool = false
     var baseBrewMethod: BrewMethod!
-    private var brewStepCoffee: BrewStepGrindCoffee?
-    private var brewStepWater: BrewStepBoilWater?
+    private var brewStepGrindCoffee: BrewStepGrindCoffee?
+    private var brewStepBoilWater: BrewStepBoilWater?
     private var brewSteps: [BrewStep] = []
     
     init(baseBrewMethod: BrewMethod) {
@@ -61,14 +72,22 @@ class BrewGuide {
         return self
     }
     
-    func setBrewStepCoffee(step: BrewStepGrindCoffee) -> BrewGuide {
-        self.brewStepCoffee = step
+    func grindCoffee(step: BrewStepGrindCoffee) -> BrewGuide {
+        self.brewStepGrindCoffee = step
         return self
     }
     
-    func setBrewStepWater(step: BrewStepBoilWater) -> BrewGuide {
-        self.brewStepWater = step
+    func boilWater(step: BrewStepBoilWater) -> BrewGuide {
+        self.brewStepBoilWater = step
         return self
+    }
+    
+    func getBrewStepGrindCoffee() -> BrewStepGrindCoffee? {
+        return self.brewStepGrindCoffee
+    }
+    
+    func getBrewStepBoilWater() -> BrewStepBoilWater? {
+        return self.brewStepBoilWater
     }
     
     func getBrewSteps() -> [BrewStep] {
@@ -76,7 +95,7 @@ class BrewGuide {
     }
     
     func add(brewStep: BrewStep) -> BrewGuide {
-        if (self.brewStepWater != nil && self.brewStepCoffee != nil) {
+        if (self.brewStepBoilWater != nil && self.brewStepGrindCoffee != nil) {
             self.brewSteps.append(brewStep)
         } else {
             assert(true, "Logic Error")

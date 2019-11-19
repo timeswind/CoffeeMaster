@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
 		5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */; };
@@ -131,6 +132,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideDetailView.swift; sourceTree = "<group>"; };
 		5C21473F23834B3000AEFBFB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework"; sourceTree = "<group>"; };
 		5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBrewStepType.swift; sourceTree = "<group>"; };
 		5C25798623837F5600976AE1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				5C6A926F23792CDA006D8E0E /* BrewView.swift */,
+				5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */,
 			);
 			name = BrewView;
 			sourceTree = "<group>";
@@ -460,10 +463,10 @@
 			children = (
 				5C80C96A23745F2600996D91 /* ContentView.swift */,
 				5C3F465E2383093D001CC647 /* Components */,
-				5C0D0F472384377B00FA7952 /* BrewView */,
-				5C3F4659238308C6001CC647 /* RecordView */,
-				5C5F41192381E726005DBACE /* ConnectView */,
 				5CEEC7BE237F054300E3BDB0 /* ExploreViews */,
+				5C0D0F472384377B00FA7952 /* BrewView */,
+				5C5F41192381E726005DBACE /* ConnectView */,
+				5C3F4659238308C6001CC647 /* RecordView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
 				5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */,
 				5C80C96B23745F2600996D91 /* ContentView.swift in Sources */,
+				5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */,
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
 				5C5F41182381E718005DBACE /* PostFormView.swift in Sources */,

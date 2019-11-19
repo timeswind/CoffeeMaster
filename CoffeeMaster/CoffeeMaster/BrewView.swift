@@ -9,26 +9,39 @@
 import SwiftUI
 
 struct BrewView: View {
-    @State var defaultBrewGuides: [BrewGuide] = []
-    func fetch() {
-        self.defaultBrewGuides = dependencies.defaultBrewingGuides.getGuides()
-        print(self.defaultBrewGuides)
-    }
+    @EnvironmentObject var store: Store<AppState, AppAction>
     
-    func showCreateBrewGuideForm() {
-        
+    var body: some View {
+        return NavigationView {
+            BrewGuidsSelectionView().navigationBarTitle(Text(LocalizedStringKey("Brew"))).navigationBarItems(
+                trailing:
+                Button(action: {}) {
+                    Text("Add Button")
+            })
+        }
+    }
+}
+
+struct BrewGuidsSelectionView: View {
+    @State var defaultBrewGuides: [BrewGuide] = []
+    
+    private func fetch() {
+        self.defaultBrewGuides = dependencies.defaultBrewingGuides.getGuides()
     }
     
     var body: some View {
         
-        NavigationView{
-            VStack {
-                Text("Brew")
-            }.navigationBarTitle(Text(LocalizedStringKey("Brew"))).navigationBarItems(
-                trailing:
-                Button(action: {self.showCreateBrewGuideForm()}) {
-                    Text("Add Button")
-            }).onAppear(perform: fetch)
-        }
+        return ScrollView(.vertical, showsIndicators: false) {
+            if (self.defaultBrewGuides.count > 0) {
+                ForEach(self.defaultBrewGuides, id: \.guideName) { brewGuide in
+                    NavigationLink(destination: BrewGuideDetailView(brewGuide: brewGuide)) {
+                        Text(brewGuide.guideName)
+                    }
+                }
+            } else {
+                EmptyView()
+            }
+        }.onAppear(perform: fetch)
+
     }
 }
