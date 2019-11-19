@@ -30,3 +30,17 @@
 "NewRecordBody" = "Write anything you want";
 "NewRecord" = "New Record";
 "NewRecordRecordAction" = "Create";
+
+/* Coffee Brew Steps */
+"Coarse" = "Coarse";
+"Medium" = "Medium";
+"Fine" = "Fine";
+"ExtraFine" = "ExtraFine";
+"Turkish" = "Turkish";
+
+"BoilWater" = "Enter water amount";
+"GrindCoffee" = "Enter coffee amount";
+"Bloom" = "Bloom";
+"Wait" = "Wait";
+"Stir" = "Stir";
+"Other" = "Other";

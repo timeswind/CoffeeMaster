@@ -27,45 +27,18 @@ enum TemperatureUnit: String {
 }
 
 enum BrewStepType: String {
-    case Coffee = "Coffee"
-    case Water = "Water"
+    case GrindCoffee = "GrindCoffee"
+    case BoilWater = "BoilWater"
+    case Bloom = "Bloom"
+    case Wait = "Wait"
+    case Stir = "Stir"
+    case Other = "Other"
 }
 
 struct BrewMethod:Decodable {
     var name: String
     var image: String
     var description: String
-}
-
-class BrewStep {
-    var brewType: BrewStepType!
-    
-    init(brewType: BrewStepType) {
-        self.brewType = brewType
-    }
-}
-
-class BrewStepCoffee: BrewStep {
-    var weightUnit: WeightUnit
-    var coffeeAmount: Int = 0
-    
-    init(brewType: BrewStepType, weightUnit: WeightUnit) {
-        self.weightUnit = weightUnit
-        super.init(brewType: brewType)
-    }
-}
-
-class BrewStepWater: BrewStep {
-    var weightUnit: WeightUnit
-    var temperatureUnit: TemperatureUnit
-    var waterTemperature: Int = 0
-    var waterAmount: Int = 0
-
-    init(brewType: BrewStepType, weightUnit: WeightUnit, temperatureUnit: TemperatureUnit) {
-        self.weightUnit = weightUnit
-        self.temperatureUnit = temperatureUnit
-        super.init(brewType: brewType)
-    }
 }
 
 

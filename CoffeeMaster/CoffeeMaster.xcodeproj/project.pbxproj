@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */; };
+		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
 		5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */; };
 		5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA44237F385C0082CFBD /* EnvironmentService.swift */; };
 		5C25FACB237F7A8F0082CFBD /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC1237F7A8E0082CFBD /* FirebaseCore.framework */; };
@@ -129,6 +131,9 @@
 
 /* Begin PBXFileReference section */
 		5C21473F23834B3000AEFBFB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework"; sourceTree = "<group>"; };
+		5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBrewStepType.swift; sourceTree = "<group>"; };
+		5C25798623837F5600976AE1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
+		5C25798823837F5B00976AE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Bundle+Localization.swift"; sourceTree = "<group>"; };
 		5C25FA44237F385C0082CFBD /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
 		5C25FAB9237F79DC0082CFBD /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
@@ -406,6 +411,7 @@
 			children = (
 				5CE84579238350E30086EFC8 /* Mapbox.framework */,
 				5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */,
+				5C25798723837F5600976AE1 /* Localizable.stringsdict */,
 				5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */,
 				5C25FAC0237F7A7D0082CFBD /* Firebase */,
 				5CEEC7BD237F053700E3BDB0 /* Views */,
@@ -472,6 +478,7 @@
 				5C8F6E782381B6840010EE0E /* Post.swift */,
 				5C3F46572382D219001CC647 /* Record.swift */,
 				5CE8457E23836B950086EFC8 /* BrewMethod.swift */,
+				5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -584,6 +591,7 @@
 				5C9C800E237F871B0060C10E /* GoogleService-Info.plist in Resources */,
 				5C80C97023745F2900996D91 /* Preview Assets.xcassets in Resources */,
 				5C80C96D23745F2900996D91 /* Assets.xcassets in Resources */,
+				5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +644,7 @@
 				5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */,
 				5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */,
 				5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */,
+				5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */,
 				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,
 				5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,
@@ -681,6 +690,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5C25798723837F5600976AE1 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C25798623837F5600976AE1 /* zh-Hans */,
+				5C25798823837F5B00976AE1 /* en */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
 		5C80C97123745F2900996D91 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

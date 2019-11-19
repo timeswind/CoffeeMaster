@@ -30,3 +30,17 @@
 "NewRecordBody" = "写下你的想法";
 "NewRecord" = "新笔记";
 "NewRecordRecordAction" = "创建";
+
+/* Coffee Brew Steps */
+"Coarse" = "粗颗粒";
+"Medium" = "中等颗粒";
+"Fine" = "细颗粒";
+"ExtraFine" = "极细颗粒";
+"Turkish" = "精细颗粒";
+
+"BoilWater" = "煮水";
+"GrindCoffee" = "研磨咖啡"'
+"Bloom" = "闷蒸";
+"Wait" = "等待";
+"Stir" = "搅拌";
+"Other" = "其他";
