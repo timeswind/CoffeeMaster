@@ -25,17 +25,22 @@ class DefaultBrewingMethods {
     }
     
     func defaultChemex() {
-        let grindCoffee = BrewStepGrindCoffee(weightUnit: self.weightUnit)
-        grindCoffee.setCoffeeAmount(coffeeAmount: 25)
-        grindCoffee.setGrindSize(grindSize: .Medium)
-        
-        let boilWater = BrewStepBoilWater(weightUnit: self.weightUnit, temperatureUnit: self.temperatureUnit)
-        boilWater.setWaterAmount(waterAmount: 340)
-        boilWater.setWaterTemperature(waterTemperature: 94)
+        let grindCoffee = BrewStepGrindCoffee(weightUnit: weightUnit)
+            .amount(coffeeInGram: 25).grindSize(size: .Medium)
+        let boilWater = BrewStepBoilWater(weightUnit: weightUnit, temperatureUnit: temperatureUnit)
+            .water(340).temperatue(forWater: 94)
         
         let chemexBrewGuide = BrewGuide(baseBrewMethod: chemexBrewMethod)
             .setBrewStepCoffee(step: grindCoffee)
             .setBrewStepWater(step: boilWater)
+            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(50).duration(10))
+            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
+            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Wait for the coffee to bloom").duration(15))
+            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(130).instruction("Pour 130g of water in a spiral motion over the dark areas").duration(30))
+            .add(brewStep: BrewStepWait(weightUnit: weightUnit).instruction("Wait for the water to drain through the grounds").duration(20))
+            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(160).instruction("Slowly top up the brewer with another 160g of water").duration(30))
+            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Wait for the water to drain through the grounds. When done remove the filter and serve").duration(20))
+        
 
         
         self.methods.append(chemexBrewGuide)

@@ -81,7 +81,7 @@ class BrewGuide {
         } else {
             assert(true, "Logic Error")
         }
-        return BrewGuide
+        return self
     }
     
     func removeBrewStep(at index: Int) {

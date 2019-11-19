@@ -53,4 +53,8 @@ class Utilities: NSObject {
 
       return hashString
     }
+    
+    static func gramToOunce(gram: Double) -> Double {
+        return gram * 0.03527396195
+    }
 }
