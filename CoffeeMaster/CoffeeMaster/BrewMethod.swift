@@ -38,7 +38,8 @@ enum BrewStepType: String {
 struct BrewMethod:Decodable {
     var name: String
     var image: String
-    var description: String
+    var descriptionKey: String?
+    var description: String?
 }
 
 
@@ -47,32 +48,40 @@ class BrewGuide {
     var guideDescription: String = ""
     var isPublic: Bool = false
     var baseBrewMethod: BrewMethod!
-    private var brewStepCoffee: BrewStepCoffee?
-    private var brewStepWater: BrewStepWater?
+    private var brewStepCoffee: BrewStepGrindCoffee?
+    private var brewStepWater: BrewStepBoilWater?
     private var brewSteps: [BrewStep] = []
     
     init(baseBrewMethod: BrewMethod) {
         self.baseBrewMethod = baseBrewMethod
     }
     
-    func setBrewStepCoffee(step: BrewStepCoffee) {
-        self.brewStepCoffee = step
+    func createGuideWith(name: String) -> BrewGuide {
+        self.guideName = name
+        return self
     }
     
-    func setBrewStepWater(step: BrewStepWater) {
+    func setBrewStepCoffee(step: BrewStepGrindCoffee) -> BrewGuide {
+        self.brewStepCoffee = step
+        return self
+    }
+    
+    func setBrewStepWater(step: BrewStepBoilWater) -> BrewGuide {
         self.brewStepWater = step
+        return self
     }
     
     func getBrewSteps() -> [BrewStep] {
         return self.brewSteps
     }
     
-    func add(brewStep: BrewStep) {
+    func add(brewStep: BrewStep) -> BrewGuide {
         if (self.brewStepWater != nil && self.brewStepCoffee != nil) {
             self.brewSteps.append(brewStep)
         } else {
             assert(true, "Logic Error")
         }
+        return BrewGuide
     }
     
     func removeBrewStep(at index: Int) {

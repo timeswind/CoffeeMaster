@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
+		5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */; };
 		5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */; };
 		5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA44237F385C0082CFBD /* EnvironmentService.swift */; };
 		5C25FACB237F7A8F0082CFBD /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C25FAC1237F7A8E0082CFBD /* FirebaseCore.framework */; };
@@ -134,6 +135,7 @@
 		5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBrewStepType.swift; sourceTree = "<group>"; };
 		5C25798623837F5600976AE1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 		5C25798823837F5B00976AE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBrewingMethods.swift; sourceTree = "<group>"; };
 		5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Bundle+Localization.swift"; sourceTree = "<group>"; };
 		5C25FA44237F385C0082CFBD /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
 		5C25FAB9237F79DC0082CFBD /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 				5C3F46572382D219001CC647 /* Record.swift */,
 				5CE8457E23836B950086EFC8 /* BrewMethod.swift */,
 				5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */,
+				5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
 				5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
+				5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */,
 				5C80C96B23745F2600996D91 /* ContentView.swift in Sources */,
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
