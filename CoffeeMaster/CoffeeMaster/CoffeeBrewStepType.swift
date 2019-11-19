@@ -13,11 +13,19 @@ class BrewStep {
     var instruction: String = ""
     var description: String = ""
     var duration: Int = 0
-    var weightUnit: WeightUnit?
-    var temperatureUnit: TemperatureUnit?
+    var displayWeightUnit: WeightUnit?
+    var displayTemperatureUnit: TemperatureUnit?
     
     init(brewType: BrewStepType) {
         self.brewType = brewType
+    }
+    
+    func setDisplayWeightUnit(weightUnit: WeightUnit) {
+        self.displayWeightUnit = weightUnit
+    }
+    
+    func setDisplayTemperatureUnit(temperatureUnit: TemperatureUnit) {
+        self.displayTemperatureUnit = temperatureUnit
     }
     
     func instruction(_ text: String) -> BrewStep {
@@ -54,7 +62,7 @@ class BrewStepGrindCoffee: BrewStep {
     
     init(weightUnit: WeightUnit) {
         super.init(brewType: .GrindCoffee)
-        self.weightUnit = weightUnit
+        self.setDisplayWeightUnit(weightUnit: weightUnit)
     }
     
     func amount(coffeeInGram: Double) -> BrewStepGrindCoffee {
@@ -68,7 +76,14 @@ class BrewStepGrindCoffee: BrewStep {
     }
     
     func setCoffeeAmount(coffeeAmount: Double) {
-        self.coffeeAmount = coffeeAmount
+        switch self.displayWeightUnit {
+        case .g:
+            self.coffeeAmount = coffeeAmount
+        case .oz:
+            self.coffeeAmount = Utilities.OunceToGram(ounce: coffeeAmount)
+        default:
+            assert(false)
+        }
     }
     
     func setGrindSize(grindSize: GrindSizeType) {
@@ -76,7 +91,7 @@ class BrewStepGrindCoffee: BrewStep {
     }
     
     func getCoffeeAmount() -> Double {
-        switch self.weightUnit {
+        switch self.displayWeightUnit {
         case .g:
             return self.coffeeAmount
         case .oz:
@@ -93,8 +108,8 @@ class BrewStepBoilWater: BrewStep {
     
     init(weightUnit: WeightUnit, temperatureUnit: TemperatureUnit) {
         super.init(brewType: .BoilWater)
-        self.weightUnit = weightUnit
-        self.temperatureUnit = temperatureUnit
+        self.setDisplayWeightUnit(weightUnit: weightUnit)
+        self.setDisplayTemperatureUnit(temperatureUnit: temperatureUnit)
     }
     
     func water(_ amount: Double) -> BrewStepBoilWater {
@@ -108,21 +123,46 @@ class BrewStepBoilWater: BrewStep {
     }
     
     func setWaterAmount(waterAmount: Double) {
-        self.waterAmount = waterAmount
+        switch self.displayWeightUnit {
+        case .g:
+            self.waterAmount = waterAmount
+        case .oz:
+            self.waterAmount = Utilities.OunceToGram(ounce: waterAmount)
+        default:
+            assert(false)
+        }
     }
     
     func setWaterTemperature(waterTemperature: Double) {
-        self.waterTemperature = waterTemperature
+        switch self.displayTemperatureUnit {
+        case .C:
+            self.waterTemperature = waterTemperature
+        case .F:
+            self.waterTemperature = Utilities.FahrenheitToCelsius(fahrenheit: waterTemperature)
+        default:
+            assert(false)
+        }
     }
     
     func getWaterAmount() -> Double {
-        switch self.weightUnit {
+        switch self.displayWeightUnit {
         case .g:
             return self.waterAmount
         case .oz:
             return Utilities.gramToOunce(gram: self.waterAmount)
         default:
             assert(false, "Logic Error")
+        }
+    }
+    
+    func getWaterTemperature() -> Double {
+        switch self.displayTemperatureUnit {
+        case .C:
+            return self.waterTemperature
+        case .F:
+            return Utilities.CelsiusToFahrenheit(celsius: self.waterTemperature)
+        default:
+            assert(false)
         }
     }
 }
@@ -132,7 +172,7 @@ class BrewStepBloom: BrewStep {
     
     init(weightUnit: WeightUnit) {
         super.init(brewType: .Bloom)
-        self.weightUnit = weightUnit
+        self.setDisplayWeightUnit(weightUnit: weightUnit)
     }
     
     func water(_ amount: Double) -> BrewStep {
@@ -141,11 +181,18 @@ class BrewStepBloom: BrewStep {
     }
     
     func setWaterAmount(waterAmount: Double) {
-        self.waterAmount = waterAmount
+        switch self.displayWeightUnit {
+        case .g:
+            self.waterAmount = waterAmount
+        case .oz:
+            self.waterAmount = Utilities.OunceToGram(ounce: waterAmount)
+        default:
+            assert(false)
+        }
     }
     
     func getWaterAmount() -> Double {
-        switch self.weightUnit {
+        switch self.displayWeightUnit {
         case .g:
             return self.waterAmount
         case .oz:
@@ -173,7 +220,7 @@ class BrewStepOther: BrewStep {
     
     init(weightUnit: WeightUnit) {
         super.init(brewType: .Other)
-        self.weightUnit = weightUnit
+        self.displayWeightUnit = weightUnit
     }
     
     func amount(amountInGram: Double)-> BrewStepOther {
@@ -182,11 +229,18 @@ class BrewStepOther: BrewStep {
     }
     
     func setAmount(amount: Double) {
-        self.amount = amount
+        switch self.displayWeightUnit {
+        case .g:
+            self.amount = amount
+        case .oz:
+            self.amount = Utilities.OunceToGram(ounce: amount)
+        default:
+            assert(false)
+        }
     }
     
     func getAmount() -> Double {
-        switch self.weightUnit {
+        switch self.displayWeightUnit {
         case .g:
             return self.amount
         case .oz:

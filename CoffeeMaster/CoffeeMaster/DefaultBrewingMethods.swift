@@ -14,14 +14,15 @@ let hariov60BrewMethod = BrewMethod(name: "Hario V60", image: "hariov60-icon", d
 let mokapotBrewMethod = BrewMethod(name: "Moka Pot", image: "mokapot-icon", descriptionKey: "MokaPotDescription", description: nil)
 let FrenchPressBrewMethod = BrewMethod(name: "French Press", image: "frenchpress-icon", descriptionKey: "FrenchPressDescription", description: nil)
 
-class DefaultBrewingMethods {
+class DefaultBrewingGuides {
     var weightUnit: WeightUnit!
     var temperatureUnit: TemperatureUnit!
-    var methods: [BrewGuide] = []
+    private var guides: [BrewGuide] = []
     
-    init() {
-        self.weightUnit = .g
-        self.temperatureUnit = .C
+    init(weightUnit: WeightUnit?, temperatureUnit: TemperatureUnit?) {
+        self.weightUnit = weightUnit ?? .g
+        self.temperatureUnit = temperatureUnit ?? .C
+        self.defaultChemex()
     }
     
     func defaultChemex() {
@@ -43,6 +44,10 @@ class DefaultBrewingMethods {
         
 
         
-        self.methods.append(chemexBrewGuide)
+        self.guides.append(chemexBrewGuide)
+    }
+    
+    func getGuides() -> [BrewGuide] {
+        return self.guides
     }
 }

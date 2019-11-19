@@ -69,7 +69,7 @@
 		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
 		5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* ExploreMapView.swift */; };
 		5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926D237929FF006D8E0E /* ExploreView.swift */; };
-		5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */; };
+		5C6A927023792CDA006D8E0E /* BrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926F23792CDA006D8E0E /* BrewView.swift */; };
 		5C80C96423745F2600996D91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C96323745F2600996D91 /* AppDelegate.swift */; };
 		5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C96523745F2600996D91 /* SceneDelegate.swift */; };
 		5C80C96923745F2600996D91 /* CoffeeMaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C96723745F2600996D91 /* CoffeeMaster.xcdatamodeld */; };
@@ -177,7 +177,7 @@
 		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
 		5C6A926B2379291D006D8E0E /* ExploreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMapView.swift; sourceTree = "<group>"; };
 		5C6A926D237929FF006D8E0E /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
-		5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewSectionView.swift; sourceTree = "<group>"; };
+		5C6A926F23792CDA006D8E0E /* BrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewView.swift; sourceTree = "<group>"; };
 		5C80C96023745F2600996D91 /* CoffeeMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C80C96323745F2600996D91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C80C96523745F2600996D91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +282,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C0D0F472384377B00FA7952 /* BrewView */ = {
+			isa = PBXGroup;
+			children = (
+				5C6A926F23792CDA006D8E0E /* BrewView.swift */,
+			);
+			name = BrewView;
+			sourceTree = "<group>";
+		};
 		5C25FAC0237F7A7D0082CFBD /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,9 +458,9 @@
 		5CEEC7BD237F053700E3BDB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5C3F465E2383093D001CC647 /* Components */,
 				5C80C96A23745F2600996D91 /* ContentView.swift */,
-				5C6A926F23792CDA006D8E0E /* BrewSectionView.swift */,
+				5C3F465E2383093D001CC647 /* Components */,
+				5C0D0F472384377B00FA7952 /* BrewView */,
 				5C3F4659238308C6001CC647 /* RecordView */,
 				5C5F41192381E726005DBACE /* ConnectView */,
 				5CEEC7BE237F054300E3BDB0 /* ExploreViews */,
@@ -646,7 +654,7 @@
 				5C80C989237462A100996D91 /* Store.swift in Sources */,
 				5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */,
 				5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */,
-				5C6A927023792CDA006D8E0E /* BrewSectionView.swift in Sources */,
+				5C6A927023792CDA006D8E0E /* BrewView.swift in Sources */,
 				5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */,
 				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,

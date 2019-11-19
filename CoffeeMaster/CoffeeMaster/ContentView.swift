@@ -42,7 +42,7 @@ struct ContentView: View {
 }
 
 struct SearchView : View {
-    @State private var selection = 0
+    @State private var selection = 1
     @Binding var query: String
     let repos: [Repo]
     let onCommit: () -> Void
@@ -64,9 +64,7 @@ struct SearchView : View {
                             }
                         }
                         .tag(0)
-                    NavigationView{
-                        BrewSectionView().navigationBarTitle(Text("Brew"))
-                    }.tabItem {
+                    BrewView().tabItem {
                         if (selection == 1) {
                             VStack {
                                 Image("make-icon-select-100")

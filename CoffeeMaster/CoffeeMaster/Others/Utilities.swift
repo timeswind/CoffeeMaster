@@ -57,4 +57,16 @@ class Utilities: NSObject {
     static func gramToOunce(gram: Double) -> Double {
         return gram * 0.03527396195
     }
+    
+    static func OunceToGram(ounce: Double) -> Double {
+        return ounce / 0.03527396195
+    }
+    
+    static func CelsiusToFahrenheit(celsius: Double) -> Double {
+        return (celsius * 9/5) + 32
+    }
+    
+    static func FahrenheitToCelsius(fahrenheit: Double) -> Double {
+        return (fahrenheit - 32) / (9/5)
+    }
 }
