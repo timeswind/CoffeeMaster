@@ -23,10 +23,14 @@ struct PostFormView: View {
         store.send(ConnectViewAsyncAction.newPost(post: post))
     }
     
-    func dismissSelf() {
-        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: false)))
-    }
+//    func dismissSelf() {
+//        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: false)))
+//    }
     
+    func exit() {
+        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
+    }
+
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -38,7 +42,7 @@ struct PostFormView: View {
             }.padding(20)
                 .navigationBarTitle(Text(LocalizedStringKey("NewPost")))
                 .navigationBarItems(leading:
-                    Button(action: {self.dismissSelf()}) {
+                    Button(action: {self.exit()}) {
                         Text(LocalizedStringKey("Dismiss"))
                     }
                     ,trailing: Button(action: {self.post()}) {

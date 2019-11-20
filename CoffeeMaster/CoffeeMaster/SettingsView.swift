@@ -17,7 +17,6 @@ struct keyValue<T1, T2> {
 struct SettingsView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State var selectedLanguage = ""
-    @Binding var showModal: Bool
     @EnvironmentObject var environmentWindowObject: EnvironmentWindowObject
     @State var appleSignInDelegates: SignInWithAppleDelegates! = nil
 
@@ -32,6 +31,10 @@ struct SettingsView: View {
     func logout() {
         let logoutAction: AppAction = .settings(action: .logout(with: true))
         store.send(logoutAction)
+    }
+    
+    func exit() {
+        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
     }
         
     var body: some View {
@@ -74,7 +77,9 @@ struct SettingsView: View {
             
             }.navigationBarTitle(LocalizedStringKey("Settings"))
                 .navigationBarItems(trailing:
-                    Button(action: {self.showModal.toggle()}) {
+                    Button(action: {
+                        self.exit()
+                    }) {
                         Text(LocalizedStringKey("Dismiss"))
                 })
         }.accentColor(Color(UIColor.Theme.Accent))

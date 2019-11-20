@@ -10,20 +10,22 @@ import SwiftUI
 
 struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    
+    @State var isAddRecordFormPresented: Bool = false
+
     private func fetch() {
         store.send(RecordViewAsyncAction.getMyRecords(query: ""))
     }
     
     func showRecordForm() {
-        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: true)))
+        self.isAddRecordFormPresented = true
+//        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: true)))
     }
     
     var body: some View {
         
-        let isAddRecordFormPresenting = Binding<Bool>(get: { () -> Bool in
-            return self.store.state.recordViewState.addRecordFormPresented
-        }) { (isPresented) in }
+//        let isAddRecordFormPresenting = Binding<Bool>(get: { () -> Bool in
+//            return self.store.state.recordViewState.addRecordFormPresented
+//        }) { (isPresented) in }
         
         return NavigationView {
             RecordListView().navigationBarTitle(Text(LocalizedStringKey("Record"))).navigationBarItems(
@@ -31,7 +33,7 @@ struct RecordView: View {
                 Button(action: {self.showRecordForm()}) {
                     Text(LocalizedStringKey("Write"))
             }).onAppear(perform: fetch)
-        }.sheet(isPresented: isAddRecordFormPresenting) {
+        }.sheet(isPresented: $isAddRecordFormPresented) {
             AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
     }

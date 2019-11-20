@@ -21,9 +21,9 @@ struct BrewGuideDetailView: View {
             VStack(alignment: .leading, spacing: 0) {
                 Text(self.brewGuide.guideName)
                 Text(self.brewGuide.guideDescription)
+                Text(LocalizedStringKey(grindSize))
                 Text(String(format: "%.2f", self.brewGuide.getBrewStepGrindCoffee()?.getCoffeeAmount() ?? 0))
                 Text(String(format: "%.2f", self.brewGuide.getBrewStepBoilWater()?.getWaterAmount() ?? 0))
-                Text(LocalizedStringKey(grindSize))
 
                 Spacer()
             }

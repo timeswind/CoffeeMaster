@@ -51,6 +51,12 @@ struct BrewMethod:Decodable {
     var image: String
     var descriptionKey: String?
     var description: String?
+    var brewTools: [BrewTool]?
+    
+    struct BrewTool: Decodable {
+        var count: Int
+        var localizedNameKey: String
+    }
 }
 
 

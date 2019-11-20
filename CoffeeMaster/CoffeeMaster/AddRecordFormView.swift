@@ -21,8 +21,12 @@ struct AddRecordFormView: View {
         store.send(RecordViewAsyncAction.addRecord(record: record))
     }
     
-    func dismissSelf() {
-        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: false)))
+//    func dismissSelf() {
+//        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: false)))
+//    }
+    
+    func exit() {
+        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
     }
     
     var body: some View {
@@ -36,7 +40,7 @@ struct AddRecordFormView: View {
             }.padding(20)
                 .navigationBarTitle(Text(LocalizedStringKey("NewRecord")))
                 .navigationBarItems(leading:
-                    Button(action: {self.dismissSelf()}) {
+                    Button(action: {self.exit()}) {
                         Text(LocalizedStringKey("Dismiss"))
                     }
                     ,trailing: Button(action: {self.record()}) {

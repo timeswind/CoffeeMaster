@@ -20,7 +20,7 @@ struct ExploreView: View {
     }
     
     func showSettingsView() {
-        isSettingPresented = true;
+        self.isSettingPresented = true;
     }
 
     var body: some View {
@@ -34,7 +34,7 @@ struct ExploreView: View {
                                     Text(LocalizedStringKey("Search"))
                                 })
         }.sheet(isPresented: $isSettingPresented) {
-            SettingsView(showModal: self.$isSettingPresented, settingsState: self.store.state.settings).environmentObject(self.store).environmentObject(self.environmentWindowObject).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            SettingsView(settingsState: self.store.state.settings).environmentObject(self.store).environmentObject(self.environmentWindowObject).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
 
     }

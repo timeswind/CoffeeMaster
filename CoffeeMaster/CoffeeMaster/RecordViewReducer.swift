@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 enum RecordViewAction {
     case newRecordAdded(record: Record)

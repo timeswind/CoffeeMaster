@@ -46,3 +46,11 @@
 "Other" = "Other";
 "gUnit" = "g";
 "ozUnit" = "oz";
+
+/* Brew Tools */
+"ChemexCoffeemaker" = "Chemex Coffeemaker";
+"ChemexPaperFilter" = "Chemex Paper Filter";
+"Cup" = "Cup";
+"KitchenScale" = "Kitchen scale";
+"Spoon" = "Spoon";
+"Kettle" = "Kettle";
