@@ -51,7 +51,7 @@ struct AddBrewGuideView: View {
                         Text("Grind Type: \(self.brewStepGrindCoffee!.grindSize.rawValue)")
                     }
                     if (self.brewStepBoilWater == nil) {
-                        NavigationLink(destination: Text("Configure Water")) {
+                        NavigationLink(destination: ConfigureBoilWaterView(brewStepboilWater: $brewStepBoilWater)) {
                             Text("Configure Water")
                         }
                     } else {

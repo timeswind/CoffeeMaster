@@ -39,6 +39,8 @@ enum WeightUnit: String {
 enum TemperatureUnit: String {
     case C = "°C"
     case F = "°F"
+    
+    static let allValues: [TemperatureUnit] = [C, F]
 }
 
 enum BrewStepType: String {
