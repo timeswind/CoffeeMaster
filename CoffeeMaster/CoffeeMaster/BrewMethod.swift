@@ -108,6 +108,10 @@ class BrewGuide {
         return self.brewSteps
     }
     
+    func getBaseBrewMethod() -> BrewMethod {
+        return self.baseBrewMethod
+    }
+    
     func add(brewStep: BrewStep) -> BrewGuide {
         if (self.brewStepBoilWater != nil && self.brewStepGrindCoffee != nil) {
             self.brewSteps.append(brewStep)
@@ -119,5 +123,9 @@ class BrewGuide {
     
     func removeBrewStep(at index: Int) {
         self.brewSteps.remove(at: index)
+    }
+    
+    func changeBaseBrewMethod(to method: BrewMethod) {
+        self.baseBrewMethod = method
     }
 }
