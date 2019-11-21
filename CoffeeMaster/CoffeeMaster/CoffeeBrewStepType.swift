@@ -19,6 +19,10 @@ class BrewWeight {
         self.setWeight(weight: weight)
     }
     
+    func update() {
+        let _ = getWeightUnit()
+    }
+    
     func setWeight(weight: BrewWeight) {
         self.weight = weight.getWeight()
     }

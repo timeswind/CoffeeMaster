@@ -10,9 +10,12 @@ import SwiftUI
 
 struct ConfigureGrindCoffeeView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    @Binding var brewStepGrindCoffee: BrewStepGrindCoffee?
     
     @State var coffeeGrindSizeType: GrindSizeType = .Coarse
-    @State var coffeeWeight: Double
+    @State var coffeeAmount: Double = 0
     
     var decimalFormatter: NumberFormatter = {
         let f = NumberFormatter()
@@ -26,6 +29,13 @@ struct ConfigureGrindCoffeeView: View {
         store.send(updateAction)
     }
     
+    func submit() {
+        self.brewStepGrindCoffee = BrewStepGrindCoffee().amount(self.coffeeAmount).grindSize(self.coffeeGrindSizeType)
+        print(self.coffeeGrindSizeType.rawValue)
+        print(self.coffeeAmount)
+        self.presentationMode.wrappedValue.dismiss()
+    }
+    
     var body: some View {
         let allGrindTypes = GrindSizeType.allValues
         let allWeightUnitTypes = WeightUnit.allValues
@@ -36,14 +46,18 @@ struct ConfigureGrindCoffeeView: View {
             self.update(weightUnit: $0)
         })
         
-//        let coffeeWeightProxy = Binding<Double>(
-//            get: { String(format: "%.02f", Double(self.coffeeWeight)) },
-//            set: {
-//                if let value = NumberFormatter().number(from: $0) {
-//                    self.coffeeWeight = value.doubleValue
-//                }
-//        }
-//        )
+        let someNumberProxy = Binding<String>(
+            get: {
+                return String(format: "%.02f", Double(self.coffeeAmount))
+                
+        },
+            set: {
+                if let value = NumberFormatter().number(from: $0) {
+                    self.coffeeAmount = value.doubleValue
+                }
+        }
+        )
+        
         return
             
             VStack {
@@ -55,7 +69,7 @@ struct ConfigureGrindCoffeeView: View {
                 HStack {
                     Text(LocalizedStringKey("ConfigureCoffeeAmountInputTitle"))
                     
-                    TextField(LocalizedStringKey("ConfigureCoffeeAmountInputTitle"), value: $coffeeWeight, formatter: decimalFormatter)
+                    TextField(LocalizedStringKey("ConfigureCoffeeAmountInputTitle"), text: someNumberProxy)
                         .padding()
                         .background(Color.white)
                         .foregroundColor(Color.black)
@@ -80,7 +94,9 @@ struct ConfigureGrindCoffeeView: View {
                     
                 }.pickerStyle(SegmentedPickerStyle())
                 Spacer()
-        }
+            }.navigationBarItems(trailing: Button(action: { self.submit() }) {
+                Text(LocalizedStringKey("Done"))
+            })
         
         
     }

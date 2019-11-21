@@ -14,9 +14,12 @@ struct AddBrewGuideView: View {
     @State var guideName: String = ""
     @State var guideDescription: String = ""
     @State var guideIsPublic: Bool = false
+    
     @State var brewStepGrindCoffee: BrewStepGrindCoffee?
+    
     @State var brewStepBoilWater: BrewStepBoilWater?
     @State var brewSteps: [BrewStep] = []
+    
     var coffeeWaterConfigured: Bool { return brewStepGrindCoffee != nil && brewStepBoilWater != nil}
     
     func exit() {
@@ -40,13 +43,14 @@ struct AddBrewGuideView: View {
                 Section(header: Text(LocalizedStringKey("NewBrewGuideStepEdit"))) {
                     
                     if (self.brewStepGrindCoffee == nil) {
-                        NavigationLink(destination: ConfigureGrindCoffeeView(coffeeGrindSizeType: .Coarse, coffeeWeight: 0)) {
+                        NavigationLink(destination: ConfigureGrindCoffeeView(brewStepGrindCoffee: $brewStepGrindCoffee)) {
                             Text("Configure Coffee")
                         }
                     } else {
-                        Text("Brew Step Coffee")
+                        Text("Coffee Amount: \(self.brewStepGrindCoffee!.getCoffeeAmount())")
+                        Text("Grind Type: \(self.brewStepGrindCoffee!.grindSize.rawValue)")
                     }
-                    if (self.brewStepGrindCoffee == nil) {
+                    if (self.brewStepBoilWater == nil) {
                         NavigationLink(destination: Text("Configure Water")) {
                             Text("Configure Water")
                         }
