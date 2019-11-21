@@ -50,6 +50,8 @@
 /* Brew Tools */
 "ChemexCoffeemaker" = "Chemex Coffeemaker";
 "ChemexPaperFilter" = "Chemex Paper Filter";
+"AeropressCoffeemaker" = "AeroPress Coffeemaker";
+"AeropressPaperFilter" = "AeroPress Paper Filter";
 "Cup" = "Cup";
 "KitchenScale" = "Kitchen scale";
 "Spoon" = "Spoon";

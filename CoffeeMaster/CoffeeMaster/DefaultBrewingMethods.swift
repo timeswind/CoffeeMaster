@@ -12,6 +12,8 @@ struct DefaultBrewTools {
     typealias Tool = BrewMethod.BrewTool
     var chemexCoffeeMaker = Tool(count: 1, localizedNameKey: "ChemexCoffeemaker")
     var chemexPaperFilter = Tool(count: 1, localizedNameKey: "ChemexPaperFilter")
+    var aeropressCoffeeMaker = Tool(count: 1, localizedNameKey: "AeropressCoffeemaker")
+    var aeropressPaperFilter = Tool(count: 1, localizedNameKey: "AeropressPaperFilter")
     var cup = Tool(count: 1, localizedNameKey: "Cup")
     var kitchenScale = Tool(count: 1, localizedNameKey: "KitchenScale")
     var spoon = Tool(count: 1, localizedNameKey: "Spoon")
@@ -28,6 +30,16 @@ class BrewToolsPicker {
     
     func chemex() -> BrewToolsPicker {
         self.brewTools.append(DefaultBrewTools().chemexCoffeeMaker)
+        return self
+    }
+    
+    func aeropress() -> BrewToolsPicker {
+        self.brewTools.append(DefaultBrewTools().aeropressCoffeeMaker)
+        return self
+    }
+    
+    func aeropressFilter() -> BrewToolsPicker {
+        self.brewTools.append(DefaultBrewTools().aeropressPaperFilter)
         return self
     }
     
@@ -60,7 +72,9 @@ class BrewToolsPicker {
 let chemexBrewMethodTools = BrewToolsPicker().chemex().chemexFilter().cup().scale().spoon().kettle().done()
 let chemexBrewMethod = BrewMethod(name: "Chemex", image: "chemex-icon", descriptionKey: "ChemexDescription", description: nil, brewTools: chemexBrewMethodTools)
 
-let aeropressBrewMethod = BrewMethod(name: "AeroPress", image: "aeropress-icon", descriptionKey: "AeroPressDescription", description: nil)
+let aeropressBrewMethodTools = BrewToolsPicker().aeropress().aeropressFilter().cup().scale().spoon().kettle().done()
+let aeropressBrewMethod = BrewMethod(name: "AeroPress", image: "aeropress-icon", descriptionKey: "AeroPressDescription", description: nil, brewTools: aeropressBrewMethodTools)
+
 let hariov60BrewMethod = BrewMethod(name: "Hario V60", image: "hariov60-icon", descriptionKey: "HarioV60Description", description: nil)
 let mokapotBrewMethod = BrewMethod(name: "Moka Pot", image: "mokapot-icon", descriptionKey: "MokaPotDescription", description: nil)
 let FrenchPressBrewMethod = BrewMethod(name: "French Press", image: "frenchpress-icon", descriptionKey: "FrenchPressDescription", description: nil)
@@ -74,6 +88,7 @@ class DefaultBrewingGuides {
         self.weightUnit = weightUnit ?? .g
         self.temperatureUnit = temperatureUnit ?? .C
         self.defaultChemex()
+        self.defaultAeroPress()
     }
     
     func defaultChemex() {
@@ -96,6 +111,30 @@ class DefaultBrewingGuides {
         chemexBrewGuide.guideDescription = "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes"
         chemexBrewGuide.guideName = chemexBrewMethod.name
         self.guides.append(chemexBrewGuide)
+    }
+    
+    func defaultAeroPress() {
+        let grindCoffee = BrewStepGrindCoffee(weightUnit: weightUnit)
+            .amount(coffeeInGram: 15).grindSize(size: .Fine)
+        let boilWater = BrewStepBoilWater(weightUnit: weightUnit, temperatureUnit: temperatureUnit)
+            .water(240).temperatue(forWater: 94)
+        
+        let aeropressBrewGuide = BrewGuide(baseBrewMethod: aeropressBrewMethod)
+            .grindCoffee(step: grindCoffee)
+            .boilWater(step: boilWater)
+            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(30).instruction("Pour 30g of water and evenly saturate the coffee").duration(10))
+            .add(brewStep: BrewStepStir().instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
+            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Wait for the coffee to bloom").duration(15))
+            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(210).instruction("Pour 210g of water in a spiral motion over the dark areas").duration(30))
+            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Place the plunger on the brewer and pull up slightly to create a pressure seal").duration(5))
+            .add(brewStep: BrewStepWait(weightUnit: weightUnit).instruction("Wait fot the coffee to brew").duration(30))
+            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Gently press down on the plunger with steady pressure").duration(20))
+            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("When done simply tale off the bottom cap, pop the grounds and the filter"))
+
+        
+        aeropressBrewGuide.guideDescription = "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee"
+        aeropressBrewGuide.guideName = aeropressBrewMethod.name
+        self.guides.append(aeropressBrewGuide)
     }
     
     func getGuides() -> [BrewGuide] {

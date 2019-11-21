@@ -48,8 +48,10 @@
 "ozUnit" = "盎司";
 
 /* Brew Tools */
-"ChemexCoffeemaker" = "Chemex Coffeemaker";
-"ChemexPaperFilter" = "Chemex Paper Filter";
+"ChemexCoffeemaker" = "Chemex咖啡制作容器";
+"ChemexPaperFilter" = "Chemex适用滤纸";
+"AeropressCoffeemaker" = "AeroPress爱乐压";
+"AeropressPaperFilter" = "AeroPress爱乐压适用圆形滤纸";
 "Cup" = "Cup";
 "KitchenScale" = "Kitchen scale";
 "Spoon" = "Spoon";
