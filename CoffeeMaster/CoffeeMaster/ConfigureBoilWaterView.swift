@@ -84,6 +84,8 @@ struct ConfigureBoilWaterView: View {
                     Text(LocalizedStringKey("ConfigureBoilWaterDescription"))
                 }
                 
+                
+                Text(LocalizedStringKey("ConfigureWaterAmountHeader"))
                 HStack {
                     Text(LocalizedStringKey("ConfigureWaterAmountInputTitle"))
                     

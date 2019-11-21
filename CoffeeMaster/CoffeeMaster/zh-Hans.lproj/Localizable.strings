@@ -67,3 +67,24 @@
 /* Create Brew Method */
 "CreateBrewMethod" = "创建你的咖啡秘籍";
 "ChooseBrewMethod" = "选择基本制作工具";
+"NewBrewGuideStepEdit" = "制作步骤";
+"NewBrewGuideInfo" = "基本信息";
+"NewBrewGuideName" = "秘籍名称";
+"NewBrewGuideDescription" = "基本介绍";
+"NewBrewGuideIsPublicToggle" = "对他人可见";
+
+
+/* Configrue Grind Coffee View*/
+"ConfigureCoffeeAmountTitle" = "在这个页面编辑咖啡豆相关的信息";
+"ConfigureCoffeeAmountDescription" = "写下你对于准备咖啡豆的建议, 编辑重量与咖啡的研磨程度";
+"ConfigureCoffeeAmountHeader" = "输入所需咖啡豆的重量";
+"ConfigureCoffeeAmountInputTitle" = "重量";
+"ConfigureCoffeeGrindSizeTypeHeader" = "选择咖啡豆的研磨程度";
+"ConfigureCoffeeGrindTypeInformation" = "研磨程度简介";
+
+/*Configure Boil Water View*/
+"ConfigureBoilWaterTitle" = "选择需要多少水以及水的温度";
+"ConfigureBoilWaterDescription" = "写下你对于冲泡咖啡的水的要求, 编辑水量与温度";
+"ConfigureWaterAmountHeader" = "输入所需水的重量与温度";
+"ConfigureWaterAmountInputTitle" = "水量";
+"ConfigureWaterTemperatureInputTitle" = "温度";

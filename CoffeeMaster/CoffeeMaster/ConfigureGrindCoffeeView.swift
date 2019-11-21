@@ -66,6 +66,8 @@ struct ConfigureGrindCoffeeView: View {
                     Text(LocalizedStringKey("ConfigureCoffeeAmountDescription"))
                 }
                 
+                Text(LocalizedStringKey("ConfigureCoffeeAmountHeader"))
+                
                 HStack {
                     Text(LocalizedStringKey("ConfigureCoffeeAmountInputTitle"))
                     
@@ -84,6 +86,8 @@ struct ConfigureGrindCoffeeView: View {
                         
                     }.pickerStyle(SegmentedPickerStyle())
                 }
+                
+                Text(LocalizedStringKey("ConfigureCoffeeGrindSizeTypeHeader"))
                 
                 Picker(selection: $coffeeGrindSizeType, label: Text("ConfigureCoffeeGrindSizeTypePickerLabel")) {
                     ForEach(allGrindTypes, id: \.self) { grindType in

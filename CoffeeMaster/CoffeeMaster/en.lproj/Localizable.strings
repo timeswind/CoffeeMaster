@@ -67,6 +67,11 @@
 /* Create Brew Method */
 "CreateBrewMethod" = "Create Brew Method";
 "ChooseBrewMethod" = "Choose Brew Method";
+"NewBrewGuideStepEdit" = "Edit Steps";
+"NewBrewGuideInfo" = "Guide Info";
+"NewBrewGuideName" = "Name";
+"NewBrewGuideDescription" = "Description";
+"NewBrewGuideIsPublicToggle" = "Show to public";
 
 /* Configrue Grind Coffee View*/
 "ConfigureCoffeeAmountTitle" = "Enter Coffee Amount";
@@ -75,3 +80,10 @@
 "ConfigureCoffeeAmountInputTitle" = "Amount";
 "ConfigureCoffeeGrindSizeTypeHeader" = "Choose Grind Size";
 "ConfigureCoffeeGrindTypeInformation" = "Information";
+
+/*Configure Boil Water View*/
+"ConfigureBoilWaterTitle" = "Enter Water Amount";
+"ConfigureBoilWaterDescription" = "Recommend the total amount of water required to brew the coffee and set a recommended temperature";
+"ConfigureWaterAmountHeader" = "Enter water amount and temperature";
+"ConfigureWaterAmountInputTitle" = "Amount";
+"ConfigureWaterTemperatureInputTitle" = "Temperature";
