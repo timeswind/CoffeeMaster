@@ -80,34 +80,31 @@ let mokapotBrewMethod = BrewMethod(name: "Moka Pot", image: "mokapot-icon", desc
 let FrenchPressBrewMethod = BrewMethod(name: "French Press", image: "frenchpress-icon", descriptionKey: "FrenchPressDescription", description: nil)
 
 class DefaultBrewingGuides {
-    var weightUnit: WeightUnit!
     var temperatureUnit: TemperatureUnit!
     private var guides: [BrewGuide] = []
     private var methods: [BrewMethod] = []
     
-    init(weightUnit: WeightUnit?, temperatureUnit: TemperatureUnit?) {
-        self.weightUnit = weightUnit ?? .g
-        self.temperatureUnit = temperatureUnit ?? .C
+    init() {
         self.defaultChemex()
         self.defaultAeroPress()
     }
     
     func defaultChemex() {
-        let grindCoffee = BrewStepGrindCoffee(weightUnit: weightUnit)
-            .amount(coffeeInGram: 25).grindSize(size: .Medium)
-        let boilWater = BrewStepBoilWater(weightUnit: weightUnit, temperatureUnit: temperatureUnit)
+        let grindCoffee = BrewStepGrindCoffee()
+            .amount(25).grindSize(.Medium)
+        let boilWater = BrewStepBoilWater()
             .water(340).temperatue(forWater: 94)
         
         let chemexBrewGuide = BrewGuide(baseBrewMethod: chemexBrewMethod)
             .grindCoffee(step: grindCoffee)
             .boilWater(step: boilWater)
-            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(50).duration(10))
-            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
-            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Wait for the coffee to bloom").duration(15))
-            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(130).instruction("Pour 130g of water in a spiral motion over the dark areas").duration(30))
-            .add(brewStep: BrewStepWait(weightUnit: weightUnit).instruction("Wait for the water to drain through the grounds").duration(20))
-            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(160).instruction("Slowly top up the brewer with another 160g of water").duration(30))
-            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Wait for the water to drain through the grounds. When done remove the filter and serve").duration(20))
+            .add(brewStep: BrewStepBloom().water(50).duration(10))
+            .add(brewStep: BrewStepOther().instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
+            .add(brewStep: BrewStepOther().instruction("Wait for the coffee to bloom").duration(15))
+            .add(brewStep: BrewStepBloom().water(130).instruction("Pour 130g of water in a spiral motion over the dark areas").duration(30))
+            .add(brewStep: BrewStepWait().instruction("Wait for the water to drain through the grounds").duration(20))
+            .add(brewStep: BrewStepBloom().water(160).instruction("Slowly top up the brewer with another 160g of water").duration(30))
+            .add(brewStep: BrewStepOther().instruction("Wait for the water to drain through the grounds. When done remove the filter and serve").duration(20))
         
         chemexBrewGuide.guideDescription = "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes"
         chemexBrewGuide.guideName = chemexBrewMethod.name
@@ -116,22 +113,22 @@ class DefaultBrewingGuides {
     }
     
     func defaultAeroPress() {
-        let grindCoffee = BrewStepGrindCoffee(weightUnit: weightUnit)
-            .amount(coffeeInGram: 15).grindSize(size: .Fine)
-        let boilWater = BrewStepBoilWater(weightUnit: weightUnit, temperatureUnit: temperatureUnit)
+        let grindCoffee = BrewStepGrindCoffee()
+            .amount(15).grindSize(.Fine)
+        let boilWater = BrewStepBoilWater()
             .water(240).temperatue(forWater: 94)
         
         let aeropressBrewGuide = BrewGuide(baseBrewMethod: aeropressBrewMethod)
             .grindCoffee(step: grindCoffee)
             .boilWater(step: boilWater)
-            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(30).instruction("Pour 30g of water and evenly saturate the coffee").duration(10))
+            .add(brewStep: BrewStepBloom().water(30).instruction("Pour 30g of water and evenly saturate the coffee").duration(10))
             .add(brewStep: BrewStepStir().instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
-            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Wait for the coffee to bloom").duration(15))
-            .add(brewStep: BrewStepBloom(weightUnit: weightUnit).water(210).instruction("Pour 210g of water in a spiral motion over the dark areas").duration(30))
-            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Place the plunger on the brewer and pull up slightly to create a pressure seal").duration(5))
-            .add(brewStep: BrewStepWait(weightUnit: weightUnit).instruction("Wait fot the coffee to brew").duration(30))
-            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("Gently press down on the plunger with steady pressure").duration(20))
-            .add(brewStep: BrewStepOther(weightUnit: weightUnit).instruction("When done simply tale off the bottom cap, pop the grounds and the filter"))
+            .add(brewStep: BrewStepOther().instruction("Wait for the coffee to bloom").duration(15))
+            .add(brewStep: BrewStepBloom().water(210).instruction("Pour 210g of water in a spiral motion over the dark areas").duration(30))
+            .add(brewStep: BrewStepOther().instruction("Place the plunger on the brewer and pull up slightly to create a pressure seal").duration(5))
+            .add(brewStep: BrewStepWait().instruction("Wait fot the coffee to brew").duration(30))
+            .add(brewStep: BrewStepOther().instruction("Gently press down on the plunger with steady pressure").duration(20))
+            .add(brewStep: BrewStepOther().instruction("When done simply tale off the bottom cap, pop the grounds and the filter"))
 
         
         aeropressBrewGuide.guideDescription = "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee"

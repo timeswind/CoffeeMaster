@@ -10,11 +10,11 @@ import SwiftUI
 
 struct ConfigureGrindCoffeeView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-
+    
     @State var coffeeGrindSizeType: GrindSizeType = .Coarse
     @State var coffeeWeight: Double
     
-    var currencyFormatter: NumberFormatter = {
+    var decimalFormatter: NumberFormatter = {
         let f = NumberFormatter()
         f.isLenient = true
         f.numberStyle = .decimal
@@ -36,48 +36,52 @@ struct ConfigureGrindCoffeeView: View {
             self.update(weightUnit: $0)
         })
         
-        let someNumberProxy = Binding<String>(
-            get: { String(format: "%.02f", Double(self.coffeeWeight)) },
-            set: {
-                if let value = NumberFormatter().number(from: $0) {
-                    self.coffeeWeight = value.doubleValue
-                }
-            }
-        )
+//        let coffeeWeightProxy = Binding<Double>(
+//            get: { String(format: "%.02f", Double(self.coffeeWeight)) },
+//            set: {
+//                if let value = NumberFormatter().number(from: $0) {
+//                    self.coffeeWeight = value.doubleValue
+//                }
+//        }
+//        )
         return
-            Form {
-                Section(header: Text(LocalizedStringKey("ConfigureCoffeeAmountHeader"))) {
-                    HStack {
-                        Text(LocalizedStringKey("ConfigureCoffeeAmountInputTitle"))
-
-                        TextField("Total", value: $coffeeWeight, formatter: currencyFormatter)
-                            .padding()
-                            .background(Color.white)
-                            .foregroundColor(Color.black)
-                            .keyboardType(.decimalPad)
-
-                        Picker(selection: weightUnitValueBind, label: Text("ConfigureGrindCoffee")) {
-                            ForEach(allWeightUnitTypes, id: \.self) { grindType in
-                                VStack {
-                                    Text(LocalizedStringKey(grindType.rawValue))
-                                }
-                            }
-                            
-                        }.pickerStyle(SegmentedPickerStyle())
-                    }
+            
+            VStack {
+                Section {
+                    Text(LocalizedStringKey("ConfigureCoffeeAmountTitle"))
+                    Text(LocalizedStringKey("ConfigureCoffeeAmountDescription"))
                 }
-
-                Section(header: Text(LocalizedStringKey("ConfigureCoffeeGrindSizeTypeHeader"))) {
-                    Picker(selection: $coffeeGrindSizeType, label: Text("ConfigureGrindCoffee")) {
-                        ForEach(allGrindTypes, id: \.self) { grindType in
+                
+                HStack {
+                    Text(LocalizedStringKey("ConfigureCoffeeAmountInputTitle"))
+                    
+                    TextField(LocalizedStringKey("ConfigureCoffeeAmountInputTitle"), value: $coffeeWeight, formatter: decimalFormatter)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(Color.black)
+                        .keyboardType(.decimalPad)
+                    
+                    Picker(selection: weightUnitValueBind, label: Text("ConfigureGrindCoffee")) {
+                        ForEach(allWeightUnitTypes, id: \.self) { grindType in
                             VStack {
-                                Text(LocalizedStringKey(grindType.localizableString))
+                                Text(LocalizedStringKey(grindType.rawValue))
                             }
                         }
                         
                     }.pickerStyle(SegmentedPickerStyle())
                 }
-            }
+                
+                Picker(selection: $coffeeGrindSizeType, label: Text("ConfigureCoffeeGrindSizeTypePickerLabel")) {
+                    ForEach(allGrindTypes, id: \.self) { grindType in
+                        VStack {
+                            Text(LocalizedStringKey(grindType.localizableString))
+                        }
+                    }
+                    
+                }.pickerStyle(SegmentedPickerStyle())
+                Spacer()
+        }
+        
         
     }
 }

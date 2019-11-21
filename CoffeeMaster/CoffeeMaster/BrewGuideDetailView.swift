@@ -22,8 +22,8 @@ struct BrewGuideDetailView: View {
                 Text(LocalizedStringKey(self.brewGuide.guideName))
                 Text(self.brewGuide.guideDescription)
                 Text(LocalizedStringKey(grindSize))
-                Text(String(format: "%.2f", self.brewGuide.getBrewStepGrindCoffee()?.getCoffeeAmount() ?? 0))
-                Text(String(format: "%.2f", self.brewGuide.getBrewStepBoilWater()?.getWaterAmount() ?? 0))
+//                Text(String(format: "%.2f", self.brewGuide.getBrewStepGrindCoffee()!.getCoffeeAmount() ?? 0))
+//                Text(String(format: "%.2f", self.brewGuide.getBrewStepBoilWater()!.getWaterAmount() ?? 0))
 
                 Spacer()
             }

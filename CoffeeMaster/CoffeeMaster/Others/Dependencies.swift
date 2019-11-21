@@ -14,4 +14,4 @@ struct Dependencies {
     var defaultBrewingGuides: DefaultBrewingGuides
 }
 
-let dependencies = Dependencies(githubService: GithubService(), webDatabaseQueryService: WebDatabaseQueryService(), defaultBrewingGuides: DefaultBrewingGuides(weightUnit: WeightUnit.g, temperatureUnit: TemperatureUnit.C))
+let dependencies = Dependencies(githubService: GithubService(), webDatabaseQueryService: WebDatabaseQueryService(), defaultBrewingGuides: DefaultBrewingGuides())

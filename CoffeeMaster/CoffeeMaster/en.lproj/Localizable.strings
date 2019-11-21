@@ -67,3 +67,11 @@
 /* Create Brew Method */
 "CreateBrewMethod" = "Create Brew Method";
 "ChooseBrewMethod" = "Choose Brew Method";
+
+/* Configrue Grind Coffee View*/
+"ConfigureCoffeeAmountTitle" = "Enter Coffee Amount";
+"ConfigureCoffeeAmountDescription" = "Suggest an amount of coffee, additionally you can set a recommended grind size.";
+"ConfigureCoffeeAmountHeader" = "Enter Coffee Amount";
+"ConfigureCoffeeAmountInputTitle" = "Amount";
+"ConfigureCoffeeGrindSizeTypeHeader" = "Choose Grind Size";
+"ConfigureCoffeeGrindTypeInformation" = "Information";
