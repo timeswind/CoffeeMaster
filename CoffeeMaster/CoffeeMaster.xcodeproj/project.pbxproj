@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C02EB272385F8AB002A7A1E /* UIKitTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */; };
+		5C02EB29238610D3002A7A1E /* BrewViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB28238610D3002A7A1E /* BrewViewReducer.swift */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
@@ -134,6 +135,7 @@
 
 /* Begin PBXFileReference section */
 		5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTabView.swift; sourceTree = "<group>"; };
+		5C02EB28238610D3002A7A1E /* BrewViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewReducer.swift; sourceTree = "<group>"; };
 		5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideDetailView.swift; sourceTree = "<group>"; };
 		5C21473F23834B3000AEFBFB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework"; sourceTree = "<group>"; };
 		5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBrewStepType.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 		5C3F466323830C30001CC647 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				5C02EB28238610D3002A7A1E /* BrewViewReducer.swift */,
 				5C3F465F23830A83001CC647 /* RecordViewReducer.swift */,
 				5C3F466123830AD9001CC647 /* ConnectViewReducer.swift */,
 				5C3F466423830D02001CC647 /* SettingsReducer.swift */,
@@ -648,6 +651,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C02EB29238610D3002A7A1E /* BrewViewReducer.swift in Sources */,
 				5C3F465D23830933001CC647 /* MultiplineTextField.swift in Sources */,
 				5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */,
 				5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */,

@@ -33,6 +33,7 @@ enum EmptyAction {
 enum AppAction {
     case repos(repos: ReposAction)
     case settings(action: SettingsAction)
+    case brewview(action: BrewViewAction)
     case connectview(action: ConnectViewAction)
     case recordview(action: RecordViewAction)
     case emptyAction(action: EmptyAction)
@@ -49,6 +50,8 @@ let appReducer: Reducer<AppState, AppAction> = Reducer { state, action in
         return
     case let .settings(action):
         settingsReducer.reducer.reduce(&state.settings, action)
+    case let .brewview(action):
+        brewViewReducer.reducer.reduce(&state.brewViewState, action)
     case let .repos(action):
         reposReducer.reduce(&state.repostate, action)
     case let .connectview(action):

@@ -11,6 +11,7 @@ import Foundation
 struct AppState {
     var settings: SettingsState
     var repostate: ReposState
+    var brewViewState: BrewViewState
     var connectViewState: ConnectViewState
     var recordViewState: RecordViewState
 }
@@ -37,4 +38,9 @@ struct ConnectViewState {
 struct RecordViewState {
     var records: [Record] = []
     var addRecordFormPresented: Bool = false
+}
+
+struct BrewViewState {
+    var defaultBrewGuides: [BrewGuide] = dependencies.defaultBrewingGuides.getGuides()
+    var myBrewGuides: [BrewGuide] = []
 }
