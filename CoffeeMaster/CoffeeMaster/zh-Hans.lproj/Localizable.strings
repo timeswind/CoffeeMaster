@@ -47,6 +47,13 @@
 "gUnit" = "克";
 "ozUnit" = "盎司";
 
+/* Brew Methods */
+"Chemex" = "美式滤泡壶";
+"AeroPress" = "爱乐压";
+"Hario V60" = "好璃奥V60";
+"Moka Pot" = "摩卡壶";
+"French Press" = "法式压壶";
+
 /* Brew Tools */
 "ChemexCoffeemaker" = "Chemex咖啡制作容器";
 "ChemexPaperFilter" = "Chemex适用滤纸";
@@ -56,3 +63,7 @@
 "KitchenScale" = "Kitchen scale";
 "Spoon" = "Spoon";
 "Kettle" = "Kettle";
+
+/* Create Brew Method */
+"CreateBrewMethod" = "创建你的咖啡秘籍";
+"ChooseBrewMethod" = "选择基本制作工具";

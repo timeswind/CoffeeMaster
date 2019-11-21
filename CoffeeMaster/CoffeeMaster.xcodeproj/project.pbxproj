@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C02EB272385F8AB002A7A1E /* UIKitTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */; };
 		5C02EB29238610D3002A7A1E /* BrewViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB28238610D3002A7A1E /* BrewViewReducer.swift */; };
+		5C02EB2B238612F0002A7A1E /* AddBrewGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
@@ -136,6 +137,7 @@
 /* Begin PBXFileReference section */
 		5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTabView.swift; sourceTree = "<group>"; };
 		5C02EB28238610D3002A7A1E /* BrewViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewReducer.swift; sourceTree = "<group>"; };
+		5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBrewGuideView.swift; sourceTree = "<group>"; };
 		5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideDetailView.swift; sourceTree = "<group>"; };
 		5C21473F23834B3000AEFBFB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework"; sourceTree = "<group>"; };
 		5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBrewStepType.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				5C6A926F23792CDA006D8E0E /* BrewView.swift */,
 				5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */,
+				5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */,
 			);
 			name = BrewView;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,
 				5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,
+				5C02EB2B238612F0002A7A1E /* AddBrewGuideView.swift in Sources */,
 				5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */,
 				5C80C96923745F2600996D91 /* CoffeeMaster.xcdatamodeld in Sources */,
 				5C80C96423745F2600996D91 /* AppDelegate.swift in Sources */,

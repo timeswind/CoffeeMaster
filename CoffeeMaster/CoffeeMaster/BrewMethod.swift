@@ -46,7 +46,7 @@ enum BrewStepType: String {
     case Other = "Other"
 }
 
-struct BrewMethod:Decodable {
+struct BrewMethod:Decodable, Hashable {
     var name: String
     var image: String
     var descriptionKey: String?
@@ -56,6 +56,14 @@ struct BrewMethod:Decodable {
     struct BrewTool: Decodable {
         var count: Int
         var localizedNameKey: String
+    }
+    
+    static func == (lhs: BrewMethod, rhs: BrewMethod) -> Bool {
+        return lhs.name == rhs.name
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
     }
 }
 

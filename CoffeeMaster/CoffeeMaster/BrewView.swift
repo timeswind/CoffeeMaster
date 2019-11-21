@@ -10,30 +10,38 @@ import SwiftUI
 
 struct BrewView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @State var isAddBrewGuideViewPresented = false
     
+    func createBrewGuide() {
+        self.isAddBrewGuideViewPresented = true
+    }
+
     var body: some View {
         return NavigationView {
             BrewGuidsSelectionView().navigationBarTitle(Text(LocalizedStringKey("Brew"))).navigationBarItems(
                 trailing:
-                Button(action: {}) {
+                Button(action: {self.createBrewGuide()}) {
                     Text("Add Button")
             })
+        }.sheet(isPresented: $isAddBrewGuideViewPresented) {
+            AddBrewGuideView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
     }
 }
 
 struct BrewGuidsSelectionView: View {
-    @State var defaultBrewGuides: [BrewGuide] = []
+    @EnvironmentObject var store: Store<AppState, AppAction>
     
-    private func fetch() {
-        self.defaultBrewGuides = dependencies.defaultBrewingGuides.getGuides()
-    }
+//    private func fetch() {
+//        self.defaultBrewGuides = dependencies.defaultBrewingGuides.getGuides()
+//    }
     
     var body: some View {
+        let defaultBrewGuides = store.state.brewViewState.defaultBrewGuides
         
         return ScrollView(.vertical, showsIndicators: false) {
-            if (self.defaultBrewGuides.count > 0) {
-                ForEach(self.defaultBrewGuides, id: \.guideName) { brewGuide in
+            if (defaultBrewGuides.count > 0) {
+                ForEach(defaultBrewGuides, id: \.guideName) { brewGuide in
                     NavigationLink(destination: BrewGuideDetailView(brewGuide: brewGuide)) {
                         Text(brewGuide.guideName)
                     }
@@ -41,7 +49,7 @@ struct BrewGuidsSelectionView: View {
             } else {
                 EmptyView()
             }
-        }.onAppear(perform: fetch)
+        }
 
     }
 }

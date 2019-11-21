@@ -83,6 +83,7 @@ class DefaultBrewingGuides {
     var weightUnit: WeightUnit!
     var temperatureUnit: TemperatureUnit!
     private var guides: [BrewGuide] = []
+    private var methods: [BrewMethod] = []
     
     init(weightUnit: WeightUnit?, temperatureUnit: TemperatureUnit?) {
         self.weightUnit = weightUnit ?? .g
@@ -110,6 +111,7 @@ class DefaultBrewingGuides {
         
         chemexBrewGuide.guideDescription = "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes"
         chemexBrewGuide.guideName = chemexBrewMethod.name
+        self.methods.append(chemexBrewMethod)
         self.guides.append(chemexBrewGuide)
     }
     
@@ -134,10 +136,15 @@ class DefaultBrewingGuides {
         
         aeropressBrewGuide.guideDescription = "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee"
         aeropressBrewGuide.guideName = aeropressBrewMethod.name
+        self.methods.append(aeropressBrewMethod)
         self.guides.append(aeropressBrewGuide)
     }
     
     func getGuides() -> [BrewGuide] {
         return self.guides
+    }
+    
+    func getMethods() -> [BrewMethod] {
+        return self.methods
     }
 }

@@ -47,6 +47,13 @@
 "gUnit" = "g";
 "ozUnit" = "oz";
 
+/* Brew Methods */
+"Chemex" = "Chemex";
+"AeroPress" = "AreoPress";
+"Hario V60" = "Hario V60";
+"Moka Pot" = "Moka Pot";
+"French Press" = "French Press";
+
 /* Brew Tools */
 "ChemexCoffeemaker" = "Chemex Coffeemaker";
 "ChemexPaperFilter" = "Chemex Paper Filter";
@@ -56,3 +63,7 @@
 "KitchenScale" = "Kitchen scale";
 "Spoon" = "Spoon";
 "Kettle" = "Kettle";
+
+/* Create Brew Method */
+"CreateBrewMethod" = "Create Brew Method";
+"ChooseBrewMethod" = "Choose Brew Method";

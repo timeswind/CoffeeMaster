@@ -19,7 +19,7 @@ struct BrewGuideDetailView: View {
         let grindSize: String = self.brewGuide.getBrewStepGrindCoffee()!.grindSize.localizableString
         return ScrollView(.vertical, showsIndicators: true) {
             VStack(alignment: .leading, spacing: 0) {
-                Text(self.brewGuide.guideName)
+                Text(LocalizedStringKey(self.brewGuide.guideName))
                 Text(self.brewGuide.guideDescription)
                 Text(LocalizedStringKey(grindSize))
                 Text(String(format: "%.2f", self.brewGuide.getBrewStepGrindCoffee()?.getCoffeeAmount() ?? 0))
