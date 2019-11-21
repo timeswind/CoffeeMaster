@@ -77,3 +77,40 @@ func getLocalization() -> String {
     let lang = UserDefaults.standard.string(forKey: "i18n_language")
     return lang!
 }
+
+func getWeightUnit() -> WeightUnit {
+    let key = "settings__weight_unit"
+    let defaultValue = WeightUnit.g
+    if let _ = UserDefaults.standard.string(forKey: key) {} else {
+        UserDefaults.standard.set(defaultValue.rawValue, forKey: key)
+        UserDefaults.standard.synchronize()
+    }
+
+    let data = UserDefaults.standard.string(forKey: key)!
+
+    return WeightUnit(rawValue: data)!
+}
+
+func setWeightUnit(weightUnit: WeightUnit) {
+    let key = "settings__weight_unit"
+    UserDefaults.standard.set(weightUnit.rawValue, forKey: key)
+    UserDefaults.standard.synchronize()
+}
+
+func getTemperatureUnit() -> TemperatureUnit {
+    let key = "settings__temperature_unit"
+    let defaultValue = TemperatureUnit.C
+    if let _ = UserDefaults.standard.string(forKey: key) {} else {
+        UserDefaults.standard.set(defaultValue.rawValue, forKey: key)
+        UserDefaults.standard.synchronize()
+    }
+
+    let data = UserDefaults.standard.string(forKey: key)
+    
+    return TemperatureUnit(rawValue: data!)!
+}
+
+func setTemperatureUnit(temperatureUnit: TemperatureUnit) {
+    let key = "settings__temperature_unit"
+    UserDefaults.standard.set(temperatureUnit.rawValue, forKey: key)
+}

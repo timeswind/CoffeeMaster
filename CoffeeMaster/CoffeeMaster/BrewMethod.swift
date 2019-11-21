@@ -9,12 +9,12 @@
 import Foundation
 import SwiftUI
 
-enum GrindSizeType {
-    case Coarse
-    case Medium
-    case Fine
-    case ExtraFine
-    case Turkish
+enum GrindSizeType: String {
+    case Coarse = "Coarse"
+    case Medium = "Medium"
+    case Fine = "Fine"
+    case ExtraFine = "ExtraFine"
+    case Turkish = "Turkish"
     
     var localizableString : String {
         switch self {
@@ -25,11 +25,15 @@ enum GrindSizeType {
         case .Turkish: return "Turkish"
         }
     }
+    
+    static let allValues: [GrindSizeType] = [Coarse, Medium, Fine, ExtraFine, Turkish]
 }
 
 enum WeightUnit: String {
     case g = "g"
     case oz = "oz"
+    
+    static let allValues: [WeightUnit] = [g, oz]
 }
 
 enum TemperatureUnit: String {
@@ -76,6 +80,7 @@ class BrewGuide {
     private var brewStepGrindCoffee: BrewStepGrindCoffee?
     private var brewStepBoilWater: BrewStepBoilWater?
     private var brewSteps: [BrewStep] = []
+    var coffeeWaterConfigured: Bool { return brewStepGrindCoffee != nil && brewStepBoilWater != nil}
     
     init(baseBrewMethod: BrewMethod) {
         self.baseBrewMethod = baseBrewMethod

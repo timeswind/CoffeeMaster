@@ -10,6 +10,9 @@
 		5C02EB272385F8AB002A7A1E /* UIKitTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */; };
 		5C02EB29238610D3002A7A1E /* BrewViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB28238610D3002A7A1E /* BrewViewReducer.swift */; };
 		5C02EB2B238612F0002A7A1E /* AddBrewGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */; };
+		5C02EB2D238661FD002A7A1E /* ConfigureGrindCoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB2C238661FD002A7A1E /* ConfigureGrindCoffeeView.swift */; };
+		5C02EB2F23866209002A7A1E /* ConfigureBoilWaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB2E23866209002A7A1E /* ConfigureBoilWaterView.swift */; };
+		5C02EB31238713B7002A7A1E /* DecimalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB30238713B7002A7A1E /* DecimalTextField.swift */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
@@ -138,6 +141,9 @@
 		5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTabView.swift; sourceTree = "<group>"; };
 		5C02EB28238610D3002A7A1E /* BrewViewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewReducer.swift; sourceTree = "<group>"; };
 		5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBrewGuideView.swift; sourceTree = "<group>"; };
+		5C02EB2C238661FD002A7A1E /* ConfigureGrindCoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureGrindCoffeeView.swift; sourceTree = "<group>"; };
+		5C02EB2E23866209002A7A1E /* ConfigureBoilWaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureBoilWaterView.swift; sourceTree = "<group>"; };
+		5C02EB30238713B7002A7A1E /* DecimalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalTextField.swift; sourceTree = "<group>"; };
 		5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideDetailView.swift; sourceTree = "<group>"; };
 		5C21473F23834B3000AEFBFB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework"; sourceTree = "<group>"; };
 		5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBrewStepType.swift; sourceTree = "<group>"; };
@@ -296,6 +302,8 @@
 				5C6A926F23792CDA006D8E0E /* BrewView.swift */,
 				5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */,
 				5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */,
+				5C02EB2C238661FD002A7A1E /* ConfigureGrindCoffeeView.swift */,
+				5C02EB2E23866209002A7A1E /* ConfigureBoilWaterView.swift */,
 			);
 			name = BrewView;
 			sourceTree = "<group>";
@@ -361,6 +369,7 @@
 			children = (
 				5C3F465C23830933001CC647 /* MultiplineTextField.swift */,
 				5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */,
+				5C02EB30238713B7002A7A1E /* DecimalTextField.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -655,6 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C02EB29238610D3002A7A1E /* BrewViewReducer.swift in Sources */,
+				5C02EB2D238661FD002A7A1E /* ConfigureGrindCoffeeView.swift in Sources */,
 				5C3F465D23830933001CC647 /* MultiplineTextField.swift in Sources */,
 				5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */,
 				5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */,
@@ -668,8 +678,10 @@
 				5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */,
 				5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */,
 				5C6A927023792CDA006D8E0E /* BrewView.swift in Sources */,
+				5C02EB2F23866209002A7A1E /* ConfigureBoilWaterView.swift in Sources */,
 				5C02EB272385F8AB002A7A1E /* UIKitTabView.swift in Sources */,
 				5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */,
+				5C02EB31238713B7002A7A1E /* DecimalTextField.swift in Sources */,
 				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,
 				5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,

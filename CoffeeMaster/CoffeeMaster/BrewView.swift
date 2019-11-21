@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BrewView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    @State var isAddBrewGuideViewPresented = false
+    @State var isAddBrewGuideViewPresented = true
     
     func createBrewGuide() {
         self.isAddBrewGuideViewPresented = true

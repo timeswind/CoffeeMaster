@@ -15,9 +15,15 @@ struct EnvironmemtServices: ViewModifier {
     let store = Store<AppState, AppAction>(initialState: AppState(settings: SettingsState(), repostate: ReposState(),brewViewState: BrewViewState(), connectViewState: ConnectViewState(), recordViewState: RecordViewState()), appReducer: appReducer)
     func body(content: Content) -> some View {
         print("EnvironmemtServices")
-        let localization = getLocalization()
-        store.send(.settings(action: .setLocalization(localization: localization)))
         
+        let localization = getLocalization()
+        let weightUnit = getWeightUnit()
+        let temperatureUnit = getTemperatureUnit()
+        
+        store.send(.settings(action: .setLocalization(localization: localization)))
+        store.send(.settings(action: .setWeightUnit(weightUnit: weightUnit)))
+        store.send(.settings(action: .setTemperatureUnit(temperatureUnit: temperatureUnit)))
+
         if Auth.auth().currentUser != nil {
             store.send(.settings(action: .setUserInfo(currentUser: Auth.auth().currentUser!)))
             store.send(.settings(action: .setUserSignInStatus(isSignedIn: true)))

@@ -12,6 +12,8 @@ import Firebase
 enum SettingsAction {
     case setName(name: String)
     case setLocalization(localization: String)
+    case setWeightUnit(weightUnit: WeightUnit)
+    case setTemperatureUnit(temperatureUnit: TemperatureUnit)
     case setUserSignInStatus(isSignedIn: Bool)
     case setUserInfo(currentUser: User)
     case setNounce(nounce: String)
@@ -26,6 +28,12 @@ struct SettingsReducer {
         case let .setLocalization(string):
             Bundle.setLanguage(lang: string)
             state.localization = string
+        case let .setWeightUnit(weightUnit):
+            setWeightUnit(weightUnit: weightUnit)
+            state.weightUnit = weightUnit
+        case let .setTemperatureUnit(temperatureUnit):
+            setTemperatureUnit(temperatureUnit: temperatureUnit)
+            state.temperatureUnit = temperatureUnit
         case let .setUserSignInStatus(isSignedIn):
             state.signedIn = isSignedIn
         case let .setUserInfo(currentUser):

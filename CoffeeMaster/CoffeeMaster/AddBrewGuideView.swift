@@ -14,6 +14,10 @@ struct AddBrewGuideView: View {
     @State var guideName: String = ""
     @State var guideDescription: String = ""
     @State var guideIsPublic: Bool = false
+    @State var brewStepGrindCoffee: BrewStepGrindCoffee?
+    @State var brewStepBoilWater: BrewStepBoilWater?
+    @State var brewSteps: [BrewStep] = []
+    var coffeeWaterConfigured: Bool { return brewStepGrindCoffee != nil && brewStepBoilWater != nil}
     
     func exit() {
         UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
@@ -33,10 +37,33 @@ struct AddBrewGuideView: View {
                     }.pickerStyle(SegmentedPickerStyle())
                     Text("You selected: \(baseBrewMethod.name)")
                 }
-                Section(header: Text(LocalizedStringKey("NewBrewMethodInfo"))) {
-                    TextField(LocalizedStringKey("NewBrewMethodName"), text: $guideName)
-                    MultilineTextField(LocalizedStringKey("NewBrewMethodDescription"), text: $guideDescription)
-                    Toggle(isOn: $guideIsPublic) { 
+                Section(header: Text(LocalizedStringKey("NewBrewGuideStepEdit"))) {
+                    
+                    if (self.brewStepGrindCoffee == nil) {
+                        NavigationLink(destination: ConfigureGrindCoffeeView(coffeeGrindSizeType: .Coarse, coffeeWeight: 0)) {
+                            Text("Configure Coffee")
+                        }
+                    } else {
+                        Text("Brew Step Coffee")
+                    }
+                    if (self.brewStepGrindCoffee == nil) {
+                        NavigationLink(destination: Text("Configure Water")) {
+                            Text("Configure Water")
+                        }
+                    } else {
+                        Text("Brew Step Water")
+                    }
+                    
+                    if (self.coffeeWaterConfigured) {
+                        Text("Now we can add steps")
+                    }
+                    
+                    
+                }
+                Section(header: Text(LocalizedStringKey("NewBrewGuideInfo"))) {
+                    TextField(LocalizedStringKey("NewBrewGuideName"), text: $guideName)
+                    MultilineTextField(LocalizedStringKey("NewBrewGuideDescription"), text: $guideDescription)
+                    Toggle(isOn: $guideIsPublic) {
                         Text(LocalizedStringKey("NewBrewGuideIsPublicToggle"))
                     }
                 }

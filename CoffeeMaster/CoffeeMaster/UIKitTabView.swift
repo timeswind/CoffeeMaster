@@ -11,14 +11,15 @@ import UIKit
 
 struct UIKitTabView: View {
     var viewControllers: [UIHostingController<AnyView>]
-    @State var selectedIndex: Int = 0
+    @Binding var selectedIndex: Int
     
-    init(_ views: [Tab]) {
+    init(_ views: [Tab], selectedIndex: Binding<Int>) {
         self.viewControllers = views.map {
             let host = UIHostingController(rootView: $0.view)
             host.tabBarItem = $0.barItem
             return host
         }
+        self._selectedIndex = selectedIndex
     }
     
     var body: some View {
