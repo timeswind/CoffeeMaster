@@ -102,7 +102,7 @@ class BrewStep {
         self.instruction = instruction
     }
     
-    func description(text: String) -> BrewStep {
+    func description(_ text: String) -> BrewStep {
         self.setDescription(description: text)
         return self
     }

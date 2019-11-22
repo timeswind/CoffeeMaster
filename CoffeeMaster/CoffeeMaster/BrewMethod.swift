@@ -50,6 +50,8 @@ enum BrewStepType: String {
     case Wait = "Wait"
     case Stir = "Stir"
     case Other = "Other"
+    
+    static var repeatSteps: [BrewStepType] = [Bloom, Wait, Stir, Other]
 }
 
 struct BrewMethod:Decodable, Hashable {

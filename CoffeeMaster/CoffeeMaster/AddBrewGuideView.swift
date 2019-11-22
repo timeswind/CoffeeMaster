@@ -57,6 +57,10 @@ struct AddBrewGuideView: View {
                         Text("Brew Step Water")
                     }
                     
+                    NavigationLink(destination: AddBrewStepView(brewSteps: $brewSteps)) {
+                        Text("Add Step")
+                    }
+                    
                     if (self.coffeeWaterConfigured) {
                         Text("Now we can add steps")
                     }
