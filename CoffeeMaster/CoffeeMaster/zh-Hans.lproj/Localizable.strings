@@ -25,6 +25,8 @@
 "NewPostPostAction" = "发表";
 /*Settings View*/
 "ChooseLanguage"="选择语言";
+"Done" = "完成";
+
 /*AddRecordForm View*/
 "NewRecordTitle" = "笔记标题";
 "NewRecordBody" = "写下你的想法";

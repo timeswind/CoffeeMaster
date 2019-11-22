@@ -13,6 +13,7 @@
 		5C02EB2D238661FD002A7A1E /* ConfigureGrindCoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB2C238661FD002A7A1E /* ConfigureGrindCoffeeView.swift */; };
 		5C02EB2F23866209002A7A1E /* ConfigureBoilWaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB2E23866209002A7A1E /* ConfigureBoilWaterView.swift */; };
 		5C02EB31238713B7002A7A1E /* DecimalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB30238713B7002A7A1E /* DecimalTextField.swift */; };
+		5C02EB332387785A002A7A1E /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB322387785A002A7A1E /* KeyboardGuardian.swift */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
@@ -144,6 +145,7 @@
 		5C02EB2C238661FD002A7A1E /* ConfigureGrindCoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureGrindCoffeeView.swift; sourceTree = "<group>"; };
 		5C02EB2E23866209002A7A1E /* ConfigureBoilWaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureBoilWaterView.swift; sourceTree = "<group>"; };
 		5C02EB30238713B7002A7A1E /* DecimalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalTextField.swift; sourceTree = "<group>"; };
+		5C02EB322387785A002A7A1E /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
 		5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideDetailView.swift; sourceTree = "<group>"; };
 		5C21473F23834B3000AEFBFB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework"; sourceTree = "<group>"; };
 		5C25798123837BA200976AE1 /* CoffeeBrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBrewStepType.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 		5C3F465E2383093D001CC647 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5C02EB322387785A002A7A1E /* KeyboardGuardian.swift */,
 				5C3F465C23830933001CC647 /* MultiplineTextField.swift */,
 				5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */,
 				5C02EB30238713B7002A7A1E /* DecimalTextField.swift */,
@@ -700,6 +703,7 @@
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
 				5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */,
 				5C80C96B23745F2600996D91 /* ContentView.swift in Sources */,
+				5C02EB332387785A002A7A1E /* KeyboardGuardian.swift in Sources */,
 				5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */,
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,

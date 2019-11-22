@@ -25,6 +25,7 @@
 "NewPostPostAction" = "Post";
 /*Settings View*/
 "ChooseLanguage"="Choose Language";
+"Done" = "Done";
 /*AddRecordForm View*/
 "NewRecordTitle" = "Record Title";
 "NewRecordBody" = "Write anything you want";

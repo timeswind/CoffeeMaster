@@ -11,7 +11,7 @@ import SwiftUI
 struct ConfigureGrindCoffeeView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     @Binding var brewStepGrindCoffee: BrewStepGrindCoffee?
     
     @State var coffeeGrindSizeType: GrindSizeType = .Coarse
@@ -49,7 +49,6 @@ struct ConfigureGrindCoffeeView: View {
         let someNumberProxy = Binding<String>(
             get: {
                 return String(format: "%.02f", Double(self.coffeeAmount))
-                
         },
             set: {
                 if let value = NumberFormatter().number(from: $0) {

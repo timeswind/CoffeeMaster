@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct AddBrewGuideView: View {
+    @ObservedObject private var keyboard = KeyboardResponder()
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State var baseBrewMethod: BrewMethod = chemexBrewMethod
     @State var guideName: String = ""
@@ -26,7 +27,6 @@ struct AddBrewGuideView: View {
         UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
     }
     
-    
     var body: some View {
         let defaultBrewMethods: [BrewMethod] = store.state.brewViewState.defaultBrewMethods
         
@@ -41,7 +41,6 @@ struct AddBrewGuideView: View {
                     Text("You selected: \(baseBrewMethod.name)")
                 }
                 Section(header: Text(LocalizedStringKey("NewBrewGuideStepEdit"))) {
-                    
                     if (self.brewStepGrindCoffee == nil) {
                         NavigationLink(destination: ConfigureGrindCoffeeView(brewStepGrindCoffee: $brewStepGrindCoffee)) {
                             Text("Configure Coffee")
@@ -61,8 +60,6 @@ struct AddBrewGuideView: View {
                     if (self.coffeeWaterConfigured) {
                         Text("Now we can add steps")
                     }
-                    
-                    
                 }
                 Section(header: Text(LocalizedStringKey("NewBrewGuideInfo"))) {
                     TextField(LocalizedStringKey("NewBrewGuideName"), text: $guideName)
@@ -72,7 +69,11 @@ struct AddBrewGuideView: View {
                     }
                 }
                 
-            }.navigationBarTitle(LocalizedStringKey("CreateBrewMethod"))
+            }
+            .padding(.bottom, keyboard.currentHeight)
+                .edgesIgnoringSafeArea(.bottom)
+            .animation(.easeOut(duration: 0.16))
+                .navigationBarTitle(LocalizedStringKey("CreateBrewMethod"))
                 .navigationBarItems(trailing:
                     Button(action: {
                         self.exit()
