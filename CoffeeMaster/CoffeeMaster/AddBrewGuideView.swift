@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct AddBrewGuideView: View {
-    @ObservedObject private var keyboard = KeyboardResponder()
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @EnvironmentObject var keyboard: KeyboardResponder
+
     @State var baseBrewMethod: BrewMethod = chemexBrewMethod
     @State var guideName: String = ""
     @State var guideDescription: String = ""
@@ -75,15 +76,15 @@ struct AddBrewGuideView: View {
                 
             }
             .padding(.bottom, keyboard.currentHeight)
-                .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.bottom)
             .animation(.easeOut(duration: 0.16))
-                .navigationBarTitle(LocalizedStringKey("CreateBrewMethod"))
-                .navigationBarItems(trailing:
-                    Button(action: {
-                        self.exit()
-                    }) {
-                        Text(LocalizedStringKey("Dismiss"))
-                })
+            .navigationBarTitle(LocalizedStringKey("CreateBrewMethod"))
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.exit()
+                }) {
+                    Text(LocalizedStringKey("Dismiss"))
+            })
         }.accentColor(Color(UIColor.Theme.Accent))
         
     }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct BrewView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @EnvironmentObject var keyboard: KeyboardResponder
     @State var isAddBrewGuideViewPresented = true
     
     func createBrewGuide() {
@@ -24,7 +25,7 @@ struct BrewView: View {
                     Text("Add Button")
             })
         }.sheet(isPresented: $isAddBrewGuideViewPresented) {
-            AddBrewGuideView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            AddBrewGuideView().environmentObject(self.store).environmentObject(self.keyboard).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
     }
 }

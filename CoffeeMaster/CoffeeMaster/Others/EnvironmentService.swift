@@ -13,6 +13,7 @@ struct EnvironmemtServices: ViewModifier {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let store = Store<AppState, AppAction>(initialState: AppState(settings: SettingsState(), repostate: ReposState(),brewViewState: BrewViewState(), connectViewState: ConnectViewState(), recordViewState: RecordViewState()), appReducer: appReducer)
+    let keyboard = KeyboardResponder()
     func body(content: Content) -> some View {
         print("EnvironmemtServices")
         
@@ -33,5 +34,6 @@ struct EnvironmemtServices: ViewModifier {
             .environment(\.managedObjectContext, context)
             .environmentObject(store)
             .environment(\.locale, .init(identifier: localization))
+            .environmentObject(keyboard)
     }
 }
