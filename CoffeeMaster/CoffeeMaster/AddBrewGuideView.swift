@@ -58,6 +58,12 @@ struct AddBrewGuideView: View {
                         Text("Brew Step Water")
                     }
                     
+                    if (self.brewSteps.count > 0) {
+                        ForEach(0..<self.brewSteps.count) { index in
+                            Text(self.brewSteps[index].brewType.rawValue)
+                        }
+                    }
+                    
                     NavigationLink(destination: AddBrewStepView(brewSteps: $brewSteps)) {
                         Text("Add Step")
                     }

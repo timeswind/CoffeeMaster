@@ -33,7 +33,7 @@ struct AddBrewStepView: View {
         default:
             break
         }
-        
+        self.brewSteps.append(newBrewStep)
         self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -66,7 +66,7 @@ struct AddBrewStepView: View {
         
         let durationProxy = Binding<String>(
             get: {
-                return String(format: "%.02f", Int(self.duration))
+                return String(format: "%d", Int(self.duration))
                 
         },
             set: {
