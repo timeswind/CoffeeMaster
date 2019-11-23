@@ -54,12 +54,32 @@ enum BrewStepType: String {
     static var repeatSteps: [BrewStepType] = [Bloom, Wait, Stir, Other]
 }
 
+enum BaseBrewMethodType: String, Codable {
+    case Chemex = "Chemex"
+    case AeroPress = "AeroPress"
+    case HarioV60 = "HarioV60"
+    case MokaPot = "MokaPot"
+    case FrenchPress = "FrenchPress"
+    
+    static var allBaseBrewMethods: [BaseBrewMethodType] = [Chemex, AeroPress, HarioV60, MokaPot, FrenchPress]
+}
+
 struct BrewMethod:Decodable, Hashable {
-    var name: String
-    var image: String
+    var baseBrewMethodType: BaseBrewMethodType!
+    var name: String!
+    var image: String?
     var descriptionKey: String?
     var description: String?
     var brewTools: [BrewTool]?
+    
+    init(_ baseBrewMethodType: BaseBrewMethodType, name: String = "", image: String, descriptionKey: String = "", description: String = "", brewTools: [BrewTool] = []) {
+        self.baseBrewMethodType = baseBrewMethodType
+        self.name = name
+        self.image = image
+        self.descriptionKey = descriptionKey
+        self.description = description
+        self.brewTools = brewTools
+    }
     
     struct BrewTool: Decodable {
         var count: Int
@@ -77,6 +97,7 @@ struct BrewMethod:Decodable, Hashable {
 
 
 class BrewGuide {
+    var created_by_uid: String?
     var guideName: String = ""
     var guideDescription: String = ""
     var isPublic: Bool = false
@@ -84,7 +105,15 @@ class BrewGuide {
     private var brewStepGrindCoffee: BrewStepGrindCoffee?
     private var brewStepBoilWater: BrewStepBoilWater?
     private var brewSteps: [BrewStep] = []
+    
     var coffeeWaterConfigured: Bool { return brewStepGrindCoffee != nil && brewStepBoilWater != nil}
+    
+    init(_ firebaseData:[String: Any]) {
+        self.created_by_uid = firebaseData["created_by_uid"] as? String
+        self.guideName = firebaseData["guideName"] as? String ?? ""
+        self.guideDescription = firebaseData["guideDescription"] as? String ?? ""
+        self.isPublic = firebaseData["isPublic"] as? Bool ?? false
+    }
     
     init(baseBrewMethod: BrewMethod) {
         self.baseBrewMethod = baseBrewMethod

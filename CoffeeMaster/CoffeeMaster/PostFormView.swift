@@ -21,6 +21,7 @@ struct PostFormView: View {
 
         store.send(updatePostAction)
         store.send(ConnectViewAsyncAction.newPost(post: post))
+        self.exit()
     }
     
 //    func dismissSelf() {

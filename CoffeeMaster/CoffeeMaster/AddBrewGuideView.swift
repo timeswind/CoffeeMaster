@@ -28,6 +28,10 @@ struct AddBrewGuideView: View {
         UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
     }
     
+    func finishedEditing() {
+        
+    }
+    
     var body: some View {
         let defaultBrewMethods: [BrewMethod] = store.state.brewViewState.defaultBrewMethods
         
@@ -85,11 +89,17 @@ struct AddBrewGuideView: View {
             .edgesIgnoringSafeArea(.bottom)
             .animation(.easeOut(duration: 0.16))
             .navigationBarTitle(LocalizedStringKey("CreateBrewMethod"))
-            .navigationBarItems(trailing:
+            .navigationBarItems(leading:
+                    Button(action: {
+                        self.exit()
+                    }) {
+                        Text(LocalizedStringKey("Dismiss"))
+                },
+                trailing:
                 Button(action: {
-                    self.exit()
+                    self.finishedEditing()
                 }) {
-                    Text(LocalizedStringKey("Dismiss"))
+                    Text(LocalizedStringKey("Done"))
             })
         }.accentColor(Color(UIColor.Theme.Accent))
         

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import AuthenticationServices
+import FirebaseAuth
 
 struct keyValue<T1, T2> {
     var key: T1
@@ -97,7 +98,10 @@ struct SettingsView: View {
         appleSignInDelegates = SignInWithAppleDelegates(window: environmentWindowObject.window, nounce: nounce) { success in
             if success {
               // update UI
-                self.store.send(.settings(action: .setUserSignInStatus(isSignedIn: true)))
+                if Auth.auth().currentUser != nil {
+                    self.store.send(.settings(action: .setUserInfo(currentUser: Auth.auth().currentUser!)))
+                    self.store.send(.settings(action: .setUserSignInStatus(isSignedIn: true)))
+                 }
             } else {
               // show the user an error
             }

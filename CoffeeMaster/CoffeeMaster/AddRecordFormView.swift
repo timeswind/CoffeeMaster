@@ -19,6 +19,7 @@ struct AddRecordFormView: View {
         let record = Record(title: recordTitle, body: recordBody, created_by_uid: store.state.settings.uid!)
         
         store.send(RecordViewAsyncAction.addRecord(record: record))
+        self.exit()
     }
     
 //    func dismissSelf() {

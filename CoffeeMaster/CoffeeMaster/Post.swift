@@ -10,13 +10,13 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
- struct Post:Decodable, Identifiable {
+ struct Post:Codable, Identifiable {
     var id: String?
     var title: String
     var body: String
-    var created_at: Date?
+    var created_at: Timestamp?
     var created_by_uid: String
-    var allow_comment: Bool
+    var allow_comment: Bool?
     var likes: Int?
     
     init(title: String, body: String, created_by_uid: String, allow_comment: Bool) {
@@ -26,18 +26,18 @@ import FirebaseFirestore
         self.allow_comment = allow_comment
     }
     
-    init(dictionary: [String: Any]) {
-        self.id = dictionary["id"] as? String ?? nil
-        self.title = dictionary["title"] as? String ?? ""
-        self.body = dictionary["body"] as? String ?? ""
-        self.created_at = (dictionary["created_at"] as? Timestamp)?.dateValue() ?? Date()
-        self.created_by_uid = dictionary["created_by_uid"] as? String ?? ""
-        self.allow_comment = dictionary["allow_comment"] as? Bool ?? true
-        self.likes = dictionary["likes"] as? Int ?? 0
-    }
+//    init(dictionary: [String: Any]) {
+//        self.id = dictionary["id"] as? String ?? nil
+//        self.title = dictionary["title"] as? String ?? ""
+//        self.body = dictionary["body"] as? String ?? ""
+//        self.created_at = (dictionary["created_at"] as? Timestamp)?.dateValue() ?? Date()
+//        self.created_by_uid = dictionary["created_by_uid"] as? String ?? ""
+//        self.allow_comment = dictionary["allow_comment"] as? Bool ?? true
+//        self.likes = dictionary["likes"] as? Int ?? 0
+//    }
 }
 
-struct Comment:Decodable, Identifiable {
+struct Comment:Codable, Identifiable {
     var id: String
     var body: String
     var created_at: Date
