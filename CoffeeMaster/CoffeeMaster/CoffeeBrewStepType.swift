@@ -83,7 +83,7 @@ class BrewTemperature {
     }
 }
 
-class BrewStep {
+class BrewStep: Codable {
     var brewType: BrewStepType!
     var instruction: String = ""
     var description: String = ""
@@ -129,6 +129,10 @@ class BrewStepGrindCoffee: BrewStep {
         super.init(brewType: .GrindCoffee)
     }
     
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
     func amount(_ coffeeInGram: BrewWeight) -> BrewStepGrindCoffee {
         self.setCoffeeAmount(coffeeAmount: coffeeInGram)
         return self
@@ -163,6 +167,10 @@ class BrewStepBoilWater: BrewStep {
     
     init() {
         super.init(brewType: .BoilWater)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
     
     func water(_ amount: BrewWeight) -> BrewStepBoilWater {
@@ -209,6 +217,10 @@ class BrewStepBloom: BrewStep {
         super.init(brewType: .Bloom)
     }
     
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
     func water(_ amount: BrewWeight) -> BrewStep {
         self.setWaterAmount(waterAmount: amount)
         return self
@@ -232,11 +244,19 @@ class BrewStepWait: BrewStep {
     init() {
         super.init(brewType: .Wait)
     }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
 }
 
 class BrewStepStir: BrewStep {
     init() {
         super.init(brewType: .Stir)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }
 
@@ -245,6 +265,10 @@ class BrewStepOther: BrewStep {
     
     init() {
         super.init(brewType: .Other)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
     
     func amount(_ amountInGram: BrewWeight)-> BrewStepOther {

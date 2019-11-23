@@ -43,7 +43,7 @@ enum TemperatureUnit: String {
     static let allValues: [TemperatureUnit] = [C, F]
 }
 
-enum BrewStepType: String {
+enum BrewStepType: String, Codable {
     case GrindCoffee = "GrindCoffee"
     case BoilWater = "BoilWater"
     case Bloom = "Bloom"
@@ -64,7 +64,7 @@ enum BaseBrewMethodType: String, Codable {
     static var allBaseBrewMethods: [BaseBrewMethodType] = [Chemex, AeroPress, HarioV60, MokaPot, FrenchPress]
 }
 
-struct BrewMethod:Decodable, Hashable {
+struct BrewMethod: Codable, Hashable {
     var baseBrewMethodType: BaseBrewMethodType!
     var name: String!
     var image: String?
@@ -81,7 +81,7 @@ struct BrewMethod:Decodable, Hashable {
         self.brewTools = brewTools
     }
     
-    struct BrewTool: Decodable {
+    struct BrewTool: Codable {
         var count: Int
         var localizedNameKey: String
     }
@@ -96,7 +96,7 @@ struct BrewMethod:Decodable, Hashable {
 }
 
 
-class BrewGuide {
+class BrewGuide: Codable {
     var created_by_uid: String?
     var guideName: String = ""
     var guideDescription: String = ""

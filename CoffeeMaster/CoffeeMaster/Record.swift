@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
- struct Record:Codable, Identifiable {
+struct Record:Codable, Identifiable {
     var id: String?
     var title: String
     var body: String
