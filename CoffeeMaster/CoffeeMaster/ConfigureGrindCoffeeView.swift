@@ -17,6 +17,8 @@ struct ConfigureGrindCoffeeView: View {
     @State var coffeeGrindSizeType: GrindSizeType = .Coarse
     @State var coffeeAmount: Double = 0
     
+//    var onDismiss: () -> Void
+    
     var decimalFormatter: NumberFormatter = {
         let f = NumberFormatter()
         f.isLenient = true
@@ -33,6 +35,8 @@ struct ConfigureGrindCoffeeView: View {
         self.brewStepGrindCoffee = BrewStepGrindCoffee().amount(self.coffeeAmount).grindSize(self.coffeeGrindSizeType)
         print(self.coffeeGrindSizeType.rawValue)
         print(self.coffeeAmount)
+        
+//        self.onDismiss()
         self.presentationMode.wrappedValue.dismiss()
     }
     

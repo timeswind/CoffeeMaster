@@ -90,6 +90,8 @@
 		5C479F1C2381D9E30026D613 /* abseil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F0F2381D9E30026D613 /* abseil.framework */; };
 		5C479F1D2381D9E30026D613 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F102381D9E30026D613 /* gRPC-C++.framework */; };
 		5C479F1E2381D9E30026D613 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C479F102381D9E30026D613 /* gRPC-C++.framework */; };
+		5C5201C82389DB4F004F5736 /* String+isBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C72389DB4F004F5736 /* String+isBlank.swift */; };
+		5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */; };
 		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
 		5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* ExploreMapView.swift */; };
 		5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926D237929FF006D8E0E /* ExploreView.swift */; };
@@ -216,6 +218,8 @@
 		5C479F0E2381D9E30026D613 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "leveldb-library.framework"; sourceTree = "<group>"; };
 		5C479F0F2381D9E30026D613 /* abseil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = abseil.framework; sourceTree = "<group>"; };
 		5C479F102381D9E30026D613 /* gRPC-C++.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "gRPC-C++.framework"; sourceTree = "<group>"; };
+		5C5201C72389DB4F004F5736 /* String+isBlank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isBlank.swift"; sourceTree = "<group>"; };
+		5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewWebservice.swift; sourceTree = "<group>"; };
 		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
 		5C6A926B2379291D006D8E0E /* ExploreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMapView.swift; sourceTree = "<group>"; };
 		5C6A926D237929FF006D8E0E /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -489,11 +493,11 @@
 				5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */,
 				5C25798723837F5600976AE1 /* Localizable.stringsdict */,
 				5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */,
-				5C25FAC0237F7A7D0082CFBD /* Firebase */,
 				5CEEC7BD237F053700E3BDB0 /* Views */,
 				5CEEC7BF237F056500E3BDB0 /* Model */,
 				5CEEC7C0237F057E00E3BDB0 /* Others */,
 				5C80C96C23745F2900996D91 /* Assets.xcassets */,
+				5C25FAC0237F7A7D0082CFBD /* Firebase */,
 				5C80C97123745F2900996D91 /* LaunchScreen.storyboard */,
 				5C80C97423745F2900996D91 /* Info.plist */,
 				5C25FAB9237F79DC0082CFBD /* module.modulemap */,
@@ -564,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */,
+				5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */,
 				5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */,
 				5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */,
 				5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */,
@@ -576,6 +581,7 @@
 				5C9C8010237F8C680060C10E /* Utilities.swift */,
 				5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */,
 				5C3F466A23831E71001CC647 /* ViewModifier.swift */,
+				5C5201C72389DB4F004F5736 /* String+isBlank.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -727,11 +733,13 @@
 				5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */,
 				5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */,
 				5C02EB4D2388E2DD002A7A1E /* FirebaseDecoder.swift in Sources */,
+				5C5201C82389DB4F004F5736 /* String+isBlank.swift in Sources */,
 				5C6A927023792CDA006D8E0E /* BrewView.swift in Sources */,
 				5C02EB2F23866209002A7A1E /* ConfigureBoilWaterView.swift in Sources */,
 				5C02EB412388E2DD002A7A1E /* Decoder.swift in Sources */,
 				5C02EB272385F8AB002A7A1E /* UIKitTabView.swift in Sources */,
 				5C25798223837BA200976AE1 /* CoffeeBrewStepType.swift in Sources */,
+				5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */,
 				5C02EB31238713B7002A7A1E /* DecimalTextField.swift in Sources */,
 				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,

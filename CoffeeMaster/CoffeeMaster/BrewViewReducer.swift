@@ -8,49 +8,54 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 enum BrewViewAction {
+    case newBrewGuideAdded(brewGuide: BrewGuide)
     case setMyBrewGuides(guides: [BrewGuide])
 }
 
 struct BrewViewReducer {
     let reducer: Reducer<BrewViewState,  BrewViewAction> = Reducer { state, action in
         switch action {
+        case let.newBrewGuideAdded(brewGuide):
+            state.myBrewGuides.insert(brewGuide, at: 0)
         case let .setMyBrewGuides(guides):
             state.myBrewGuides = guides
         }
     }
 }
 
-//enum BrewViewAsyncAction: Effect {
-//    case getAllPosts(query: String)
-//    case newPost(post: Post)
-//
-//    func mapToAction() -> AnyPublisher<AppAction, Never> {
-//        switch self {
-//        case let .getAllPosts(query):
-//            return dependencies.webDatabaseQueryService
-//                .getAllPosts(query: query)
-//            .replaceError(with: [])
-//                .map { let connectViewAction: ConnectViewAction = .setPosts(posts: $0)
-//                    return AppAction.connectview(action: connectViewAction) }
-//            .eraseToAnyPublisher()
-//        case let .newPost(post):
-//            return dependencies.webDatabaseQueryService
-//            .newPost(post: post)
-//                .replaceError(with: nil)
-//                .map {
-//                    if ($0 != nil) {
-//                        let connectViewAction: ConnectViewAction = .newPostAdded(post: $0!)
-//                        return AppAction.connectview(action: connectViewAction)
-//                    } else {
-//                        return AppAction.emptyAction(action: .nilAction(nil: true))
-//                    }
-//            }
-//            .eraseToAnyPublisher()
-//        }
-//    }
-//}
+enum BrewViewAsyncAction: Effect {
+    case getMyBrewGuides(query: String)
+    case createBrewGuide(brewGuide: BrewGuide)
+
+    func mapToAction() -> AnyPublisher<AppAction, Never> {
+        switch self {
+        case let .getMyBrewGuides(query):
+            return dependencies.webDatabaseQueryService
+                .getMyBrewGuides(query: query)
+            .replaceError(with: [])
+                .map { let brewViewAction: BrewViewAction = .setMyBrewGuides(guides: $0)
+                    return AppAction.brewview(action: brewViewAction) }
+            .eraseToAnyPublisher()
+        case let .createBrewGuide(brewGuide):
+            return dependencies.webDatabaseQueryService
+            .createBrewGuide(brewGuide: brewGuide)
+                .replaceError(with: nil)
+                .map {
+                    if ($0 != nil) {
+                        let brewViewAction: BrewViewAction = .newBrewGuideAdded(brewGuide: $0!)
+                        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
+                        return AppAction.brewview(action: brewViewAction)
+                    } else {
+                        return AppAction.emptyAction(action: .nilAction(nil: true))
+                    }
+            }
+            .eraseToAnyPublisher()
+        }
+    }
+}
 
 
 let brewViewReducer = BrewViewReducer()

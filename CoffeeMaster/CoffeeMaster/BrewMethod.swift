@@ -97,6 +97,7 @@ struct BrewMethod: Codable, Hashable {
 
 
 class BrewGuide: Codable {
+    var id: String?
     var created_by_uid: String?
     var guideName: String = ""
     var guideDescription: String = ""
@@ -117,6 +118,11 @@ class BrewGuide: Codable {
     
     init(baseBrewMethod: BrewMethod) {
         self.baseBrewMethod = baseBrewMethod
+    }
+    
+    func description(_ description:String) -> BrewGuide {
+        self.guideDescription = description
+        return self
     }
     
     func createGuideWith(name: String) -> BrewGuide {
@@ -148,6 +154,11 @@ class BrewGuide: Codable {
     
     func getBaseBrewMethod() -> BrewMethod {
         return self.baseBrewMethod
+    }
+    
+    func brewSteps(_ brewSteps: [BrewStep]) -> BrewGuide {
+        self.brewSteps = brewSteps
+        return self
     }
     
     func add(brewStep: BrewStep) -> BrewGuide {

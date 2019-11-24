@@ -16,9 +16,10 @@ struct AddBrewGuideView: View {
     @State var guideName: String = ""
     @State var guideDescription: String = ""
     @State var guideIsPublic: Bool = false
-    
+
     @State var brewStepGrindCoffee: BrewStepGrindCoffee?
-    
+    @State var isBrewStepGrindCoffeeActive: Bool = false
+
     @State var brewStepBoilWater: BrewStepBoilWater?
     @State var brewSteps: [BrewStep] = []
     
@@ -28,8 +29,29 @@ struct AddBrewGuideView: View {
         UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
     }
     
-    func finishedEditing() {
+    func formComplete() -> Bool {
+        var result = true
+        assert(store.state.settings.signedIn == true, "User Should have signed in")
         
+        if (self.guideName.isBlank) { result = false; }
+        if (self.guideDescription.isBlank) { result = false; }
+        if (self.brewStepGrindCoffee == nil) { result = false; }
+        if (self.brewStepBoilWater == nil) { result = false; }
+        if (self.brewSteps.count == 0) { result = false; }
+
+        return result
+    }
+    
+    func finishedEditing() {
+        if (!formComplete()) { print("Form not complete"); return }
+        var newBrewGuide: BrewGuide = BrewGuide(baseBrewMethod: self.baseBrewMethod).createGuideWith(name: self.guideName).description(self.guideDescription)
+        newBrewGuide = newBrewGuide.boilWater(step: self.brewStepBoilWater!)
+            .grindCoffee(step: self.brewStepGrindCoffee!)
+            .brewSteps(self.brewSteps)
+        
+        newBrewGuide.created_by_uid = store.state.settings.uid!
+        
+        store.send(BrewViewAsyncAction.createBrewGuide(brewGuide: newBrewGuide))
     }
     
     var body: some View {
@@ -63,8 +85,8 @@ struct AddBrewGuideView: View {
                     }
                     
                     if (self.brewSteps.count > 0) {
-                        ForEach(0..<self.brewSteps.count) { index in
-                            Text(self.brewSteps[index].brewType.rawValue)
+                        ForEach(0..<self.brewSteps.count, id: \.self) { index in
+                            Text(self.brewSteps[index].brewType!.rawValue)
                         }
                     }
                     
