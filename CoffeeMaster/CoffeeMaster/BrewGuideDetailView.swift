@@ -26,7 +26,7 @@ struct BrewGuideDetailView: View {
 //                Text(String(format: "%.2f", self.brewGuide.getBrewStepBoilWater()!.getWaterAmount() ?? 0))
 
                 Spacer()
-            }
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         }
     }
 }

@@ -88,3 +88,7 @@
 "ConfigureWaterAmountHeader" = "Enter water amount and temperature";
 "ConfigureWaterAmountInputTitle" = "Amount";
 "ConfigureWaterTemperatureInputTitle" = "Temperature";
+
+/*BrewView*/
+"MyBrewGuidesTitle" = "My brew guides";
+"DefaultBrewGuidesTitle" = "Classic brew guides";

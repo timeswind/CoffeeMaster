@@ -90,3 +90,7 @@
 "ConfigureWaterAmountHeader" = "输入所需水的重量与温度";
 "ConfigureWaterAmountInputTitle" = "水量";
 "ConfigureWaterTemperatureInputTitle" = "温度";
+
+/*BrewView*/
+"MyBrewGuidesTitle" = "我的咖啡秘籍";
+"DefaultBrewGuidesTitle" = "经典咖啡秘籍";
