@@ -101,7 +101,7 @@ struct ConfigureGrindCoffeeView: View {
                     
                 }.pickerStyle(SegmentedPickerStyle())
                 Spacer()
-            }.navigationBarItems(trailing: Button(action: { self.submit() }) {
+            }.padding(.horizontal).navigationBarItems(trailing: Button(action: { self.submit() }) {
                 Text(LocalizedStringKey("Done"))
             })
         

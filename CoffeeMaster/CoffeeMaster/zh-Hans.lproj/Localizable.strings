@@ -51,7 +51,9 @@
 
 /* Brew Methods */
 "Chemex" = "美式滤泡壶";
+"ChemexDescription" = "这款有著典雅流畅优美壶身的Chemex Coffeemake经典咖啡壶，已有74年历史";
 "AeroPress" = "爱乐压";
+"AeroPressDescription" = "爱乐压还具有体积短小轻便、不易损坏的优点，相当适合作为外出使用的咖啡冲煮器具。";
 "Hario V60" = "好璃奥V60";
 "Moka Pot" = "摩卡壶";
 "French Press" = "法式压壶";
@@ -90,6 +92,14 @@
 "ConfigureWaterAmountHeader" = "输入所需水的重量与温度";
 "ConfigureWaterAmountInputTitle" = "水量";
 "ConfigureWaterTemperatureInputTitle" = "温度";
+
+/*Add Brew Step View*/
+"ChooseTheStepType" = "选择步骤";
+"EnterStepDetails" = "编辑步骤信息";
+"StepAmountTitle" = "重量";
+"StepDurationTitle" = "时长";
+"AddStepDescription" = "步骤简介";
+"AddStepInstruction" = "步骤描述";
 
 /*BrewView*/
 "MyBrewGuidesTitle" = "我的咖啡秘籍";

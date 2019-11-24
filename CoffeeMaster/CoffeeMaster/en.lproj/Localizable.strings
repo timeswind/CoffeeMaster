@@ -50,7 +50,10 @@
 
 /* Brew Methods */
 "Chemex" = "Chemex";
+"ChemexDescription" = "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes";
 "AeroPress" = "AreoPress";
+"AeroPressDescription" = "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee";
+
 "Hario V60" = "Hario V60";
 "Moka Pot" = "Moka Pot";
 "French Press" = "French Press";
@@ -88,6 +91,15 @@
 "ConfigureWaterAmountHeader" = "Enter water amount and temperature";
 "ConfigureWaterAmountInputTitle" = "Amount";
 "ConfigureWaterTemperatureInputTitle" = "Temperature";
+
+/*Add Brew Step View*/
+"ChooseTheStepType" = "Choose the step type";
+"EnterStepDetails" = "Enter Step Details";
+"StepAmountTitle" = "Amount";
+"StepDurationTitle" = "Duration";
+"AddStepDescription" = "Description";
+"AddStepInstruction" = "Instruction";
+
 
 /*BrewView*/
 "MyBrewGuidesTitle" = "My brew guides";

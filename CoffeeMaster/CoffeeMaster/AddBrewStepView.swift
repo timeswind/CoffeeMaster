@@ -76,7 +76,7 @@ struct AddBrewStepView: View {
         }
         )
         
-        return Form {
+        return VStack {
             Text(LocalizedStringKey("ChooseTheStepType"))
             
             Picker(selection: $brewStepType, label: Text("AddBrewStepTypePickerLabel")) {
@@ -91,7 +91,7 @@ struct AddBrewStepView: View {
             Text(LocalizedStringKey("EnterStepDetails"))
             
             if (self.brewStepType == .Other) {
-                MultilineTextField(LocalizedStringKey("AddStepDescription"), text: $instruction)
+                MultilineTextField(LocalizedStringKey("AddStepInstruction"), text: $instruction)
             }
             
             if (self.brewStepType == .Bloom || self.brewStepType == .Other ) {
@@ -131,7 +131,7 @@ struct AddBrewStepView: View {
             MultilineTextField(LocalizedStringKey("AddStepDescription"), text: $description)
             
             Spacer()
-        }.navigationBarItems(trailing: Button(action: { self.submit() }) {
+        }.padding(.horizontal).navigationBarItems(trailing: Button(action: { self.submit() }) {
             Text(LocalizedStringKey("Done"))
         }).padding(.bottom, self.keyboard.currentHeight).animation(.easeInOut(duration: 0.16)).edgesIgnoringSafeArea(.bottom)
     }

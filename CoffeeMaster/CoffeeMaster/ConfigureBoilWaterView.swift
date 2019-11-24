@@ -76,9 +76,7 @@ struct ConfigureBoilWaterView: View {
         }
         )
         
-        return
-            
-            VStack {
+        return VStack {
                 Section {
                     Text(LocalizedStringKey("ConfigureBoilWaterTitle"))
                     Text(LocalizedStringKey("ConfigureBoilWaterDescription"))
@@ -124,7 +122,7 @@ struct ConfigureBoilWaterView: View {
                     }.pickerStyle(SegmentedPickerStyle())
                 }
                 Spacer()
-            }.navigationBarItems(trailing: Button(action: { self.submit() }) {
+            }.padding(.horizontal).navigationBarItems(trailing: Button(action: { self.submit() }) {
                 Text(LocalizedStringKey("Done"))
             })
         

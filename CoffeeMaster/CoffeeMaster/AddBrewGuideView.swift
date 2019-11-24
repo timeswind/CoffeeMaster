@@ -65,7 +65,7 @@ struct AddBrewGuideView: View {
                             Text(LocalizedStringKey(method.name))
                         }
                     }.pickerStyle(SegmentedPickerStyle())
-                    Text("You selected: \(baseBrewMethod.name)")
+                    Text(LocalizedStringKey(baseBrewMethod.descriptionKey ?? ""))
                 }
                 Section(header: Text(LocalizedStringKey("NewBrewGuideStepEdit"))) {
                     if (self.brewStepGrindCoffee == nil) {
@@ -90,12 +90,10 @@ struct AddBrewGuideView: View {
                         }
                     }
                     
-                    NavigationLink(destination: AddBrewStepView(brewSteps: $brewSteps)) {
-                        Text("Add Step")
-                    }
-                    
                     if (self.coffeeWaterConfigured) {
-                        Text("Now we can add steps")
+                        NavigationLink(destination: AddBrewStepView(brewSteps: $brewSteps)) {
+                            Text("Add Step")
+                        }
                     }
                 }
                 Section(header: Text(LocalizedStringKey("NewBrewGuideInfo"))) {
