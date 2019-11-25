@@ -104,3 +104,9 @@
 /*BrewView*/
 "MyBrewGuidesTitle" = "我的咖啡秘籍";
 "DefaultBrewGuidesTitle" = "经典咖啡秘籍";
+
+/*ConnectView*/
+"SignInToJoinOurCommunity" = "现在就用AppleID登入，加入我们的社群吧！";
+
+/*RecordView*/
+"SignInToRecordSyncedAcrossDevices" = "现在就用AppleID登入，记录你的奇思妙想并与多款设备保持同步";

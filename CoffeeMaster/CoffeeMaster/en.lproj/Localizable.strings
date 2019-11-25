@@ -104,3 +104,9 @@
 /*BrewView*/
 "MyBrewGuidesTitle" = "My brew guides";
 "DefaultBrewGuidesTitle" = "Classic brew guides";
+
+/*ConnectView*/
+"SignInToJoinOurCommunity" = "Sign in with Apple ID to join our community";
+
+/*RecordView*/
+"SignInToRecordSyncedAcrossDevices" = "Sign in with Apple ID to sync your thoughts across devices";

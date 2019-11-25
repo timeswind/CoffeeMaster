@@ -23,7 +23,7 @@ struct ConnectView: View {
     }
     
     var body: some View {
-        
+        let isLoggedIn = store.state.settings.signedIn
 //        let isNewPostFormPresenting = Binding<Bool>(get: { () -> Bool in
 //            return self.store.state.connectViewState.newPostFormPresented
 //        }) { (isPresented) in
@@ -31,11 +31,20 @@ struct ConnectView: View {
 //        }
         
         return NavigationView {
-            ConnectListView().navigationBarTitle(Text(LocalizedStringKey("Connect"))).navigationBarItems(
-                trailing:
-                Button(action: {self.post()}) {
-                    Text(LocalizedStringKey("Post"))
-            }).onAppear(perform: fetch)
+            if (isLoggedIn) {
+                ConnectListView().navigationBarTitle(Text(LocalizedStringKey("Connect"))).navigationBarItems(
+                    trailing:
+                    Button(action: {self.post()}) {
+                        Text(LocalizedStringKey("Post"))
+                }).onAppear(perform: fetch)
+            } else {
+                VStack {
+                    Text(LocalizedStringKey("SignInToJoinOurCommunity"))
+                    SignInWithAppleView().frame(width: 200, height: 40, alignment: .center)
+                    Spacer()
+                }
+            }
+
         }.sheet(isPresented: $isNewPostFormPresented) {
             PostFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }

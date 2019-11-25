@@ -20,19 +20,27 @@ struct RecordView: View {
         self.isAddRecordFormPresented = true
 //        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: true)))
     }
-    
     var body: some View {
-        
+        let isLoggedIn = store.state.settings.signedIn
+
 //        let isAddRecordFormPresenting = Binding<Bool>(get: { () -> Bool in
 //            return self.store.state.recordViewState.addRecordFormPresented
 //        }) { (isPresented) in }
         
         return NavigationView {
-            RecordListView().navigationBarTitle(Text(LocalizedStringKey("Record"))).navigationBarItems(
-                trailing:
-                Button(action: {self.showRecordForm()}) {
-                    Text(LocalizedStringKey("Write"))
-            }).onAppear(perform: fetch)
+            if (isLoggedIn) {
+                RecordListView().navigationBarTitle(Text(LocalizedStringKey("Record"))).navigationBarItems(
+                    trailing:
+                    Button(action: {self.showRecordForm()}) {
+                        Text(LocalizedStringKey("Write"))
+                }).onAppear(perform: fetch)
+            } else {
+                VStack {
+                    Text(LocalizedStringKey("SignInToRecordSyncedAcrossDevices"))
+                    SignInWithAppleView().frame(width: 200, height: 40, alignment: .center)
+                    Spacer()
+                }
+            }
         }.sheet(isPresented: $isAddRecordFormPresented) {
             AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
