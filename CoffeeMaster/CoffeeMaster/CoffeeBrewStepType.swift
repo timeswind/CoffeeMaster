@@ -156,8 +156,8 @@ class BrewStepGrindCoffee: BrewStep {
         self.grindSize = grindSize
     }
     
-    func getCoffeeAmount() -> Double {
-        self.coffeeAmount.getWeight()
+    func getCoffeeAmount() -> BrewWeight {
+        self.coffeeAmount
     }
 }
 

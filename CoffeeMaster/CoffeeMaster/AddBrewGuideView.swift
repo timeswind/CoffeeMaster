@@ -77,7 +77,7 @@ struct AddBrewGuideView: View {
                             Text("Configure Coffee")
                         }
                     } else {
-                        Text("Coffee Amount: \(self.brewStepGrindCoffee!.getCoffeeAmount())")
+                        Text("Coffee Amount: \(self.brewStepGrindCoffee!.getCoffeeAmount().getWeight())")
                         Text("Grind Type: \(self.brewStepGrindCoffee!.grindSize.rawValue)")
                     }
                     if (self.brewStepBoilWater == nil) {
