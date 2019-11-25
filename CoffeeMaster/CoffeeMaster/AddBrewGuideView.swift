@@ -112,7 +112,7 @@ struct AddBrewGuideView: View {
             .padding(.bottom, keyboard.currentHeight)
             .edgesIgnoringSafeArea(.bottom)
             .animation(.easeOut(duration: 0.16))
-            .navigationBarTitle(LocalizedStringKey("CreateBrewMethod"))
+            .navigationBarTitle(LocalizedStringKey("CreateBrewGuide"))
             .navigationBarItems(leading:
                     Button(action: {
                         self.exit()

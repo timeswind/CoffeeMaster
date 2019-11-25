@@ -26,7 +26,7 @@ struct BrewView: View {
             BrewGuidesSelectionView().navigationBarTitle(Text(LocalizedStringKey("Brew"))).navigationBarItems(
                 trailing:
                 Button(action: {self.createBrewGuide()}) {
-                    Text("Add Button")
+                    Text("Add Your Brew Guide")
             }).onAppear(perform: fetchMyBrewGuides)
         }.sheet(isPresented: $isAddBrewGuideViewPresented) {
             AddBrewGuideView().environmentObject(self.store).environmentObject(self.keyboard).environment(\.locale, .init(identifier: self.store.state.settings.localization))
@@ -46,8 +46,6 @@ struct BrewGuidesSelectionView: View {
         let myBrewGuides = store.state.brewViewState.myBrewGuides
         
         return ScrollView(.vertical, showsIndicators: false) {
-            
-            
             VStack(alignment: .leading) {
                 VStack(alignment: .leading)  {
                     if (myBrewGuides.count > 0) {

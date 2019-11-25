@@ -133,32 +133,5 @@ struct SettingsView: View {
                 })
         }.accentColor(Color(UIColor.Theme.Accent))
     }
-    
-//    private func showAppleLogin() {
-//        let request = ASAuthorizationAppleIDProvider().createRequest()
-//        request.requestedScopes = [.fullName]
-//        let nounce = Utilities.randomNonceString()
-//        request.nonce = Utilities.sha256(nounce)
-//        performSignIn(using: [request], nounce: nounce)
-//    }
-//
-//    private func performSignIn(using requests: [ASAuthorizationRequest], nounce: String) {
-//        appleSignInDelegates = SignInWithAppleDelegates(window: environmentWindowObject.window, nounce: nounce) { success in
-//            if success {
-//              // update UI
-//                if Auth.auth().currentUser != nil {
-//                    self.store.send(.settings(action: .setUserInfo(currentUser: Auth.auth().currentUser!)))
-//                    self.store.send(.settings(action: .setUserSignInStatus(isSignedIn: true)))
-//                 }
-//            } else {
-//              // show the user an error
-//            }
-//        }
-//
-//        let controller = ASAuthorizationController(authorizationRequests: requests)
-//      controller.delegate = appleSignInDelegates
-//      controller.presentationContextProvider = appleSignInDelegates
-//      controller.performRequests()
-//    }
 }
 

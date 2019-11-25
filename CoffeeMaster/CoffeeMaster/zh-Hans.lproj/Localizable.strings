@@ -69,7 +69,7 @@
 "Kettle" = "Kettle";
 
 /* Create Brew Method */
-"CreateBrewMethod" = "创建你的咖啡秘籍";
+"CreateBrewGuide" = "创建你的咖啡秘籍";
 "ChooseBrewMethod" = "选择基本制作工具";
 "NewBrewGuideStepEdit" = "制作步骤";
 "NewBrewGuideInfo" = "基本信息";

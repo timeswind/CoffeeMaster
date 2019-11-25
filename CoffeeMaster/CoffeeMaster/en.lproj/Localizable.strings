@@ -69,7 +69,7 @@
 "Kettle" = "Kettle";
 
 /* Create Brew Method */
-"CreateBrewMethod" = "Create Brew Method";
+"CreateBrewGuide" = "Create Brew Guide";
 "ChooseBrewMethod" = "Choose Brew Method";
 "NewBrewGuideStepEdit" = "Edit Steps";
 "NewBrewGuideInfo" = "Guide Info";

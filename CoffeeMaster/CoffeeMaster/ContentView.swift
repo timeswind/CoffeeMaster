@@ -26,26 +26,14 @@ struct RepoRow: View {
 
 struct ContentView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    @State private var query: String = "Swift"
     
     var body: some View {
-        SearchView(
-            query: $query,
-            repos: store.state.repostate.searchResult,
-            onCommit: fetch
-        ).onAppear(perform: fetch).environment(\.locale, .init(identifier: store.state.settings.localization))
-    }
-    
-    private func fetch() {
-        store.send(AsyncSideEffect.repoSearch(query: query))
+        MainTabView().environment(\.locale, .init(identifier: store.state.settings.localization))
     }
 }
 
-struct SearchView : View {
+struct MainTabView : View {
     @State private var selectedTabIndex = 1
-    @Binding var query: String
-    let repos: [Repo]
-    let onCommit: () -> Void
     
     var body: some View {
         UIKitTabView([
@@ -54,88 +42,5 @@ struct SearchView : View {
             UIKitTabView.Tab(view: ConnectView(), title: NSLocalizedString("", comment: ""), image: "community-icon-unselect-100"),
             UIKitTabView.Tab(view: RecordView(), title: NSLocalizedString("", comment: ""), image: "record-icon-unselect-100")
         ], selectedIndex: $selectedTabIndex).accentColor(Color(UIColor.Theme.Accent))
-        //        TabView(selection: $selection){
-        //            ExploreView()
-        //                .tabItem {
-        //                    if (selection == 0) {
-        //                        VStack {
-        //                            Image("explore-icon-select-100")
-        //                            Text(LocalizedStringKey("Explore"))
-        //                        }
-        //                    } else {
-        //                        VStack {
-        //                            Image("explore-icon-unselect-100")
-        //                            Text(LocalizedStringKey("Explore"))
-        //                        }
-        //                    }
-        //            }
-        //            .tag(0)
-        //            BrewView().tabItem {
-        //                if (selection == 1) {
-        //                    VStack {
-        //                        Image("make-icon-select-100")
-        //                        Text("Brew")
-        //                    }
-        //                } else {
-        //                    VStack {
-        //                        Image("make-icon-unselect-100")
-        //                        Text("Brew")
-        //                    }
-        //                }
-        //            }
-        //            .tag(1)
-        //
-        //            ConnectView()
-        //                .tabItem {
-        //                    if (selection == 2) {
-        //                        VStack {
-        //                            Image("community-icon-select-100")
-        //                            Text(LocalizedStringKey("Connect"))
-        //                        }
-        //                    } else {
-        //                        VStack {
-        //                            Image("community-icon-unselect-100")
-        //                            Text(LocalizedStringKey("Connect"))
-        //                        }
-        //                    }
-        //            }
-        //            .tag(2)
-        //            RecordView()
-        //                .tabItem {
-        //                    if (selection == 3) {
-        //                        VStack {
-        //                            Image("record-icon-select-100")
-        //                            Text(LocalizedStringKey("Record"))
-        //                        }
-        //                    } else {
-        //                        VStack {
-        //                            Image("record-icon-unselect-100")
-        //                            Text(LocalizedStringKey("Record"))
-        //                        }
-        //                    }
-        //            }
-        //            .tag(3)
-        //            NavigationView {
-        //                List {
-        //                    TextField("Type something", text: $query, onCommit: onCommit)
-        //
-        //                    if repos.isEmpty {
-        //                        Text("Loading...")
-        //                    } else {
-        //                        ForEach(repos) { repo in
-        //                            RepoRow(repo: repo)
-        //                        }
-        //                    }
-        //                }.navigationBarTitle(Text("Search"))
-        //
-        //            }.tag(4)
-        //                .tabItem {
-        //                    VStack {
-        //                        Image("first")
-        //                        Text("Test")
-        //                    }
-        //            }
-        //        }.accentColor(Color(UIColor.Theme.Accent))
-        //            .edgesIgnoringSafeArea(.top)
     }
 }
