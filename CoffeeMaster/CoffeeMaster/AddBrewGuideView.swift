@@ -23,6 +23,8 @@ struct AddBrewGuideView: View {
     @State var brewStepBoilWater: BrewStepBoilWater?
     @State var brewSteps: [BrewStep] = []
     
+    @State var showsAlert = false
+    
     var coffeeWaterConfigured: Bool { return brewStepGrindCoffee != nil && brewStepBoilWater != nil}
     
     func exit() {
@@ -38,6 +40,8 @@ struct AddBrewGuideView: View {
         if (self.brewStepGrindCoffee == nil) { result = false; }
         if (self.brewStepBoilWater == nil) { result = false; }
         if (self.brewSteps.count == 0) { result = false; }
+        
+        self.showsAlert = true
 
         return result
     }
@@ -122,6 +126,9 @@ struct AddBrewGuideView: View {
                     Text(LocalizedStringKey("Done"))
             })
         }.accentColor(Color(UIColor.Theme.Accent))
+            .alert(isPresented: self.$showsAlert) {
+            Alert(title: Text("Form not complete"))
+        }
         
     }
 }

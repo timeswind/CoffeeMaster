@@ -50,18 +50,22 @@ struct BrewGuidesSelectionView: View {
             
             VStack(alignment: .leading) {
                 VStack(alignment: .leading)  {
-                if (myBrewGuides.count > 0) {
-                    Text(LocalizedStringKey("MyBrewGuidesTitle")).font(.title)
-                    
-                    ForEach(myBrewGuides, id: \.guideName) { brewGuide in
-                        NavigationLink(destination: BrewGuideDetailView(brewGuide: brewGuide)) {
-                            Text(brewGuide.guideName)
+                    if (myBrewGuides.count > 0) {
+                        Text(LocalizedStringKey("MyBrewGuidesTitle")).font(.title)
+                        
+                        ForEach(myBrewGuides, id: \.guideName) { brewGuide in
+                            NavigationLink(destination: BrewGuideDetailView(brewGuide: brewGuide)) {
+                                VStack {
+                                    Image("\(brewGuide.baseBrewMethod.baseBrewMethodType.rawValue)-icon").resizable().scaledToFit().frame(width: 106.0, height: 106.0)
+                                        .aspectRatio(CGSize(width:100, height: 100), contentMode: .fit)
+                                    Text(brewGuide.guideName)
+                                }
+                            }.buttonStyle(PlainButtonStyle())
                         }
+                        
+                    } else {
+                        EmptyView()
                     }
-                    
-                } else {
-                    EmptyView()
-                }
                 }.padding(.top)
                 
                 VStack(alignment: .leading)  {
@@ -69,15 +73,21 @@ struct BrewGuidesSelectionView: View {
                         Text(LocalizedStringKey("DefaultBrewGuidesTitle")).font(.title)
                         
                         ForEach(defaultBrewGuides, id: \.guideName) { brewGuide in
+                            
                             NavigationLink(destination: BrewGuideDetailView(brewGuide: brewGuide)) {
-                                Text(brewGuide.guideName)
-                            }
+                                VStack {
+                                    Image("\(brewGuide.baseBrewMethod.baseBrewMethodType.rawValue)-icon").resizable().scaledToFit().frame(width: 106.0, height: 106.0)
+                                        .aspectRatio(CGSize(width:100, height: 100), contentMode: .fit)
+                                    Text(brewGuide.guideName)
+                                }
+                            }.buttonStyle(PlainButtonStyle())
+                            
                         }
                     } else {
                         EmptyView()
                     }
                 }.padding(.top)
-            
+                
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
                 .padding([.horizontal])
             

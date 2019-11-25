@@ -70,14 +70,14 @@ class BrewToolsPicker {
     }
 }
 let chemexBrewMethodTools = BrewToolsPicker().chemex().chemexFilter().cup().scale().spoon().kettle().done()
-let chemexBrewMethod = BrewMethod(.Chemex ,name: "Chemex", image: "chemex-icon", descriptionKey: "ChemexDescription", brewTools: chemexBrewMethodTools)
+let chemexBrewMethod = BrewMethod(.Chemex ,name: "Chemex", image: "chemex", descriptionKey: "ChemexDescription", brewTools: chemexBrewMethodTools)
 
 let aeropressBrewMethodTools = BrewToolsPicker().aeropress().aeropressFilter().cup().scale().spoon().kettle().done()
-let aeropressBrewMethod = BrewMethod(.AeroPress, name: "AeroPress", image: "aeropress-icon", descriptionKey: "AeroPressDescription", brewTools: aeropressBrewMethodTools)
+let aeropressBrewMethod = BrewMethod(.AeroPress, name: "AeroPress", image: "aeropress", descriptionKey: "AeroPressDescription", brewTools: aeropressBrewMethodTools)
 
-//let hariov60BrewMethod = BrewMethod(name: "Hario V60", image: "hariov60-icon", descriptionKey: "HarioV60Description", description: nil)
-//let mokapotBrewMethod = BrewMethod(name: "Moka Pot", image: "mokapot-icon", descriptionKey: "MokaPotDescription", description: nil)
-//let FrenchPressBrewMethod = BrewMethod(name: "French Press", image: "frenchpress-icon", descriptionKey: "FrenchPressDescription", description: nil)
+//let hariov60BrewMethod = BrewMethod(name: "Hario V60", image: "hariov60", descriptionKey: "HarioV60Description", description: nil)
+//let mokapotBrewMethod = BrewMethod(name: "Moka Pot", image: "moka-pot", descriptionKey: "MokaPotDescription", description: nil)
+//let FrenchPressBrewMethod = BrewMethod(name: "French Press", image: "french-press", descriptionKey: "FrenchPressDescription", description: nil)
 
 class DefaultBrewingGuides {
     var temperatureUnit: TemperatureUnit!

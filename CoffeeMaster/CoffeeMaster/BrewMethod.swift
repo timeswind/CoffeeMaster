@@ -67,7 +67,6 @@ enum BaseBrewMethodType: String, Codable {
 struct BrewMethod: Codable, Hashable {
     var baseBrewMethodType: BaseBrewMethodType!
     var name: String!
-    var image: String?
     var descriptionKey: String?
     var description: String?
     var brewTools: [BrewTool]?
@@ -75,7 +74,6 @@ struct BrewMethod: Codable, Hashable {
     init(_ baseBrewMethodType: BaseBrewMethodType, name: String = "", image: String, descriptionKey: String = "", description: String = "", brewTools: [BrewTool] = []) {
         self.baseBrewMethodType = baseBrewMethodType
         self.name = name
-        self.image = image
         self.descriptionKey = descriptionKey
         self.description = description
         self.brewTools = brewTools
