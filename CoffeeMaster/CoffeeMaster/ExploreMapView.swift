@@ -10,7 +10,7 @@ import SwiftUI
 import Mapbox
 
 struct ExploreMapView: UIViewRepresentable {
-    private var mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/mapbox/streets-v11"))
+    private var mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/timeswind/ck3dviev005p11co4czyb7ncc"))
     
     func makeUIView(context: UIViewRepresentableContext<ExploreMapView>) -> MGLMapView {
 
