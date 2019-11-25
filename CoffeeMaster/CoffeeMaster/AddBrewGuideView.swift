@@ -40,14 +40,12 @@ struct AddBrewGuideView: View {
         if (self.brewStepGrindCoffee == nil) { result = false; }
         if (self.brewStepBoilWater == nil) { result = false; }
         if (self.brewSteps.count == 0) { result = false; }
-        
-        self.showsAlert = true
 
         return result
     }
     
     func finishedEditing() {
-        if (!formComplete()) { print("Form not complete"); return }
+        if (!formComplete()) { print("Form not complete"); self.showsAlert = true; return }
         var newBrewGuide: BrewGuide = BrewGuide(baseBrewMethod: self.baseBrewMethod).createGuideWith(name: self.guideName).description(self.guideDescription)
         newBrewGuide = newBrewGuide.boilWater(step: self.brewStepBoilWater!)
             .grindCoffee(step: self.brewStepGrindCoffee!)

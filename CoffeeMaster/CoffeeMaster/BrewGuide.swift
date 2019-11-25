@@ -21,13 +21,6 @@ class BrewGuide: Codable {
     
     var coffeeWaterConfigured: Bool { return brewStepGrindCoffee != nil && brewStepBoilWater != nil}
     
-    init(_ firebaseData:[String: Any]) {
-        self.created_by_uid = firebaseData["created_by_uid"] as? String
-        self.guideName = firebaseData["guideName"] as? String ?? ""
-        self.guideDescription = firebaseData["guideDescription"] as? String ?? ""
-        self.isPublic = firebaseData["isPublic"] as? Bool ?? false
-    }
-    
     init(baseBrewMethod: BrewMethod) {
         self.baseBrewMethod = baseBrewMethod
     }
