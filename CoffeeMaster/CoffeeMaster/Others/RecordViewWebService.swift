@@ -26,7 +26,6 @@ extension WebDatabaseQueryService {
                     var record = try! FirestoreDecoder().decode(Record.self, from: document.data())
                     record.id = document.documentID
                     records.append(record)
-                    print("\(document.documentID) => \(document.data())")
                 }
                 subject.send(records)
             }
@@ -48,7 +47,6 @@ extension WebDatabaseQueryService {
                 print("Error adding document: \(err)")
                 subject.send(nil)
             } else {
-                print("Document added with ID: \(newDocRef!.documentID)")
                 var newrecord = record
                 newrecord.id = newDocRef!.documentID
                 subject.send(newrecord)

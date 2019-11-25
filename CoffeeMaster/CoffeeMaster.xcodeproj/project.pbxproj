@@ -29,7 +29,6 @@
 		5C02EB4D2388E2DD002A7A1E /* FirebaseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB402388E2DD002A7A1E /* FirebaseDecoder.swift */; };
 		5C02EB4E2388E2DD002A7A1E /* FirebaseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB402388E2DD002A7A1E /* FirebaseDecoder.swift */; };
 		5C02EB502388E5FA002A7A1E /* RecordViewWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */; };
-		5C02EB512388E5FA002A7A1E /* RecordViewWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* BrewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* BrewStep.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
@@ -107,7 +106,6 @@
 		5C80C989237462A100996D91 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C988237462A100996D91 /* Store.swift */; };
 		5C80C98B237462D900996D91 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98A237462D900996D91 /* App.swift */; };
 		5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98C2374631C00996D91 /* Dependencies.swift */; };
-		5C80C98F2374634200996D91 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98E2374634200996D91 /* GithubService.swift */; };
 		5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */; };
 		5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E722381AEDC0010EE0E /* ConnectView.swift */; };
 		5C8F6E752381B0420010EE0E /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E742381B0420010EE0E /* RecordView.swift */; };
@@ -128,6 +126,7 @@
 		5CDA7721238B785F002E0ED5 /* BrewWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7720238B785F002E0ED5 /* BrewWeight.swift */; };
 		5CDA7723238B7889002E0ED5 /* BrewTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */; };
 		5CDA7725238B7B0D002E0ED5 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7724238B7B0D002E0ED5 /* SignInWithAppleView.swift */; };
+		5CDA7727238B8B24002E0ED5 /* RecordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */; };
 		5CE8457B238351190086EFC8 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE84579238350E30086EFC8 /* Mapbox.framework */; };
 		5CE8457C238351190086EFC8 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE84579238350E30086EFC8 /* Mapbox.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8457E23836B950086EFC8 /* BrewMethod.swift */; };
@@ -242,7 +241,6 @@
 		5C80C988237462A100996D91 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		5C80C98A237462D900996D91 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5C80C98C2374631C00996D91 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
-		5C80C98E2374634200996D91 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ThemeColor.swift"; sourceTree = "<group>"; };
 		5C8F6E722381AEDC0010EE0E /* ConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectView.swift; sourceTree = "<group>"; };
 		5C8F6E742381B0420010EE0E /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
@@ -258,6 +256,7 @@
 		5CDA7720238B785F002E0ED5 /* BrewWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewWeight.swift; sourceTree = "<group>"; };
 		5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTemperature.swift; sourceTree = "<group>"; };
 		5CDA7724238B7B0D002E0ED5 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
+		5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardView.swift; sourceTree = "<group>"; };
 		5CE8455F23834D100086EFC8 /* Mapbox.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mapbox.framework.dSYM; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework.dSYM"; sourceTree = "<group>"; };
 		5CE84575238350690086EFC8 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = CoffeeMaster/Mapbox.framework; sourceTree = "<group>"; };
 		5CE84579238350E30086EFC8 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = CoffeeMaster/Mapbox.framework; sourceTree = SOURCE_ROOT; };
@@ -385,6 +384,7 @@
 				5C25FAC4237F7A8E0082CFBD /* nanopb.framework */,
 			);
 			name = Firebase;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		5C25FAE6237F7C0F0082CFBD /* Frameworks */ = {
@@ -413,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8F6E742381B0420010EE0E /* RecordView.swift */,
+				5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */,
 				5C3F465A23830903001CC647 /* AddRecordFormView.swift */,
 			);
 			name = RecordView;
@@ -501,10 +502,10 @@
 				5C25798723837F5600976AE1 /* Localizable.stringsdict */,
 				5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */,
 				5CEEC7BD237F053700E3BDB0 /* Views */,
+				5CDA7728238B8C28002E0ED5 /* WebServices */,
 				5CEEC7BF237F056500E3BDB0 /* Model */,
 				5CEEC7C0237F057E00E3BDB0 /* Others */,
 				5C80C96C23745F2900996D91 /* Assets.xcassets */,
-				5C25FAC0237F7A7D0082CFBD /* Firebase */,
 				5C80C97123745F2900996D91 /* LaunchScreen.storyboard */,
 				5C80C97423745F2900996D91 /* Info.plist */,
 				5C25FAB9237F79DC0082CFBD /* module.modulemap */,
@@ -530,6 +531,18 @@
 				5C80C97F23745F2900996D91 /* Info.plist */,
 			);
 			path = CoffeeMasterTests;
+			sourceTree = "<group>";
+		};
+		5CDA7728238B8C28002E0ED5 /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */,
+				5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */,
+				5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */,
+				5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */,
+			);
+			name = WebServices;
+			path = Others;
 			sourceTree = "<group>";
 		};
 		5CEEC7BD237F053700E3BDB0 /* Views */ = {
@@ -576,14 +589,10 @@
 		5CEEC7C0237F057E00E3BDB0 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */,
-				5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */,
-				5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */,
-				5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */,
+				5C25FAC0237F7A7D0082CFBD /* Firebase */,
 				5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */,
 				5C25FA44237F385C0082CFBD /* EnvironmentService.swift */,
 				5C80C98C2374631C00996D91 /* Dependencies.swift */,
-				5C80C98E2374634200996D91 /* GithubService.swift */,
 				5C80C96323745F2600996D91 /* AppDelegate.swift */,
 				5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */,
 				5C80C96523745F2600996D91 /* SceneDelegate.swift */,
@@ -752,7 +761,6 @@
 				5C25798223837BA200976AE1 /* BrewStep.swift in Sources */,
 				5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */,
 				5C02EB31238713B7002A7A1E /* DecimalTextField.swift in Sources */,
-				5C80C98F2374634200996D91 /* GithubService.swift in Sources */,
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,
 				5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,
 				5C02EB2B238612F0002A7A1E /* AddBrewGuideView.swift in Sources */,
@@ -781,6 +789,7 @@
 				5C02EB352387A97B002A7A1E /* AddBrewStepView.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
 				5C5F41182381E718005DBACE /* PostFormView.swift in Sources */,
+				5CDA7727238B8B24002E0ED5 /* RecordCardView.swift in Sources */,
 				5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */,
 				5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */,
 			);
@@ -794,7 +803,6 @@
 				5C02EB482388E2DD002A7A1E /* FirestoreEncoder.swift in Sources */,
 				5C02EB4A2388E2DD002A7A1E /* FirestoreDecoder.swift in Sources */,
 				5C02EB4E2388E2DD002A7A1E /* FirebaseDecoder.swift in Sources */,
-				5C02EB512388E5FA002A7A1E /* RecordViewWebService.swift in Sources */,
 				5C02EB462388E2DD002A7A1E /* FirebaseEncoder.swift in Sources */,
 				5C80C97E23745F2900996D91 /* CoffeeMasterTests.swift in Sources */,
 				5C02EB442388E2DD002A7A1E /* Encoder.swift in Sources */,

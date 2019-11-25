@@ -10,15 +10,11 @@ import Foundation
 
 struct AppState {
     var settings: SettingsState
-    var repostate: ReposState
     var brewViewState: BrewViewState
     var connectViewState: ConnectViewState
     var recordViewState: RecordViewState
 }
 
-struct ReposState {
-    var searchResult: [Repo] = []
-}
 
 struct SettingsState {
     var name: String = ""

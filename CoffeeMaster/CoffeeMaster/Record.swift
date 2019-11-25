@@ -15,6 +15,7 @@ struct Record:Codable, Identifiable {
     var title: String
     var body: String
     var created_at: Timestamp?
+    var updated_at: Timestamp?
     var created_by_uid: String
     var images_path: [String]?
     var tags: [String]?

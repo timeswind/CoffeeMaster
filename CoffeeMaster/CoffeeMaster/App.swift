@@ -10,39 +10,18 @@ import Foundation
 import Combine
 import Firebase
 
-enum AsyncSideEffect: Effect {
-    case repoSearch(query: String)
-
-    func mapToAction() -> AnyPublisher<AppAction, Never> {
-        switch self {
-        case let .repoSearch(query):
-            return dependencies.githubService
-                .searchPublisher(matching: query)
-                .replaceError(with: [])
-                .map { let repoAction: ReposAction = .setSearchResults(repos: $0)
-                    return AppAction.repos(repos: repoAction) }
-                .eraseToAnyPublisher()
-        }
-    }
-}
 
 enum EmptyAction {
     case nilAction(nil: Bool)
 }
 
 enum AppAction {
-    case repos(repos: ReposAction)
     case settings(action: SettingsAction)
     case brewview(action: BrewViewAction)
     case connectview(action: ConnectViewAction)
     case recordview(action: RecordViewAction)
     case emptyAction(action: EmptyAction)
 }
-
-enum ReposAction {
-    case setSearchResults(repos: [Repo])
-}
-
 
 let appReducer: Reducer<AppState, AppAction> = Reducer { state, action in
     switch action {
@@ -52,19 +31,10 @@ let appReducer: Reducer<AppState, AppAction> = Reducer { state, action in
         settingsReducer.reducer.reduce(&state.settings, action)
     case let .brewview(action):
         brewViewReducer.reducer.reduce(&state.brewViewState, action)
-    case let .repos(action):
-        reposReducer.reduce(&state.repostate, action)
     case let .connectview(action):
         connectViewReducer.reducer.reduce(&state.connectViewState, action)
     case let .recordview(action):
         recordViewReducer.reducer.reduce(&state.recordViewState, action)
-    }
-}
-
-let reposReducer: Reducer<ReposState, ReposAction> = Reducer { state, action in
-    switch action {
-    case let .setSearchResults(repos):
-        state.searchResult = repos
     }
 }
 

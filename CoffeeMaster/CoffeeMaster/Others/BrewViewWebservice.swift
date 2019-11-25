@@ -27,8 +27,6 @@ extension WebDatabaseQueryService {
                     let brewGuide = try! FirestoreDecoder().decode(BrewGuide.self, from: document.data())
                     brewGuide.id = document.documentID
                     brewGuides.append(brewGuide)
-                    
-                    print("\(document.documentID) => \(document.data())")
                 }
                 subject.send(brewGuides)
             }
@@ -50,7 +48,6 @@ extension WebDatabaseQueryService {
                 print("Error adding document: \(err)")
                 subject.send(nil)
             } else {
-                print("Document added with ID: \(newDocRef!.documentID)")
                 let newBrewGuide = brewGuide
                 newBrewGuide.id = newDocRef!.documentID
                 subject.send(newBrewGuide)

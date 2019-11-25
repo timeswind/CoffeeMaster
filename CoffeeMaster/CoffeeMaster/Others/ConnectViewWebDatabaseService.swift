@@ -24,10 +24,8 @@ extension WebDatabaseQueryService {
                 for document in querySnapshot!.documents {
                     var post = try! FirestoreDecoder().decode(Post.self, from: document.data())
                     print("Post: \(post)")
-//                    var post = Post(dictionary: document.data())
                     post.id = document.documentID
                     posts.append(post)
-                    print("\(document.documentID) => \(document.data())")
                 }
                 print(posts)
                 subject.send(posts)
@@ -50,7 +48,6 @@ extension WebDatabaseQueryService {
                 print("Error adding document: \(err)")
                 subject.send(nil)
             } else {
-                print("Document added with ID: \(newDocRef!.documentID)")
                 var newpost = post
                 newpost.id = newDocRef!.documentID
                 subject.send(newpost)

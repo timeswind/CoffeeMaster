@@ -15,7 +15,7 @@ struct ExploreMapView: UIViewRepresentable {
     func makeUIView(context: UIViewRepresentableContext<ExploreMapView>) -> MGLMapView {
 
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06), zoomLevel: 9, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06), zoomLevel: 0, animated: false)
 
         return mapView
     }

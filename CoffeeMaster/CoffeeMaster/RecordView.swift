@@ -18,14 +18,10 @@ struct RecordView: View {
     
     func showRecordForm() {
         self.isAddRecordFormPresented = true
-//        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: true)))
     }
+    
     var body: some View {
         let isLoggedIn = store.state.settings.signedIn
-
-//        let isAddRecordFormPresenting = Binding<Bool>(get: { () -> Bool in
-//            return self.store.state.recordViewState.addRecordFormPresented
-//        }) { (isPresented) in }
         
         return NavigationView {
             if (isLoggedIn) {
@@ -52,9 +48,15 @@ struct RecordListView: View {
     var body: some View {
         let records = store.state.recordViewState.records
 
-        return List {
-            ForEach(records, id: \.id) { record in
-                Text(record.title)
+        return ScrollView(.vertical, showsIndicators: false) {
+            if (self.store.state.recordViewState.records.count > 0) {
+                ForEach(records, id: \.id) { record in
+                        NavigationLink(destination: Text("Record Detail")) {
+                            RecordCardView(record: record)
+                        }.padding(.horizontal)
+                }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+            } else {
+                EmptyView()
             }
         }
     }

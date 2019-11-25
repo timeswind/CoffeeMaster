@@ -9,21 +9,6 @@
 import SwiftUI
 import Combine
 
-struct RepoRow: View {
-    let repo: Repo
-    
-    var body: some View {
-        HStack(alignment: .top) {
-            VStack(alignment: .leading) {
-                Text(repo.name)
-                    .font(.headline)
-                Text(repo.description ?? "")
-                    .font(.subheadline)
-            }
-        }
-    }
-}
-
 struct ContentView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     
