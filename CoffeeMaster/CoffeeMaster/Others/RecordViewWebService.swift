@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 import FirebaseFirestore
+import FirebaseAuth
 
 extension WebDatabaseQueryService {
     // record
@@ -17,7 +18,7 @@ extension WebDatabaseQueryService {
 
         let subject = PassthroughSubject<[Record], Error>()
         
-        recordsRef.getDocuments(source: .default) { (querySnapshot, err) in
+        recordsRef.whereField("created_by_uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments(source: .default) { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

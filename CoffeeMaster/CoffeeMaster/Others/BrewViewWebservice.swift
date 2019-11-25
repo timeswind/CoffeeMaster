@@ -11,6 +11,7 @@ import Foundation
 import SwiftUI
 import Combine
 import FirebaseFirestore
+import FirebaseAuth
 
 extension WebDatabaseQueryService {
     func getMyBrewGuides(query: String) -> AnyPublisher<[BrewGuide], Error> {
@@ -18,7 +19,8 @@ extension WebDatabaseQueryService {
 
         let subject = PassthroughSubject<[BrewGuide], Error>()
         
-        brewGuidesRef.getDocuments(source: .default) { (querySnapshot, err) in
+        
+        brewGuidesRef.whereField("created_by_uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments(source: .default) { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

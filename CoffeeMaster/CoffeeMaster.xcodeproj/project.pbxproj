@@ -127,6 +127,7 @@
 		5CDA7723238B7889002E0ED5 /* BrewTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */; };
 		5CDA7725238B7B0D002E0ED5 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7724238B7B0D002E0ED5 /* SignInWithAppleView.swift */; };
 		5CDA7727238B8B24002E0ED5 /* RecordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */; };
+		5CDA772A238B927F002E0ED5 /* BrewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7729238B927F002E0ED5 /* BrewGuide.swift */; };
 		5CE8457B238351190086EFC8 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE84579238350E30086EFC8 /* Mapbox.framework */; };
 		5CE8457C238351190086EFC8 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE84579238350E30086EFC8 /* Mapbox.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8457E23836B950086EFC8 /* BrewMethod.swift */; };
@@ -257,6 +258,7 @@
 		5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTemperature.swift; sourceTree = "<group>"; };
 		5CDA7724238B7B0D002E0ED5 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
 		5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardView.swift; sourceTree = "<group>"; };
+		5CDA7729238B927F002E0ED5 /* BrewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuide.swift; sourceTree = "<group>"; };
 		5CE8455F23834D100086EFC8 /* Mapbox.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mapbox.framework.dSYM; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework.dSYM"; sourceTree = "<group>"; };
 		5CE84575238350690086EFC8 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = CoffeeMaster/Mapbox.framework; sourceTree = "<group>"; };
 		5CE84579238350E30086EFC8 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = CoffeeMaster/Mapbox.framework; sourceTree = SOURCE_ROOT; };
@@ -578,6 +580,7 @@
 				5C8F6E782381B6840010EE0E /* Post.swift */,
 				5C3F46572382D219001CC647 /* Record.swift */,
 				5CE8457E23836B950086EFC8 /* BrewMethod.swift */,
+				5CDA7729238B927F002E0ED5 /* BrewGuide.swift */,
 				5C25798123837BA200976AE1 /* BrewStep.swift */,
 				5CDA7720238B785F002E0ED5 /* BrewWeight.swift */,
 				5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */,
@@ -734,6 +737,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CDA772A238B927F002E0ED5 /* BrewGuide.swift in Sources */,
 				5C02EB29238610D3002A7A1E /* BrewViewReducer.swift in Sources */,
 				5C02EB2D238661FD002A7A1E /* ConfigureGrindCoffeeView.swift in Sources */,
 				5C3F465D23830933001CC647 /* MultiplineTextField.swift in Sources */,
