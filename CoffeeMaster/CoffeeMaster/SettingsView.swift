@@ -37,12 +37,38 @@ struct SettingsView: View {
     func exit() {
         UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
     }
+    
+    func update(weightUnit: WeightUnit) {
+        let updateAction: AppAction = .settings(action: .setWeightUnit(weightUnit: weightUnit))
+        store.send(updateAction)
+    }
+    
+    func update(temperatureUnit: TemperatureUnit) {
+        let updateAction: AppAction = .settings(action: .setTemperatureUnit(temperatureUnit: temperatureUnit))
+        store.send(updateAction)
+    }
         
     var body: some View {
         let supportedLanguages = self.settingsState.supportedLanguages.map { (arg0) -> keyValue<String, String> in
             let (key, value) = arg0
             return keyValue<String, String>(key: key, value: value)
         }
+        
+        let allWeightUnitTypes = WeightUnit.allValues
+        let allTemperatureUnitTypes = TemperatureUnit.allValues
+        
+        
+        let weightUnitValueBind = Binding<WeightUnit>(get: {
+            return self.store.state.settings.weightUnit
+        }, set: {
+            self.update(weightUnit: $0)
+        })
+        
+        let temperatureUnitValueBind = Binding<TemperatureUnit>(get: {
+            return self.store.state.settings.temperatureUnit
+        }, set: {
+            self.update(temperatureUnit: $0)
+        })
         
         let isUserSignedIn = store.state.settings.signedIn
         
@@ -61,6 +87,28 @@ struct SettingsView: View {
                             Text(langugae.key).tag(langugae.value)
                         }
                     }
+                }
+                
+                Section(header: Text(LocalizedStringKey("SettingsWeightUnit"))) {
+                    Picker(selection: weightUnitValueBind, label: Text("ConfigureWeightUnitPickerLabel")) {
+                        ForEach(allWeightUnitTypes, id: \.self) { weightUnitType in
+                            VStack {
+                                Text(LocalizedStringKey(weightUnitType.rawValue))
+                            }
+                        }
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
+                }
+                
+                Section(header: Text(LocalizedStringKey("SettingsTemperatureUnit"))) {
+                    Picker(selection: temperatureUnitValueBind, label: Text("ConfigureTemperatureUnitPickerLabel")) {
+                        ForEach(allTemperatureUnitTypes, id: \.self) { temperatureUnitType in
+                            VStack {
+                                Text(LocalizedStringKey(temperatureUnitType.rawValue))
+                            }
+                        }
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section(header: Text(LocalizedStringKey("Account"))) {

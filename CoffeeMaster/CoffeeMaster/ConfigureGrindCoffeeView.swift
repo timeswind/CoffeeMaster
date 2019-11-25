@@ -80,7 +80,7 @@ struct ConfigureGrindCoffeeView: View {
                         .foregroundColor(Color.black)
                         .keyboardType(.decimalPad)
                     
-                    Picker(selection: weightUnitValueBind, label: Text("ConfigureGrindCoffee")) {
+                    Picker(selection: weightUnitValueBind, label: Text("ConfigureWeightUnitPickerLabel")) {
                         ForEach(allWeightUnitTypes, id: \.self) { grindType in
                             VStack {
                                 Text(LocalizedStringKey(grindType.rawValue))
