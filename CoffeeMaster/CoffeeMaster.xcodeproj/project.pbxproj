@@ -467,9 +467,9 @@
 			isa = PBXGroup;
 			children = (
 				5C8F6E722381AEDC0010EE0E /* ConnectView.swift */,
+				5C3F466823831AF8001CC647 /* PostDetailView.swift */,
 				5C5F41172381E718005DBACE /* PostFormView.swift */,
 				5C3F4666238316CF001CC647 /* PostCardView.swift */,
-				5C3F466823831AF8001CC647 /* PostDetailView.swift */,
 			);
 			name = ConnectView;
 			sourceTree = "<group>";

@@ -13,7 +13,7 @@ struct PostDetailView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
-            VStack {
+            VStack(alignment: .leading) {
                 //                   Image("swiftui-button")
                 //                       .resizable()
                 //                       .aspectRatio(contentMode: .fit)
@@ -31,13 +31,18 @@ struct PostDetailView: View {
                         Text("Written by \(post.created_by_uid)".uppercased())
                             .font(.caption)
                             .foregroundColor(.secondary)
+                        
+                        Text(post.body)
+                            .font(.body)
+                            .foregroundColor(.black)
                     }
                     .layoutPriority(100)
                     
                     Spacer()
                 }
-                .padding()
-            }.padding(.init(top: 100, leading: 0, bottom: 0, trailing: 0))
+                
+                Text(LocalizedStringKey("Comments")).font(.title).fontWeight(.bold).padding(.top)
+            }.padding(.init(top: 100, leading: 16, bottom: 0, trailing: 16))
         }.edgesIgnoringSafeArea(.top)
     }
 }
