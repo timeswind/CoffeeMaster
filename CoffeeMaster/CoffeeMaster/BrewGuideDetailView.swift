@@ -25,6 +25,11 @@ struct BrewGuideDetailView: View {
     
     var body: some View {
         let weightUnit = store.state.settings.weightUnit.rawValue
+        let temperatureUnit = store.state.settings.temperatureUnit.rawValue
+        
+        let waterVolumn = self.brewGuide.getBrewStepBoilWater()?.getWaterVolumn() ?? 0.0
+        let waterTemperature = self.brewGuide.getBrewStepBoilWater()?.getWaterTemperature().getTemperature() ?? 0.0
+
         let grindSize: String = self.brewGuide.getBrewStepGrindCoffee()!.grindSize.localizableString
         let brewSteps = self.brewGuide.getBrewSteps()
         return ScrollView(.vertical, showsIndicators: true) {
@@ -52,7 +57,7 @@ struct BrewGuideDetailView: View {
                         Text(LocalizedStringKey("GroundCoffee")).font(.caption).fontWeight(.bold).padding(.top, 8)
                     }
                     VStack {
-                        Text(String(format: "%.0f ml", self.brewGuide.getBrewStepBoilWater()?.getWaterAmount().getWeight() ?? 0)).fontWeight(.bold).modifier(AccentCircleTextViewModifier())
+                        Text(String(format: "%.0f ml \n %.0f\(temperatureUnit)", waterVolumn, waterTemperature)).fontWeight(.bold).modifier(AccentCircleTextViewModifier())
                         Text(LocalizedStringKey("Water")).font(.caption).fontWeight(.bold).padding(.top, 8)
                     }
                     Spacer()

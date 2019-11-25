@@ -8,81 +8,6 @@
 
 import Foundation
 
-class BrewWeight {
-    private var weight:Double = 0
-    
-    init() {
-        self.setWeight(weight: 0)
-    }
-    
-    init(_ weight: Double) {
-        self.setWeight(weight: weight)
-    }
-    
-    func update() {
-        let _ = getWeightUnit()
-    }
-    
-    func setWeight(weight: BrewWeight) {
-        self.weight = weight.getWeight()
-    }
-    
-    func setWeight(weight: Double) {
-        let unit = getWeightUnit()
-        switch unit {
-        case .g:
-            self.weight = weight
-        case .oz:
-            self.weight = Utilities.OunceToGram(ounce: weight)
-        }
-    }
-    
-    func getWeight() -> Double {
-        let unit = getWeightUnit()
-        switch unit {
-        case .g:
-            return self.weight
-        case .oz:
-            return Utilities.gramToOunce(gram: self.weight)
-        }
-    }
-}
-
-class BrewTemperature {
-    private var temperature:Double = 0
-    
-    init() {
-        self.temperature = 0
-    }
-    
-    init(_ temperature: Double) {
-        self.setTemperature(temperature: temperature)
-    }
-    
-    func setTemperature(temperature: BrewTemperature) {
-        self.temperature = temperature.getTemperature()
-    }
-    
-    func setTemperature(temperature: Double) {
-        let unit = getTemperatureUnit()
-        switch unit {
-        case .C:
-            self.temperature = temperature
-        case .F:
-            self.temperature = Utilities.FahrenheitToCelsius(fahrenheit: temperature)
-        }
-    }
-    func getTemperature() -> Double {
-        let unit = getTemperatureUnit()
-        switch unit {
-        case .C:
-            return self.temperature
-        case .F:
-            return Utilities.CelsiusToFahrenheit(celsius: self.temperature)
-        }
-    }
-}
-
 class BrewStep: Codable {
     var brewType: BrewStepType!
     var instruction: String = ""
@@ -201,13 +126,14 @@ class BrewStepBoilWater: BrewStep {
         self.waterTemperature.setTemperature(temperature: waterTemperature)
     }
     
-    func getWaterAmount() -> BrewWeight {
-        return self.waterAmount
+    func getWaterVolumn() -> Double {
+        return self.waterAmount.getVolumn()
     }
     
     func getWaterTemperature() -> BrewTemperature {
         return self.waterTemperature
     }
+    
 }
 
 class BrewStepBloom: BrewStep {
