@@ -11,7 +11,6 @@ import SwiftUI
 struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State var isAddRecordFormPresented: Bool = false
-
     private func fetch() {
         store.send(RecordViewAsyncAction.getMyRecords(query: ""))
     }
@@ -45,18 +44,29 @@ struct RecordView: View {
 
 struct RecordListView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @State private var viewSegment = 0
+
     var body: some View {
         let records = store.state.recordViewState.records
 
         return ScrollView(.vertical, showsIndicators: false) {
-            if (self.store.state.recordViewState.records.count > 0) {
-                ForEach(records, id: \.id) { record in
-                        NavigationLink(destination: Text("Record Detail")) {
-                            RecordCardView(record: record)
-                        }.padding(.horizontal)
-                }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+            Picker(selection: $viewSegment, label: Text("What is your favorite color?")) {
+                Text("Note").tag(0)
+                Text("Collection").tag(1)
+            }.pickerStyle(SegmentedPickerStyle()).padding(.horizontal)
+            
+            if (viewSegment == 0) {
+                if (self.store.state.recordViewState.records.count > 0) {
+                    ForEach(records, id: \.id) { record in
+                            NavigationLink(destination: Text("Record Detail")) {
+                                RecordCardView(record: record)
+                            }.padding(.horizontal)
+                    }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+                } else {
+                    EmptyView()
+                }
             } else {
-                EmptyView()
+                Text("CoffeeCollectionView")
             }
         }
     }
