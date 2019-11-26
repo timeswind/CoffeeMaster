@@ -11,15 +11,15 @@ import SwiftUI
 struct AddBrewGuideView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @EnvironmentObject var keyboard: KeyboardResponder
-
+    
     @State var baseBrewMethod: BrewMethod = chemexBrewMethod
     @State var guideName: String = ""
     @State var guideDescription: String = ""
     @State var guideIsPublic: Bool = false
-
+    
     @State var brewStepGrindCoffee: BrewStepGrindCoffee?
     @State var isBrewStepGrindCoffeeActive: Bool = false
-
+    
     @State var brewStepBoilWater: BrewStepBoilWater?
     @State var brewSteps: [BrewStep] = []
     
@@ -40,7 +40,7 @@ struct AddBrewGuideView: View {
         if (self.brewStepGrindCoffee == nil) { result = false; }
         if (self.brewStepBoilWater == nil) { result = false; }
         if (self.brewSteps.count == 0) { result = false; }
-
+        
         return result
     }
     
@@ -112,21 +112,21 @@ struct AddBrewGuideView: View {
             .animation(.easeOut(duration: 0.16))
             .navigationBarTitle(LocalizedStringKey("CreateBrewGuide"))
             .navigationBarItems(leading:
-                    Button(action: {
-                        self.exit()
-                    }) {
-                        Text(LocalizedStringKey("Dismiss"))
+                Button(action: {
+                    self.exit()
+                }) {
+                    Text(LocalizedStringKey("Dismiss"))
                 },
-                trailing:
+                                trailing:
                 Button(action: {
                     self.finishedEditing()
                 }) {
                     Text(LocalizedStringKey("Done"))
             })
+                .alert(isPresented: self.$showsAlert, content: {
+                    Alert(title: Text("Form not complete"))
+                })
+            
         }.accentColor(Color(UIColor.Theme.Accent))
-            .alert(isPresented: self.$showsAlert) {
-            Alert(title: Text("Form not complete"))
-        }
-        
     }
 }
