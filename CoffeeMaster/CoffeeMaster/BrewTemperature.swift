@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum TemperatureUnit: String {
+    case C = "°C"
+    case F = "°F"
+    
+    static let allValues: [TemperatureUnit] = [C, F]
+}
+
 class BrewTemperature {
     private var temperature:Double = 0
     

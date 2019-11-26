@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum WeightUnit: String {
+    case g = "g"
+    case oz = "oz"
+    
+    static let allValues: [WeightUnit] = [g, oz]
+}
+
 class BrewWeight {
     private var weight:Double = 0
     

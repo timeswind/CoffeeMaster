@@ -20,55 +20,6 @@ struct DefaultBrewTools {
     var kettle = Tool(count: 1, localizedNameKey: "Kettle")
 }
 
-class BrewToolsPicker {
-    var brewTools: [BrewMethod.BrewTool] = []
-    
-    func pick(tool: BrewMethod.BrewTool) -> BrewToolsPicker {
-        self.brewTools.append(tool)
-        return self
-    }
-    
-    func chemex() -> BrewToolsPicker {
-        self.brewTools.append(DefaultBrewTools().chemexCoffeeMaker)
-        return self
-    }
-    
-    func aeropress() -> BrewToolsPicker {
-        self.brewTools.append(DefaultBrewTools().aeropressCoffeeMaker)
-        return self
-    }
-    
-    func aeropressFilter() -> BrewToolsPicker {
-        self.brewTools.append(DefaultBrewTools().aeropressPaperFilter)
-        return self
-    }
-    
-    func chemexFilter() -> BrewToolsPicker {
-        self.brewTools.append(DefaultBrewTools().chemexPaperFilter)
-        return self
-    }
-    
-    func cup() -> BrewToolsPicker {
-        self.brewTools.append(DefaultBrewTools().cup)
-        return self
-    }
-    
-    func scale() -> BrewToolsPicker {
-        self.brewTools.append(DefaultBrewTools().kitchenScale)
-        return self
-    }
-    func spoon() -> BrewToolsPicker {
-        self.brewTools.append(DefaultBrewTools().spoon)
-        return self
-    }
-    func kettle() -> BrewToolsPicker {
-        self.brewTools.append(DefaultBrewTools().kettle)
-        return self
-    }
-    func done() -> [BrewMethod.BrewTool] {
-        return self.brewTools
-    }
-}
 let chemexBrewMethodTools = BrewToolsPicker().chemex().chemexFilter().cup().scale().spoon().kettle().done()
 let chemexBrewMethod = BrewMethod(.Chemex ,name: "Chemex", image: "chemex", descriptionKey: "ChemexDescription", brewTools: chemexBrewMethodTools)
 
@@ -80,7 +31,6 @@ let aeropressBrewMethod = BrewMethod(.AeroPress, name: "AeroPress", image: "aero
 //let FrenchPressBrewMethod = BrewMethod(name: "French Press", image: "french-press", descriptionKey: "FrenchPressDescription", description: nil)
 
 class DefaultBrewingGuides {
-    var temperatureUnit: TemperatureUnit!
     private var guides: [BrewGuide] = []
     private var methods: [BrewMethod] = []
     

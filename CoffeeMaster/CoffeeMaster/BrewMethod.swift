@@ -29,31 +29,6 @@ enum GrindSizeType: String {
     static let allValues: [GrindSizeType] = [Coarse, Medium, Fine, ExtraFine, Turkish]
 }
 
-enum WeightUnit: String {
-    case g = "g"
-    case oz = "oz"
-    
-    static let allValues: [WeightUnit] = [g, oz]
-}
-
-enum TemperatureUnit: String {
-    case C = "°C"
-    case F = "°F"
-    
-    static let allValues: [TemperatureUnit] = [C, F]
-}
-
-enum BrewStepType: String, Codable {
-    case GrindCoffee = "GrindCoffee"
-    case BoilWater = "BoilWater"
-    case Bloom = "Bloom"
-    case Wait = "Wait"
-    case Stir = "Stir"
-    case Other = "Other"
-    
-    static var repeatSteps: [BrewStepType] = [Bloom, Wait, Stir, Other]
-}
-
 enum BaseBrewMethodType: String, Codable {
     case Chemex = "Chemex"
     case AeroPress = "AeroPress"

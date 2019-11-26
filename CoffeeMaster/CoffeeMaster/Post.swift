@@ -25,16 +25,6 @@ import FirebaseFirestore
         self.created_by_uid = created_by_uid
         self.allow_comment = allow_comment
     }
-    
-//    init(dictionary: [String: Any]) {
-//        self.id = dictionary["id"] as? String ?? nil
-//        self.title = dictionary["title"] as? String ?? ""
-//        self.body = dictionary["body"] as? String ?? ""
-//        self.created_at = (dictionary["created_at"] as? Timestamp)?.dateValue() ?? Date()
-//        self.created_by_uid = dictionary["created_by_uid"] as? String ?? ""
-//        self.allow_comment = dictionary["allow_comment"] as? Bool ?? true
-//        self.likes = dictionary["likes"] as? Int ?? 0
-//    }
 }
 
 struct Comment:Codable, Identifiable {
