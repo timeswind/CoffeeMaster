@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
- struct Post:Codable, Identifiable {
+struct Post:Codable, Identifiable {
     var id: String?
     var title: String
     var body: String
@@ -28,20 +28,20 @@ import FirebaseFirestore
 }
 
 struct Comment:Codable, Identifiable {
-    var id: String
+    var id: String?
     var body: String
-    var created_at: Date
+    var created_at: Timestamp?
     var created_by_uid: String
     var likes: Int
-    var post_id: String
+    var post_id: String!
 }
 
-func convertTimestamp(serverTimestamp: Double) -> String {
-    let x = serverTimestamp / 1000
-    let date = NSDate(timeIntervalSince1970: x)
-    let formatter = DateFormatter()
-    formatter.dateStyle = .long
-    formatter.timeStyle = .medium
-
-    return formatter.string(from: date as Date)
-}
+//func convertTimestamp(serverTimestamp: Double) -> String {
+//    let x = serverTimestamp / 1000
+//    let date = NSDate(timeIntervalSince1970: x)
+//    let formatter = DateFormatter()
+//    formatter.dateStyle = .long
+//    formatter.timeStyle = .medium
+//
+//    return formatter.string(from: date as Date)
+//}

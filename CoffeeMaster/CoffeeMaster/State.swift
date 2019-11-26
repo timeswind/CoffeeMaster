@@ -15,7 +15,6 @@ struct AppState {
     var recordViewState: RecordViewState
 }
 
-
 struct SettingsState {
     var name: String = ""
     var uid: String?

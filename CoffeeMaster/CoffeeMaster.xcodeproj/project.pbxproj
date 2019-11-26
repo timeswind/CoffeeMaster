@@ -130,6 +130,12 @@
 		5CDA772A238B927F002E0ED5 /* BrewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7729238B927F002E0ED5 /* BrewGuide.swift */; };
 		5CE63736238DA17D00C1DC49 /* BrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63735238DA17D00C1DC49 /* BrewStepType.swift */; };
 		5CE63738238DA1C600C1DC49 /* BrewToolsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63737238DA1C600C1DC49 /* BrewToolsPicker.swift */; };
+		5CE6373A238DAA8500C1DC49 /* CoffeeBeanType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63739238DAA8500C1DC49 /* CoffeeBeanType.swift */; };
+		5CE6373C238DB67000C1DC49 /* CoffeeBeanSizeGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6373B238DB67000C1DC49 /* CoffeeBeanSizeGrade.swift */; };
+		5CE6373E238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6373D238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift */; };
+		5CE63740238DB69D00C1DC49 /* CoffeeRoasterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6373F238DB69D00C1DC49 /* CoffeeRoasterType.swift */; };
+		5CE63742238DB6B100C1DC49 /* CoffeeTastingTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63741238DB6B100C1DC49 /* CoffeeTastingTraits.swift */; };
+		5CE63744238DB6DE00C1DC49 /* CoffeeOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63743238DB6DE00C1DC49 /* CoffeeOrigin.swift */; };
 		5CE8457B238351190086EFC8 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE84579238350E30086EFC8 /* Mapbox.framework */; };
 		5CE8457C238351190086EFC8 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE84579238350E30086EFC8 /* Mapbox.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8457E23836B950086EFC8 /* BrewMethod.swift */; };
@@ -263,6 +269,12 @@
 		5CDA7729238B927F002E0ED5 /* BrewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuide.swift; sourceTree = "<group>"; };
 		5CE63735238DA17D00C1DC49 /* BrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStepType.swift; sourceTree = "<group>"; };
 		5CE63737238DA1C600C1DC49 /* BrewToolsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewToolsPicker.swift; sourceTree = "<group>"; };
+		5CE63739238DAA8500C1DC49 /* CoffeeBeanType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanType.swift; sourceTree = "<group>"; };
+		5CE6373B238DB67000C1DC49 /* CoffeeBeanSizeGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanSizeGrade.swift; sourceTree = "<group>"; };
+		5CE6373D238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanRoastingStage.swift; sourceTree = "<group>"; };
+		5CE6373F238DB69D00C1DC49 /* CoffeeRoasterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeRoasterType.swift; sourceTree = "<group>"; };
+		5CE63741238DB6B100C1DC49 /* CoffeeTastingTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTastingTraits.swift; sourceTree = "<group>"; };
+		5CE63743238DB6DE00C1DC49 /* CoffeeOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeOrigin.swift; sourceTree = "<group>"; };
 		5CE8455F23834D100086EFC8 /* Mapbox.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mapbox.framework.dSYM; path = "../../../../../Downloads/mapbox-ios-sdk-5/dynamic/Mapbox.framework.dSYM"; sourceTree = "<group>"; };
 		5CE84575238350690086EFC8 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = CoffeeMaster/Mapbox.framework; sourceTree = "<group>"; };
 		5CE84579238350E30086EFC8 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = CoffeeMaster/Mapbox.framework; sourceTree = SOURCE_ROOT; };
@@ -591,6 +603,12 @@
 				5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */,
 				5CE63737238DA1C600C1DC49 /* BrewToolsPicker.swift */,
 				5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */,
+				5CE63739238DAA8500C1DC49 /* CoffeeBeanType.swift */,
+				5CE63743238DB6DE00C1DC49 /* CoffeeOrigin.swift */,
+				5CE63741238DB6B100C1DC49 /* CoffeeTastingTraits.swift */,
+				5CE6373F238DB69D00C1DC49 /* CoffeeRoasterType.swift */,
+				5CE6373D238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift */,
+				5CE6373B238DB67000C1DC49 /* CoffeeBeanSizeGrade.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -764,10 +782,12 @@
 				5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */,
 				5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */,
 				5C02EB4D2388E2DD002A7A1E /* FirebaseDecoder.swift in Sources */,
+				5CE6373A238DAA8500C1DC49 /* CoffeeBeanType.swift in Sources */,
 				5C5201C82389DB4F004F5736 /* String+isBlank.swift in Sources */,
 				5C6A927023792CDA006D8E0E /* BrewView.swift in Sources */,
 				5C02EB2F23866209002A7A1E /* ConfigureBoilWaterView.swift in Sources */,
 				5C02EB412388E2DD002A7A1E /* Decoder.swift in Sources */,
+				5CE63744238DB6DE00C1DC49 /* CoffeeOrigin.swift in Sources */,
 				5C02EB272385F8AB002A7A1E /* UIKitTabView.swift in Sources */,
 				5CDA7725238B7B0D002E0ED5 /* SignInWithAppleView.swift in Sources */,
 				5C25798223837BA200976AE1 /* BrewStep.swift in Sources */,
@@ -785,12 +805,15 @@
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
 				5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */,
 				5CDA7721238B785F002E0ED5 /* BrewWeight.swift in Sources */,
+				5CE63742238DB6B100C1DC49 /* CoffeeTastingTraits.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
 				5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */,
 				5C02EB452388E2DD002A7A1E /* FirebaseEncoder.swift in Sources */,
 				5C02EB472388E2DD002A7A1E /* FirestoreEncoder.swift in Sources */,
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
 				5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */,
+				5CE63740238DB69D00C1DC49 /* CoffeeRoasterType.swift in Sources */,
+				5CE6373E238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
 				5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */,
 				5C80C96B23745F2600996D91 /* ContentView.swift in Sources */,
@@ -804,6 +827,7 @@
 				5CDA7727238B8B24002E0ED5 /* RecordCardView.swift in Sources */,
 				5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */,
 				5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */,
+				5CE6373C238DB67000C1DC49 /* CoffeeBeanSizeGrade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
