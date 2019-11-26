@@ -1000,7 +1000,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/mingtianyang/Documents/Penn\\ State/2019fall/cmpsc475/CoffeeMaster/CoffeeMaster";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/CoffeeMaster";
 			};
 			name = Debug;
 		};
@@ -1030,7 +1030,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/mingtianyang/Documents/Penn\\ State/2019fall/cmpsc475/CoffeeMaster/CoffeeMaster";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/CoffeeMaster";
 			};
 			name = Release;
 		};
