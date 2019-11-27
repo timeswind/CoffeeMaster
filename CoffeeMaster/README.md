@@ -1,8 +1,12 @@
 Dependencies
 ============
 
-The source code have static dependencies included, no need to use package
-managers or link library manually.
+This project use cocoapods to download dependency
+1.Go to the folder with Podfile
+2.Run 'pod update'
+3.Run 'pod install'
+4.Open CoffeeMaster.xcworkspace
+5.compile and run
 
 Account
 =======
