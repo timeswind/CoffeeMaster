@@ -18,7 +18,7 @@ struct CoffeeCollection: Codable, Identifiable {
     var updated_at: Timestamp?
     var coffeeOrigin: CoffeeOrigin
     var coffeeBeanType: CoffeeBeanType
-    var coffeeTastingTrait: CoffeeTastingTraits
+    var coffeeTastingTrait: CoffeeTastingTrait
     
     private enum CodingKeys: String, CodingKey {
         case id, created_by_user, created_at, updated_at, coffeeOrigin, coffeeBeanType, coffeeTastingTrait

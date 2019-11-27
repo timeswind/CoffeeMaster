@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
-enum CoffeeTastingTraits: String, Codable {
+enum CoffeeTastingTrait: String, Codable {
     
     case RoastColor = "RoastColor"
     case Aroma = "Aroma"
@@ -38,7 +39,7 @@ enum CoffeeTastingTraits: String, Codable {
         }
     }
     
-    static let allValues: [CoffeeTastingTraits] = [RoastColor, Aroma, Defects, CleanCup, Sweet, Acidity, MouthFeel, Flavor, AfterTaste, Balance, Overall]
+    static let allValues: [CoffeeTastingTrait] = [RoastColor, Aroma, Defects, CleanCup, Sweet, Acidity, MouthFeel, Flavor, AfterTaste, Balance, Overall]
 }
 
 enum CoffeeTastingGradingType {
@@ -46,4 +47,47 @@ enum CoffeeTastingGradingType {
     case Number
     case ScoreRange8
     case Aroma
+}
+
+class CoffeeTastingGrading {
+    var coffeeTastingGradingType: CoffeeTastingGradingType
+    var score: Int = 0
+    
+    init(_ coffeeTastingGradingType: CoffeeTastingGradingType) {
+        self.coffeeTastingGradingType = coffeeTastingGradingType
+    }
+}
+
+class CoffeeTastingGradingText: CoffeeTastingGrading {
+    init() {
+        super.init(.Text)
+    }
+}
+
+class CoffeeTastingGradingNumber: CoffeeTastingGrading {
+    init() {
+        super.init(.Number)
+    }
+}
+
+class CoffeeTastingGradingScoreRange8: CoffeeTastingGrading {
+    init() {
+        super.init(.ScoreRange8)
+    }
+}
+
+class CoffeeTastingGradingAroma: CoffeeTastingGrading {
+    init() {
+        super.init(.Aroma)
+    }
+}
+
+
+struct CoffeeTastingGradingSheet {
+    var id: String?
+    var created_by_uid: String?
+    var created_at: Timestamp?
+    var name: String?
+    var descrtiption: String?
+    var scores: [CoffeeTastingTrait: CoffeeTastingGrading]
 }

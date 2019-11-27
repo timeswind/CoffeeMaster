@@ -142,6 +142,7 @@
 		5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */; };
 		5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */; };
 		5CF78BD3238DF2330063CA13 /* CoffeeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */; };
+		5CF78BD5238DFC390063CA13 /* UserDataWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +286,7 @@
 		5CEEC7B8237EFBEF00E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollection.swift; sourceTree = "<group>"; };
+		5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataWebDatabaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,10 +558,11 @@
 		5CDA7728238B8C28002E0ED5 /* WebServices */ = {
 			isa = PBXGroup;
 			children = (
+				5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */,
 				5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */,
 				5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */,
 				5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */,
-				5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */,
+				5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */,
 			);
 			name = WebServices;
 			path = Others;
@@ -823,6 +826,7 @@
 				5C80C96B23745F2600996D91 /* ContentView.swift in Sources */,
 				5C02EB492388E2DD002A7A1E /* FirestoreDecoder.swift in Sources */,
 				5C02EB332387785A002A7A1E /* KeyboardGuard.swift in Sources */,
+				5CF78BD5238DFC390063CA13 /* UserDataWebDatabaseService.swift in Sources */,
 				5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */,
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
 				5C02EB352387A97B002A7A1E /* AddBrewStepView.swift in Sources */,

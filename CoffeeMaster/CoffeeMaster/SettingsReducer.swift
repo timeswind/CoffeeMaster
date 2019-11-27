@@ -8,6 +8,18 @@
 
 import Foundation
 import Firebase
+import Combine
+
+enum SettingsActionError: Error, LocalizedError {
+    case failToUpdateUsername
+    public var errorDescription: String? {
+        switch self {
+        case .failToUpdateUsername:
+            return NSLocalizedString("Fail to update username", comment: "")
+        }
+    }
+}
+
 
 enum SettingsAction {
     case setName(name: String)
@@ -18,6 +30,7 @@ enum SettingsAction {
     case setUserInfo(currentUser: User)
     case setNounce(nounce: String)
     case logout(with: Bool)
+    case onError(error: Error)
 }
 
 struct SettingsReducer {
@@ -38,16 +51,42 @@ struct SettingsReducer {
             state.signedIn = isSignedIn
         case let .setUserInfo(currentUser):
             state.uid = currentUser.uid
+            state.name = currentUser.displayName ?? ""
         case let .setNounce(nounce):
             state.nounce = nounce
         case let .logout(with):
             let firebaseAuth = Auth.auth()
             do {
-              try firebaseAuth.signOut()
+                try firebaseAuth.signOut()
                 state.signedIn = false
             } catch let signOutError as NSError {
-              print ("Error signing out: %@", signOutError)
+                print ("Error signing out: %@", signOutError)
             }
+        case let .onError(error):
+            print(error.localizedDescription)
+        }
+    }
+}
+
+enum SettingsAsyncAction: Effect {
+    case setUsername(username: String)
+    
+    func mapToAction() -> AnyPublisher<AppAction, Never> {
+        switch self {
+        case let .setUsername(username):
+            return dependencies.webDatabaseQueryService
+                .updateUsername(username: username)
+                .replaceError(with: "error")
+                .map {
+                    if ($0 == "error") {
+                        return AppAction.settings(action: .onError(error: SettingsActionError.failToUpdateUsername))
+                    } else {
+                        let settingsAction: SettingsAction = .setName(name: $0)
+                        return AppAction.settings(action: settingsAction)
+                    }
+                    
+            }
+            .eraseToAnyPublisher()
         }
     }
 }

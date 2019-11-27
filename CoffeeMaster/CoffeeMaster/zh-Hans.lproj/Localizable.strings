@@ -26,6 +26,7 @@
 /*Settings View*/
 "ChooseLanguage"="选择语言";
 "Done" = "完成";
+"EditUsername" = "用户名";
 
 /*AddRecordForm View*/
 "NewRecordTitle" = "笔记标题";

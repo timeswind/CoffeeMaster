@@ -20,9 +20,13 @@ struct SettingsView: View {
     @State var selectedLanguage = ""
     @EnvironmentObject var environmentWindowObject: EnvironmentWindowObject
     @State var appleSignInDelegates: SignInWithAppleDelegates! = nil
+    @State var username = ""
 
-    
     var settingsState: SettingsState
+    
+    func onAppear() {
+        self.username = store.state.settings.name
+    }
 
     func updateLocalization() {
         let updateAction: AppAction = .settings(action: .setLocalization(localization: selectedLanguage))
@@ -36,6 +40,11 @@ struct SettingsView: View {
     
     func exit() {
         UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
+    }
+    
+    func updateUsername() {
+        let updateUsernameAction = SettingsAsyncAction.setUsername(username: self.username)
+        store.send(updateUsernameAction)
     }
     
     func update(weightUnit: WeightUnit) {
@@ -117,10 +126,17 @@ struct SettingsView: View {
                             SignInWithAppleView()
                         }
                     } else {
+                        HStack {
+                            Text(LocalizedStringKey("EditUsername")).foregroundColor(.gray)
+                            Spacer()
+                            TextField(LocalizedStringKey("EditUsername"), text: $username, onCommit: {self.updateUsername()})
+                        }
+
                         VStack {
                             Button(action: {self.logout()}) {
                                     Text(LocalizedStringKey("Logout"))
-                            }}
+                            }
+                        }
                     }
                 }
             
@@ -131,7 +147,7 @@ struct SettingsView: View {
                     }) {
                         Text(LocalizedStringKey("Dismiss"))
                 })
-        }.accentColor(Color(UIColor.Theme.Accent))
+        }.accentColor(Color(UIColor.Theme.Accent)).onAppear(perform: {self.onAppear()})
     }
 }
 

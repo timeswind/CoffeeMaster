@@ -15,12 +15,13 @@ struct Post:Codable, Identifiable {
     var title: String
     var body: String
     var created_at: Timestamp?
+    var updated_at: Timestamp?
     var created_by_uid: String
     var allow_comment: Bool?
     var likes: Int?
     
-    var BrewGuide: BrewGuide?
-    var Record: Record?
+    var brewGuide: BrewGuide?
+    var record: Record?
     
     init(title: String, body: String, created_by_uid: String, allow_comment: Bool) {
         self.title = title
