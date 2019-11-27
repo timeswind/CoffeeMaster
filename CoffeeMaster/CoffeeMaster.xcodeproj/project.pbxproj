@@ -141,6 +141,7 @@
 		5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8457E23836B950086EFC8 /* BrewMethod.swift */; };
 		5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */; };
 		5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */; };
+		5CF78BD3238DF2330063CA13 /* CoffeeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -283,6 +284,7 @@
 		5CEEC7B6237EFBEA00E3BDB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5CEEC7B8237EFBEF00E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -603,6 +605,7 @@
 				5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */,
 				5CE63737238DA1C600C1DC49 /* BrewToolsPicker.swift */,
 				5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */,
+				5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */,
 				5CE63739238DAA8500C1DC49 /* CoffeeBeanType.swift */,
 				5CE63743238DB6DE00C1DC49 /* CoffeeOrigin.swift */,
 				5CE63741238DB6B100C1DC49 /* CoffeeTastingTraits.swift */,
@@ -806,6 +809,7 @@
 				5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */,
 				5CDA7721238B785F002E0ED5 /* BrewWeight.swift in Sources */,
 				5CE63742238DB6B100C1DC49 /* CoffeeTastingTraits.swift in Sources */,
+				5CF78BD3238DF2330063CA13 /* CoffeeCollection.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
 				5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */,
 				5C02EB452388E2DD002A7A1E /* FirebaseEncoder.swift in Sources */,

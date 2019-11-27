@@ -8,18 +8,19 @@
 
 import Foundation
 
-enum CoffeeTastingTraits {
-    case RoastColor
-    case Aroma
-    case Defects
-    case CleanCup
-    case Sweet
-    case Acidity
-    case MouthFeel
-    case Flavor
-    case AfterTaste
-    case Balance
-    case Overall
+enum CoffeeTastingTraits: String, Codable {
+    
+    case RoastColor = "RoastColor"
+    case Aroma = "Aroma"
+    case Defects = "Defects"
+    case CleanCup = "CleanCup"
+    case Sweet = "Sweet"
+    case Acidity = "Acidity"
+    case MouthFeel = "MouthFeel"
+    case Flavor = "Flavor"
+    case AfterTaste = "AfterTaste"
+    case Balance = "Balance"
+    case Overall = "Overall"
     
     var gradingType : CoffeeTastingGradingType {
         switch self {

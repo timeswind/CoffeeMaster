@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CoffeeBeanType: String {
+enum CoffeeBeanType: String, Codable {
     case Arabica = "Arabica"
     case Robusta = "Robusta"
     

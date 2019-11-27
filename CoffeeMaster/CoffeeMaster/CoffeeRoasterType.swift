@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum CoffeeRoasterType {
-    case DRUM
-    case FLUID_BED
-    case TANGENTIAL
-    case CENTRIFUGAL
+enum CoffeeRoasterType: String, Codable {
+    case DRUM = "DRUM"
+    case FLUID_BED = "FLUID_BED"
+    case TANGENTIAL = "TANGENTIAL"
+    case CENTRIFUGAL = "CENTRIFUGAL"
     
     var localizableString : String {
         switch self {
