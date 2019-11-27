@@ -12,6 +12,7 @@ import SwiftUI
 import Combine
 import FirebaseFirestore
 import FirebaseAuth
+import CodableFirebase
 
 extension WebDatabaseQueryService {
     func getMyBrewGuides(query: String) -> AnyPublisher<[BrewGuide], Error> {

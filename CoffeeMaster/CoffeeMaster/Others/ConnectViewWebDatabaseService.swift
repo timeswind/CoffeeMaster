@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 import FirebaseFirestore
 import FirebaseAuth
+import CodableFirebase
 
 extension WebDatabaseQueryService {
     func getAllPosts(query: String) -> AnyPublisher<[Post], Error> {

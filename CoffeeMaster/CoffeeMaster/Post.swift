@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import CodableFirebase
 
 struct Post:Codable, Identifiable {
     var id: String?
