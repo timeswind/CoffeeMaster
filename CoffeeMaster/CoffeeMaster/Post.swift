@@ -19,6 +19,9 @@ struct Post:Codable, Identifiable {
     var allow_comment: Bool?
     var likes: Int?
     
+    var BrewGuide: BrewGuide?
+    var Record: Record?
+    
     init(title: String, body: String, created_by_uid: String, allow_comment: Bool) {
         self.title = title
         self.body = body
