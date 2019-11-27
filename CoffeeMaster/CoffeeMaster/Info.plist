@@ -20,6 +20,22 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoidGltZXN3aW5kIiwiYSI6ImNrMzUwcmRsdDAyNHEzbHRlazk5cG14ODUifQ.mh8nQBgIZbljrN_BH0aMxA</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Share your photos and save photo to your note</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Use Camera to take picitures</string>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>Access Health Record for caffeine</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Access Health Record for caffeine</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Access Health Record for caffeine</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Shows your location on the map and helps improve the map.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Share your photos and save photo to your note</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -39,20 +55,6 @@
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Use Camera to take picitures</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Shows your location on the map and helps improve the map.</string>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>Access Health Record for caffeine</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>Access Health Record for caffeine</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>Access Health Record for caffeine</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Share your photos and save photo to your note</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Share your photos and save photo to your note</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -70,8 +72,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -80,8 +80,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MGLMapboxAccessToken</key>
-	<string>pk.eyJ1IjoidGltZXN3aW5kIiwiYSI6ImNrMzUwcmRsdDAyNHEzbHRlazk5cG14ODUifQ.mh8nQBgIZbljrN_BH0aMxA</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 </dict>
