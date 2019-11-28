@@ -8,6 +8,7 @@ target 'CoffeeMaster' do
   # Pods for CoffeeMaster
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'CodableFirebase'
   pod 'Mapbox-iOS-SDK', '~> 5.5'
   pod 'expanding-collection'
