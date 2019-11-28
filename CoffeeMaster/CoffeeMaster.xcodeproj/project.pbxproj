@@ -79,6 +79,10 @@
 		5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */; };
 		5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */; };
 		5CF20A8F23904E6F00632A05 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF20A8E23904E6F00632A05 /* ImagePicker.swift */; };
+		5CF20A932390531D00632A05 /* BrewGuideExpensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF20A922390531D00632A05 /* BrewGuideExpensionViewController.swift */; };
+		5CF20A982390545000632A05 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF20A952390545000632A05 /* GridStack.swift */; };
+		5CF20A992390545000632A05 /* GridCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF20A962390545000632A05 /* GridCalculator.swift */; };
+		5CF20A9A2390545000632A05 /* Array+chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF20A972390545000632A05 /* Array+chunked.swift */; };
 		5CF78BD3238DF2330063CA13 /* CoffeeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */; };
 		5CF78BD5238DFC390063CA13 /* UserDataWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */; };
 		A2C7E26F11D67E33D09F631C /* Pods_CoffeeMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B82AD18B5B9220DD7C56DD0 /* Pods_CoffeeMaster.framework */; };
@@ -187,6 +191,10 @@
 		5CEEC7B8237EFBEF00E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5CF20A8E23904E6F00632A05 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		5CF20A922390531D00632A05 /* BrewGuideExpensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideExpensionViewController.swift; sourceTree = "<group>"; };
+		5CF20A952390545000632A05 /* GridStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
+		5CF20A962390545000632A05 /* GridCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCalculator.swift; sourceTree = "<group>"; };
+		5CF20A972390545000632A05 /* Array+chunked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+chunked.swift"; sourceTree = "<group>"; };
 		5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollection.swift; sourceTree = "<group>"; };
 		5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataWebDatabaseService.swift; sourceTree = "<group>"; };
 		821EFC7AC7A32631C287A14C /* Pods-CoffeeMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeMaster.release.xcconfig"; path = "Target Support Files/Pods-CoffeeMaster/Pods-CoffeeMaster.release.xcconfig"; sourceTree = "<group>"; };
@@ -250,6 +258,7 @@
 		5C3F465E2383093D001CC647 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5CF20A942390545000632A05 /* GridStack */,
 				5C02EB322387785A002A7A1E /* KeyboardGuard.swift */,
 				5CF20A8E23904E6F00632A05 /* ImagePicker.swift */,
 				5C3F465C23830933001CC647 /* MultiplineTextField.swift */,
@@ -308,6 +317,7 @@
 				5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */,
 				5C25798723837F5600976AE1 /* Localizable.stringsdict */,
 				5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */,
+				5CF20A91239052ED00632A05 /* Controllers */,
 				5CEEC7BD237F053700E3BDB0 /* Views */,
 				5CDA7728238B8C28002E0ED5 /* WebServices */,
 				5CEEC7BF237F056500E3BDB0 /* Model */,
@@ -419,6 +429,24 @@
 				5C5201C72389DB4F004F5736 /* String+isBlank.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		5CF20A91239052ED00632A05 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5CF20A922390531D00632A05 /* BrewGuideExpensionViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5CF20A942390545000632A05 /* GridStack */ = {
+			isa = PBXGroup;
+			children = (
+				5CF20A952390545000632A05 /* GridStack.swift */,
+				5CF20A962390545000632A05 /* GridCalculator.swift */,
+				5CF20A972390545000632A05 /* Array+chunked.swift */,
+			);
+			path = GridStack;
 			sourceTree = "<group>";
 		};
 		E6D90F2358469528377D09D9 /* Pods */ = {
@@ -613,11 +641,13 @@
 				5C02EB502388E5FA002A7A1E /* RecordViewWebService.swift in Sources */,
 				5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */,
 				5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */,
+				5CF20A932390531D00632A05 /* BrewGuideExpensionViewController.swift in Sources */,
 				5C3F466923831AF8001CC647 /* PostDetailView.swift in Sources */,
 				5C3F46582382D219001CC647 /* Record.swift in Sources */,
 				5CE63736238DA17D00C1DC49 /* BrewStepType.swift in Sources */,
 				5CE63738238DA1C600C1DC49 /* BrewToolsPicker.swift in Sources */,
 				5C8F6E7B2381BC080010EE0E /* WebDatabaseQueryService.swift in Sources */,
+				5CF20A992390545000632A05 /* GridCalculator.swift in Sources */,
 				5CDA7723238B7889002E0ED5 /* BrewTemperature.swift in Sources */,
 				5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */,
 				5C8F6E772381B5F70010EE0E /* State.swift in Sources */,
@@ -645,6 +675,7 @@
 				5C8F6E792381B6840010EE0E /* Post.swift in Sources */,
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
 				5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */,
+				5CF20A9A2390545000632A05 /* Array+chunked.swift in Sources */,
 				5CDA7721238B785F002E0ED5 /* BrewWeight.swift in Sources */,
 				5CE63742238DB6B100C1DC49 /* CoffeeTastingTraits.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
@@ -654,6 +685,7 @@
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
 				5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */,
 				5CE63740238DB69D00C1DC49 /* CoffeeRoasterType.swift in Sources */,
+				5CF20A982390545000632A05 /* GridStack.swift in Sources */,
 				5CE6373E238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
 				5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */,

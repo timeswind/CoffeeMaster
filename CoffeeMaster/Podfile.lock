@@ -165,6 +165,7 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
   - CodableFirebase (0.2.1)
+  - expanding-collection (3.1.0)
   - Firebase/Auth (6.13.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.4.0)
@@ -250,6 +251,7 @@ PODS:
 
 DEPENDENCIES:
   - CodableFirebase
+  - expanding-collection
   - Firebase/Auth
   - Firebase/Firestore
   - Mapbox-iOS-SDK (~> 5.5)
@@ -259,6 +261,7 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - CodableFirebase
+    - expanding-collection
     - Firebase
     - FirebaseAuth
     - FirebaseAuthInterop
@@ -280,6 +283,7 @@ SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
+  expanding-collection: 7eb1fc48c6ec5e00c8887fe46c595c31b81b578a
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   FirebaseAuth: 7d0f84873926f6648bbd1391a318dfb1a26b5e4f
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
@@ -297,6 +301,6 @@ SPEC CHECKSUMS:
   Mapbox-iOS-SDK: 7fa66a27e586acb14c7f32ec5a487343e3994451
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
 
-PODFILE CHECKSUM: 96d3818888df1c2dcd9fa37d700aeaa593f4530e
+PODFILE CHECKSUM: e439f9c92ce4b58666319972807c7796c6aadddc
 
 COCOAPODS: 1.8.4

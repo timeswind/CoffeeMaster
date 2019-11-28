@@ -10,6 +10,8 @@ target 'CoffeeMaster' do
   pod 'Firebase/Firestore'
   pod 'CodableFirebase'
   pod 'Mapbox-iOS-SDK', '~> 5.5'
+  pod 'expanding-collection'
+  
   target 'CoffeeMasterTests' do
     inherit! :search_paths
     # Pods for testing
