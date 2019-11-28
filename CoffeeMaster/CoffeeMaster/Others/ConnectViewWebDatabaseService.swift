@@ -18,7 +18,7 @@ extension WebDatabaseQueryService {
 
         let subject = PassthroughSubject<[Post], Error>()
         
-        postsRef.getDocuments(source: .default) { (querySnapshot, err) in
+        postsRef.order(by: "created_at", descending: true).getDocuments(source: .default) { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -42,8 +42,9 @@ extension WebDatabaseQueryService {
         var newDocRef: DocumentReference? = nil
         
         let subject = PassthroughSubject<Post?, Error>()
-        
-        let docData = try! FirestoreEncoder().encode(post)
+        var modifyPost = post
+        modifyPost.created_at = Timestamp()
+        let docData = try! FirestoreEncoder().encode(modifyPost)
         
         newDocRef = postsRef.addDocument(data: docData) { err in
             if let err = err {

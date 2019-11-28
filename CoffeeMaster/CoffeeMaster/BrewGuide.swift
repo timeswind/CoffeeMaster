@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class BrewGuide: Codable {
     var id: String?
@@ -15,6 +16,8 @@ class BrewGuide: Codable {
     var guideDescription: String = ""
     var isPublic: Bool = false
     var baseBrewMethod: BrewMethod!
+    var created_at: Timestamp?
+    
     private var brewStepGrindCoffee: BrewStepGrindCoffee?
     private var brewStepBoilWater: BrewStepBoilWater?
     private var brewSteps: [BrewStep] = []

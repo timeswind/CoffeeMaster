@@ -20,8 +20,7 @@ extension WebDatabaseQueryService {
 
         let subject = PassthroughSubject<[BrewGuide], Error>()
         
-        
-        brewGuidesRef.whereField("created_by_uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments(source: .default) { (querySnapshot, err) in
+        brewGuidesRef.whereField("created_by_uid", isEqualTo: Auth.auth().currentUser!.uid).order(by: "created_at", descending: true).getDocuments(source: .default) { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -43,6 +42,8 @@ extension WebDatabaseQueryService {
         var newDocRef: DocumentReference? = nil
         
         let subject = PassthroughSubject<BrewGuide?, Error>()
+        
+        brewGuide.created_at = Timestamp()
 
         let docData = try! FirestoreEncoder().encode(brewGuide)
 

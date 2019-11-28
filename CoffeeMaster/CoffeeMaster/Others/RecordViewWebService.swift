@@ -20,7 +20,7 @@ extension WebDatabaseQueryService {
         
         let subject = PassthroughSubject<[Record], Error>()
         
-        recordsRef.whereField("created_by_uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments(source: .default) { (querySnapshot, err) in
+        recordsRef.whereField("created_by_uid", isEqualTo: Auth.auth().currentUser!.uid).order(by: "created_at", descending: true).getDocuments(source: .default) { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -42,6 +42,8 @@ extension WebDatabaseQueryService {
         var newDocRef: DocumentReference? = nil
         
         let subject = PassthroughSubject<Record?, Error>()
+        var modifyRecord = record
+        modifyRecord.created_at = Timestamp()
         
         if (record.images.count > 0) {
             // upload images
@@ -61,7 +63,6 @@ extension WebDatabaseQueryService {
             }
             
             taskGroup.notify(queue: .main) {
-                var modifyRecord = record
                 modifyRecord.images_url = images_url
                 let docData = try! FirestoreEncoder().encode(modifyRecord)
                 
@@ -78,7 +79,7 @@ extension WebDatabaseQueryService {
             }
            
         } else {
-            let docData = try! FirestoreEncoder().encode(record)
+            let docData = try! FirestoreEncoder().encode(modifyRecord)
             
             newDocRef = recordsRef.addDocument(data: docData) { err in
                 if let err = err {
