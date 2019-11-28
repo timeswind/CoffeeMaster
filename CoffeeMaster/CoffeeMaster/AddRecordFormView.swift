@@ -15,16 +15,17 @@ struct AddRecordFormView: View {
     
     @State var showingImagePicker = false
     
-    @State var images : [Image] = []
+    @State var images : [UIImage] = []
     
     func record() {
         assert(store.state.settings.uid != nil)
-        let record = Record(title: recordTitle, body: recordBody, created_by_uid: store.state.settings.uid!)
+        var record = Record(title: recordTitle, body: recordBody, created_by_uid: store.state.settings.uid!)
+        record.images = self.images.map { $0.jpegData(compressionQuality: 80)! }
         store.send(RecordViewAsyncAction.addRecord(record: record))
         self.exit()
     }
     
-    func addImage(image: Image) {
+    func addImage(image: UIImage) {
         // Only allow maxium 9 images
         if (self.images.count < 9) {
             self.images.append(image)
@@ -60,7 +61,7 @@ struct AddRecordFormView: View {
                 }
                 
                 GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
-                    self.images[index]
+                    Image(uiImage: self.images[index])
                         .resizable()
                         .frame(width: cellWidth, height: cellWidth)
                         .onTapGesture {

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UIKit
 import Combine
 
 final class ImagePicker : ObservableObject {
@@ -15,9 +16,9 @@ final class ImagePicker : ObservableObject {
     let view = ImagePicker.View()
     let coordinator = ImagePicker.Coordinator()
     
-    let willChange = PassthroughSubject<Image?, Never>()
+    let willChange = PassthroughSubject<UIImage?, Never>()
     
-    @Published var image: Image? = nil {
+    @Published var image: UIImage? = nil {
         didSet {
             if image != nil {
                 willChange.send(image)
@@ -31,7 +32,7 @@ extension ImagePicker {
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             let uiImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-            ImagePicker.shared.image = Image(uiImage: uiImage)
+            ImagePicker.shared.image = uiImage
             picker.dismiss(animated:true)
         }
         
