@@ -78,6 +78,7 @@
 		5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8457E23836B950086EFC8 /* BrewMethod.swift */; };
 		5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */; };
 		5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */; };
+		5CF20A8F23904E6F00632A05 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF20A8E23904E6F00632A05 /* ImagePicker.swift */; };
 		5CF78BD3238DF2330063CA13 /* CoffeeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */; };
 		5CF78BD5238DFC390063CA13 /* UserDataWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */; };
 		A2C7E26F11D67E33D09F631C /* Pods_CoffeeMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B82AD18B5B9220DD7C56DD0 /* Pods_CoffeeMaster.framework */; };
@@ -185,6 +186,7 @@
 		5CEEC7B6237EFBEA00E3BDB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5CEEC7B8237EFBEF00E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5CF20A8E23904E6F00632A05 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollection.swift; sourceTree = "<group>"; };
 		5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataWebDatabaseService.swift; sourceTree = "<group>"; };
 		821EFC7AC7A32631C287A14C /* Pods-CoffeeMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeMaster.release.xcconfig"; path = "Target Support Files/Pods-CoffeeMaster/Pods-CoffeeMaster.release.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				5C02EB322387785A002A7A1E /* KeyboardGuard.swift */,
+				5CF20A8E23904E6F00632A05 /* ImagePicker.swift */,
 				5C3F465C23830933001CC647 /* MultiplineTextField.swift */,
 				5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */,
 				5C02EB30238713B7002A7A1E /* DecimalTextField.swift */,
@@ -647,6 +650,7 @@
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
 				5CF78BD3238DF2330063CA13 /* CoffeeCollection.swift in Sources */,
 				5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */,
+				5CF20A8F23904E6F00632A05 /* ImagePicker.swift in Sources */,
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
 				5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */,
 				5CE63740238DB69D00C1DC49 /* CoffeeRoasterType.swift in Sources */,

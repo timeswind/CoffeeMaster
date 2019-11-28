@@ -12,19 +12,20 @@ struct AddRecordFormView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State private var recordTitle: String = ""
     @State private var recordBody: String = ""
-    @State private var recordAllowComment: Bool = true
+    
+    @State var showingImagePicker = false
+    @State var image : Image? = nil
     
     func record() {
         assert(store.state.settings.uid != nil)
         let record = Record(title: recordTitle, body: recordBody, created_by_uid: store.state.settings.uid!)
-        
         store.send(RecordViewAsyncAction.addRecord(record: record))
         self.exit()
     }
     
-//    func dismissSelf() {
-//        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: false)))
-//    }
+    //    func dismissSelf() {
+    //        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: false)))
+    //    }
     
     func exit() {
         UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
@@ -37,18 +38,39 @@ struct AddRecordFormView: View {
                 MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {
                     print("Final text: \(self.recordBody)")
                 })
-                Spacer()
-            }.padding(20)
-                .navigationBarTitle(Text(LocalizedStringKey("NewRecord")))
-                .navigationBarItems(leading:
-                    Button(action: {self.exit()}) {
-                        Text(LocalizedStringKey("Dismiss"))
-                    }
-                    ,trailing: Button(action: {self.record()}) {
-                        Text(LocalizedStringKey("NewRecordRecordAction"))
-                    }
-            )
-        }.accentColor(Color(UIColor.Theme.Accent))
-        
-    }
+                
+                Button("Show image picker") {
+                  self.showingImagePicker = true
+                }
+                
+                image?
+                    .resizable()
+                    .frame(width: 200)
+
+            
+            Spacer()
+        }.sheet(isPresented: $showingImagePicker,
+                onDismiss: {
+                    // do whatever you need here
+                    // if ImagePicker.shared.image != nil {
+                    //    shownNextScreen = true
+                    // }
+        }, content: {
+            ImagePicker.shared.view
+        }).onReceive(ImagePicker.shared.$image) { image in
+            self.image = image
+        }
+            .padding(20)
+            .navigationBarTitle(Text(LocalizedStringKey("NewRecord")))
+            .navigationBarItems(leading:
+                Button(action: {self.exit()}) {
+                    Text(LocalizedStringKey("Dismiss"))
+                }
+                ,trailing: Button(action: {self.record()}) {
+                    Text(LocalizedStringKey("NewRecordRecordAction"))
+                }
+        )
+    }.accentColor(Color(UIColor.Theme.Accent))
+    
+}
 }

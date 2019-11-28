@@ -11,6 +11,8 @@ import SwiftUI
 struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State var isAddRecordFormPresented: Bool = false
+
+    
     private func fetch() {
         store.send(RecordViewAsyncAction.getMyRecords(query: ""))
     }
@@ -50,9 +52,10 @@ struct RecordListView: View {
         let records = store.state.recordViewState.records
 
         return ScrollView(.vertical, showsIndicators: false) {
-            Picker(selection: $viewSegment, label: Text("What is your favorite color?")) {
+            Picker(selection: $viewSegment, label: Text("RecordViewSegmentLabel")) {
                 Text("Note").tag(0)
                 Text("Collection").tag(1)
+                Text("Tasting").tag(2)
             }.pickerStyle(SegmentedPickerStyle()).padding(.horizontal)
             
             if (viewSegment == 0) {
@@ -65,8 +68,10 @@ struct RecordListView: View {
                 } else {
                     EmptyView()
                 }
-            } else {
+            } else if (viewSegment == 1) {
                 Text("CoffeeCollectionView")
+            } else {
+                Text("Tasting View")
             }
         }
     }
