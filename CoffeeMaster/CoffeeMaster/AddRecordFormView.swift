@@ -14,7 +14,8 @@ struct AddRecordFormView: View {
     @State private var recordBody: String = ""
     
     @State var showingImagePicker = false
-    @State var image : Image? = nil
+    
+    @State var images : [Image] = []
     
     func record() {
         assert(store.state.settings.uid != nil)
@@ -23,11 +24,23 @@ struct AddRecordFormView: View {
         self.exit()
     }
     
+    func addImage(image: Image) {
+        // Only allow maxium 9 images
+        if (self.images.count < 9) {
+            self.images.append(image)
+        }
+    }
+    
+    func removeImage(at Index: Int) {
+        self.images.remove(at: Index)
+    }
+    
     //    func dismissSelf() {
     //        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: false)))
     //    }
     
     func exit() {
+        self.images = []
         UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
     }
     
@@ -39,27 +52,36 @@ struct AddRecordFormView: View {
                     print("Final text: \(self.recordBody)")
                 })
                 
-                Button("Show image picker") {
-                  self.showingImagePicker = true
+                if (self.images.count < 9) {
+                    
+                    Button("Show image picker") {
+                        self.showingImagePicker = true
+                    }
                 }
                 
-                image?
-                    .resizable()
-                    .frame(width: 200)
-
-            
-            Spacer()
-        }.sheet(isPresented: $showingImagePicker,
-                onDismiss: {
-                    // do whatever you need here
-                    // if ImagePicker.shared.image != nil {
-                    //    shownNextScreen = true
-                    // }
-        }, content: {
-            ImagePicker.shared.view
-        }).onReceive(ImagePicker.shared.$image) { image in
-            self.image = image
-        }
+                GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
+                    self.images[index]
+                        .resizable()
+                        .frame(width: cellWidth, height: cellWidth)
+                        .onTapGesture {
+                            self.removeImage(at: index)
+                    }
+                }
+                
+                Spacer()
+            }.sheet(isPresented: $showingImagePicker,
+                    onDismiss: {
+                        // do whatever you need here
+                        // if ImagePicker.shared.image != nil {
+                        //    shownNextScreen = true
+                        // }
+            }, content: {
+                ImagePicker.shared.view
+            }).onReceive(ImagePicker.shared.$image) { image in
+                if (image != nil) {
+                    self.addImage(image: image!)
+                }
+            }
             .padding(20)
             .navigationBarTitle(Text(LocalizedStringKey("NewRecord")))
             .navigationBarItems(leading:
@@ -69,8 +91,8 @@ struct AddRecordFormView: View {
                 ,trailing: Button(action: {self.record()}) {
                     Text(LocalizedStringKey("NewRecordRecordAction"))
                 }
-        )
-    }.accentColor(Color(UIColor.Theme.Accent))
-    
-}
+            )
+        }.accentColor(Color(UIColor.Theme.Accent))
+        
+    }
 }

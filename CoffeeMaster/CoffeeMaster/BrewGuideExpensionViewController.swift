@@ -8,27 +8,29 @@
 
 import UIKit
 import expanding_collection
+import SwiftUI
 
-class BrewGuideExpensionViewController: ExpandingViewController {
+class BrewGuideExpensionViewController: UIViewController {
+    var brewGuides: [BrewGuide] = []
+    
+    convenience init( brewGuides: [BrewGuide] ) {
+        self.init()
+        
+        self.brewGuides = brewGuides
+    }
+}
 
-    override func viewDidLoad() {
-        itemSize = CGSize(width: 214, height: 460) //IMPORTANT!!! Height of open state cell
-        super.viewDidLoad()
-
-        // register cell
-        let nib = UINib(nibName: "NibName", bundle: nil)
-        collectionView?.register(nib, forCellWithReuseIdentifier: "CellIdentifier")
+struct BrewGuideExpensionViewView: UIViewControllerRepresentable {
+    @Binding var brewGuides: [BrewGuide]
+    
+    func makeUIViewController(context: Context) -> BrewGuideExpensionViewController {
+        let vc = BrewGuideExpensionViewController(brewGuides: brewGuides)
+        return vc
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateUIViewController(_ uiViewController: BrewGuideExpensionViewController, context: Context) {
+        //
     }
-    */
-
 }
+
+
