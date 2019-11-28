@@ -12,7 +12,6 @@ import Combine
 import FirebaseFirestore
 import FirebaseAuth
 import CodableFirebase
-import FirebaseStorage
 
 extension WebDatabaseQueryService {
     // record
@@ -39,43 +38,62 @@ extension WebDatabaseQueryService {
     }
     
     func addRecord(record: Record)  -> AnyPublisher<Record?, Error> {
-        if (record.images.count > 0) {
-            // upload images
-        }
-        
         let recordsRef = db.collection("records")
         var newDocRef: DocumentReference? = nil
         
         let subject = PassthroughSubject<Record?, Error>()
         
-        let docData = try! FirestoreEncoder().encode(record)
-        
-        newDocRef = recordsRef.addDocument(data: docData) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-                subject.send(nil)
-            } else {
-                var newrecord = record
-                newrecord.id = newDocRef!.documentID
-                subject.send(newrecord)
+        if (record.images.count > 0) {
+            // upload images
+            let taskGroup = DispatchGroup()
+            var images_url: [String] = []
+            
+            for _ in record.images {
+                images_url.append("")
             }
-        }
-        return subject.eraseToAnyPublisher()
-    }
-    
-    func uploadMedia(image: Data, folder: String, completion: @escaping (_ url: String?) -> Void) {
-        let storageRef = Storage.storage().reference().child("\(folder)/\(UUID.init().uuidString)")
-        storageRef.putData(image, metadata: nil) { (metadata, error) in
-            guard let _ = metadata else {
-                return
-            }
-            storageRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                    return
+            
+            for (index, image) in record.images.enumerated()  {
+                taskGroup.enter()
+                self.uploadMedia(image: image, folder: "record_images", extention: ".jpg") { (url) in
+                    images_url[index] = url!
+                    taskGroup.leave()
                 }
-                completion(downloadURL.absoluteString)
+            }
+            
+            taskGroup.notify(queue: .main) {
+                var modifyRecord = record
+                modifyRecord.images_url = images_url
+                let docData = try! FirestoreEncoder().encode(modifyRecord)
+                
+                newDocRef = recordsRef.addDocument(data: docData) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                        subject.send(nil)
+                    } else {
+                        var newrecord = record
+                        newrecord.id = newDocRef!.documentID
+                        subject.send(newrecord)
+                    }
+                }
+            }
+           
+        } else {
+            let docData = try! FirestoreEncoder().encode(record)
+            
+            newDocRef = recordsRef.addDocument(data: docData) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    subject.send(nil)
+                } else {
+                    var newrecord = record
+                    newrecord.id = newDocRef!.documentID
+                    subject.send(newrecord)
+                }
             }
         }
+        
+        return subject.eraseToAnyPublisher()
+
     }
     
 }
