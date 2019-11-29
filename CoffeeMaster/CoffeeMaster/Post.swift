@@ -24,6 +24,25 @@ struct Post:Codable, Identifiable {
     var brewGuide: BrewGuide?
     var record: Record?
     
+    var images_url: [String]?
+    
+    // not include in coding and decoding
+    var images: [Data] = []
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case body
+        case created_at
+        case updated_at
+        case created_by_uid
+        case allow_comment
+        case likes
+        case brewGuide
+        case record
+        case images_url
+    }
+    
     init(title: String, body: String, created_by_uid: String, allow_comment: Bool) {
         self.title = title
         self.body = body

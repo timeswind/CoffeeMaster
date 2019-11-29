@@ -18,6 +18,7 @@
 		5C02EB352387A97B002A7A1E /* AddBrewStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB342387A97B002A7A1E /* AddBrewStepView.swift */; };
 		5C02EB372388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */; };
 		5C02EB502388E5FA002A7A1E /* RecordViewWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */; };
+		5C0C26992391D58A00F27180 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C26982391D58A00F27180 /* NoteDetailView.swift */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* BrewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* BrewStep.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
@@ -124,6 +125,7 @@
 		5C02EB342387A97B002A7A1E /* AddBrewStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBrewStepView.swift; sourceTree = "<group>"; };
 		5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewWebDatabaseService.swift; sourceTree = "<group>"; };
 		5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewWebService.swift; sourceTree = "<group>"; };
+		5C0C26982391D58A00F27180 /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
 		5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideDetailView.swift; sourceTree = "<group>"; };
 		5C25798123837BA200976AE1 /* BrewStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStep.swift; sourceTree = "<group>"; };
 		5C25798623837F5600976AE1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8F6E742381B0420010EE0E /* RecordView.swift */,
+				5C0C26982391D58A00F27180 /* NoteDetailView.swift */,
 				5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */,
 				5C3F465A23830903001CC647 /* AddRecordFormView.swift */,
 			);
@@ -671,6 +674,7 @@
 				5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */,
 				5C80C96923745F2600996D91 /* CoffeeMaster.xcdatamodeld in Sources */,
 				5C8F6E752381B0420010EE0E /* RecordView.swift in Sources */,
+				5C0C26992391D58A00F27180 /* NoteDetailView.swift in Sources */,
 				5C02EB372388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift in Sources */,
 				5C8F6E792381B6840010EE0E /* Post.swift in Sources */,
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
