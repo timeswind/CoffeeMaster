@@ -11,7 +11,7 @@ import URLImage
 
 struct PostDetailView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-
+    @State var my_comments: [Comment] = []
     var post: Post!
     @State var newComment:String = ""
     
@@ -23,17 +23,31 @@ struct PostDetailView: View {
     }
     
     func postComment() {
-        var comment = Comment(body: self.newComment, created_by_uid: store.state.settings.uid!)
-        let newCommentAction: ConnectViewAsyncAction = .postComment(comment: comment)
-        store.send(newCommentAction)
+        if let postid = self.post.id {
+            var comment = Comment(body: self.newComment, created_by_uid: store.state.settings.uid!)
+            comment.post_id = postid
+            let newCommentAction: ConnectViewAsyncAction = .postComment(comment: comment)
+            store.send(newCommentAction)
+        }
+    }
+    
+    func voidCall() {
+        
     }
     
     var body: some View {
         let hasImage = post.images_url != nil && post.images_url!.count > 0
         let author_name = post.author_name ?? post.created_by_uid
         
-        let comments = post.comments
-
+        let comments = Binding<[Comment]>(
+            get: {
+                return self.store.state.connectViewState.comments[self.post.id!] ?? []
+        },
+            set: {
+                self.my_comments = $0
+        }
+        )
+        
         return ScrollView(.vertical, showsIndicators: true) {
             VStack(alignment: .leading) {
                 if (hasImage) {
@@ -41,11 +55,9 @@ struct PostDetailView: View {
                         ProgressView($0) { progress in
                             ZStack {
                                 if progress > 0.0 {
-                                    // The download has started. CircleProgressView displays the progress.
                                     CircleProgressView(progress).stroke(lineWidth: 8.0)
                                 }
                                 else {
-                                    // The download has not yet started. CircleActivityView is animated activity indicator that suits this case.
                                     CircleActivityView().stroke(lineWidth: 50.0)
                                 }
                             }
@@ -82,13 +94,11 @@ struct PostDetailView: View {
                 }
                 
                 Text(LocalizedStringKey("Comments")).font(.title).fontWeight(.bold).padding(.top)
-                MultilineTextField(LocalizedStringKey("NewCommentBody"), text: $newComment, onCommit: {
+                MultilineTextField(LocalizedStringKey("NewCommentBody"), text: $newComment)
+                Button(LocalizedStringKey("PostComment")) {
                     self.postComment()
-                })
-                
-                if (comments.count > 0) {
-                    PostCommentsListView(comments: comments)
                 }
+                PostCommentsListView(comments: comments)
             }.padding(.init(top: 100, leading: 16, bottom: 0, trailing: 16))
         }.edgesIgnoringSafeArea(.top).onAppear {
             self.fetchComments()
@@ -97,15 +107,17 @@ struct PostDetailView: View {
 }
 
 struct PostCommentsListView: View {
-    @State var comments: [Comment] = []
+    @Binding var comments: [Comment]
     
     var body: some View {
+        print("comments refresh")
+        print(comments)
         return VStack {
             ForEach(self.comments, id: \.id) { comment in
                 Text(comment.body)
             }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
         }
-
+        
     }
 }
 

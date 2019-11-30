@@ -28,7 +28,6 @@ struct Post:Codable, Identifiable {
     var images_url: [String]?
     
     // not include in coding and decoding
-    var comments: [Comment] = []
     var images: [Data] = []
     
     enum CodingKeys: String, CodingKey {

@@ -32,18 +32,15 @@ struct ConnectViewReducer {
             state.composing_post = nil
             state.posts.insert(post, at: 0)
         case let .setComments(postid, comments):
-            for (index, post) in state.posts.enumerated() {
-                if (post.id == postid) {
-                    state.posts[index].comments = comments
-                    break
-                }
-            }
+            state.comments[postid] = comments
         case let .newComment(comment):
-            for (index, post) in state.posts.enumerated() {
-                if (post.id == comment.post_id) {
-                    state.posts[index].comments.insert(comment, at: 0)
-                    break
-                }
+
+            if let comments = state.comments[comment.post_id] {
+                var newComments: [Comment] = [comment]
+                newComments.append(contentsOf: comments)
+                state.comments[comment.post_id] = newComments
+            } else {
+                state.comments[comment.post_id] = [comment]
             }
         }
     }

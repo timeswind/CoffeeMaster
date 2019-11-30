@@ -28,6 +28,7 @@ struct SettingsState {
 
 struct ConnectViewState {
     var posts: [Post] = []
+    var comments: [String: [Comment]] = [:]
     var composing_post: Post?
     var newPostFormPresented: Bool = false
 }
