@@ -11,7 +11,6 @@ import SwiftUI
 struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State var isAddRecordFormPresented: Bool = false
-
     
     private func fetch() {
         store.send(RecordViewAsyncAction.getMyRecords(query: ""))

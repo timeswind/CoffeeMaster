@@ -44,6 +44,42 @@ extension WebDatabaseQueryService {
         let subject = PassthroughSubject<Post?, Error>()
         var modifyPost = post
         modifyPost.created_at = Timestamp()
+        
+        if (post.images.count > 0) {
+            let taskGroup = DispatchGroup()
+            var images_url: [String] = []
+            
+            for _ in post.images {
+                images_url.append("")
+            }
+            
+            for (index, image) in post.images.enumerated()  {
+                taskGroup.enter()
+                self.uploadMedia(image: image, folder: "post_images", extention: ".jpg") { (url) in
+                    images_url[index] = url!
+                    taskGroup.leave()
+                }
+            }
+            
+            taskGroup.notify(queue: .main) {
+                modifyPost.images_url = images_url
+                let docData = try! FirestoreEncoder().encode(modifyPost)
+                
+                newDocRef = postsRef.addDocument(data: docData) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                        subject.send(nil)
+                    } else {
+                        var newpost = post
+                        newpost.id = newDocRef!.documentID
+                        subject.send(newpost)
+                    }
+                }
+            }
+           
+        }
+        
+        
         let docData = try! FirestoreEncoder().encode(modifyPost)
         
         newDocRef = postsRef.addDocument(data: docData) { err in
