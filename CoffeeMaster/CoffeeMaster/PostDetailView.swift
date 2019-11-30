@@ -110,13 +110,31 @@ struct PostCommentsListView: View {
     @Binding var comments: [Comment]
     
     var body: some View {
-        print("comments refresh")
-        print(comments)
-        return VStack {
+        return VStack(alignment: .leading) {
             ForEach(self.comments, id: \.id) { comment in
-                Text(comment.body)
+                VStack(alignment: .leading) {
+                    HStack(alignment: .center) {
+                        URLImage(URL(string: "https://via.placeholder.com/100")!, content: {
+                            $0.image.resizable()
+                                .scaledToFill()
+                                .border(Color(white: 0.75))
+                        }).frame(width: 40, height: 40).clipShape(Circle())
+                        Text(comment.author_name ?? "User").foregroundColor(.gray).font(.callout)
+                        Spacer()
+                    }
+                    Text(comment.body).font(.body).padding(.top)
+                    
+                    HStack {
+                        Spacer()
+                        Text(Utilities.convertTimestamp(date: comment.created_at!.dateValue())).font(.footnote).foregroundColor(.gray)
+                    }
+
+                }.padding(.all).overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
+                )
             }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
-        }
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         
     }
 }

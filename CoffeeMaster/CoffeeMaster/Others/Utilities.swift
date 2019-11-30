@@ -69,4 +69,12 @@ class Utilities: NSObject {
     static func FahrenheitToCelsius(fahrenheit: Double) -> Double {
         return (fahrenheit - 32) / (9/5)
     }
+    
+    static func convertTimestamp(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+
+        return formatter.string(from: date as Date)
+    }
 }
