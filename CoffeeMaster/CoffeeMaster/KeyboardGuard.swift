@@ -9,6 +9,12 @@
 import SwiftUI
 import Combine
 
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
 final class KeyboardResponder: ObservableObject {
     private var notificationCenter: NotificationCenter
     @Published private(set) var currentHeight: CGFloat = 0

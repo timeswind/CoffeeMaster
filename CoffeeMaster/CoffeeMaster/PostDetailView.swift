@@ -11,6 +11,8 @@ import URLImage
 
 struct PostDetailView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @EnvironmentObject var keyboard: KeyboardResponder
+
     @State var my_comments: [Comment] = []
     var post: Post!
     @State var newComment:String = ""
@@ -28,6 +30,8 @@ struct PostDetailView: View {
             comment.post_id = postid
             let newCommentAction: ConnectViewAsyncAction = .postComment(comment: comment)
             store.send(newCommentAction)
+            self.newComment = ""
+            UIApplication.shared.endEditing()
         }
     }
     
@@ -85,6 +89,7 @@ struct PostDetailView: View {
                             .foregroundColor(.secondary)
                         
                         Text(post.body)
+                            .padding(.top)
                             .font(.body)
                             .foregroundColor(.black)
                     }
@@ -120,7 +125,7 @@ struct PostDetailView: View {
                 
                 PostCommentsListView(comments: comments)
             }.padding(.init(top: 100, leading: 16, bottom: 0, trailing: 16))
-        }.edgesIgnoringSafeArea(.top).onAppear {
+        }.padding(.bottom, keyboard.currentHeight).edgesIgnoringSafeArea(.top).onAppear {
             self.fetchComments()
         }
     }
