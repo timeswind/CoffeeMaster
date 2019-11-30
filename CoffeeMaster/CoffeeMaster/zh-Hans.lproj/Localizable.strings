@@ -23,6 +23,9 @@
 "NewPostBody" = "内容";
 "NewPostAllowComment" = "允许评论";
 "NewPostPostAction" = "发表";
+"NewCommentBody" = "撰写评论";
+"PostComment" = "发出";
+
 /*Settings View*/
 "ChooseLanguage"="选择语言";
 "Done" = "完成";

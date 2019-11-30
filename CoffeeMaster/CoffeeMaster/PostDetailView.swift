@@ -94,10 +94,30 @@ struct PostDetailView: View {
                 }
                 
                 Text(LocalizedStringKey("Comments")).font(.title).fontWeight(.bold).padding(.top)
-                MultilineTextField(LocalizedStringKey("NewCommentBody"), text: $newComment)
-                Button(LocalizedStringKey("PostComment")) {
-                    self.postComment()
+                TextField(LocalizedStringKey("NewCommentBody"), text: $newComment).padding(.bottom)
+                
+                if (!self.newComment.isEmpty) {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            self.postComment()
+                        }) {
+                            HStack {
+                                //                            Image(systemName: "trash")
+                                //                                .font(.title)
+                                Text(LocalizedStringKey("PostComment"))
+                                    .fontWeight(.bold)
+                                    .font(.body)
+                                    .padding(.all, 8)
+                                    .background(Color(UIColor.Theme.Accent))
+                                    .cornerRadius(5)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }.padding(.bottom)
+                    
                 }
+                
                 PostCommentsListView(comments: comments)
             }.padding(.init(top: 100, leading: 16, bottom: 0, trailing: 16))
         }.edgesIgnoringSafeArea(.top).onAppear {
@@ -128,7 +148,7 @@ struct PostCommentsListView: View {
                         Spacer()
                         Text(Utilities.convertTimestamp(date: comment.created_at!.dateValue())).font(.footnote).foregroundColor(.gray)
                     }
-
+                    
                 }.padding(.all).overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
