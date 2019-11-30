@@ -89,9 +89,24 @@ struct PostDetailView: View {
                             .foregroundColor(.secondary)
                         
                         Text(post.body)
-                            .padding(.top)
+                            .padding(.vertical)
                             .font(.body)
                             .foregroundColor(.black)
+                        
+                        if (post.images_url?.count != nil) {
+                            GridStack(minCellWidth: 100, spacing: 2, numItems: post.images_url!.count) { index, cellWidth in
+                                URLImage(URL(string: self.post.images_url![index])!, content: {
+                                    $0.image
+                                    .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                    .frame(width: cellWidth, height: cellWidth)
+                                })
+
+                            }
+                        }
+                        
+
+                        
                     }
                     .layoutPriority(100)
                     
