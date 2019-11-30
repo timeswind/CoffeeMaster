@@ -28,6 +28,7 @@ struct Post:Codable, Identifiable {
     var images_url: [String]?
     
     // not include in coding and decoding
+    var comments: [Comment] = []
     var images: [Data] = []
     
     enum CodingKeys: String, CodingKey {
@@ -58,9 +59,14 @@ struct Comment:Codable, Identifiable {
     var created_at: Timestamp?
     var created_by_uid: String!
     var author_name: String?
-    var likes: Int
+    var likes: Int = 0
     var post_id: String!
-    var annoymonous: Bool = false
+    var annoymonous: Bool? = false
+    
+    init(body: String, created_by_uid: String) {
+        self.body = body
+        self.created_by_uid = created_by_uid
+    }
 }
 
 //func convertTimestamp(serverTimestamp: Double) -> String {

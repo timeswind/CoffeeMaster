@@ -37,12 +37,12 @@ extension WebDatabaseQueryService {
         return subject.eraseToAnyPublisher()
     }
     
-    func getComment(forPost id: String) -> AnyPublisher<[Comment], Error> {
+    func getComments(forPost id: String) -> AnyPublisher<[Comment], Error> {
         let commentsRef = db.collection("comments")
         
         let subject = PassthroughSubject<[Comment], Error>()
         
-        commentsRef.order(by: "created_at", descending: true).getDocuments(source: .default) { (querySnapshot, err) in
+        commentsRef.whereField("post_id", isEqualTo: id).order(by: "created_at", descending: true).getDocuments(source: .default) { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -78,7 +78,7 @@ extension WebDatabaseQueryService {
                 subject.send(nil)
             } else {
                 var newcomment = modifyComment
-                modifyComment.id = newDocRef!.documentID
+                newcomment.id = newDocRef!.documentID
                 subject.send(newcomment)
             }
         }

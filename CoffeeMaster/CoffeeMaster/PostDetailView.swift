@@ -10,20 +10,29 @@ import SwiftUI
 import URLImage
 
 struct PostDetailView: View {
+    @EnvironmentObject var store: Store<AppState, AppAction>
+
     var post: Post!
     @State var newComment:String = ""
     
     func fetchComments() {
-        
+        if let postid = self.post.id {
+            let fetchCommentAction: ConnectViewAsyncAction = .getComments(id: postid)
+            store.send(fetchCommentAction)
+        }
     }
     
     func postComment() {
-        let comment = self.newComment
+        var comment = Comment(body: self.newComment, created_by_uid: store.state.settings.uid!)
+        let newCommentAction: ConnectViewAsyncAction = .postComment(comment: comment)
+        store.send(newCommentAction)
     }
     
     var body: some View {
         let hasImage = post.images_url != nil && post.images_url!.count > 0
         let author_name = post.author_name ?? post.created_by_uid
+        
+        let comments = post.comments
 
         return ScrollView(.vertical, showsIndicators: true) {
             VStack(alignment: .leading) {
@@ -76,9 +85,27 @@ struct PostDetailView: View {
                 MultilineTextField(LocalizedStringKey("NewCommentBody"), text: $newComment, onCommit: {
                     self.postComment()
                 })
+                
+                if (comments.count > 0) {
+                    PostCommentsListView(comments: comments)
+                }
             }.padding(.init(top: 100, leading: 16, bottom: 0, trailing: 16))
         }.edgesIgnoringSafeArea(.top).onAppear {
             self.fetchComments()
         }
     }
 }
+
+struct PostCommentsListView: View {
+    @State var comments: [Comment] = []
+    
+    var body: some View {
+        return VStack {
+            ForEach(self.comments, id: \.id) { comment in
+                Text(comment.body)
+            }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+        }
+
+    }
+}
+
