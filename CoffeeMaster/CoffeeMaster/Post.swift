@@ -18,6 +18,7 @@ struct Post:Codable, Identifiable {
     var created_at: Timestamp?
     var updated_at: Timestamp?
     var created_by_uid: String
+    var author_name: String?
     var allow_comment: Bool?
     var likes: Int?
     

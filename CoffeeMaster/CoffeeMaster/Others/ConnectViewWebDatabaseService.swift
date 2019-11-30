@@ -44,6 +44,9 @@ extension WebDatabaseQueryService {
         let subject = PassthroughSubject<Post?, Error>()
         var modifyPost = post
         modifyPost.created_at = Timestamp()
+        if let author_name = Auth.auth().currentUser?.displayName {
+            modifyPost.author_name = author_name
+        }
         
         if (post.images.count > 0) {
             let taskGroup = DispatchGroup()

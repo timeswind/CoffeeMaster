@@ -18,6 +18,7 @@ struct PostCardView: View {
     
     var body: some View {
         let hasImage = post.images_url != nil && post.images_url!.count > 0
+        let author_name = post.author_name ?? post.created_by_uid
         return VStack {
             if (hasImage) {
                 URLImage(URL(string: post.images_url![0])!, placeholder: {
@@ -51,7 +52,7 @@ struct PostCardView: View {
                         .fontWeight(.black)
                         .foregroundColor(Color(UIColor.Theme.Accent))
                         .lineLimit(3)
-                    Text("Written by \(post.created_by_uid)".uppercased())
+                    Text("Written by \(author_name)".uppercased())
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
