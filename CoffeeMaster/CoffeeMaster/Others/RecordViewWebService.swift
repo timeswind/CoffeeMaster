@@ -71,7 +71,7 @@ extension WebDatabaseQueryService {
                         print("Error adding document: \(err)")
                         subject.send(nil)
                     } else {
-                        var newrecord = record
+                        var newrecord = modifyRecord
                         newrecord.id = newDocRef!.documentID
                         subject.send(newrecord)
                     }
@@ -86,7 +86,7 @@ extension WebDatabaseQueryService {
                     print("Error adding document: \(err)")
                     subject.send(nil)
                 } else {
-                    var newrecord = record
+                    var newrecord = modifyRecord
                     newrecord.id = newDocRef!.documentID
                     subject.send(newrecord)
                 }

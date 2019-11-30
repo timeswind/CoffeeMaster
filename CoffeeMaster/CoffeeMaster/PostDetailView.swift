@@ -11,6 +11,15 @@ import URLImage
 
 struct PostDetailView: View {
     var post: Post!
+    @State var newComment:String = ""
+    
+    func fetchComments() {
+        
+    }
+    
+    func postComment() {
+        let comment = self.newComment
+    }
     
     var body: some View {
         let hasImage = post.images_url != nil && post.images_url!.count > 0
@@ -64,7 +73,12 @@ struct PostDetailView: View {
                 }
                 
                 Text(LocalizedStringKey("Comments")).font(.title).fontWeight(.bold).padding(.top)
+                MultilineTextField(LocalizedStringKey("NewCommentBody"), text: $newComment, onCommit: {
+                    self.postComment()
+                })
             }.padding(.init(top: 100, leading: 16, bottom: 0, trailing: 16))
-        }.edgesIgnoringSafeArea(.top)
+        }.edgesIgnoringSafeArea(.top).onAppear {
+            self.fetchComments()
+        }
     }
 }

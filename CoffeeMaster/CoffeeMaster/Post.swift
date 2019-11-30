@@ -54,11 +54,13 @@ struct Post:Codable, Identifiable {
 
 struct Comment:Codable, Identifiable {
     var id: String?
-    var body: String
+    var body: String!
     var created_at: Timestamp?
-    var created_by_uid: String
+    var created_by_uid: String!
+    var author_name: String?
     var likes: Int
     var post_id: String!
+    var annoymonous: Bool = false
 }
 
 //func convertTimestamp(serverTimestamp: Double) -> String {

@@ -15,7 +15,7 @@ import CodableFirebase
 extension WebDatabaseQueryService {
     func getAllPosts(query: String) -> AnyPublisher<[Post], Error> {
         let postsRef = db.collection("posts")
-
+        
         let subject = PassthroughSubject<[Post], Error>()
         
         postsRef.order(by: "created_at", descending: true).getDocuments(source: .default) { (querySnapshot, err) in
@@ -31,7 +31,55 @@ extension WebDatabaseQueryService {
                 }
                 print(posts)
                 subject.send(posts)
-
+                
+            }
+        }
+        return subject.eraseToAnyPublisher()
+    }
+    
+    func getComment(forPost id: String) -> AnyPublisher<[Comment], Error> {
+        let commentsRef = db.collection("comments")
+        
+        let subject = PassthroughSubject<[Comment], Error>()
+        
+        commentsRef.order(by: "created_at", descending: true).getDocuments(source: .default) { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                var comments: [Comment] = []
+                for document in querySnapshot!.documents {
+                    var comment = try! FirestoreDecoder().decode(Comment.self, from: document.data())
+                    comment.id = document.documentID
+                    comments.append(comment)
+                }
+                print(comments)
+                subject.send(comments)
+            }
+        }
+        return subject.eraseToAnyPublisher()
+    }
+    
+    func postComment(comment: Comment) -> AnyPublisher<Comment?, Error> {
+        let commentsRef = db.collection("comments")
+        var newDocRef: DocumentReference? = nil
+        
+        let subject = PassthroughSubject<Comment?, Error>()
+        var modifyComment = comment
+        modifyComment.created_at = Timestamp()
+        if let author_name = Auth.auth().currentUser?.displayName {
+            modifyComment.author_name = author_name
+        }
+        
+        let docData = try! FirestoreEncoder().encode(modifyComment)
+        
+        newDocRef = commentsRef.addDocument(data: docData) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                subject.send(nil)
+            } else {
+                var newcomment = modifyComment
+                modifyComment.id = newDocRef!.documentID
+                subject.send(newcomment)
             }
         }
         return subject.eraseToAnyPublisher()
@@ -73,13 +121,13 @@ extension WebDatabaseQueryService {
                         print("Error adding document: \(err)")
                         subject.send(nil)
                     } else {
-                        var newpost = post
+                        var newpost = modifyPost
                         newpost.id = newDocRef!.documentID
                         subject.send(newpost)
                     }
                 }
             }
-           
+            
         }
         
         
@@ -90,7 +138,7 @@ extension WebDatabaseQueryService {
                 print("Error adding document: \(err)")
                 subject.send(nil)
             } else {
-                var newpost = post
+                var newpost = modifyPost
                 newpost.id = newDocRef!.documentID
                 subject.send(newpost)
             }
