@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		5C02EB372388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */; };
 		5C02EB502388E5FA002A7A1E /* RecordViewWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */; };
 		5C0C26992391D58A00F27180 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C26982391D58A00F27180 /* NoteDetailView.swift */; };
+		5C0C269C2391F18000F27180 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C0C269B2391F18000F27180 /* URLImage */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* BrewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* BrewStep.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
@@ -210,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C0C269C2391F18000F27180 /* URLImage in Frameworks */,
 				A2C7E26F11D67E33D09F631C /* Pods_CoffeeMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +484,9 @@
 			dependencies = (
 			);
 			name = CoffeeMaster;
+			packageProductDependencies = (
+				5C0C269B2391F18000F27180 /* URLImage */,
+			);
 			productName = CoffeeMaster;
 			productReference = 5C80C96023745F2600996D91 /* CoffeeMaster.app */;
 			productType = "com.apple.product-type.application";
@@ -534,6 +539,9 @@
 				"zh-Hans",
 			);
 			mainGroup = 5C80C95723745F2600996D91;
+			packageReferences = (
+				5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 5C80C96123745F2600996D91 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1042,6 +1050,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C0C269B2391F18000F27180 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5C80C96723745F2600996D91 /* CoffeeMaster.xcdatamodeld */ = {

@@ -7,16 +7,37 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct PostDetailView: View {
     var post: Post!
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
+        let hasImage = post.images_url != nil && post.images_url!.count > 0
+        
+        return ScrollView(.vertical, showsIndicators: true) {
             VStack(alignment: .leading) {
-                //                   Image("swiftui-button")
-                //                       .resizable()
-                //                       .aspectRatio(contentMode: .fit)
+                if (hasImage) {
+                    URLImage(URL(string: post.images_url![0])!, placeholder: {
+                        ProgressView($0) { progress in
+                            ZStack {
+                                if progress > 0.0 {
+                                    // The download has started. CircleProgressView displays the progress.
+                                    CircleProgressView(progress).stroke(lineWidth: 8.0)
+                                }
+                                else {
+                                    // The download has not yet started. CircleActivityView is animated activity indicator that suits this case.
+                                    CircleActivityView().stroke(lineWidth: 50.0)
+                                }
+                            }
+                        }
+                        .frame(width: 50.0, height: 50.0)
+                    }, content: {
+                        $0.image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    })
+                }
                 
                 HStack {
                     VStack(alignment: .leading) {
