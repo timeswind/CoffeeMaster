@@ -2,6 +2,33 @@
   "object": {
     "pins": [
       {
+        "package": "Grid",
+        "repositoryURL": "https://github.com/SwiftUIExtensions/Grid.git",
+        "state": {
+          "branch": null,
+          "revision": "15800a8b6a6dd5eb655315cf2ce26291903b894a",
+          "version": "0.7.2"
+        }
+      },
+      {
+        "package": "Shapes",
+        "repositoryURL": "https://github.com/SwiftUIExtensions/Shapes.git",
+        "state": {
+          "branch": null,
+          "revision": "4181f01df194e5ee0c5937cc567ec97d16ef7362",
+          "version": "0.0.6"
+        }
+      },
+      {
+        "package": "Sliders",
+        "repositoryURL": "https://github.com/SwiftUIExtensions/Sliders.git",
+        "state": {
+          "branch": null,
+          "revision": "9e1efd9bb8c961df8c462b0215bf360433e612d0",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "URLImage",
         "repositoryURL": "https://github.com/dmytro-anokhin/url-image.git",
         "state": {

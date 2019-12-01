@@ -26,6 +26,9 @@
 		5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */; };
 		5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */; };
 		5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA44237F385C0082CFBD /* EnvironmentService.swift */; };
+		5C3DDDD323935147001A3B4F /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD223935147001A3B4F /* Grid */; };
+		5C3DDDD623935187001A3B4F /* Shapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD523935187001A3B4F /* Shapes */; };
+		5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD8239351A1001A3B4F /* Sliders */; };
 		5C3F46582382D219001CC647 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F46572382D219001CC647 /* Record.swift */; };
 		5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465A23830903001CC647 /* AddRecordFormView.swift */; };
 		5C3F465D23830933001CC647 /* MultiplineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465C23830933001CC647 /* MultiplineTextField.swift */; };
@@ -211,7 +214,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */,
 				5C0C269C2391F18000F27180 /* URLImage in Frameworks */,
+				5C3DDDD323935147001A3B4F /* Grid in Frameworks */,
+				5C3DDDD623935187001A3B4F /* Shapes in Frameworks */,
 				A2C7E26F11D67E33D09F631C /* Pods_CoffeeMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +492,9 @@
 			name = CoffeeMaster;
 			packageProductDependencies = (
 				5C0C269B2391F18000F27180 /* URLImage */,
+				5C3DDDD223935147001A3B4F /* Grid */,
+				5C3DDDD523935187001A3B4F /* Shapes */,
+				5C3DDDD8239351A1001A3B4F /* Sliders */,
 			);
 			productName = CoffeeMaster;
 			productReference = 5C80C96023745F2600996D91 /* CoffeeMaster.app */;
@@ -541,6 +550,9 @@
 			mainGroup = 5C80C95723745F2600996D91;
 			packageReferences = (
 				5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */,
+				5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */,
+				5C3DDDD423935187001A3B4F /* XCRemoteSwiftPackageReference "Shapes" */,
+				5C3DDDD7239351A1001A3B4F /* XCRemoteSwiftPackageReference "Sliders" */,
 			);
 			productRefGroup = 5C80C96123745F2600996D91 /* Products */;
 			projectDirPath = "";
@@ -1064,6 +1076,30 @@
 				minimumVersion = 0.9.9;
 			};
 		};
+		5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIExtensions/Grid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.2;
+			};
+		};
+		5C3DDDD423935187001A3B4F /* XCRemoteSwiftPackageReference "Shapes" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIExtensions/Shapes.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.6;
+			};
+		};
+		5C3DDDD7239351A1001A3B4F /* XCRemoteSwiftPackageReference "Sliders" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIExtensions/Sliders.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1071,6 +1107,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
+		};
+		5C3DDDD223935147001A3B4F /* Grid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */;
+			productName = Grid;
+		};
+		5C3DDDD523935187001A3B4F /* Shapes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C3DDDD423935187001A3B4F /* XCRemoteSwiftPackageReference "Shapes" */;
+			productName = Shapes;
+		};
+		5C3DDDD8239351A1001A3B4F /* Sliders */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C3DDDD7239351A1001A3B4F /* XCRemoteSwiftPackageReference "Sliders" */;
+			productName = Sliders;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import URLImage
+import Grid
 
 struct PostDetailView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
@@ -53,7 +54,7 @@ struct PostDetailView: View {
         )
         
         return ScrollView(.vertical, showsIndicators: true) {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 10) {
                 if (hasImage) {
                     URLImage(URL(string: post.images_url![0])!, placeholder: {
                         ProgressView($0) { progress in
@@ -74,8 +75,8 @@ struct PostDetailView: View {
                     })
                 }
                 
-                HStack {
-                    VStack(alignment: .leading) {
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 10) {
                         Text("Tag")
                             .font(.headline)
                             .foregroundColor(.secondary)
@@ -94,26 +95,32 @@ struct PostDetailView: View {
                             .foregroundColor(.black)
                         
                         if (post.images_url?.count != nil) {
-                            GridStack(minCellWidth: 100, spacing: 2, numItems: post.images_url!.count) { index, cellWidth in
-                                URLImage(URL(string: self.post.images_url![index])!, content: {
+                            
+                            ForEach(0..<post.images_url!.count, id:\.self) { index in
+                                URLImage(URL(string: self.post.images_url![index])!, placeholder: {
+                                    ProgressView($0) { progress in
+                                        ZStack {
+                                            if progress > 0.0 {
+                                                CircleProgressView(progress).stroke(lineWidth: 8.0)
+                                            }
+                                            else {
+                                                CircleActivityView().stroke(lineWidth: 50.0)
+                                            }
+                                        }
+                                    }
+                                    .frame(width: 50.0, height: 50.0)
+                                }, content: {
                                     $0.image
-                                    .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                    .frame(width: cellWidth, height: cellWidth)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
                                 })
-
                             }
-                        }
-                        
 
-                        
+                        }
                     }
-                    .layoutPriority(100)
-                    
-                    Spacer()
                 }
                 
-                Text(LocalizedStringKey("Comments")).font(.title).fontWeight(.bold).padding(.top)
+                Text(LocalizedStringKey("Comments")).font(.title).fontWeight(.bold).padding(.top, 10)
                 TextField(LocalizedStringKey("NewCommentBody"), text: $newComment).padding(.bottom)
                 
                 if (!self.newComment.isEmpty) {
@@ -135,9 +142,7 @@ struct PostDetailView: View {
                             }
                         }
                     }.padding(.bottom)
-                    
                 }
-                
                 PostCommentsListView(comments: comments)
             }.padding(.init(top: 100, leading: 16, bottom: 0, trailing: 16))
         }.padding(.bottom, keyboard.currentHeight).edgesIgnoringSafeArea(.top).onAppear {
