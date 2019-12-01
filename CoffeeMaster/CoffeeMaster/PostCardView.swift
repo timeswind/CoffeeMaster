@@ -16,6 +16,10 @@ struct PostCardView: View {
         self.post = post
     }
     
+    func likePost() {
+        
+    }
+    
     var body: some View {
         let hasImage = post.images_url != nil && post.images_url!.count > 0
         let author_name = post.author_name ?? post.created_by_uid
@@ -61,6 +65,25 @@ struct PostCardView: View {
                 Spacer()
             }
             .padding()
+            HStack {
+                HStack(alignment: .center, spacing: 0) {
+                    Spacer()
+
+                    Image("community-icon-select-100").saturation(0).contrast(0.5)
+                    Text("Comments#").font(.body).foregroundColor(Color.gray)
+                    Spacer()
+
+                }.padding()
+                Spacer()
+                Button(action: {self.likePost()}) {
+                    HStack(alignment: .center, spacing: 0) {
+                        Spacer()
+                        Image("espresso-cup-outline")
+                        Text("Likes#").font(.body)
+                        Spacer()
+                    }.padding()
+                }.accentColor(Color.gray)
+            }
         }
         .cornerRadius(10)
         .overlay(

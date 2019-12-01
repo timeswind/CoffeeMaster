@@ -40,6 +40,10 @@ struct PostDetailView: View {
         
     }
     
+    func likePost() {
+        
+    }
+    
     var body: some View {
         let hasImage = post.images_url != nil && post.images_url!.count > 0
         let author_name = post.author_name ?? post.created_by_uid
@@ -52,6 +56,8 @@ struct PostDetailView: View {
                 self.my_comments = $0
         }
         )
+        
+        
         
         return ScrollView(.vertical, showsIndicators: true) {
             VStack(alignment: .leading, spacing: 10) {
@@ -145,7 +151,13 @@ struct PostDetailView: View {
                 }
                 PostCommentsListView(comments: comments)
             }.padding(.init(top: 100, leading: 16, bottom: 0, trailing: 16))
-        }.padding(.bottom, keyboard.currentHeight).edgesIgnoringSafeArea(.top).onAppear {
+        }.padding(.bottom, keyboard.currentHeight).navigationBarItems(
+            trailing:
+            Button(action: {self.likePost()}) {
+                Image("espresso-cup-outline")
+        })
+            .edgesIgnoringSafeArea(.top)
+            .onAppear {
             self.fetchComments()
         }
     }
