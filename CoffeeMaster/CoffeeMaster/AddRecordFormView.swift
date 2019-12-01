@@ -14,8 +14,9 @@ struct AddRecordFormView: View {
     @State private var recordBody: String = ""
     
     @State var showingImagePicker = false
-    
     @State var images : [UIImage] = []
+    
+    @State var addCoffeeCollection = false
     
     func record() {
         assert(store.state.settings.uid != nil)
@@ -47,7 +48,7 @@ struct AddRecordFormView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
+            ScrollView(.vertical) {
                 TextField(LocalizedStringKey("NewRecordTitle"), text: $recordTitle)
                 MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {
                     print("Final text: \(self.recordBody)")
@@ -60,13 +61,34 @@ struct AddRecordFormView: View {
                     }
                 }
                 
-                GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
-                    Image(uiImage: self.images[index])
-                        .resizable()
-                        .frame(width: cellWidth, height: cellWidth)
-                        .onTapGesture {
-                            self.removeImage(at: index)
+                ZStack {
+                    GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
+                        Image(uiImage: self.images[index])
+                            .resizable()
+                            .frame(width: cellWidth, height: cellWidth)
+                            .onTapGesture {
+                                self.removeImage(at: index)
+                        }
                     }
+                }.scaledToFill()
+                
+
+                
+                if (self.addCoffeeCollection) {
+                    VStack {
+                        Text("CoffeeCollectionForm")
+                        Text("CoffeeCollectionForm")
+                        Text("CoffeeCollectionForm")
+                        Text("CoffeeCollectionForm")
+                        Text("CoffeeCollectionForm")
+                        Text("CoffeeCollectionForm")
+                        Text("CoffeeCollectionForm")
+                        Text("CoffeeCollectionForm")
+                    }
+                }
+                
+                Toggle(isOn: $addCoffeeCollection) {
+                    Text(LocalizedStringKey("AddCoffeeCollection"))
                 }
                 
                 Spacer()

@@ -18,7 +18,7 @@ struct ContentView: View {
 }
 
 struct MainTabView : View {
-    @State private var selectedTabIndex = 2
+    @State private var selectedTabIndex = 3
     
     var body: some View {
         UIKitTabView([
