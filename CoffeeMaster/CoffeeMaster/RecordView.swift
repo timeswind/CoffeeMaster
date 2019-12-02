@@ -32,7 +32,7 @@ struct RecordView: View {
                 }).onAppear(perform: fetch)
             } else {
                 VStack {
-                    Text(LocalizedStringKey("SignInToRecordSyncedAcrossDevices"))
+                    Text(LocalizedStringKey("SignInToRecordSyncedAcrossDevices")).padding(.horizontal)
                     SignInWithAppleView().frame(width: 200, height: 40, alignment: .center)
                     Spacer()
                 }

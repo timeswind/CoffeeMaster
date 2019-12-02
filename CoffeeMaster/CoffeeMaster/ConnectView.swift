@@ -39,7 +39,7 @@ struct ConnectView: View {
                 }).onAppear(perform: fetch)
             } else {
                 VStack {
-                    Text(LocalizedStringKey("SignInToJoinOurCommunity"))
+                    Text(LocalizedStringKey("SignInToJoinOurCommunity")).padding(.horizontal)
                     SignInWithAppleView().frame(width: 200, height: 40, alignment: .center)
                     Spacer()
                 }
