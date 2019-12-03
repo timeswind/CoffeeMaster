@@ -9,31 +9,29 @@
 import SwiftUI
 
 struct BrewGuideTimerInstructionView: View {
-    @ObservedObject var stopWatch = StopWatch()
-    
-    func start() {
-        self.stopWatch.start()
-    }
+    @Binding var stopWatchTime: String
         
     var body: some View {
         return ZStack {
             VStack {
-                Text(self.stopWatch.stopWatchTime)
-                .font(.system(size: 70))
+                Text(self.stopWatchTime).font(.system(size: 70, weight: .bold, design: .monospaced))
                 .frame(width: UIScreen.main.bounds.size.width,
                        height: 300,
                        alignment: .center)
                 
                 Spacer()
             }
-        }.onAppear {
-            self.start()
         }
     }
 }
 
 struct BrewGuideTimerInstructionView_Previews : PreviewProvider {
     static var previews: some View {
-        BrewGuideTimerInstructionView()
+        let timerTime = Binding<String>(get: { () -> String in
+            return "00:00:00"
+        }) { (_) in
+            return
+        }
+        return BrewGuideTimerInstructionView(stopWatchTime: timerTime)
     }
 }

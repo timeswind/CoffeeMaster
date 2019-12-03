@@ -27,7 +27,7 @@
 		5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */; };
 		5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA44237F385C0082CFBD /* EnvironmentService.swift */; };
 		5C2E476A23960FB80064226A /* BrewGuideTimerInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */; };
-		5C2E476C239611B90064226A /* StepWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476B239611B90064226A /* StepWatch.swift */; };
+		5C2E476E23962C1A0064226A /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476D23962C1A0064226A /* StopWatch.swift */; };
 		5C3DDDD323935147001A3B4F /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD223935147001A3B4F /* Grid */; };
 		5C3DDDD623935187001A3B4F /* Shapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD523935187001A3B4F /* Shapes */; };
 		5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD8239351A1001A3B4F /* Sliders */; };
@@ -141,7 +141,7 @@
 		5C25FA44237F385C0082CFBD /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
 		5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeMaster.entitlements; sourceTree = "<group>"; };
 		5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideTimerInstructionView.swift; sourceTree = "<group>"; };
-		5C2E476B239611B90064226A /* StepWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepWatch.swift; sourceTree = "<group>"; };
+		5C2E476D23962C1A0064226A /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		5C3F46572382D219001CC647 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		5C3F465A23830903001CC647 /* AddRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordFormView.swift; sourceTree = "<group>"; };
 		5C3F465C23830933001CC647 /* MultiplineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplineTextField.swift; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 				5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */,
 				5C02EB30238713B7002A7A1E /* DecimalTextField.swift */,
 				5CDA7724238B7B0D002E0ED5 /* SignInWithAppleView.swift */,
-				5C2E476B239611B90064226A /* StepWatch.swift */,
+				5C2E476D23962C1A0064226A /* StopWatch.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -697,7 +697,7 @@
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,
 				5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,
 				5C2E476A23960FB80064226A /* BrewGuideTimerInstructionView.swift in Sources */,
-				5C2E476C239611B90064226A /* StepWatch.swift in Sources */,
+				5C2E476E23962C1A0064226A /* StopWatch.swift in Sources */,
 				5C02EB2B238612F0002A7A1E /* AddBrewGuideView.swift in Sources */,
 				5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */,
 				5C80C96923745F2600996D91 /* CoffeeMaster.xcdatamodeld in Sources */,

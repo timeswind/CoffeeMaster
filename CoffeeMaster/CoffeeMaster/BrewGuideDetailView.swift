@@ -16,25 +16,59 @@ public struct AccentCircleTextViewModifier: ViewModifier {
 
 struct BrewGuideDetailView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    
+    @ObservedObject var stopWatch = StopWatch()
+
     var brewGuide: BrewGuide!
     @State var isBrewing = false
+    @State var isInstructionWalkThrough = true
     
     init(brewGuide: BrewGuide) {
         self.brewGuide = brewGuide
     }
     
+    func start() {
+        print("Start")
+        isBrewing = true
+        self.stopWatch.start()
+    }
+    
+    func pause() {
+        isBrewing = false
+        self.stopWatch.pause()
+    }
+    
     func toggleBrew() {
-        isBrewing = !isBrewing
+        if (isBrewing) {
+            self.pause()
+        } else {
+            self.start()
+            isInstructionWalkThrough = false
+        }
+    }
+    
+    func exitBrew() {
+        isBrewing = false
+        isInstructionWalkThrough = true
     }
     
     var body: some View {
+        
+        let mainControlIcon = (isInstructionWalkThrough || (!isInstructionWalkThrough && !isBrewing)) ? ">" : "||"
+        let title = isInstructionWalkThrough ? "" : LocalizedStringKey(self.brewGuide.guideName)
+        
+        let timerTime = Binding<String>(get: { () -> String in
+            return self.stopWatch.stopWatchTime
+        }) { (_) in
+            return
+        }
+        
         return ZStack {
-            if (isBrewing) {
-                BrewGuideTimerInstructionView().transition(.scale)
-            } else {
+            if (isInstructionWalkThrough) {
                 BrewGuideWalkThroughView(brewGuide: brewGuide).transition(.scale)
+            } else {
+                BrewGuideTimerInstructionView(stopWatchTime: timerTime).transition(.scale)
             }
+            
             // control panel with buttons
             VStack {
                 Spacer()
@@ -46,7 +80,7 @@ struct BrewGuideDetailView: View {
                             self.toggleBrew()
                         }
                     }, label: {
-                        Text(">")
+                        Text(mainControlIcon)
                         .font(.system(.largeTitle))
                         .frame(width: 77, height: 70)
                         .foregroundColor(Color.white)
@@ -62,7 +96,11 @@ struct BrewGuideDetailView: View {
                     Spacer()
                 }
             }
-        }.navigationBarTitle(isBrewing ? "" : LocalizedStringKey(self.brewGuide.guideName))
+            }.navigationBarTitle(title).navigationBarItems(
+                trailing: 
+                Button(action: {self.isInstructionWalkThrough ? nil :self.exitBrew()}) {
+                    Text(isInstructionWalkThrough ? "" :LocalizedStringKey("ExitBrew"))
+            })
     }
 }
 
