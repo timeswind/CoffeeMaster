@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import HealthKit
 
 struct Dependencies {
     var webDatabaseQueryService: WebDatabaseQueryService
     var defaultBrewingGuides: DefaultBrewingGuides
+    var requiredHeathKitTypes = Set([HKObjectType.quantityType(forIdentifier: .dietaryCaffeine)])
 }
 
 let dependencies = Dependencies(webDatabaseQueryService: WebDatabaseQueryService(), defaultBrewingGuides: DefaultBrewingGuides())

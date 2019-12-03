@@ -75,6 +75,7 @@ struct SettingsReducer {
 
 enum SettingsAsyncAction: Effect {
     case setUsername(username: String)
+    case requestHeathKitCategoryPermissions(types: Set<HKObjectType>)
     
     func mapToAction() -> AnyPublisher<AppAction, Never> {
         switch self {
@@ -92,6 +93,9 @@ enum SettingsAsyncAction: Effect {
                     
             }
             .eraseToAnyPublisher()
+        case let .requestHeathKitCategoryPermissions(types):
+            
+            
         }
     }
 }
