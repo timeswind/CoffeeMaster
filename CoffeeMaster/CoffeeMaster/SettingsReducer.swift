@@ -13,10 +13,14 @@ import HealthKit
 
 enum SettingsActionError: Error, LocalizedError {
     case failToUpdateUsername
+    case failToAccessHealthKitData
+    
     public var errorDescription: String? {
         switch self {
         case .failToUpdateUsername:
             return NSLocalizedString("Fail to update username", comment: "")
+        case .failToAccessHealthKitData:
+            return NSLocalizedString("Fail to access HealthKit Data", comment: "")
         }
     }
 }
@@ -33,6 +37,7 @@ enum SettingsAction {
     case logout(with: Bool)
     case onError(error: Error)
     case enableHealthkit(store: HKHealthStore)
+    case healthDataAccessGranted(types: Set<HKSampleType>)
 }
 
 struct SettingsReducer {
@@ -69,13 +74,17 @@ struct SettingsReducer {
         case let .enableHealthkit(store):
             state.isHealthKitEnabled = true
             state.heathStore = store
+        case let .healthDataAccessGranted(types):
+            state.isHealthDataAccessGranted = true
+            let typesArray = Array(types)
+            state.healthSampleTypes.append(contentsOf: typesArray)
         }
     }
 }
 
 enum SettingsAsyncAction: Effect {
     case setUsername(username: String)
-    case requestHeathKitCategoryPermissions(types: Set<HKObjectType>)
+    case requestHeathKitCategoryPermissions(types: Set<HKSampleType>, store: HKHealthStore)
     
     func mapToAction() -> AnyPublisher<AppAction, Never> {
         switch self {
@@ -93,9 +102,20 @@ enum SettingsAsyncAction: Effect {
                     
             }
             .eraseToAnyPublisher()
-        case let .requestHeathKitCategoryPermissions(types):
-            
-            
+        case let .requestHeathKitCategoryPermissions(types, store):
+            return dependencies.permissionRequestService
+                .requestAuthorizationForHeathStore(types: types, healthStore: store)
+                .replaceError(with: false)
+                .map {
+                    if ($0 == false) {
+                        return AppAction.settings(action: .onError(error: SettingsActionError.failToAccessHealthKitData))
+                    } else {
+                        let settingsAction: SettingsAction = .healthDataAccessGranted(types: types)
+                        return AppAction.settings(action: settingsAction)
+                    }
+                    
+            }
+            .eraseToAnyPublisher()
         }
     }
 }

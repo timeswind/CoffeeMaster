@@ -27,6 +27,8 @@ struct SettingsState {
     var nounce:String?
     var isHealthKitEnabled = false
     var heathStore: HKHealthStore?
+    var isHealthDataAccessGranted = false
+    var healthSampleTypes: [HKSampleType] = []
 }
 
 struct ConnectViewState {

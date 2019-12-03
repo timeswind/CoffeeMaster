@@ -12,7 +12,8 @@ import HealthKit
 struct Dependencies {
     var webDatabaseQueryService: WebDatabaseQueryService
     var defaultBrewingGuides: DefaultBrewingGuides
+    var permissionRequestService: PermissionRequestService
     var requiredHeathKitTypes = Set([HKObjectType.quantityType(forIdentifier: .dietaryCaffeine)])
 }
 
-let dependencies = Dependencies(webDatabaseQueryService: WebDatabaseQueryService(), defaultBrewingGuides: DefaultBrewingGuides())
+let dependencies = Dependencies(webDatabaseQueryService: WebDatabaseQueryService(),defaultBrewingGuides: DefaultBrewingGuides(), permissionRequestService: PermissionRequestService())

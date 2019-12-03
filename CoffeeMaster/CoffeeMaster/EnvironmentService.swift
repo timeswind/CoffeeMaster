@@ -34,6 +34,19 @@ struct EnvironmemtServices: ViewModifier {
         if HKHealthStore.isHealthDataAvailable() {
             let healthStore = HKHealthStore()
             store.send(.settings(action: .enableHealthkit(store: healthStore)))
+            
+            var isAccessGranted = true
+            for type in dependencies.requiredHeathKitTypes {
+                let status = healthStore.authorizationStatus(for: type!)
+                if status != .sharingAuthorized {
+                    isAccessGranted = false
+                    break
+                }
+            }
+            
+            if isAccessGranted {
+                store.send(.settings(action: .healthDataAccessGranted(types: dependencies.requiredHeathKitTypes as! Set<HKSampleType>)))
+            }
         }
         
         return content
