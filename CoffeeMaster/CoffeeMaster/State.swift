@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HealthKit
 
 struct AppState {
     var settings: SettingsState
@@ -25,6 +26,7 @@ struct SettingsState {
     var signedIn: Bool = false
     var nounce:String?
     var isHealthKitEnabled = false
+    var heathStore: HKHealthStore?
 }
 
 struct ConnectViewState {

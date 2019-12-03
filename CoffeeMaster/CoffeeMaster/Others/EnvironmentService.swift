@@ -32,7 +32,8 @@ struct EnvironmemtServices: ViewModifier {
         }
         
         if HKHealthStore.isHealthDataAvailable() {
-            store.send(.settings(action: .enableHealthkit(status: true)))
+            let healthStore = HKHealthStore()
+            store.send(.settings(action: .enableHealthkit(store: healthStore)))
         }
         
         return content

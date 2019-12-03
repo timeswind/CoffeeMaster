@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import Combine
+import HealthKit
 
 enum SettingsActionError: Error, LocalizedError {
     case failToUpdateUsername
@@ -31,7 +32,7 @@ enum SettingsAction {
     case setNounce(nounce: String)
     case logout(with: Bool)
     case onError(error: Error)
-    case enableHealthkit(status: Bool)
+    case enableHealthkit(store: HKHealthStore)
 }
 
 struct SettingsReducer {
@@ -65,8 +66,9 @@ struct SettingsReducer {
             }
         case let .onError(error):
             print(error.localizedDescription)
-        case let .enableHealthkit(status):
-            state.isHealthKitEnabled = status
+        case let .enableHealthkit(store):
+            state.isHealthKitEnabled = true
+            state.heathStore = store
         }
     }
 }
