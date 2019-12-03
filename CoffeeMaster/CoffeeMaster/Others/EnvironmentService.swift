@@ -8,14 +8,15 @@
 
 import SwiftUI
 import FirebaseAuth
+import HealthKit
 
 struct EnvironmemtServices: ViewModifier {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let store = Store<AppState, AppAction>(initialState: AppState(settings: SettingsState(),brewViewState: BrewViewState(), connectViewState: ConnectViewState(), recordViewState: RecordViewState()), appReducer: appReducer)
     let keyboard = KeyboardResponder()
+    
     func body(content: Content) -> some View {
-        print("EnvironmemtServices")
         
         let localization = getLocalization()
         let weightUnit = getWeightUnit()
@@ -28,6 +29,10 @@ struct EnvironmemtServices: ViewModifier {
         if Auth.auth().currentUser != nil {
             store.send(.settings(action: .setUserInfo(currentUser: Auth.auth().currentUser!)))
             store.send(.settings(action: .setUserSignInStatus(isSignedIn: true)))
+        }
+        
+        if HKHealthStore.isHealthDataAvailable() {
+            store.send(.settings(action: .enableHealthkit(status: true)))
         }
         
         return content

@@ -24,6 +24,7 @@ struct SettingsState {
     var supportedLanguages: [String: String] = ["English": "en", "中文": "zh-Hans"]
     var signedIn: Bool = false
     var nounce:String?
+    var isHealthKitEnabled = false
 }
 
 struct ConnectViewState {

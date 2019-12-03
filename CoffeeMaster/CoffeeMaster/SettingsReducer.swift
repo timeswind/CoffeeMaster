@@ -31,6 +31,7 @@ enum SettingsAction {
     case setNounce(nounce: String)
     case logout(with: Bool)
     case onError(error: Error)
+    case enableHealthkit(status: Bool)
 }
 
 struct SettingsReducer {
@@ -64,6 +65,8 @@ struct SettingsReducer {
             }
         case let .onError(error):
             print(error.localizedDescription)
+        case let .enableHealthkit(status):
+            state.isHealthKitEnabled = status
         }
     }
 }

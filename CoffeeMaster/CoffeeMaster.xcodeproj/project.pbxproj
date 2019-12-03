@@ -63,6 +63,7 @@
 		5C8F6E772381B5F70010EE0E /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E762381B5F70010EE0E /* State.swift */; };
 		5C8F6E792381B6840010EE0E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E782381B6840010EE0E /* Post.swift */; };
 		5C8F6E7B2381BC080010EE0E /* WebDatabaseQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */; };
+		5C9880052396B5F8003D4015 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9880042396B5F8003D4015 /* HealthKit.framework */; };
 		5C9C8011237F8C680060C10E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8010237F8C680060C10E /* Utilities.swift */; };
 		5C9C8012237F8C680060C10E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8010237F8C680060C10E /* Utilities.swift */; };
 		5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */; };
@@ -178,6 +179,7 @@
 		5C8F6E762381B5F70010EE0E /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		5C8F6E782381B6840010EE0E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDatabaseQueryService.swift; sourceTree = "<group>"; };
+		5C9880042396B5F8003D4015 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		5C9C8010237F8C680060C10E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegates.swift; sourceTree = "<group>"; };
 		5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentWindowObject.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */,
 				5C0C269C2391F18000F27180 /* URLImage in Frameworks */,
 				5C3DDDD323935147001A3B4F /* Grid in Frameworks */,
+				5C9880052396B5F8003D4015 /* HealthKit.framework in Frameworks */,
 				5C3DDDD623935187001A3B4F /* Shapes in Frameworks */,
 				A2C7E26F11D67E33D09F631C /* Pods_CoffeeMaster.framework in Frameworks */,
 			);
@@ -254,6 +257,7 @@
 		5C25FAE6237F7C0F0082CFBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C9880042396B5F8003D4015 /* HealthKit.framework */,
 				8B82AD18B5B9220DD7C56DD0 /* Pods_CoffeeMaster.framework */,
 				A7107C432F0D5B3A7B32F7FE /* Pods_CoffeeMasterTests.framework */,
 			);
