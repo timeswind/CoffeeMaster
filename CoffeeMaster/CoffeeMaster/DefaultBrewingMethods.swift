@@ -31,7 +31,7 @@ let aeropressBrewMethod = BrewMethod(.AeroPress, name: "AeroPress", image: "aero
 //let FrenchPressBrewMethod = BrewMethod(name: "French Press", image: "french-press", descriptionKey: "FrenchPressDescription", description: nil)
 
 class DefaultBrewingGuides {
-    private var guides: [BrewGuide] = []
+    var guides: [BrewGuide] = []
     private var methods: [BrewMethod] = []
     
     init() {
