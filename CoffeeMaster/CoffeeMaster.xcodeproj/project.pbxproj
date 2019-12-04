@@ -93,6 +93,11 @@
 		5CF20A9A2390545000632A05 /* Array+chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF20A972390545000632A05 /* Array+chunked.swift */; };
 		5CF78BD3238DF2330063CA13 /* CoffeeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */; };
 		5CF78BD5238DFC390063CA13 /* UserDataWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */; };
+		5CFE991A2396CD0E00F78FE2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFE99192396CD0E00F78FE2 /* NotificationCenter.framework */; };
+		5CFE991D2396CD0E00F78FE2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE991C2396CD0E00F78FE2 /* TodayViewController.swift */; };
+		5CFE99202396CD0E00F78FE2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFE991E2396CD0E00F78FE2 /* MainInterface.storyboard */; };
+		5CFE99242396CD0E00F78FE2 /* Coffee Master Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5CFE99182396CD0E00F78FE2 /* Coffee Master Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5CFE992A23970FBD00F78FE2 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE992923970FBD00F78FE2 /* WidgetView.swift */; };
 		A2C7E26F11D67E33D09F631C /* Pods_CoffeeMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B82AD18B5B9220DD7C56DD0 /* Pods_CoffeeMaster.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +108,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5C80C95F23745F2600996D91;
 			remoteInfo = CoffeeMaster;
+		};
+		5CFE99222396CD0E00F78FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C80C95823745F2600996D91 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CFE99172396CD0E00F78FE2;
+			remoteInfo = "Coffee Master Widget";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -115,6 +127,17 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CFE99252396CD0E00F78FE2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5CFE99242396CD0E00F78FE2 /* Coffee Master Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -210,6 +233,12 @@
 		5CF20A972390545000632A05 /* Array+chunked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+chunked.swift"; sourceTree = "<group>"; };
 		5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollection.swift; sourceTree = "<group>"; };
 		5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataWebDatabaseService.swift; sourceTree = "<group>"; };
+		5CFE99182396CD0E00F78FE2 /* Coffee Master Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Coffee Master Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CFE99192396CD0E00F78FE2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		5CFE991C2396CD0E00F78FE2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		5CFE991F2396CD0E00F78FE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5CFE99212396CD0E00F78FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CFE992923970FBD00F78FE2 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		821EFC7AC7A32631C287A14C /* Pods-CoffeeMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeMaster.release.xcconfig"; path = "Target Support Files/Pods-CoffeeMaster/Pods-CoffeeMaster.release.xcconfig"; sourceTree = "<group>"; };
 		8B82AD18B5B9220DD7C56DD0 /* Pods_CoffeeMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7107C432F0D5B3A7B32F7FE /* Pods_CoffeeMasterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeMasterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +267,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5CFE99152396CD0E00F78FE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CFE991A2396CD0E00F78FE2 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -261,6 +298,7 @@
 				5C9880042396B5F8003D4015 /* HealthKit.framework */,
 				8B82AD18B5B9220DD7C56DD0 /* Pods_CoffeeMaster.framework */,
 				A7107C432F0D5B3A7B32F7FE /* Pods_CoffeeMasterTests.framework */,
+				5CFE99192396CD0E00F78FE2 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -318,6 +356,7 @@
 			children = (
 				5C80C96223745F2600996D91 /* CoffeeMaster */,
 				5C80C97C23745F2900996D91 /* CoffeeMasterTests */,
+				5CFE991B2396CD0E00F78FE2 /* Coffee Master Widget */,
 				5C80C96123745F2600996D91 /* Products */,
 				5C25FAE6237F7C0F0082CFBD /* Frameworks */,
 				E6D90F2358469528377D09D9 /* Pods */,
@@ -329,6 +368,7 @@
 			children = (
 				5C80C96023745F2600996D91 /* CoffeeMaster.app */,
 				5C80C97923745F2900996D91 /* CoffeeMasterTests.xctest */,
+				5CFE99182396CD0E00F78FE2 /* Coffee Master Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -504,6 +544,17 @@
 			path = GridStack;
 			sourceTree = "<group>";
 		};
+		5CFE991B2396CD0E00F78FE2 /* Coffee Master Widget */ = {
+			isa = PBXGroup;
+			children = (
+				5CFE992923970FBD00F78FE2 /* WidgetView.swift */,
+				5CFE991C2396CD0E00F78FE2 /* TodayViewController.swift */,
+				5CFE991E2396CD0E00F78FE2 /* MainInterface.storyboard */,
+				5CFE99212396CD0E00F78FE2 /* Info.plist */,
+			);
+			path = "Coffee Master Widget";
+			sourceTree = "<group>";
+		};
 		E6D90F2358469528377D09D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,10 +579,12 @@
 				5C80C95E23745F2600996D91 /* Resources */,
 				5CE8457D238351190086EFC8 /* Embed Frameworks */,
 				5EC435E4512634E4DB03096F /* [CP] Embed Pods Frameworks */,
+				5CFE99252396CD0E00F78FE2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5CFE99232396CD0E00F78FE2 /* PBXTargetDependency */,
 			);
 			name = CoffeeMaster;
 			packageProductDependencies = (
@@ -563,6 +616,23 @@
 			productReference = 5C80C97923745F2900996D91 /* CoffeeMasterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5CFE99172396CD0E00F78FE2 /* Coffee Master Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CFE99282396CD0E00F78FE2 /* Build configuration list for PBXNativeTarget "Coffee Master Widget" */;
+			buildPhases = (
+				5CFE99142396CD0E00F78FE2 /* Sources */,
+				5CFE99152396CD0E00F78FE2 /* Frameworks */,
+				5CFE99162396CD0E00F78FE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Coffee Master Widget";
+			productName = "Coffee Master Widget";
+			productReference = 5CFE99182396CD0E00F78FE2 /* Coffee Master Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -579,6 +649,9 @@
 					5C80C97823745F2900996D91 = {
 						CreatedOnToolsVersion = 11.2;
 						TestTargetID = 5C80C95F23745F2600996D91;
+					};
+					5CFE99172396CD0E00F78FE2 = {
+						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
 			};
@@ -604,6 +677,7 @@
 			targets = (
 				5C80C95F23745F2600996D91 /* CoffeeMaster */,
 				5C80C97823745F2900996D91 /* CoffeeMasterTests */,
+				5CFE99172396CD0E00F78FE2 /* Coffee Master Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -626,6 +700,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CFE99162396CD0E00F78FE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CFE99202396CD0E00F78FE2 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +866,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5CFE99142396CD0E00F78FE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CFE992A23970FBD00F78FE2 /* WidgetView.swift in Sources */,
+				5CFE991D2396CD0E00F78FE2 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -791,6 +882,11 @@
 			isa = PBXTargetDependency;
 			target = 5C80C95F23745F2600996D91 /* CoffeeMaster */;
 			targetProxy = 5C80C97A23745F2900996D91 /* PBXContainerItemProxy */;
+		};
+		5CFE99232396CD0E00F78FE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CFE99172396CD0E00F78FE2 /* Coffee Master Widget */;
+			targetProxy = 5CFE99222396CD0E00F78FE2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -820,6 +916,14 @@
 				5CEEC7B8237EFBEF00E3BDB0 /* zh-Hans */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5CFE991E2396CD0E00F78FE2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CFE991F2396CD0E00F78FE2 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -947,6 +1051,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD5EDDE645C1AD8D0B4839AA /* Pods-CoffeeMaster.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoffeeMaster/CoffeeMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -974,6 +1079,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 821EFC7AC7A32631C287A14C /* Pods-CoffeeMaster.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoffeeMaster/CoffeeMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1081,6 +1187,46 @@
 			};
 			name = Release;
 		};
+		5CFE99262396CD0E00F78FE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 397U443WJR;
+				INFOPLIST_FILE = "Coffee Master Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.psu.sce.mky5089.CoffeeMaster.Coffee-Master-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5CFE99272396CD0E00F78FE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 397U443WJR;
+				INFOPLIST_FILE = "Coffee Master Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.psu.sce.mky5089.CoffeeMaster.Coffee-Master-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1107,6 +1253,15 @@
 			buildConfigurations = (
 				5C80C98623745F2900996D91 /* Debug */,
 				5C80C98723745F2900996D91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CFE99282396CD0E00F78FE2 /* Build configuration list for PBXNativeTarget "Coffee Master Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CFE99262396CD0E00F78FE2 /* Debug */,
+				5CFE99272396CD0E00F78FE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
