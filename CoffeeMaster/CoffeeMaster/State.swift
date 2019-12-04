@@ -29,6 +29,7 @@ struct SettingsState {
     var heathStore: HKHealthStore?
     var isHealthDataAccessGranted = false
     var healthSampleTypes: [HKSampleType] = []
+    var mainTabViewSelectedTabIndex = 0
 }
 
 struct ConnectViewState {

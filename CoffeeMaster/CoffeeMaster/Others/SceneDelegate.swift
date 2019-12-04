@@ -10,9 +10,8 @@ import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
-
     var window: UIWindow?
+    lazy var environmemtServices = EnvironmemtServices()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -20,10 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Get the managed object context from the shared persistent container.
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        var settingState = SettingsState()
-//        settingState.localization = self.getLocalization()
-//        let store = Store<AppState, AppAction>(initialState: AppState(settings: settingState, repostate: ReposState()), appReducer: appReducer)
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObxjectContext)` in the views that will need the context.
 
@@ -34,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let environmentWindowObject = EnvironmentWindowObject(window: window)
 //            environmentWindowObject.window = window
-            let contentView = ContentView().environmentObject(environmentWindowObject).modifier(EnvironmemtServices())
+            let contentView = ContentView().environmentObject(environmentWindowObject).modifier(environmemtServices)
 
             window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
@@ -52,13 +47,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                      {
                      case "brew":
                         print("open brew view")
-                         //Open Brew View
+                        environmemtServices.store.send(.settings(action: .setMainTabViewSelectedTab(index: 1)))
                         break
 
                      case "record":
                          //Open Record View
                         print("open record view")
-
+                        environmemtServices.store.send(.settings(action: .setMainTabViewSelectedTab(index: 3)))
                         break
                      default:
                          break

@@ -38,6 +38,7 @@ enum SettingsAction {
     case onError(error: Error)
     case enableHealthkit(store: HKHealthStore)
     case healthDataAccessGranted(types: Set<HKSampleType>)
+    case setMainTabViewSelectedTab(index: Int)
 }
 
 struct SettingsReducer {
@@ -78,6 +79,8 @@ struct SettingsReducer {
             state.isHealthDataAccessGranted = true
             let typesArray = Array(types)
             state.healthSampleTypes.append(contentsOf: typesArray)
+        case let .setMainTabViewSelectedTab(index):
+            state.mainTabViewSelectedTabIndex = index
         }
     }
 }
