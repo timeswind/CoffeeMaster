@@ -1,7 +1,8 @@
 // StopWatch.swift
-// open sourced without use restriction from
+// Original file from
 // https://gist.github.com/programmingwithswift/0303decba01bba1189e66d4943dda4a3
-//
+// Was Build upon first swiftUI beta
+// Modified by Mingtian Yang for working on current SwiftUI build
 
 import Combine
 import Foundation
@@ -16,9 +17,9 @@ class StopWatch: ObservableObject {
     
     var paused = true
     
-    var laps = [LapItem]()
+    var laps = [StopWatchLap]()
     
-    private var currentLaps = [LapItem]() {
+    private var currentLaps = [StopWatchLap]() {
         didSet {
             self.laps = currentLaps.reversed()
         }
@@ -45,16 +46,16 @@ class StopWatch: ObservableObject {
     func lap() {
         if let firstLap = self.laps.first {
             let difference = self.counter - firstLap.count
-            self.currentLaps.append(LapItem(count: self.counter, diff: difference))
+            self.currentLaps.append(StopWatchLap(count: self.counter, diff: difference))
         } else {
-            self.currentLaps.append(LapItem(count: self.counter))
+            self.currentLaps.append(StopWatchLap(count: self.counter))
         }
     }
     
     func reset() {
         self.stopWatchTime = "00:00:00"
         self.counter = 0
-        self.currentLaps = [LapItem]()
+        self.currentLaps = [StopWatchLap]()
     }
     
     func isPaused() -> Bool {
@@ -85,7 +86,7 @@ class StopWatch: ObservableObject {
 }
 
 extension StopWatch {
-    struct LapItem {
+    struct StopWatchLap {
         let uuid = UUID()
         let count: Int
         let stringTime: String
