@@ -1,0 +1,27 @@
+{
+  "name": "cmpsc475",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CMPSC-475/projects-timeswind.git"
+  },
+  "author": "Mingtian Yang mky5089@psu.edu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CMPSC-475/projects-timeswind/issues"
+  },
+  "homepage": "https://github.com/CMPSC-475/projects-timeswind#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
