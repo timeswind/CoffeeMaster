@@ -16,4 +16,7 @@ struct Dependencies {
     var requiredHeathKitTypes = Set([HKObjectType.quantityType(forIdentifier: .dietaryCaffeine)])
 }
 
-let dependencies = Dependencies(webDatabaseQueryService: WebDatabaseQueryService(),defaultBrewingGuides: DefaultBrewingGuides(), permissionRequestService: PermissionRequestService())
+let dependencies =
+    Dependencies(webDatabaseQueryService: WebDatabaseQueryService(),
+                                defaultBrewingGuides: DefaultBrewingGuides(),
+                                permissionRequestService: PermissionRequestService())
