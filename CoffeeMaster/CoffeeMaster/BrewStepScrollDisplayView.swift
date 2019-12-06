@@ -43,17 +43,36 @@ struct BrewStepScrollDisplayView: View {
     var body: some View {
         return HStack{
             Button(action: {
-                self.prevInstruction()
+                withAnimation {
+                    self.prevInstruction()
+                }
             }) {
                 Text("prev")
             }
             Spacer()
-            Text(self.brewSteps[self.i_index].instruction)
-                .fontWeight(.bold)
-                .foregroundColor(Color.black)
+
+            ForEach(0..<self.brewSteps.count, id:\.self) { index in
+                Group {
+                    if (index == self.i_index) {
+                        Text(self.brewSteps[self.i_index].instruction)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.black)
+                            .transition(.scale)
+                    } else {
+                        EmptyView()
+                    }
+                }
+
+            }
+            
+
+
+
             Spacer()
             Button(action: {
-                self.nextInstruction()
+                withAnimation {
+                    self.nextInstruction()
+                }
             }) {
                 Text("next")
             }
@@ -63,6 +82,8 @@ struct BrewStepScrollDisplayView: View {
         
     }
 }
+
+
 
 struct BrewStepScrollDisplayView_Previews: PreviewProvider {
     @State static var currentInstructionIndex = 1

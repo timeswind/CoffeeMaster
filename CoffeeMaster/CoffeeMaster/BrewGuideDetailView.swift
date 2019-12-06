@@ -21,6 +21,7 @@ struct BrewGuideDetailView: View {
     var brewGuide: BrewGuide!
     @State var isBrewing = false
     @State var isInstructionWalkThrough = true
+    @State var currentInstructionIndex = 0
     
     init(brewGuide: BrewGuide) {
         self.brewGuide = brewGuide
@@ -42,6 +43,9 @@ struct BrewGuideDetailView: View {
             self.pause()
         } else {
             self.start()
+            let maxTimeAllowedInSec = self.brewGuide.getMaxiumBrewTimeInSec()
+            self.stopWatch.setMaxTimeInSec(maxTimeInSec: maxTimeAllowedInSec)
+            self.currentInstructionIndex = 0
             isInstructionWalkThrough = false
         }
     }
@@ -55,6 +59,7 @@ struct BrewGuideDetailView: View {
         
         let mainControlIcon = (isInstructionWalkThrough || (!isInstructionWalkThrough && !isBrewing)) ? ">" : "||"
         let title = isInstructionWalkThrough ? "" : LocalizedStringKey(self.brewGuide.guideName)
+        let brewSteps = self.brewGuide.getBrewSteps()
         
         let timerTime = Binding<String>(get: { () -> String in
             return self.stopWatch.stopWatchTime
@@ -66,7 +71,11 @@ struct BrewGuideDetailView: View {
             if (isInstructionWalkThrough) {
                 BrewGuideWalkThroughView(brewGuide: brewGuide).transition(.scale)
             } else {
-                BrewGuideTimerInstructionView(stopWatchTime: timerTime).transition(.scale)
+                VStack {
+                    BrewGuideTimerInstructionView(stopWatchTime: timerTime)
+                    BrewStepScrollDisplayView(brewSteps: brewSteps, currentInstructionIndex: $currentInstructionIndex)
+                    Spacer()
+                }.transition(.scale)
             }
             
             // control panel with buttons
@@ -103,19 +112,6 @@ struct BrewGuideDetailView: View {
             })
     }
 }
-
-#if DEBUG
-struct BrewGuideDetailView_Previews : PreviewProvider {
-  static var previews: some View {
-//    let guide = dependencies.defaultBrewingGuides.guides[0]
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//
-//    let store = Store<AppState, AppAction>(initialState: AppState(settings: SettingsState(),brewViewState: BrewViewState(), connectViewState: ConnectViewState(), recordViewState: RecordViewState()), appReducer: appReducer)
-    
-    return Text("no Preview")
-    }
-}
-#endif
 
 struct BrewGuideWalkThroughView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>

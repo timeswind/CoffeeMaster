@@ -13,6 +13,8 @@ class StopWatch: ObservableObject {
     private let queue = DispatchQueue(label: "stopwatch.timer")
     private var counter: Int = 0
     
+    var maxTimeInSec:Int?
+    
     @Published private(set) var stopWatchTime = "00:00:00"
     
     var paused = true
@@ -23,6 +25,10 @@ class StopWatch: ObservableObject {
         didSet {
             self.laps = currentLaps.reversed()
         }
+    }
+    
+    func setMaxTimeInSec(maxTimeInSec: Int) {
+        self.maxTimeInSec = maxTimeInSec
     }
     
     func start() {
@@ -72,16 +78,25 @@ class StopWatch: ObservableObject {
             self.updateTimer()
         }
         
-        self.sourceTimer?.schedule(deadline: .now(), repeating: 0.01)
-        self.sourceTimer?.resume()
+        if (!StopWatch.isCountMeetMaxTimeInSec(counter: self.counter, maxTimeInSec: self.maxTimeInSec)) {
+            self.sourceTimer?.schedule(deadline: .now(), repeating: 0.01)
+            self.sourceTimer?.resume()
+        }
     }
     
     private func updateTimer() {
-        self.counter += 1
         
-        DispatchQueue.main.async {
-            self.stopWatchTime = StopWatch.convertCountToTimeString(counter: self.counter)
+        if (!StopWatch.isCountMeetMaxTimeInSec(counter: self.counter, maxTimeInSec: self.maxTimeInSec)) {
+            self.counter += 1
+            
+            DispatchQueue.main.async {
+                self.stopWatchTime = StopWatch.convertCountToTimeString(counter: self.counter)
+            }
+        } else {
+            self.pause()
         }
+        
+
     }
 }
 
@@ -104,20 +119,33 @@ extension StopWatch {
 }
 
 extension StopWatch {
+    static func isCountMeetMaxTimeInSec(counter: Int, maxTimeInSec: Int?) -> Bool {
+        let seconds = counter / 100
+        
+        if (maxTimeInSec == nil) {
+            return false
+        }
+        
+        if (seconds >= maxTimeInSec!) {
+            return true
+        }
+        
+        return false
+    }
     static func convertCountToTimeString(counter: Int) -> String {
         let millseconds = counter % 100
         let seconds = counter / 100
         let minutes = seconds / 60
         
         var millsecondsString = "\(millseconds)"
-        var secondsString = "\(seconds)"
+        var secondsString = "\(seconds % 60)"
         var minutesString = "\(minutes)"
         
         if millseconds < 10 {
             millsecondsString = "0" + millsecondsString
         }
         
-        if seconds < 10 {
+        if (seconds % 60) < 10 {
             secondsString = "0" + secondsString
         }
         
