@@ -11,16 +11,14 @@ import SwiftUI
 struct BrewGuideTimerInstructionView: View {
     @Binding var stopWatchTime: String
     @Binding var brewPercent: CGFloat
-        
+    
     var body: some View {
         return ZStack {
             VStack {
-                Text("Percent: \(self.brewPercent)")
-                Color.clear.overlay(Indicator(pct: self.brewPercent))
-                Text(self.stopWatchTime).font(.system(size: 70, weight: .bold, design: .monospaced))
-                .frame(width: UIScreen.main.bounds.size.width,
-                       height: 300,
-                       alignment: .center)
+                Indicator(pct: self.brewPercent, time: self.stopWatchTime)
+                    .frame(width: UIScreen.main.bounds.size.width,
+                           height: 350,
+                           alignment: .center)
             }
         }
     }
@@ -39,80 +37,68 @@ struct BrewGuideTimerInstructionView_Previews : PreviewProvider {
         }) { (_) in
             return
         }
-        return BrewGuideTimerInstructionView(stopWatchTime: timerTime, brewPercent: brewPercent)
+        return BrewGuideTimerInstructionView(stopWatchTime: timerTime, brewPercent: brewPercent).previewLayout(.sizeThatFits)
     }
 }
 
-
-//struct ContentView: View {
-//    @State private var percent: CGFloat = 0
-//
-//    var body: some View {
-//        VStack {
-//            Spacer()
-//            Color.clear.overlay(Indicator(pct: self.percent))
-//
-//            Spacer()
-//            HStack(spacing: 10) {
-//                MyButton(label: "0%", font: .headline) { withAnimation(.easeInOut(duration: 1.0)) { self.percent = 0 } }
-//
-//                MyButton(label: "27%", font: .headline) { withAnimation(.easeInOut(duration: 1.0)) { self.percent = 0.27 } }
-//
-//                MyButton(label: "100%", font: .headline) { withAnimation(.easeInOut(duration: 1.0)) { self.percent = 1.0 } }
-//            }
-//        }.navigationBarTitle("Example 10")
-//    }
-//}
-
 struct Indicator: View {
     var pct: CGFloat
-
+    var time: String
+    
     var body: some View {
         return Circle()
-            .fill(LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .topLeading, endPoint: .bottomTrailing))
-            .frame(width: 150, height: 150)
-            .modifier(PercentageIndicator(pct: self.pct))
+            .fill(LinearGradient(gradient: Gradient(colors: [Color(netHex: 0xde6b35), Color(netHex: 0xf9b282)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .frame(width: 300, height: 300)
+            .modifier(PercentageIndicator(pct: self.pct, time: self.time))
     }
 }
 
 struct PercentageIndicator: AnimatableModifier {
     var pct: CGFloat = 0
-
+    var time: String = "00:00:00"
+    
     var animatableData: CGFloat {
         get { pct }
         set { pct = newValue }
     }
-
+    
     func body(content: Content) -> some View {
         content
-            .overlay(ArcShape(pct: pct).foregroundColor(.red))
-            .overlay(LabelView(pct: pct))
+            .overlay(ArcShape(pct: pct).foregroundColor(Color.Theme.Accent))
+            .overlay(LabelView(pct: pct, time: time))
     }
-
+    
     struct ArcShape: Shape {
         let pct: CGFloat
-
+        
         func path(in rect: CGRect) -> Path {
-
+            
             var p = Path()
-
+            
             p.addArc(center: CGPoint(x: rect.width / 2.0, y:rect.height / 2.0),
                      radius: rect.height / 2.0 + 5.0,
                      startAngle: .degrees(0),
                      endAngle: .degrees(360.0 * Double(pct)), clockwise: false)
-
-            return p.strokedPath(.init(lineWidth: 10, dash: [6, 3], dashPhase: 10))
+            
+            return p.strokedPath(.init(lineWidth: 10))
         }
     }
-
+    
     struct LabelView: View {
         let pct: CGFloat
-
+        var time: String
+        
         var body: some View {
-            Text("\(Int(pct * 100)) %")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
+            VStack {
+                Text("\(Int(pct * 100)) %")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                Text(time)
+                    .font(.system(size: 50, weight: .bold, design: .monospaced))
+                    .foregroundColor(.white)
+            }
+            
         }
     }
 }

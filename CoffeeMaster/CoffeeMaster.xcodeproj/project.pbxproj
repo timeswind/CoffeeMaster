@@ -471,7 +471,6 @@
 				5C80C97423745F2900996D91 /* Info.plist */,
 				5C80C96723745F2600996D91 /* CoffeeMaster.xcdatamodeld */,
 				5C80C96E23745F2900996D91 /* Preview Content */,
-				5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */,
 			);
 			path = CoffeeMaster;
 			sourceTree = "<group>";
@@ -629,6 +628,7 @@
 			isa = PBXGroup;
 			children = (
 				5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */,
+				5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */,
 				5C80C96323745F2600996D91 /* AppDelegate.swift */,
 				5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */,
 				5C80C96523745F2600996D91 /* SceneDelegate.swift */,

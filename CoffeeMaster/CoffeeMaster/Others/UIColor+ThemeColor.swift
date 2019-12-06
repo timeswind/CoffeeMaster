@@ -12,14 +12,8 @@ import SwiftUI
 extension UIColor {
     struct Theme {
         static let Accent = UIColor(netHex: 0x6D3D14)
-
-        struct Green {
-            static let Fern = UIColor(netHex: 0x6ABB72)
-            static let MountainMeadow = UIColor(netHex: 0x3ABB9D)
-            static let ChateauGreen = UIColor(netHex: 0x4DA664)
-            static let PersianGreen = UIColor(netHex: 0x2CA786)
-        }
     }
+    
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
@@ -34,5 +28,13 @@ extension UIColor {
 extension Color {
     struct Theme {
         static let Accent = Color(UIColor.Theme.Accent)
+    }
+    
+    init(red: Int, green: Int, blue: Int) {
+        self.init(UIColor(red: red, green: green, blue: blue))
+    }
+    
+    init(netHex:Int) {
+        self.init(UIColor(netHex: netHex))
     }
 }

@@ -17,7 +17,7 @@ public struct AccentCircleTextViewModifier: ViewModifier {
 struct BrewGuideDetailView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @ObservedObject var stopWatch = StopWatch()
-
+    
     var brewGuide: BrewGuide!
     @State var isBrewing = false
     @State var isInstructionWalkThrough = true
@@ -38,6 +38,10 @@ struct BrewGuideDetailView: View {
         self.stopWatch.pause()
     }
     
+    func resetTimer() {
+        self.stopWatch.reset()
+    }
+    
     func toggleBrew() {
         if (isBrewing) {
             self.pause()
@@ -51,6 +55,8 @@ struct BrewGuideDetailView: View {
     }
     
     func exitBrew() {
+        self.pause()
+        self.resetTimer()
         isBrewing = false
         isInstructionWalkThrough = true
     }
@@ -58,7 +64,7 @@ struct BrewGuideDetailView: View {
     var body: some View {
         
         let mainControlIcon = (isInstructionWalkThrough || (!isInstructionWalkThrough && !isBrewing)) ? ">" : "||"
-        let title = isInstructionWalkThrough ? "" : LocalizedStringKey(self.brewGuide.guideName)
+        let title = isInstructionWalkThrough ? LocalizedStringKey(self.brewGuide.guideName) : ""
         let brewSteps = self.brewGuide.getBrewSteps()
         
         let timerTime = Binding<String>(get: { () -> String in
@@ -96,33 +102,38 @@ struct BrewGuideDetailView: View {
                         }
                     }, label: {
                         Text(mainControlIcon)
-                        .font(.system(.largeTitle))
-                        .frame(width: 77, height: 70)
-                        .foregroundColor(Color.white)
-                        .padding(.bottom, 7)
+                            .font(.system(.largeTitle))
+                            .frame(width: 77, height: 70)
+                            .foregroundColor(Color.white)
+                            .padding(.bottom, 7)
                     })
-                    .background(Color(UIColor.Theme.Accent))
-                    .cornerRadius(38.5)
-                    .padding()
-                    .shadow(color: Color.black.opacity(0.3),
-                            radius: 3,
-                            x: 3,
-                            y: 3)
+                        .background(Color(UIColor.Theme.Accent))
+                        .cornerRadius(38.5)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
                     Spacer()
                 }
             }
-            }.navigationBarTitle(title).navigationBarItems(
-                trailing: 
-                Button(action: {self.isInstructionWalkThrough ? nil :self.exitBrew()}) {
-                    Text(isInstructionWalkThrough ? "" :LocalizedStringKey("ExitBrew"))
-            })
+        }.navigationBarTitle(title).navigationBarItems(
+            trailing:
+            Button(action: {
+                withAnimation {
+                    self.exitBrew()
+                }
+                
+            }) {
+                Text(isInstructionWalkThrough ? "" :LocalizedStringKey("ExitBrew"))
+        })
     }
 }
 
 struct BrewGuideWalkThroughView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     var brewGuide: BrewGuide!
-
+    
     var body: some View {
         let weightUnit = store.state.settings.weightUnit.rawValue
         let temperatureUnit = store.state.settings.temperatureUnit.rawValue
