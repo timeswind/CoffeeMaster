@@ -61,11 +61,14 @@ struct BrewGuideDetailView: View {
         isInstructionWalkThrough = true
     }
     
+    func updateTimerTime(_ timeInSec: Int) {
+        self.stopWatch.setTimeInSet(timeInSet: timeInSec)
+    }
+    
     var body: some View {
         
         let mainControlIcon = (isInstructionWalkThrough || (!isInstructionWalkThrough && !isBrewing)) ? ">" : "||"
         let title = isInstructionWalkThrough ? LocalizedStringKey(self.brewGuide.guideName) : ""
-        let brewSteps = self.brewGuide.getBrewSteps()
         
         let timerTime = Binding<String>(get: { () -> String in
             return self.stopWatch.stopWatchTime
@@ -85,7 +88,9 @@ struct BrewGuideDetailView: View {
             } else {
                 VStack {
                     BrewGuideTimerInstructionView(stopWatchTime: timerTime, brewPercent: progressPercent)
-                    BrewStepScrollDisplayView(brewSteps: brewSteps, currentInstructionIndex: $currentInstructionIndex)
+                    BrewStepScrollDisplayView(brewGuide: self.brewGuide, currentInstructionIndex: $currentInstructionIndex, onUpdateTime: { timeInSec in
+                        self.updateTimerTime(timeInSec)
+                    })
                     Spacer()
                 }.transition(.scale)
             }

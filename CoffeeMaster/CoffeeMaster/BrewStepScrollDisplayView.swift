@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BrewStepScrollDisplayView: View {
-    var brewSteps: [BrewStep]
+    var brewGuide: BrewGuide
     @Binding var currentInstructionIndex: Int
     @State var i_index: Int = 0
     
@@ -17,30 +17,47 @@ struct BrewStepScrollDisplayView: View {
     @State private var offset: CGPoint = .zero
     @State private var paddingBottom: CGFloat = .zero
     
-    init(brewSteps: [BrewStep], currentInstructionIndex: Binding<Int>) {
-        self.brewSteps = brewSteps
+    private var onUpdateTime: ((_ timeInSec: Int) -> Void)?
+    
+    
+    init(brewGuide: BrewGuide, currentInstructionIndex: Binding<Int>, onUpdateTime: ((_ timeInSec: Int) -> Void)? = nil) {
+        self.brewGuide = brewGuide
         self._currentInstructionIndex = currentInstructionIndex
         self.i_index = currentInstructionIndex.wrappedValue
+        self.onUpdateTime = onUpdateTime
     }
     
     func updateCurrentInstructionIndex(_ index:Int) {
         self.i_index = index
         self.currentInstructionIndex = index
+        
+        let passedTimeInSec = self.brewGuide.getPassedTimeInSecForStep(at: index)
+        if let onUpdateTime = self.onUpdateTime {
+            onUpdateTime(passedTimeInSec)
+        }
     }
     
     func prevInstruction() {
         if (self.i_index != 0) {
-            self.updateCurrentInstructionIndex(self.i_index - 1)
+            let newIndex = self.i_index - 1
+            self.updateCurrentInstructionIndex(newIndex)
+        } else {
+            // reset time to start time
+            if let onUpdateTime = self.onUpdateTime {
+                onUpdateTime(0)
+            }
         }
     }
     
     func nextInstruction() {
-        if (self.i_index != brewSteps.count - 1) {
-            self.updateCurrentInstructionIndex(self.i_index + 1)
+        if (self.i_index != self.brewGuide.getBrewSteps().count - 1) {
+            let newIndex = self.i_index + 1
+            self.updateCurrentInstructionIndex(newIndex)
         }
     }
     
     var body: some View {
+        let brewSteps = brewGuide.getBrewSteps()
         return HStack{
             Button(action: {
                 withAnimation {
@@ -51,10 +68,10 @@ struct BrewStepScrollDisplayView: View {
             }
             Spacer()
 
-            ForEach(0..<self.brewSteps.count, id:\.self) { index in
+            ForEach(0..<brewSteps.count, id:\.self) { index in
                 Group {
                     if (index == self.i_index) {
-                        Text(self.brewSteps[self.i_index].instruction)
+                        Text(brewSteps[self.i_index].instruction)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.black)
                             .transition(.scale)
@@ -90,7 +107,7 @@ struct BrewStepScrollDisplayView_Previews: PreviewProvider {
     
     static var previews: some View {
         print("parent \(self.currentInstructionIndex)")
-        let sample_brew_steps = dependencies.defaultBrewingGuides.sampleBrewSteps
-        return BrewStepScrollDisplayView(brewSteps: sample_brew_steps, currentInstructionIndex: $currentInstructionIndex).previewLayout(.sizeThatFits)
+        let sample_brew_guide = dependencies.defaultBrewingGuides.getGuides().first!
+        return BrewStepScrollDisplayView(brewGuide: sample_brew_guide, currentInstructionIndex: $currentInstructionIndex).previewLayout(.sizeThatFits)
     }
 }

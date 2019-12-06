@@ -28,6 +28,12 @@ class StopWatch: ObservableObject {
         }
     }
     
+    func setTimeInSet(timeInSet: Int) {
+        let counter = timeInSet * 100
+        self.counter = counter
+    }
+    
+    
     func setMaxTimeInSec(maxTimeInSec: Int) {
         self.maxTimeInSec = maxTimeInSec
     }

@@ -94,4 +94,12 @@ class BrewGuide: Codable {
         }
         return total
     }
-}
+    
+    func getPassedTimeInSecForStep(at index: Int) ->Int {
+        var total = 0
+        for step in self.brewSteps[...index] {
+            total += step.duration
+        }
+        return total
+    }
+ }
