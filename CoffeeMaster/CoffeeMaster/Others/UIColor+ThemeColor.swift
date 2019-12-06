@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 extension UIColor {
     struct Theme {
@@ -27,5 +28,11 @@ extension UIColor {
     }
     convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
+}
+
+extension Color {
+    struct Theme {
+        static let Accent = Color(UIColor.Theme.Accent)
     }
 }
