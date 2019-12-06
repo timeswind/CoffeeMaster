@@ -31,6 +31,9 @@ let aeropressBrewMethod = BrewMethod(.AeroPress, name: "AeroPress", image: "aero
 //let FrenchPressBrewMethod = BrewMethod(name: "French Press", image: "french-press", descriptionKey: "FrenchPressDescription", description: nil)
 
 class DefaultBrewingGuides {
+    //Sample data fow preview and debug
+    var sampleBrewSteps: [BrewStep] = []
+    
     var guides: [BrewGuide] = []
     private var methods: [BrewMethod] = []
     
@@ -48,7 +51,7 @@ class DefaultBrewingGuides {
         let chemexBrewGuide = BrewGuide(baseBrewMethod: chemexBrewMethod)
             .grindCoffee(step: grindCoffee)
             .boilWater(step: boilWater)
-            .add(brewStep: BrewStepBloom().water(50).duration(10))
+            .add(brewStep: BrewStepBloom().water(50).duration(10).instruction("Pour in 50ml of water and bloom for 10 secs"))
             .add(brewStep: BrewStepOther().instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
             .add(brewStep: BrewStepOther().instruction("Wait for the coffee to bloom").duration(15))
             .add(brewStep: BrewStepBloom().water(130).instruction("Pour 130g of water in a spiral motion over the dark areas").duration(30))
@@ -60,6 +63,7 @@ class DefaultBrewingGuides {
         chemexBrewGuide.guideName = chemexBrewMethod.name
         self.methods.append(chemexBrewMethod)
         self.guides.append(chemexBrewGuide)
+        self.sampleBrewSteps = chemexBrewGuide.getBrewSteps()
     }
     
     func defaultAeroPress() {

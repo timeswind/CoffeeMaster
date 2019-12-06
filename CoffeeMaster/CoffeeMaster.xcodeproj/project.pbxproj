@@ -86,6 +86,8 @@
 		5CE62D0F2399BEBD00BAE012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE62D0E2399BEBD00BAE012 /* Assets.xcassets */; };
 		5CE62D122399BEBD00BAE012 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE62D112399BEBD00BAE012 /* Preview Assets.xcassets */; };
 		5CE62D172399BEBD00BAE012 /* CoffeeMasterWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5CE62CF32399BEBB00BAE012 /* CoffeeMasterWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5CE62D222399DA5B00BAE012 /* BrewStepScrollDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE62D212399DA5B00BAE012 /* BrewStepScrollDisplayView.swift */; };
+		5CE62D242399F87800BAE012 /* OffsetScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE62D232399F87800BAE012 /* OffsetScrollView.swift */; };
 		5CE63736238DA17D00C1DC49 /* BrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63735238DA17D00C1DC49 /* BrewStepType.swift */; };
 		5CE63738238DA1C600C1DC49 /* BrewToolsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63737238DA1C600C1DC49 /* BrewToolsPicker.swift */; };
 		5CE6373A238DAA8500C1DC49 /* CoffeeBeanType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63739238DAA8500C1DC49 /* CoffeeBeanType.swift */; };
@@ -274,6 +276,8 @@
 		5CE62D112399BEBD00BAE012 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5CE62D132399BEBD00BAE012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CE62D142399BEBD00BAE012 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		5CE62D212399DA5B00BAE012 /* BrewStepScrollDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStepScrollDisplayView.swift; sourceTree = "<group>"; };
+		5CE62D232399F87800BAE012 /* OffsetScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetScrollView.swift; sourceTree = "<group>"; };
 		5CE63735238DA17D00C1DC49 /* BrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStepType.swift; sourceTree = "<group>"; };
 		5CE63737238DA1C600C1DC49 /* BrewToolsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewToolsPicker.swift; sourceTree = "<group>"; };
 		5CE63739238DAA8500C1DC49 /* CoffeeBeanType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanType.swift; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 				5C6A926F23792CDA006D8E0E /* BrewView.swift */,
 				5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */,
 				5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */,
+				5CE62D212399DA5B00BAE012 /* BrewStepScrollDisplayView.swift */,
 				5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */,
 				5C02EB2C238661FD002A7A1E /* ConfigureGrindCoffeeView.swift */,
 				5C02EB2E23866209002A7A1E /* ConfigureBoilWaterView.swift */,
@@ -393,6 +398,7 @@
 				5C02EB30238713B7002A7A1E /* DecimalTextField.swift */,
 				5CDA7724238B7B0D002E0ED5 /* SignInWithAppleView.swift */,
 				5C2E476D23962C1A0064226A /* StopWatch.swift */,
+				5CE62D232399F87800BAE012 /* OffsetScrollView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -979,6 +985,7 @@
 				5C02EB2F23866209002A7A1E /* ConfigureBoilWaterView.swift in Sources */,
 				5CE63744238DB6DE00C1DC49 /* CoffeeOrigin.swift in Sources */,
 				5C02EB272385F8AB002A7A1E /* UIKitTabView.swift in Sources */,
+				5CE62D222399DA5B00BAE012 /* BrewStepScrollDisplayView.swift in Sources */,
 				5CDA7725238B7B0D002E0ED5 /* SignInWithAppleView.swift in Sources */,
 				5C25798223837BA200976AE1 /* BrewStep.swift in Sources */,
 				5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */,
@@ -995,6 +1002,7 @@
 				5C02EB372388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift in Sources */,
 				5C8F6E792381B6840010EE0E /* Post.swift in Sources */,
 				5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */,
+				5CE62D242399F87800BAE012 /* OffsetScrollView.swift in Sources */,
 				5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */,
 				5CF20A9A2390545000632A05 /* Array+chunked.swift in Sources */,
 				5CDA7721238B785F002E0ED5 /* BrewWeight.swift in Sources */,
