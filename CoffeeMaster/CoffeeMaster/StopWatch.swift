@@ -2,7 +2,7 @@
 // Original file from
 // https://gist.github.com/programmingwithswift/0303decba01bba1189e66d4943dda4a3
 // Was Build upon first swiftUI beta
-// Modified by Mingtian Yang for working on current SwiftUI build
+// Modified and add more funcitonalities by Mingtian Yang for working on current SwiftUI build
 
 import Combine
 import Foundation
@@ -16,6 +16,7 @@ class StopWatch: ObservableObject {
     var maxTimeInSec:Int?
     
     @Published private(set) var stopWatchTime = "00:00:00"
+    @Published private(set) var progressPercent = CGFloat(1)
     
     var paused = true
     
@@ -60,6 +61,7 @@ class StopWatch: ObservableObject {
     
     func reset() {
         self.stopWatchTime = "00:00:00"
+        self.progressPercent = CGFloat(0)
         self.counter = 0
         self.currentLaps = [StopWatchLap]()
     }
@@ -90,6 +92,7 @@ class StopWatch: ObservableObject {
             self.counter += 1
             
             DispatchQueue.main.async {
+                self.progressPercent = StopWatch.calculateProgressPercent(counter: self.counter, maxTimeInSec: self.maxTimeInSec)
                 self.stopWatchTime = StopWatch.convertCountToTimeString(counter: self.counter)
             }
         } else {
@@ -119,6 +122,16 @@ extension StopWatch {
 }
 
 extension StopWatch {
+    
+    static func calculateProgressPercent(counter: Int, maxTimeInSec: Int?) -> CGFloat {
+        let seconds = counter / 100
+        
+        if (maxTimeInSec == nil) {
+            return CGFloat(1)
+        }
+         
+        return CGFloat(seconds) / CGFloat(maxTimeInSec!)
+    }
     static func isCountMeetMaxTimeInSec(counter: Int, maxTimeInSec: Int?) -> Bool {
         let seconds = counter / 100
         

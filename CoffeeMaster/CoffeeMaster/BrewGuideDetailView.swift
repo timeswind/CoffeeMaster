@@ -42,11 +42,11 @@ struct BrewGuideDetailView: View {
         if (isBrewing) {
             self.pause()
         } else {
-            self.start()
             let maxTimeAllowedInSec = self.brewGuide.getMaxiumBrewTimeInSec()
             self.stopWatch.setMaxTimeInSec(maxTimeInSec: maxTimeAllowedInSec)
             self.currentInstructionIndex = 0
             isInstructionWalkThrough = false
+            self.start()
         }
     }
     
@@ -67,12 +67,18 @@ struct BrewGuideDetailView: View {
             return
         }
         
+        let progressPercent = Binding<CGFloat>(get: { () -> CGFloat in
+            return self.stopWatch.progressPercent
+        }) { (_) in
+            return
+        }
+        
         return ZStack {
             if (isInstructionWalkThrough) {
                 BrewGuideWalkThroughView(brewGuide: brewGuide).transition(.scale)
             } else {
                 VStack {
-                    BrewGuideTimerInstructionView(stopWatchTime: timerTime)
+                    BrewGuideTimerInstructionView(stopWatchTime: timerTime, brewPercent: progressPercent)
                     BrewStepScrollDisplayView(brewSteps: brewSteps, currentInstructionIndex: $currentInstructionIndex)
                     Spacer()
                 }.transition(.scale)

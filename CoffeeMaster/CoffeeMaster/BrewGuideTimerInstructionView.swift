@@ -10,10 +10,13 @@ import SwiftUI
 
 struct BrewGuideTimerInstructionView: View {
     @Binding var stopWatchTime: String
+    @Binding var brewPercent: CGFloat
         
     var body: some View {
         return ZStack {
             VStack {
+                Text("Percent: \(self.brewPercent)")
+                Color.clear.overlay(Indicator(pct: self.brewPercent))
                 Text(self.stopWatchTime).font(.system(size: 70, weight: .bold, design: .monospaced))
                 .frame(width: UIScreen.main.bounds.size.width,
                        height: 300,
@@ -30,7 +33,13 @@ struct BrewGuideTimerInstructionView_Previews : PreviewProvider {
         }) { (_) in
             return
         }
-        return BrewGuideTimerInstructionView(stopWatchTime: timerTime)
+        
+        let brewPercent = Binding<CGFloat>(get: { () -> CGFloat in
+            return CGFloat(0.519)
+        }) { (_) in
+            return
+        }
+        return BrewGuideTimerInstructionView(stopWatchTime: timerTime, brewPercent: brewPercent)
     }
 }
 
