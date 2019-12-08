@@ -19,7 +19,11 @@
 		5C02EB372388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */; };
 		5C02EB502388E5FA002A7A1E /* RecordViewWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */; };
 		5C0C26992391D58A00F27180 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C26982391D58A00F27180 /* NoteDetailView.swift */; };
-		5C0C269C2391F18000F27180 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C0C269B2391F18000F27180 /* URLImage */; };
+		5C0C269C2391F18000F27180 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5C0C269B2391F18000F27180 /* SwiftPackageProductDependency */; };
+		5C0CA67B239D7302007B786A /* CoffeeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */; };
+		5C0CA693239D7358007B786A /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98A237462D900996D91 /* App.swift */; };
+		5C0CA695239D735F007B786A /* PermissionRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DF142396BF8500E2FD7F /* PermissionRequestService.swift */; };
+		5C0CA696239D735F007B786A /* StaticDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D76239D6E9E002D31D3 /* StaticDataService.swift */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* BrewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* BrewStep.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
@@ -29,9 +33,9 @@
 		5C2E476A23960FB80064226A /* BrewGuideTimerInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */; };
 		5C2E476E23962C1A0064226A /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476D23962C1A0064226A /* StopWatch.swift */; };
 		5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */; };
-		5C3DDDD323935147001A3B4F /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD223935147001A3B4F /* Grid */; };
-		5C3DDDD623935187001A3B4F /* Shapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD523935187001A3B4F /* Shapes */; };
-		5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD8239351A1001A3B4F /* Sliders */; };
+		5C3DDDD323935147001A3B4F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD223935147001A3B4F /* SwiftPackageProductDependency */; };
+		5C3DDDD623935187001A3B4F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD523935187001A3B4F /* SwiftPackageProductDependency */; };
+		5C3DDDD9239351A1001A3B4F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD8239351A1001A3B4F /* SwiftPackageProductDependency */; };
 		5C3F46582382D219001CC647 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F46572382D219001CC647 /* Record.swift */; };
 		5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465A23830903001CC647 /* AddRecordFormView.swift */; };
 		5C3F465D23830933001CC647 /* MultiplineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F465C23830933001CC647 /* MultiplineTextField.swift */; };
@@ -43,8 +47,9 @@
 		5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466A23831E71001CC647 /* ViewModifier.swift */; };
 		5C484D6A239D4B5B002D31D3 /* CaffeineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */; };
 		5C484D6C239D5255002D31D3 /* FluidVolumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D6B239D5255002D31D3 /* FluidVolumn.swift */; };
-		5C484D70239D6B5C002D31D3 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C484D6F239D6B5C002D31D3 /* QGrid */; };
+		5C484D70239D6B5C002D31D3 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5C484D6F239D6B5C002D31D3 /* SwiftPackageProductDependency */; };
 		5C484D75239D6C73002D31D3 /* CaffeineEntries.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C484D74239D6C73002D31D3 /* CaffeineEntries.json */; };
+		5C484D77239D6E9E002D31D3 /* StaticDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D76239D6E9E002D31D3 /* StaticDataService.swift */; };
 		5C5201C82389DB4F004F5736 /* String+isBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C72389DB4F004F5736 /* String+isBlank.swift */; };
 		5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */; };
 		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
@@ -74,6 +79,22 @@
 		5C9C8012237F8C680060C10E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8010237F8C680060C10E /* Utilities.swift */; };
 		5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */; };
 		5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */; };
+		5CCF366D239D70B000F30145 /* CaffeineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */; };
+		5CCF366F239D70E900F30145 /* BrewWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7720238B785F002E0ED5 /* BrewWeight.swift */; };
+		5CCF3670239D70E900F30145 /* FluidVolumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D6B239D5255002D31D3 /* FluidVolumn.swift */; };
+		5CCF3675239D70ED00F30145 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E782381B6840010EE0E /* Post.swift */; };
+		5CCF3676239D70ED00F30145 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F46572382D219001CC647 /* Record.swift */; };
+		5CCF3677239D70ED00F30145 /* BrewMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8457E23836B950086EFC8 /* BrewMethod.swift */; };
+		5CCF3678239D70ED00F30145 /* BrewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7729238B927F002E0ED5 /* BrewGuide.swift */; };
+		5CCF3679239D70ED00F30145 /* BrewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* BrewStep.swift */; };
+		5CCF367A239D70ED00F30145 /* BrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63735238DA17D00C1DC49 /* BrewStepType.swift */; };
+		5CCF3688239D70F200F30145 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C988237462A100996D91 /* Store.swift */; };
+		5CCF3689239D70F200F30145 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E762381B5F70010EE0E /* State.swift */; };
+		5CCF3690239D70F700F30145 /* WebDatabaseQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */; };
+		5CCF3691239D70F700F30145 /* BrewViewWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */; };
+		5CCF3692239D70F700F30145 /* ConnectViewWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */; };
+		5CCF3693239D70F700F30145 /* RecordViewWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */; };
+		5CCF3694239D70F700F30145 /* UserDataWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */; };
 		5CD4B3DB238F14C100E5FB00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */; };
 		5CDA7721238B785F002E0ED5 /* BrewWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7720238B785F002E0ED5 /* BrewWeight.swift */; };
 		5CDA7723238B7889002E0ED5 /* BrewTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */; };
@@ -233,6 +254,7 @@
 		5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineEntry.swift; sourceTree = "<group>"; };
 		5C484D6B239D5255002D31D3 /* FluidVolumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidVolumn.swift; sourceTree = "<group>"; };
 		5C484D74239D6C73002D31D3 /* CaffeineEntries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CaffeineEntries.json; sourceTree = "<group>"; };
+		5C484D76239D6E9E002D31D3 /* StaticDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticDataService.swift; sourceTree = "<group>"; };
 		5C5201C72389DB4F004F5736 /* String+isBlank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isBlank.swift"; sourceTree = "<group>"; };
 		5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewWebservice.swift; sourceTree = "<group>"; };
 		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
@@ -324,12 +346,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */,
-				5C0C269C2391F18000F27180 /* URLImage in Frameworks */,
-				5C3DDDD323935147001A3B4F /* Grid in Frameworks */,
-				5C484D70239D6B5C002D31D3 /* QGrid in Frameworks */,
+				5C3DDDD9239351A1001A3B4F /* BuildFile in Frameworks */,
+				5C0C269C2391F18000F27180 /* BuildFile in Frameworks */,
+				5C3DDDD323935147001A3B4F /* BuildFile in Frameworks */,
+				5C484D70239D6B5C002D31D3 /* BuildFile in Frameworks */,
 				5C9880052396B5F8003D4015 /* HealthKit.framework in Frameworks */,
-				5C3DDDD623935187001A3B4F /* Shapes in Frameworks */,
+				5C3DDDD623935187001A3B4F /* BuildFile in Frameworks */,
 				A2C7E26F11D67E33D09F631C /* Pods_CoffeeMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +376,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CFE991A2396CD0E00F78FE2 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		871042F8E649BE89D4F3E78A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +554,7 @@
 			isa = PBXGroup;
 			children = (
 				5C88DF142396BF8500E2FD7F /* PermissionRequestService.swift */,
+				5C484D76239D6E9E002D31D3 /* StaticDataService.swift */,
 			);
 			name = OtherServices;
 			sourceTree = "<group>";
@@ -732,11 +762,11 @@
 			);
 			name = CoffeeMaster;
 			packageProductDependencies = (
-				5C0C269B2391F18000F27180 /* URLImage */,
-				5C3DDDD223935147001A3B4F /* Grid */,
-				5C3DDDD523935187001A3B4F /* Shapes */,
-				5C3DDDD8239351A1001A3B4F /* Sliders */,
-				5C484D6F239D6B5C002D31D3 /* QGrid */,
+				5C0C269B2391F18000F27180 /* SwiftPackageProductDependency */,
+				5C3DDDD223935147001A3B4F /* SwiftPackageProductDependency */,
+				5C3DDDD523935187001A3B4F /* SwiftPackageProductDependency */,
+				5C3DDDD8239351A1001A3B4F /* SwiftPackageProductDependency */,
+				5C484D6F239D6B5C002D31D3 /* SwiftPackageProductDependency */,
 			);
 			productName = CoffeeMaster;
 			productReference = 5C80C96023745F2600996D91 /* CoffeeMaster.app */;
@@ -767,6 +797,7 @@
 			buildPhases = (
 				5CE62CF12399BEBB00BAE012 /* Resources */,
 				5CE62D1B2399BEBD00BAE012 /* Embed App Extensions */,
+				871042F8E649BE89D4F3E78A /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -851,11 +882,11 @@
 			);
 			mainGroup = 5C80C95723745F2600996D91;
 			packageReferences = (
-				5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */,
-				5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */,
-				5C3DDDD423935187001A3B4F /* XCRemoteSwiftPackageReference "Shapes" */,
-				5C3DDDD7239351A1001A3B4F /* XCRemoteSwiftPackageReference "Sliders" */,
-				5C484D6E239D6B5C002D31D3 /* XCRemoteSwiftPackageReference "QGrid" */,
+				5C0C269A2391F18000F27180 /* RemoteSwiftPackageReference */,
+				5C3DDDD123935147001A3B4F /* RemoteSwiftPackageReference */,
+				5C3DDDD423935187001A3B4F /* RemoteSwiftPackageReference */,
+				5C3DDDD7239351A1001A3B4F /* RemoteSwiftPackageReference */,
+				5C484D6E239D6B5C002D31D3 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 5C80C96123745F2600996D91 /* Products */;
 			projectDirPath = "";
@@ -998,6 +1029,7 @@
 				5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */,
 				5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */,
 				5CF20A932390531D00632A05 /* BrewGuideExpensionViewController.swift in Sources */,
+				5C484D77239D6E9E002D31D3 /* StaticDataService.swift in Sources */,
 				5C3F466923831AF8001CC647 /* PostDetailView.swift in Sources */,
 				5C3F46582382D219001CC647 /* Record.swift in Sources */,
 				5CE63736238DA17D00C1DC49 /* BrewStepType.swift in Sources */,
@@ -1073,8 +1105,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCF3678239D70ED00F30145 /* BrewGuide.swift in Sources */,
+				5CCF3690239D70F700F30145 /* WebDatabaseQueryService.swift in Sources */,
+				5CCF366D239D70B000F30145 /* CaffeineEntry.swift in Sources */,
+				5C0CA696239D735F007B786A /* StaticDataService.swift in Sources */,
+				5CCF3691239D70F700F30145 /* BrewViewWebservice.swift in Sources */,
+				5CCF367A239D70ED00F30145 /* BrewStepType.swift in Sources */,
+				5CCF3692239D70F700F30145 /* ConnectViewWebDatabaseService.swift in Sources */,
 				5C9C8012237F8C680060C10E /* Utilities.swift in Sources */,
 				5C80C97E23745F2900996D91 /* CoffeeMasterTests.swift in Sources */,
+				5CCF3688239D70F200F30145 /* Store.swift in Sources */,
+				5C0CA695239D735F007B786A /* PermissionRequestService.swift in Sources */,
+				5CCF3689239D70F200F30145 /* State.swift in Sources */,
+				5CCF3679239D70ED00F30145 /* BrewStep.swift in Sources */,
+				5C0CA693239D7358007B786A /* App.swift in Sources */,
+				5CCF366F239D70E900F30145 /* BrewWeight.swift in Sources */,
+				5CCF3693239D70F700F30145 /* RecordViewWebService.swift in Sources */,
+				5CCF3675239D70ED00F30145 /* Post.swift in Sources */,
+				5CCF3694239D70F700F30145 /* UserDataWebDatabaseService.swift in Sources */,
+				5CCF3676239D70ED00F30145 /* Record.swift in Sources */,
+				5C0CA67B239D7302007B786A /* CoffeeCollection.swift in Sources */,
+				5CCF3670239D70E900F30145 /* FluidVolumn.swift in Sources */,
+				5CCF3677239D70ED00F30145 /* BrewMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1293,7 +1345,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD5EDDE645C1AD8D0B4839AA /* Pods-CoffeeMaster.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoffeeMaster/CoffeeMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1321,7 +1373,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 821EFC7AC7A32631C287A14C /* Pods-CoffeeMaster.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoffeeMaster/CoffeeMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1349,7 +1401,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D19A749EB0D27D15943AA98 /* Pods-CoffeeMasterTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 397U443WJR;
@@ -1391,7 +1443,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 008E8C2E916D5CACEE161D7D /* Pods-CoffeeMasterTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 397U443WJR;
@@ -1615,7 +1667,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */ = {
+		5C0C269A2391F18000F27180 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
 			requirement = {
@@ -1623,7 +1675,7 @@
 				minimumVersion = 0.9.9;
 			};
 		};
-		5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */ = {
+		5C3DDDD123935147001A3B4F /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIExtensions/Grid.git";
 			requirement = {
@@ -1631,7 +1683,7 @@
 				minimumVersion = 0.7.2;
 			};
 		};
-		5C3DDDD423935187001A3B4F /* XCRemoteSwiftPackageReference "Shapes" */ = {
+		5C3DDDD423935187001A3B4F /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIExtensions/Shapes.git";
 			requirement = {
@@ -1639,7 +1691,7 @@
 				minimumVersion = 0.0.6;
 			};
 		};
-		5C3DDDD7239351A1001A3B4F /* XCRemoteSwiftPackageReference "Sliders" */ = {
+		5C3DDDD7239351A1001A3B4F /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIExtensions/Sliders.git";
 			requirement = {
@@ -1647,7 +1699,7 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		5C484D6E239D6B5C002D31D3 /* XCRemoteSwiftPackageReference "QGrid" */ = {
+		5C484D6E239D6B5C002D31D3 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Q-Mobile/QGrid";
 			requirement = {
@@ -1658,29 +1710,29 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5C0C269B2391F18000F27180 /* URLImage */ = {
+		5C0C269B2391F18000F27180 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */;
+			package = 5C0C269A2391F18000F27180 /* RemoteSwiftPackageReference */;
 			productName = URLImage;
 		};
-		5C3DDDD223935147001A3B4F /* Grid */ = {
+		5C3DDDD223935147001A3B4F /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */;
+			package = 5C3DDDD123935147001A3B4F /* RemoteSwiftPackageReference */;
 			productName = Grid;
 		};
-		5C3DDDD523935187001A3B4F /* Shapes */ = {
+		5C3DDDD523935187001A3B4F /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5C3DDDD423935187001A3B4F /* XCRemoteSwiftPackageReference "Shapes" */;
+			package = 5C3DDDD423935187001A3B4F /* RemoteSwiftPackageReference */;
 			productName = Shapes;
 		};
-		5C3DDDD8239351A1001A3B4F /* Sliders */ = {
+		5C3DDDD8239351A1001A3B4F /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5C3DDDD7239351A1001A3B4F /* XCRemoteSwiftPackageReference "Sliders" */;
+			package = 5C3DDDD7239351A1001A3B4F /* RemoteSwiftPackageReference */;
 			productName = Sliders;
 		};
-		5C484D6F239D6B5C002D31D3 /* QGrid */ = {
+		5C484D6F239D6B5C002D31D3 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5C484D6E239D6B5C002D31D3 /* XCRemoteSwiftPackageReference "QGrid" */;
+			package = 5C484D6E239D6B5C002D31D3 /* RemoteSwiftPackageReference */;
 			productName = QGrid;
 		};
 /* End XCSwiftPackageProductDependency section */

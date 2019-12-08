@@ -32,17 +32,17 @@ let aeropressBrewMethod = BrewMethod(.AeroPress, name: "AeroPress", image: "aero
 
 class DefaultBrewingGuides {
     //Sample data fow preview and debug
-    var sampleBrewSteps: [BrewStep] = []
+    static var sampleBrewSteps: [BrewStep] = []
     
-    var guides: [BrewGuide] = []
-    private var methods: [BrewMethod] = []
+    static var guides: [BrewGuide] = []
+    static var methods: [BrewMethod] = []
     
     init() {
-        self.defaultChemex()
-        self.defaultAeroPress()
+        DefaultBrewingGuides.self.defaultChemex()
+        DefaultBrewingGuides.self.defaultAeroPress()
     }
     
-    func defaultChemex() {
+    static func defaultChemex() {
         let grindCoffee = BrewStepGrindCoffee()
             .amount(25).grindSize(.Medium)
         let boilWater = BrewStepBoilWater()
@@ -61,12 +61,12 @@ class DefaultBrewingGuides {
         
         chemexBrewGuide.guideDescription = "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes"
         chemexBrewGuide.guideName = chemexBrewMethod.name
-        self.methods.append(chemexBrewMethod)
-        self.guides.append(chemexBrewGuide)
-        self.sampleBrewSteps = chemexBrewGuide.getBrewSteps()
+        DefaultBrewingGuides.methods.append(chemexBrewMethod)
+        DefaultBrewingGuides.guides.append(chemexBrewGuide)
+        DefaultBrewingGuides.sampleBrewSteps = chemexBrewGuide.getBrewSteps()
     }
     
-    func defaultAeroPress() {
+    static func defaultAeroPress() {
         let grindCoffee = BrewStepGrindCoffee()
             .amount(15).grindSize(.Fine)
         let boilWater = BrewStepBoilWater()
@@ -87,15 +87,15 @@ class DefaultBrewingGuides {
         
         aeropressBrewGuide.guideDescription = "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee"
         aeropressBrewGuide.guideName = aeropressBrewMethod.name
-        self.methods.append(aeropressBrewMethod)
-        self.guides.append(aeropressBrewGuide)
+        DefaultBrewingGuides.methods.append(aeropressBrewMethod)
+        DefaultBrewingGuides.guides.append(aeropressBrewGuide)
     }
     
     func getGuides() -> [BrewGuide] {
-        return self.guides
+        return DefaultBrewingGuides.guides
     }
     
     func getMethods() -> [BrewMethod] {
-        return self.methods
+        return DefaultBrewingGuides.methods
     }
 }

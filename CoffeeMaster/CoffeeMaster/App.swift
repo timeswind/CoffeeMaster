@@ -10,7 +10,6 @@ import Foundation
 import Combine
 import Firebase
 
-
 enum EmptyAction {
     case nilAction(nil: Bool)
 }

@@ -17,5 +17,15 @@ target 'CoffeeMaster' do
     inherit! :search_paths
     # Pods for testing
   end
+  
+#  target 'CoffeeMasterWatch Extension' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#
+#  target 'Coffee Master Widget' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
 
 end
