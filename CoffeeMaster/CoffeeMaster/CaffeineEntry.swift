@@ -9,26 +9,10 @@
 import Foundation
 import SwiftUI
 
-enum CaffeineEntryCategory: String, Codable {
-    case Coffee = "Coffee"
-    case Espresso = "Espresso"
-    case Tea = "Tea"
-    case SoftDrink = "SoftDrink"
-    case EnergyDrink = "EnergyDrink"
-    
-    static let allValues: [CaffeineEntryCategory] = [Coffee, Espresso, Tea, SoftDrink, EnergyDrink]
-}
-
-struct CaffeineEntryVariation: Codable {
-    var volumn: FluidVolume
-    var caffeineAmount: BrewWeight
-}
-
-
 struct CaffeineEntry: Codable {
-    var category: CaffeineEntryCategory
+    var category: Category
     var name: String
-    var variation: [CaffeineEntryVariation]
+    var variation: [Variation]
     
     var image: Image?
     
@@ -36,5 +20,20 @@ struct CaffeineEntry: Codable {
         case category
         case name
         case variation
+    }
+    
+    struct Variation: Codable {
+        var volumn: FluidVolume
+        var caffeineAmount: BrewWeight
+    }
+    
+    enum Category: String, Codable {
+        case Coffee = "Coffee"
+        case Espresso = "Espresso"
+        case Tea = "Tea"
+        case SoftDrink = "SoftDrink"
+        case EnergyDrink = "EnergyDrink"
+        
+        static let allValues: [Category] = [Coffee, Espresso, Tea, SoftDrink, EnergyDrink]
     }
 }

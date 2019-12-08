@@ -23,7 +23,7 @@ enum CoffeeTastingTrait: String, Codable {
     case Balance = "Balance"
     case Overall = "Overall"
     
-    var gradingType : CoffeeTastingGradingType {
+    var gradingType : GradingType {
         switch self {
         case .RoastColor: return .Text
         case .Aroma: return .Aroma
@@ -39,21 +39,21 @@ enum CoffeeTastingTrait: String, Codable {
         }
     }
     
+    enum GradingType {
+        case Text
+        case Number
+        case ScoreRange8
+        case Aroma
+    }
+    
     static let allValues: [CoffeeTastingTrait] = [RoastColor, Aroma, Defects, CleanCup, Sweet, Acidity, MouthFeel, Flavor, AfterTaste, Balance, Overall]
 }
 
-enum CoffeeTastingGradingType {
-    case Text
-    case Number
-    case ScoreRange8
-    case Aroma
-}
-
 class CoffeeTastingGrading {
-    var coffeeTastingGradingType: CoffeeTastingGradingType
+    var coffeeTastingGradingType: CoffeeTastingTrait.GradingType
     var score: Int = 0
     
-    init(_ coffeeTastingGradingType: CoffeeTastingGradingType) {
+    init(_ coffeeTastingGradingType: CoffeeTastingTrait.GradingType) {
         self.coffeeTastingGradingType = coffeeTastingGradingType
     }
 }
