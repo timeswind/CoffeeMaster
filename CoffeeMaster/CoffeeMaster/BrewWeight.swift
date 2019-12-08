@@ -11,10 +11,15 @@ import Foundation
 enum WeightUnit: String, Codable {
     case g = "g"
     case oz = "oz"
-    case mg = "mg"
     
-    static let allValues: [WeightUnit] = [g, oz]
+    // Unit for caffeine
+    case mg = "mg"
+    // Unit for espresso
+    case shot = "shot"
+
+    static let standardWeightUnitTypes: [WeightUnit] = [g, oz]
 }
+
 
 class BrewWeight: Codable {
     private var weight:Double = 0

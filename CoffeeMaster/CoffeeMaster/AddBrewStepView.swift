@@ -44,7 +44,7 @@ struct AddBrewStepView: View {
     
     var body: some View {
         let repeatBrewStepTypes = BrewStepType.repeatSteps
-        let allWeightUnitTypes = WeightUnit.allValues
+        let allWeightUnitTypes = WeightUnit.standardWeightUnitTypes
         
         let weightUnitValueBind = Binding<WeightUnit>(get: {
             return self.store.state.settings.weightUnit

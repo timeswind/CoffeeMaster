@@ -63,7 +63,7 @@ struct SettingsView: View {
             return keyValue<String, String>(key: key, value: value)
         }
         
-        let allWeightUnitTypes = WeightUnit.allValues
+        let allWeightUnitTypes = WeightUnit.standardWeightUnitTypes
         let allTemperatureUnitTypes = TemperatureUnit.allValues
         
         

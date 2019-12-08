@@ -68,7 +68,7 @@ struct RecordView: View {
                 AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
         .sheet(isPresented: $isCaffeineTrackerPresented) {
-            CaffeineTrackerView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            CaffeineTrackerView(askPermission: true).environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
     }
 }

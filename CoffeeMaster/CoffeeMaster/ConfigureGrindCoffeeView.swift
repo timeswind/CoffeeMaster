@@ -42,7 +42,7 @@ struct ConfigureGrindCoffeeView: View {
     
     var body: some View {
         let allGrindTypes = GrindSizeType.allValues
-        let allWeightUnitTypes = WeightUnit.allValues
+        let allWeightUnitTypes = WeightUnit.standardWeightUnitTypes
         
         let weightUnitValueBind = Binding<WeightUnit>(get: {
             return self.store.state.settings.weightUnit

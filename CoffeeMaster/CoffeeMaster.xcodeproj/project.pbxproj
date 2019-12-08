@@ -43,6 +43,8 @@
 		5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466A23831E71001CC647 /* ViewModifier.swift */; };
 		5C484D6A239D4B5B002D31D3 /* CaffeineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */; };
 		5C484D6C239D5255002D31D3 /* FluidVolumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D6B239D5255002D31D3 /* FluidVolumn.swift */; };
+		5C484D70239D6B5C002D31D3 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C484D6F239D6B5C002D31D3 /* QGrid */; };
+		5C484D75239D6C73002D31D3 /* CaffeineEntries.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C484D74239D6C73002D31D3 /* CaffeineEntries.json */; };
 		5C5201C82389DB4F004F5736 /* String+isBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C72389DB4F004F5736 /* String+isBlank.swift */; };
 		5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */; };
 		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
@@ -230,6 +232,7 @@
 		5C3F466A23831E71001CC647 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineEntry.swift; sourceTree = "<group>"; };
 		5C484D6B239D5255002D31D3 /* FluidVolumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidVolumn.swift; sourceTree = "<group>"; };
+		5C484D74239D6C73002D31D3 /* CaffeineEntries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CaffeineEntries.json; sourceTree = "<group>"; };
 		5C5201C72389DB4F004F5736 /* String+isBlank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isBlank.swift"; sourceTree = "<group>"; };
 		5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewWebservice.swift; sourceTree = "<group>"; };
 		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
@@ -324,6 +327,7 @@
 				5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */,
 				5C0C269C2391F18000F27180 /* URLImage in Frameworks */,
 				5C3DDDD323935147001A3B4F /* Grid in Frameworks */,
+				5C484D70239D6B5C002D31D3 /* QGrid in Frameworks */,
 				5C9880052396B5F8003D4015 /* HealthKit.framework in Frameworks */,
 				5C3DDDD623935187001A3B4F /* Shapes in Frameworks */,
 				A2C7E26F11D67E33D09F631C /* Pods_CoffeeMaster.framework in Frameworks */,
@@ -421,6 +425,23 @@
 			name = Actions;
 			sourceTree = "<group>";
 		};
+		5C484D6D239D6964002D31D3 /* Units */ = {
+			isa = PBXGroup;
+			children = (
+				5CDA7720238B785F002E0ED5 /* BrewWeight.swift */,
+				5C484D6B239D5255002D31D3 /* FluidVolumn.swift */,
+			);
+			name = Units;
+			sourceTree = "<group>";
+		};
+		5C484D73239D6C4D002D31D3 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				5C484D74239D6C73002D31D3 /* CaffeineEntries.json */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
 		5C5F41192381E726005DBACE /* ConnectView */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +495,7 @@
 				5C8A7DE42396B94B0035CDC8 /* ViewModifier */,
 				5CEEC7C0237F057E00E3BDB0 /* Others */,
 				5C80C96C23745F2900996D91 /* Assets.xcassets */,
+				5C484D73239D6C4D002D31D3 /* data */,
 				5C80C97123745F2900996D91 /* LaunchScreen.storyboard */,
 				5C80C97423745F2900996D91 /* Info.plist */,
 				5C80C96723745F2600996D91 /* CoffeeMaster.xcdatamodeld */,
@@ -616,8 +638,7 @@
 				5CDA7729238B927F002E0ED5 /* BrewGuide.swift */,
 				5C25798123837BA200976AE1 /* BrewStep.swift */,
 				5CE63735238DA17D00C1DC49 /* BrewStepType.swift */,
-				5CDA7720238B785F002E0ED5 /* BrewWeight.swift */,
-				5C484D6B239D5255002D31D3 /* FluidVolumn.swift */,
+				5C484D6D239D6964002D31D3 /* Units */,
 				5CE63737238DA1C600C1DC49 /* BrewToolsPicker.swift */,
 				5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */,
 				5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */,
@@ -715,6 +736,7 @@
 				5C3DDDD223935147001A3B4F /* Grid */,
 				5C3DDDD523935187001A3B4F /* Shapes */,
 				5C3DDDD8239351A1001A3B4F /* Sliders */,
+				5C484D6F239D6B5C002D31D3 /* QGrid */,
 			);
 			productName = CoffeeMaster;
 			productReference = 5C80C96023745F2600996D91 /* CoffeeMaster.app */;
@@ -833,6 +855,7 @@
 				5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */,
 				5C3DDDD423935187001A3B4F /* XCRemoteSwiftPackageReference "Shapes" */,
 				5C3DDDD7239351A1001A3B4F /* XCRemoteSwiftPackageReference "Sliders" */,
+				5C484D6E239D6B5C002D31D3 /* XCRemoteSwiftPackageReference "QGrid" */,
 			);
 			productRefGroup = 5C80C96123745F2600996D91 /* Products */;
 			projectDirPath = "";
@@ -857,6 +880,7 @@
 				5C80C97023745F2900996D91 /* Preview Assets.xcassets in Resources */,
 				5C80C96D23745F2900996D91 /* Assets.xcassets in Resources */,
 				5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */,
+				5C484D75239D6C73002D31D3 /* CaffeineEntries.json in Resources */,
 				5CD4B3DB238F14C100E5FB00 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1623,6 +1647,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		5C484D6E239D6B5C002D31D3 /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1645,6 +1677,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C3DDDD7239351A1001A3B4F /* XCRemoteSwiftPackageReference "Sliders" */;
 			productName = Sliders;
+		};
+		5C484D6F239D6B5C002D31D3 /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C484D6E239D6B5C002D31D3 /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
 		};
 /* End XCSwiftPackageProductDependency section */
 

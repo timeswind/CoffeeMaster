@@ -36,7 +36,7 @@ struct ConfigureBoilWaterView: View {
     }
     
     var body: some View {
-        let allWeightUnitTypes = WeightUnit.allValues
+        let allWeightUnitTypes = WeightUnit.standardWeightUnitTypes
         let allTemperatureUnitTypes = TemperatureUnit.allValues
         
         

@@ -11,7 +11,7 @@ import HealthKit
 
 struct CaffeineTrackerView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-
+    var askPermission: Bool
     func checkPermission() {
         if (store.state.settings.isHealthKitEnabled == false) {
             // the app has no ability to add record into the health app
@@ -44,13 +44,15 @@ struct CaffeineTrackerView: View {
                 Text("Hello, World!")
             }.navigationBarTitle(Text(LocalizedStringKey("CaffeineTracker")))
         }.onAppear {
-            self.checkPermission()
+            if (self.askPermission) {
+                self.checkPermission()
+            }
         }
     }
 }
 
 struct CaffeineTrackerView_Previews: PreviewProvider {
     static var previews: some View {
-        CaffeineTrackerView()
+        CaffeineTrackerView(askPermission: false)
     }
 }
