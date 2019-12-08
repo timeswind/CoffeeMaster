@@ -8,50 +8,50 @@
 
 import Foundation
 
-class FluidVolumn: Codable {
-    private var weight:Double = 0
+class FluidVolume: Codable {
+    private var volume:Double = 0
     
     init() {
-        self.setWeight(weight: 0)
+        self.setVolume(0)
     }
     
-    init(_ weight: Double) {
-        self.setWeight(weight: weight)
+    init(_ volumnInML: Double) {
+        self.setVolume(volumnInML)
     }
     
     func update() {
         let _ = getWeightUnit()
     }
     
-    func setWeight(weight: BrewWeight) {
-        self.weight = weight.getWeight()
+    func setVolume(_ volume: BrewWeight) {
+        self.volume = volume.getWeight()
     }
     
-    func setWeight(weight: Double) {
+    func setVolume(_ volume: Double) {
         let unit = getWeightUnit()
         switch unit {
         case .g:
-            self.weight = weight
+            self.volume = volume
         case .oz:
-            self.weight = Utilities.OunceToGram(ounce: weight)
+            self.volume = Utilities.OunceToGram(ounce: volume)
         default:
             return
         }
     }
     
-    func getWeight() -> Double {
+    func getVolume() -> Double {
         let unit = getWeightUnit()
         switch unit {
         case .g:
-            return self.weight
+            return self.volume
         case .oz:
-            return Utilities.gramToOunce(gram: self.weight)
+            return Utilities.gramToOunce(gram: self.volume)
         default:
-            return self.weight
+            return self.volume
         }
     }
     
-    func getVolumn() -> Double {
-        return self.weight
+    func getVolumeInML() -> Double {
+        return self.volume
     }
 }

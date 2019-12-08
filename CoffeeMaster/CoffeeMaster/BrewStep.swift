@@ -25,7 +25,7 @@ class BrewStep: Codable {
         try container.encode(instruction, forKey: .instruction)
         try container.encode(description, forKey: .description)
         try container.encode(duration, forKey: .duration)
-        try container.encode(amount.getVolumn(), forKey: .amount)
+        try container.encode(amount.getVolume(), forKey: .amount)
     }
     
     required init(from decoder: Decoder) throws {
@@ -79,7 +79,7 @@ class BrewStepGrindCoffee: BrewStep {
     override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder)
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(coffeeAmount.getVolumn(), forKey: .coffeeAmount)
+        try container.encode(coffeeAmount.getVolume(), forKey: .coffeeAmount)
         try container.encode(grindSize, forKey: .grindSize)
     }
     
@@ -135,7 +135,7 @@ class BrewStepBoilWater: BrewStep {
         try super.encode(to: encoder)
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(waterTemperature.getCelsius(), forKey: .waterTemperature)
-        try container.encode(waterAmount.getVolumn(), forKey: .waterAmount)
+        try container.encode(waterAmount.getVolume(), forKey: .waterAmount)
     }
     
     required init(from decoder: Decoder) throws {
@@ -181,7 +181,7 @@ class BrewStepBoilWater: BrewStep {
     }
     
     func getWaterVolumn() -> Double {
-        return self.waterAmount.getVolumn()
+        return self.waterAmount.getVolume()
     }
     
     func getWaterTemperature() -> BrewTemperature {
