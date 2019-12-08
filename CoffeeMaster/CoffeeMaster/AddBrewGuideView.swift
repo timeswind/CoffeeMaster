@@ -46,7 +46,11 @@ struct AddBrewGuideView: View {
     
     func finishedEditing() {
         if (!formComplete()) { print("Form not complete"); self.showsAlert = true; return }
-        var newBrewGuide: BrewGuide = BrewGuide(baseBrewMethod: self.baseBrewMethod).createGuideWith(name: self.guideName).description(self.guideDescription)
+        var newBrewGuide: BrewGuide =
+            BrewGuide(baseBrewMethod: self.baseBrewMethod)
+                .createGuideWith(name: self.guideName)
+                .description(self.guideDescription)
+                .setPublicStatus(self.guideIsPublic)
         newBrewGuide = newBrewGuide.boilWater(step: self.brewStepBoilWater!)
             .grindCoffee(step: self.brewStepGrindCoffee!)
             .brewSteps(self.brewSteps)

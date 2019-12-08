@@ -78,6 +78,11 @@ class BrewGuide: Codable {
         return self
     }
     
+    func setPublicStatus(_ isPublic:Bool) -> BrewGuide {
+        self.isPublic = isPublic
+        return self
+    }
+    
     func removeBrewStep(at index: Int) {
         self.brewSteps.remove(at: index)
     }
@@ -85,7 +90,6 @@ class BrewGuide: Codable {
     func changeBaseBrewMethod(to method: BrewMethod) {
         self.baseBrewMethod = method
     }
-    
     
     func getMaxiumBrewTimeInSec() -> Int {
         var total = 0
@@ -102,4 +106,5 @@ class BrewGuide: Codable {
         }
         return total
     }
+
  }
