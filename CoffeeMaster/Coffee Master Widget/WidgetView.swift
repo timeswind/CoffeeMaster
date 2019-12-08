@@ -23,6 +23,7 @@ struct WidgetView: View {
                 Button(action: {self.openURL(urlString: "coffeemaster://brew")}) { Text("Open Brew View") }
                 Button(action: {self.openURL(urlString: "coffeemaster://record")}) { Text("Open Record View") }
             }
+            Button(action: {self.openURL(urlString: "coffeemaster://record.caffeine")}) { Text("RecordCaffeine") }
             Spacer()
         }
     }

@@ -18,7 +18,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func openURL(urlString: String) {
-        print("oprnurl \(urlString)")
         let appURL = NSURL(string: urlString)
         self.extensionContext?.open(appURL! as URL, completionHandler:nil)
     }

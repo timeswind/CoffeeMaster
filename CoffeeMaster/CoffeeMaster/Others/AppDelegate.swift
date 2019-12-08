@@ -32,48 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        // Determine who sent the URL.
-        let sendingAppID = options[.sourceApplication]
-        print("source application = \(sendingAppID ?? "Unknown")")
-        
-        //coffeemaster:brew -> open brewview
-        //coffeemaster:record -> open recordview
-        
-        // Process the URL.
-        if url.scheme == "coffeemaster"
-         {
-             switch url.host
-             {
-             case "brew":
-                 //Open Brew View
-                break
-
-             case "record":
-                 //Open Record View
-                break
-             default:
-                 break
-             }
-         }
-         return true
-//        guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
-//            let albumPath = components.path,
-//            let params = components.queryItems else {
-//                print("Invalid URL or album path missing")
-//                return false
-//        }
-//
-//        if let photoIndex = params.first(where: { $0.name == "index" })?.value {
-//            print("albumPath = \(albumPath)")
-//            print("photoIndex = \(photoIndex)")
-//            return true
-//        } else {
-//            print("Photo index missing")
-//            return false
-//        }
-    }
 
     // MARK: - Core Data stack
 

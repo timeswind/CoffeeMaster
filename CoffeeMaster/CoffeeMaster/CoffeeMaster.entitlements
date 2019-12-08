@@ -12,6 +12,10 @@
 	<array/>
 	<key>com.apple.security.app-sandbox</key>
 	<true/>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.edu.psu.sce.mky5089.CoffeeMaster</string>
+	</array>
 	<key>com.apple.security.device.camera</key>
 	<true/>
 	<key>com.apple.security.network.client</key>

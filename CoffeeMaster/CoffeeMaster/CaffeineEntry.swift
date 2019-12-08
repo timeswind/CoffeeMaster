@@ -43,7 +43,8 @@ struct CaffeineEntry: Codable, Identifiable {
         }
         
         func displayCaffeineAmount() -> String {
-            return String(format: "%.0f", caffeineAmount.getVolume())
+            //default unit in mg
+            return String(format: "%.0f", caffeineAmount.getVolume() * 1000)
         }
         
         enum CodingKeys: String, CodingKey {

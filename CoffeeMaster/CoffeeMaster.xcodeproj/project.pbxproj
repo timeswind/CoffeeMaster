@@ -29,6 +29,8 @@
 		5C2E476E23962C1A0064226A /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476D23962C1A0064226A /* StopWatch.swift */; };
 		5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */; };
 		5C2FEFAD239D963D000C4854 /* CaffeineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FEFAC239D963D000C4854 /* CaffeineRecord.swift */; };
+		5C2FEFB1239DB04A000C4854 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE992923970FBD00F78FE2 /* WidgetView.swift */; };
+		5C2FEFB2239DB04F000C4854 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE991C2396CD0E00F78FE2 /* TodayViewController.swift */; };
 		5C3DDDD323935147001A3B4F /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD223935147001A3B4F /* Grid */; };
 		5C3DDDD623935187001A3B4F /* Shapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD523935187001A3B4F /* Shapes */; };
 		5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD8239351A1001A3B4F /* Sliders */; };
@@ -214,6 +216,9 @@
 		5C2E476D23962C1A0064226A /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineTrackerView.swift; sourceTree = "<group>"; };
 		5C2FEFAC239D963D000C4854 /* CaffeineRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineRecord.swift; sourceTree = "<group>"; };
+		5C2FEFAE239DAFB2000C4854 /* Coffee Master Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Coffee Master Widget.entitlements"; sourceTree = "<group>"; };
+		5C2FEFAF239DAFB8000C4854 /* CoffeeMasterWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeMasterWatch.entitlements; sourceTree = "<group>"; };
+		5C2FEFB0239DAFBB000C4854 /* CoffeeMasterWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CoffeeMasterWatch Extension.entitlements"; sourceTree = "<group>"; };
 		5C3F46572382D219001CC647 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		5C3F465A23830903001CC647 /* AddRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordFormView.swift; sourceTree = "<group>"; };
 		5C3F465C23830933001CC647 /* MultiplineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplineTextField.swift; sourceTree = "<group>"; };
@@ -563,6 +568,7 @@
 		5CE62CF42399BEBB00BAE012 /* CoffeeMasterWatch */ = {
 			isa = PBXGroup;
 			children = (
+				5C2FEFAF239DAFB8000C4854 /* CoffeeMasterWatch.entitlements */,
 				5CE62CF52399BEBB00BAE012 /* Interface.storyboard */,
 				5CE62CF82399BEBC00BAE012 /* Assets.xcassets */,
 				5CE62CFA2399BEBC00BAE012 /* Info.plist */,
@@ -573,6 +579,7 @@
 		5CE62D032399BEBD00BAE012 /* CoffeeMasterWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				5C2FEFB0239DAFBB000C4854 /* CoffeeMasterWatch Extension.entitlements */,
 				5CE62D042399BEBD00BAE012 /* ContentView.swift */,
 				5CE62D062399BEBD00BAE012 /* HostingController.swift */,
 				5CE62D082399BEBD00BAE012 /* ExtensionDelegate.swift */,
@@ -682,6 +689,7 @@
 		5CFE991B2396CD0E00F78FE2 /* Coffee Master Widget */ = {
 			isa = PBXGroup;
 			children = (
+				5C2FEFAE239DAFB2000C4854 /* Coffee Master Widget.entitlements */,
 				5CFE992923970FBD00F78FE2 /* WidgetView.swift */,
 				5CFE991C2396CD0E00F78FE2 /* TodayViewController.swift */,
 				5CFE991E2396CD0E00F78FE2 /* MainInterface.storyboard */,
@@ -950,6 +958,7 @@
 				5CDA7723238B7889002E0ED5 /* BrewTemperature.swift in Sources */,
 				5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */,
 				5C8F6E772381B5F70010EE0E /* State.swift in Sources */,
+				5C2FEFB2239DB04F000C4854 /* TodayViewController.swift in Sources */,
 				5C3F466223830AD9001CC647 /* ConnectViewReducer.swift in Sources */,
 				5C80C989237462A100996D91 /* Store.swift in Sources */,
 				5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */,
@@ -1004,6 +1013,7 @@
 				5C02EB352387A97B002A7A1E /* AddBrewStepView.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
 				5C5F41182381E718005DBACE /* PostFormView.swift in Sources */,
+				5C2FEFB1239DB04A000C4854 /* WidgetView.swift in Sources */,
 				5CDA7727238B8B24002E0ED5 /* RecordCardView.swift in Sources */,
 				5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */,
 				5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */,
@@ -1279,6 +1289,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoffeeMasterWatch/CoffeeMasterWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 397U443WJR;
 				IBSC_MODULE = CoffeeMasterWatch_Extension;
@@ -1298,6 +1309,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoffeeMasterWatch/CoffeeMasterWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 397U443WJR;
 				IBSC_MODULE = CoffeeMasterWatch_Extension;
@@ -1316,6 +1328,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "CoffeeMasterWatch Extension/CoffeeMasterWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffeeMasterWatch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 397U443WJR;
@@ -1340,6 +1353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "CoffeeMasterWatch Extension/CoffeeMasterWatch Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffeeMasterWatch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 397U443WJR;
@@ -1363,6 +1377,7 @@
 		5CFE99262396CD0E00F78FE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Coffee Master Widget/Coffee Master Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 397U443WJR;
 				INFOPLIST_FILE = "Coffee Master Widget/Info.plist";
@@ -1383,6 +1398,7 @@
 		5CFE99272396CD0E00F78FE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Coffee Master Widget/Coffee Master Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 397U443WJR;
 				INFOPLIST_FILE = "Coffee Master Widget/Info.plist";

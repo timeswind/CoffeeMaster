@@ -39,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         for urlContext in URLContexts {
             let url = urlContext.url
+            print(url)
             if let scheme = url.scheme {
                 if scheme == "coffeemaster"
                  {
@@ -52,6 +53,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                      case "record":
                          //Open Record View
                         print("open record view")
+                        environmemtServices.store.send(.settings(action: .setMainTabViewSelectedTab(index: 3)))
+                        break
+                     case "record.caffeine":
+                        print("open record caffeine view")
+                        environmemtServices.store.send(.recordview(action: .setCaffeineTrackerIsPresent(status: true)))
                         environmemtServices.store.send(.settings(action: .setMainTabViewSelectedTab(index: 3)))
                         break
                      default:
