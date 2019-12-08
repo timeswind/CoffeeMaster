@@ -17,6 +17,11 @@ struct CaffeineTrackerView: View {
     
     var askPermission: Bool
     
+    func exit() {
+//        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
+        store.send(.recordview(action: .setCaffeineTrackerIsPresent(status: false)))
+    }
+    
     func selectCategory(_ category: CaffeineEntry.Category) {
         self.selectedCategory = category
     }
@@ -25,11 +30,22 @@ struct CaffeineTrackerView: View {
         self.selectedEntry = entry
     }
     
-    func addRecord(_ entry: CaffeineEntry.Variation) {
+    func addRecord(variation: CaffeineEntry.Variation) {
+        assert(store.state.settings.uid != nil)
+        let entry = self.selectedEntry!
+        let caffeineEntry = CaffeineEntry(category: entry.category, name: entry.name, variation: [variation], image: nil)
+        let caffeineRecord = CaffeineRecord(caffeineEntry: caffeineEntry)
+        
+        let record = Record(caffeineRecord, created_by_uid: store.state.settings.uid!)
+        store.send(RecordViewAsyncAction.addRecord(record: record))
+        self.exit()
+    }
+    
+    func addRecordToHealtApp(_ entryVariation: CaffeineEntry.Variation) {
         let healthStore = store.state.settings.heathStore!
         
         //Caffeine in mg
-        let caffeineAmount = entry.caffeineAmount.getWeight() * 100
+        let caffeineAmount = entryVariation.caffeineAmount.getWeight() * 100
         
         let quantityType = HKQuantityType.quantityType(forIdentifier: .dietaryCaffeine)
         let quanitytUnit = HKUnit(from: "mg")
@@ -43,9 +59,10 @@ struct CaffeineTrackerView: View {
         
         healthStore.save(bloodCorrelationCorrelationForWaterAmount, withCompletion: { (success, error) in
             if (error != nil) {
-                print(error)
+
             } else {
                 print("save success")
+                self.addRecord(variation: entryVariation)
             }
             
         })
@@ -96,7 +113,7 @@ struct CaffeineTrackerView: View {
                     QGrid(selectedEntry!.variation, columns: 3) { (entry) in
                         Button(action: {
                             if (self.askPermission) {
-                                self.addRecord(entry)
+                                self.addRecordToHealtApp(entry)
                             }
                         }){
                             VStack {

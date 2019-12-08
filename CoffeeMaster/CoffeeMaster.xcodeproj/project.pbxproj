@@ -28,6 +28,7 @@
 		5C2E476A23960FB80064226A /* BrewGuideTimerInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */; };
 		5C2E476E23962C1A0064226A /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476D23962C1A0064226A /* StopWatch.swift */; };
 		5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */; };
+		5C2FEFAD239D963D000C4854 /* CaffeineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FEFAC239D963D000C4854 /* CaffeineRecord.swift */; };
 		5C3DDDD323935147001A3B4F /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD223935147001A3B4F /* Grid */; };
 		5C3DDDD623935187001A3B4F /* Shapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD523935187001A3B4F /* Shapes */; };
 		5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD8239351A1001A3B4F /* Sliders */; };
@@ -212,6 +213,7 @@
 		5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideTimerInstructionView.swift; sourceTree = "<group>"; };
 		5C2E476D23962C1A0064226A /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineTrackerView.swift; sourceTree = "<group>"; };
+		5C2FEFAC239D963D000C4854 /* CaffeineRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineRecord.swift; sourceTree = "<group>"; };
 		5C3F46572382D219001CC647 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		5C3F465A23830903001CC647 /* AddRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordFormView.swift; sourceTree = "<group>"; };
 		5C3F465C23830933001CC647 /* MultiplineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplineTextField.swift; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 				5C3F466323830C30001CC647 /* Actions */,
 				5C8F6E782381B6840010EE0E /* Post.swift */,
 				5C3F46572382D219001CC647 /* Record.swift */,
+				5C2FEFAC239D963D000C4854 /* CaffeineRecord.swift */,
 				5CE8457E23836B950086EFC8 /* BrewMethod.swift */,
 				5CDA7729238B927F002E0ED5 /* BrewGuide.swift */,
 				5C25798123837BA200976AE1 /* BrewStep.swift */,
@@ -979,6 +982,7 @@
 				5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */,
 				5CF20A9A2390545000632A05 /* Array+chunked.swift in Sources */,
 				5C484D6A239D4B5B002D31D3 /* CaffeineEntry.swift in Sources */,
+				5C2FEFAD239D963D000C4854 /* CaffeineRecord.swift in Sources */,
 				5CDA7721238B785F002E0ED5 /* BrewWeight.swift in Sources */,
 				5CE63742238DB6B100C1DC49 /* CoffeeTastingTraits.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,

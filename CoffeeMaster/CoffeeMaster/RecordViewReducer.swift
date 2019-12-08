@@ -15,6 +15,8 @@ enum RecordViewAction {
     case setRecords(records: [Record])
     case setAddRecordFormPresentStatus(isPresent: Bool)
     case setCaffeineEntries(caffeineEntries: [CaffeineEntry])
+    case setRecordFormIsPresent(status: Bool)
+    case setCaffeineTrackerIsPresent(status: Bool)
 }
 
 struct RecordViewReducer {
@@ -24,11 +26,17 @@ struct RecordViewReducer {
             state.addRecordFormPresented = isPresent
         case let .setRecords(records):
             state.records = records
+            state.isCaffeineTrackerPresented = false
+            state.isAddRecordNoteFormPresented = false
         case let .newRecordAdded(record):
             state.addRecordFormPresented = false
             state.records.insert(record, at: 0)
         case let .setCaffeineEntries(caffeineEntries):
             state.caffeineEntries = caffeineEntries
+        case let .setRecordFormIsPresent(status):
+            state.isAddRecordNoteFormPresented = status
+        case let .setCaffeineTrackerIsPresent(status):
+            state.isCaffeineTrackerPresented = status
         }
     }
 }

@@ -30,7 +30,9 @@ final class Store<State, Action>: ObservableObject {
     }
 
     func send(_ action: Action) {
-        appReducer.reduce(&state, action)
+        DispatchQueue.main.async {
+            self.appReducer.reduce(&self.state, action)
+        }
     }
 
     func send<E: Effect>(_ effect: E) where E.Action == Action {

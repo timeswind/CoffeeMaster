@@ -10,8 +10,8 @@ import SwiftUI
 
 struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    @State var isAddRecordFormPresented: Bool = false
-    @State var isCaffeineTrackerPresented: Bool = false
+    //    @State var isAddRecordFormPresented: Bool = false
+    //    @State var isCaffeineTrackerPresented: Bool = false
     @State var isActionSheetShow: Bool = false
     var recordTypeActionSheet: ActionSheet {
         ActionSheet(
@@ -33,11 +33,11 @@ struct RecordView: View {
     }
     
     func showCaffeineTracker() {
-        self.isCaffeineTrackerPresented = true
+        store.send(.recordview(action: .setCaffeineTrackerIsPresent(status: true)))
     }
     
     func showRecordForm() {
-        self.isAddRecordFormPresented = true
+        store.send(.recordview(action: .setRecordFormIsPresent(status: true)))
     }
     
     func showRecordTypeActionSheet() {
@@ -46,6 +46,14 @@ struct RecordView: View {
     
     var body: some View {
         let isLoggedIn = store.state.settings.signedIn
+        
+        let isSheetPresented = Binding<Bool>(get: { () -> Bool in
+            self.store.state.recordViewState.isAddRecordNoteFormPresented || self.store.state.recordViewState.isCaffeineTrackerPresented
+        }) { (isPresented) in
+            return
+        }
+        
+        let isAddRecordNoteFormPresented = self.store.state.recordViewState.isAddRecordNoteFormPresented
         
         return NavigationView {
             if (isLoggedIn) {
@@ -63,12 +71,14 @@ struct RecordView: View {
                     Spacer()
                 }
             }
-        }.actionSheet(isPresented: $isActionSheetShow, content: {self.recordTypeActionSheet})
-            .sheet(isPresented: $isAddRecordFormPresented) {
-                AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
-        .sheet(isPresented: $isCaffeineTrackerPresented) {
-            CaffeineTrackerView(askPermission: true).environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+        .actionSheet(isPresented: $isActionSheetShow, content: {self.recordTypeActionSheet})
+        .sheet(isPresented: isSheetPresented) {
+            if (isAddRecordNoteFormPresented) {
+                AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            } else {
+                CaffeineTrackerView(askPermission: true).environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            }
         }
     }
 }

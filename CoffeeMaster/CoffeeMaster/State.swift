@@ -43,6 +43,8 @@ struct RecordViewState {
     var records: [Record] = []
     var addRecordFormPresented: Bool = false
     var caffeineEntries: [CaffeineEntry] = []
+    var isAddRecordNoteFormPresented = false
+    var isCaffeineTrackerPresented = false
 }
 
 struct BrewViewState {

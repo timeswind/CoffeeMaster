@@ -43,7 +43,7 @@ struct AddRecordFormView: View {
     
     func exit() {
         self.images = []
-        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
+        store.send(.recordview(action: .setRecordFormIsPresent(status: false)))
     }
     
     var body: some View {
