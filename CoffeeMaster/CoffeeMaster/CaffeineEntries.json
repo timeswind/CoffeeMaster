@@ -1,8 +1,17 @@
 [{
     category: "Coffee",
-    name: "Black Eye",
+    name: "Coffee",
     variation: [{
-        volumn: "8"
-        caffeineAmount: ""
-    }]
+        volumn: 250,
+        caffeineAmount: 0.1
+    },
+    {
+        volumn: 350,
+        caffeineAmount: 0.15
+    },
+    {
+        volumn: 500,
+        caffeineAmount: 0.2
+    }
+    ]
 }]
