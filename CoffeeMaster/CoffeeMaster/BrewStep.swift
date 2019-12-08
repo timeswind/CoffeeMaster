@@ -13,6 +13,31 @@ class BrewStep: Codable {
     var instruction: String = ""
     var description: String = ""
     var duration: Int = 0
+    var amount: BrewWeight = BrewWeight()
+
+    private enum CodingKeys : String, CodingKey {
+        case brewType, instruction, description, duration, amount
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(brewType, forKey: .brewType)
+        try container.encode(instruction, forKey: .instruction)
+        try container.encode(description, forKey: .description)
+        try container.encode(duration, forKey: .duration)
+        try container.encode(amount.getVolumn(), forKey: .amount)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        self.brewType = try container.decode(BrewStepType.self, forKey: .brewType)
+        self.instruction = try container.decode(String.self, forKey: .instruction)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.duration = try container.decode(Int.self, forKey: .duration)
+        let amountValue = try container.decode(Double.self, forKey: .amount)
+        self.amount = BrewWeight(amountValue)
+    }
     
     init(brewType: BrewStepType) {
         self.brewType = brewType
@@ -49,13 +74,27 @@ class BrewStep: Codable {
 class BrewStepGrindCoffee: BrewStep {
     private var coffeeAmount: BrewWeight = BrewWeight()
     var grindSize: GrindSizeType = .Coarse
+    private enum CodingKeys: String, CodingKey { case coffeeAmount, grindSize }
     
-    init() {
-        super.init(brewType: .GrindCoffee)
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(coffeeAmount.getVolumn(), forKey: .coffeeAmount)
+        try container.encode(grindSize, forKey: .grindSize)
     }
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let coffeeAmountInGram = try container.decode(Double.self, forKey: .coffeeAmount)
+        let grindSize = try container.decode(GrindSizeType.self, forKey: .grindSize)
+        
+        self.coffeeAmount = BrewWeight(coffeeAmountInGram)
+        self.grindSize = grindSize
+    }
+        
+    init() {
+        super.init(brewType: .GrindCoffee)
     }
     
     func amount(_ coffeeInGram: BrewWeight) -> BrewStepGrindCoffee {
@@ -90,12 +129,27 @@ class BrewStepBoilWater: BrewStep {
     var waterTemperature: BrewTemperature = BrewTemperature()
     var waterAmount: BrewWeight = BrewWeight()
     
-    init() {
-        super.init(brewType: .BoilWater)
+    private enum CodingKeys: String, CodingKey { case waterTemperature, waterAmount }
+    
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(waterTemperature.getCelsius(), forKey: .waterTemperature)
+        try container.encode(waterAmount.getVolumn(), forKey: .waterAmount)
     }
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let waterTemperatureInCelsius = try container.decode(Double.self, forKey: .waterTemperature)
+        let waterAmountInGram = try container.decode(Double.self, forKey: .waterAmount)
+        
+        self.waterTemperature = BrewTemperature(waterTemperatureInCelsius)
+        self.waterAmount = BrewWeight(waterAmountInGram)
+    }
+    
+    init() {
+        super.init(brewType: .BoilWater)
     }
     
     func water(_ amount: BrewWeight) -> BrewStepBoilWater {
@@ -137,8 +191,6 @@ class BrewStepBoilWater: BrewStep {
 }
 
 class BrewStepBloom: BrewStep {
-    var waterAmount: BrewWeight = BrewWeight()
-    
     init() {
         super.init(brewType: .Bloom)
     }
@@ -158,11 +210,11 @@ class BrewStepBloom: BrewStep {
     }
     
     func setWaterAmount(waterAmount: BrewWeight) {
-        self.waterAmount.setWeight(weight: waterAmount)
+        self.amount.setWeight(weight: waterAmount)
     }
     
     func getWaterAmount() -> BrewWeight {
-        return self.waterAmount
+        return self.amount
     }
 }
 
@@ -187,8 +239,6 @@ class BrewStepStir: BrewStep {
 }
 
 class BrewStepOther: BrewStep {
-    var amount: BrewWeight = BrewWeight()
-    
     init() {
         super.init(brewType: .Other)
     }

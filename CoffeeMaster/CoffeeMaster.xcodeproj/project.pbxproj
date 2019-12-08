@@ -28,6 +28,7 @@
 		5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA44237F385C0082CFBD /* EnvironmentService.swift */; };
 		5C2E476A23960FB80064226A /* BrewGuideTimerInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */; };
 		5C2E476E23962C1A0064226A /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476D23962C1A0064226A /* StopWatch.swift */; };
+		5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */; };
 		5C3DDDD323935147001A3B4F /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD223935147001A3B4F /* Grid */; };
 		5C3DDDD623935187001A3B4F /* Shapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD523935187001A3B4F /* Shapes */; };
 		5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD8239351A1001A3B4F /* Sliders */; };
@@ -40,6 +41,8 @@
 		5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F4666238316CF001CC647 /* PostCardView.swift */; };
 		5C3F466923831AF8001CC647 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466823831AF8001CC647 /* PostDetailView.swift */; };
 		5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466A23831E71001CC647 /* ViewModifier.swift */; };
+		5C484D6A239D4B5B002D31D3 /* CaffeineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */; };
+		5C484D6C239D5255002D31D3 /* FluidVolumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D6B239D5255002D31D3 /* FluidVolumn.swift */; };
 		5C5201C82389DB4F004F5736 /* String+isBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C72389DB4F004F5736 /* String+isBlank.swift */; };
 		5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */; };
 		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
@@ -215,6 +218,7 @@
 		5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeMaster.entitlements; sourceTree = "<group>"; };
 		5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideTimerInstructionView.swift; sourceTree = "<group>"; };
 		5C2E476D23962C1A0064226A /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineTrackerView.swift; sourceTree = "<group>"; };
 		5C3F46572382D219001CC647 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		5C3F465A23830903001CC647 /* AddRecordFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordFormView.swift; sourceTree = "<group>"; };
 		5C3F465C23830933001CC647 /* MultiplineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplineTextField.swift; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 		5C3F4666238316CF001CC647 /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
 		5C3F466823831AF8001CC647 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		5C3F466A23831E71001CC647 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
+		5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineEntry.swift; sourceTree = "<group>"; };
+		5C484D6B239D5255002D31D3 /* FluidVolumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidVolumn.swift; sourceTree = "<group>"; };
 		5C5201C72389DB4F004F5736 /* String+isBlank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isBlank.swift"; sourceTree = "<group>"; };
 		5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewWebservice.swift; sourceTree = "<group>"; };
 		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
@@ -380,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8F6E742381B0420010EE0E /* RecordView.swift */,
+				5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */,
 				5C0C26982391D58A00F27180 /* NoteDetailView.swift */,
 				5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */,
 				5C3F465A23830903001CC647 /* AddRecordFormView.swift */,
@@ -610,6 +617,7 @@
 				5C25798123837BA200976AE1 /* BrewStep.swift */,
 				5CE63735238DA17D00C1DC49 /* BrewStepType.swift */,
 				5CDA7720238B785F002E0ED5 /* BrewWeight.swift */,
+				5C484D6B239D5255002D31D3 /* FluidVolumn.swift */,
 				5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */,
 				5CE63737238DA1C600C1DC49 /* BrewToolsPicker.swift */,
 				5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */,
@@ -620,6 +628,7 @@
 				5CE6373F238DB69D00C1DC49 /* CoffeeRoasterType.swift */,
 				5CE6373D238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift */,
 				5CE6373B238DB67000C1DC49 /* CoffeeBeanSizeGrade.swift */,
+				5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -989,6 +998,7 @@
 				5CDA7725238B7B0D002E0ED5 /* SignInWithAppleView.swift in Sources */,
 				5C25798223837BA200976AE1 /* BrewStep.swift in Sources */,
 				5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */,
+				5C484D6C239D5255002D31D3 /* FluidVolumn.swift in Sources */,
 				5C02EB31238713B7002A7A1E /* DecimalTextField.swift in Sources */,
 				5C9C8011237F8C680060C10E /* Utilities.swift in Sources */,
 				5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */,
@@ -1005,6 +1015,7 @@
 				5CE62D242399F87800BAE012 /* OffsetScrollView.swift in Sources */,
 				5C3F465B23830903001CC647 /* AddRecordFormView.swift in Sources */,
 				5CF20A9A2390545000632A05 /* Array+chunked.swift in Sources */,
+				5C484D6A239D4B5B002D31D3 /* CaffeineEntry.swift in Sources */,
 				5CDA7721238B785F002E0ED5 /* BrewWeight.swift in Sources */,
 				5CE63742238DB6B100C1DC49 /* CoffeeTastingTraits.swift in Sources */,
 				5C80C98B237462D900996D91 /* App.swift in Sources */,
@@ -1028,6 +1039,7 @@
 				5C5F41182381E718005DBACE /* PostFormView.swift in Sources */,
 				5CDA7727238B8B24002E0ED5 /* RecordCardView.swift in Sources */,
 				5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */,
+				5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */,
 				5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */,
 				5CE6373C238DB67000C1DC49 /* CoffeeBeanSizeGrade.swift in Sources */,
 			);

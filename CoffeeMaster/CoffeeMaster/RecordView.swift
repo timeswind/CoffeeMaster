@@ -11,13 +11,36 @@ import SwiftUI
 struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State var isAddRecordFormPresented: Bool = false
+    @State var isActionSheetShow: Bool = false
+    var recordTypeActionSheet: ActionSheet {
+        ActionSheet(
+            title: Text(LocalizedStringKey("RecordTypeActionSheetTitle")),
+            message: Text(LocalizedStringKey("RecordTypeActionSheetMessage")),
+            buttons: [
+                .default(Text("RecordTypeActionSheetNewRecord"), action: {
+                    self.showRecordForm()
+                }),
+                .default(Text("RecordTypeActionSheetTrackCaffeine"), action: {
+                    self.showCaffeineTracker()
+                }),
+                .cancel()
+            ])
+    }
     
     private func fetch() {
         store.send(RecordViewAsyncAction.getMyRecords(query: ""))
     }
     
+    func showCaffeineTracker() {
+        
+    }
+    
     func showRecordForm() {
         self.isAddRecordFormPresented = true
+    }
+    
+    func showRecordTypeActionSheet() {
+        self.isActionSheetShow = true
     }
     
     var body: some View {
@@ -26,10 +49,12 @@ struct RecordView: View {
         return NavigationView {
             if (isLoggedIn) {
                 RecordListView().navigationBarTitle(Text(LocalizedStringKey("Record"))).navigationBarItems(
-                    trailing:
-                    Button(action: {self.showRecordForm()}) {
-                        Text(LocalizedStringKey("Write"))
-                }).onAppear(perform: fetch)
+                    trailing: Button(action: {
+                        // change country setting
+                        self.showRecordTypeActionSheet()
+                    }) {
+                        Text(LocalizedStringKey("NewRecord"))
+                    }).onAppear(perform: fetch)
             } else {
                 VStack {
                     Text(LocalizedStringKey("SignInToRecordSyncedAcrossDevices")).padding(.horizontal)
@@ -37,7 +62,8 @@ struct RecordView: View {
                     Spacer()
                 }
             }
-        }.sheet(isPresented: $isAddRecordFormPresented) {
+        }.actionSheet(isPresented: $isActionSheetShow, content: {self.recordTypeActionSheet})
+        .sheet(isPresented: $isAddRecordFormPresented) {
             AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
     }

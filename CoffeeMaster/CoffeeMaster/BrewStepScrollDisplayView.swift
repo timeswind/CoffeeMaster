@@ -82,9 +82,6 @@ struct BrewStepScrollDisplayView: View {
 
             }
             
-
-
-
             Spacer()
             Button(action: {
                 withAnimation {

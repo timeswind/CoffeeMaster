@@ -48,4 +48,8 @@ class BrewTemperature {
             return Utilities.CelsiusToFahrenheit(celsius: self.temperature)
         }
     }
+    
+    func getCelsius() -> Double {
+        return self.temperature
+    }
 }

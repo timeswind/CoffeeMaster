@@ -1,31 +1,15 @@
 //
-//  BrewWeight.swift
+//  FluidVolumn.swift
 //  CoffeeMaster
 //
-//  Created by Mingtian Yang on 11/24/19.
+//  Created by Mingtian Yang on 12/8/19.
 //  Copyright © 2019 Mingtian Yang. All rights reserved.
 //
 
 import Foundation
 
-enum WeightUnit: String, Codable {
-    case g = "g"
-    case oz = "oz"
-    case mg = "mg"
-    
-    static let allValues: [WeightUnit] = [g, oz]
-}
-
-class BrewWeight: Codable {
+class FluidVolumn: Codable {
     private var weight:Double = 0
-    private enum CodingKeys : String, CodingKey {
-        case weight
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(weight, forKey: .weight)
-    }
     
     init() {
         self.setWeight(weight: 0)

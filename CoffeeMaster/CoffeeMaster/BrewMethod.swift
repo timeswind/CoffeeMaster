@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-enum GrindSizeType: String {
+enum GrindSizeType: String, Codable {
     case Coarse = "Coarse"
     case Medium = "Medium"
     case Fine = "Fine"
