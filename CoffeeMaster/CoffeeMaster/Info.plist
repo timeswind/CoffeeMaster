@@ -39,11 +39,11 @@
 	<string>Share your photos and save photo to your note</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Use Camera to take picitures</string>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>Access Health Record for caffeine</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>Access Health Record for caffeine</string>
 	<key>NSHealthUpdateUsageDescription</key>
+	<string>Access Health Record for caffeine</string>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
 	<string>Access Health Record for caffeine</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Shows your location on the map and helps improve the map.</string>

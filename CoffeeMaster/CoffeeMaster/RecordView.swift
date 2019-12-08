@@ -11,6 +11,7 @@ import SwiftUI
 struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State var isAddRecordFormPresented: Bool = false
+    @State var isCaffeineTrackerPresented: Bool = false
     @State var isActionSheetShow: Bool = false
     var recordTypeActionSheet: ActionSheet {
         ActionSheet(
@@ -24,7 +25,7 @@ struct RecordView: View {
                     self.showCaffeineTracker()
                 }),
                 .cancel()
-            ])
+        ])
     }
     
     private func fetch() {
@@ -32,7 +33,7 @@ struct RecordView: View {
     }
     
     func showCaffeineTracker() {
-        
+        self.isCaffeineTrackerPresented = true
     }
     
     func showRecordForm() {
@@ -54,7 +55,7 @@ struct RecordView: View {
                         self.showRecordTypeActionSheet()
                     }) {
                         Text(LocalizedStringKey("NewRecord"))
-                    }).onAppear(perform: fetch)
+                }).onAppear(perform: fetch)
             } else {
                 VStack {
                     Text(LocalizedStringKey("SignInToRecordSyncedAcrossDevices")).padding(.horizontal)
@@ -63,8 +64,11 @@ struct RecordView: View {
                 }
             }
         }.actionSheet(isPresented: $isActionSheetShow, content: {self.recordTypeActionSheet})
-        .sheet(isPresented: $isAddRecordFormPresented) {
-            AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            .sheet(isPresented: $isAddRecordFormPresented) {
+                AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+        }
+        .sheet(isPresented: $isCaffeineTrackerPresented) {
+            CaffeineTrackerView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
         }
     }
 }
@@ -72,10 +76,10 @@ struct RecordView: View {
 struct RecordListView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State private var viewSegment = 0
-
+    
     var body: some View {
         let records = store.state.recordViewState.records
-
+        
         return ScrollView(.vertical, showsIndicators: false) {
             Picker(selection: $viewSegment, label: Text("RecordViewSegmentLabel")) {
                 Text("Note").tag(0)
@@ -86,9 +90,9 @@ struct RecordListView: View {
             if (viewSegment == 0) {
                 if (self.store.state.recordViewState.records.count > 0) {
                     ForEach(records, id: \.id) { record in
-                            NavigationLink(destination: Text("Record Detail")) {
-                                RecordCardView(record: record)
-                            }.padding(.horizontal)
+                        NavigationLink(destination: Text("Record Detail")) {
+                            RecordCardView(record: record)
+                        }.padding(.horizontal)
                     }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
                 } else {
                     EmptyView()
