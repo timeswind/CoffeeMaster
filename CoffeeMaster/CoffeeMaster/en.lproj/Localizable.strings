@@ -114,3 +114,8 @@
 
 /*RecordView*/
 "SignInToRecordSyncedAcrossDevices" = "Sign in with Apple ID to sync your thoughts across devices";
+"RecordTypeActionSheetTitle" = "Choose what to record";
+"RecordTypeActionSheetMessage" = "";
+"RecordTypeActionSheetNewRecord" = "Record Note";
+"RecordTypeActionSheetTrackCaffeine" = "Record Caffeine";
+"CaffeineTracker" = "Caffeine Tracker";

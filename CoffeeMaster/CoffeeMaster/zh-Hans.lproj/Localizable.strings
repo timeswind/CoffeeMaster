@@ -114,3 +114,8 @@
 
 /*RecordView*/
 "SignInToRecordSyncedAcrossDevices" = "现在就用AppleID登入，记录你的奇思妙想并与多款设备保持同步";
+"RecordTypeActionSheetTitle" = "记录你的想法和咖啡因摄入情况";
+"RecordTypeActionSheetMessage" = "";
+"RecordTypeActionSheetNewRecord" = "想法";
+"RecordTypeActionSheetTrackCaffeine" = "咖啡因摄入";
+"CaffeineTracker" = "咖啡因记录";
