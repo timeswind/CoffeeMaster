@@ -27,6 +27,11 @@ class BrewWeight: Codable {
         try container.encode(weight, forKey: .weight)
     }
     
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.weight = try container.decode(Double.self, forKey: .weight)
+    }
+    
     init() {
         self.setWeight(weight: 0)
     }

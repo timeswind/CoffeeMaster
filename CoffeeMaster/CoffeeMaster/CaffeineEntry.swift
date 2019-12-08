@@ -15,22 +15,13 @@ enum CaffeineEntryCategory: String, Codable {
     case Tea = "Tea"
     case SoftDrink = "SoftDrink"
     case EnergyDrink = "EnergyDrink"
-    case Medication = "Medication"
     
-    static let allValues: [CaffeineEntryCategory] = [Coffee, Espresso, Tea, SoftDrink, EnergyDrink, Medication]
+    static let allValues: [CaffeineEntryCategory] = [Coffee, Espresso, Tea, SoftDrink, EnergyDrink]
 }
 
 struct CaffeineEntryVariation: Codable {
-    // Default Unit is mg
-    var weight: String
-    var weightUnit: WeightUnit = .mg
-    var value: Int
-    
-    /* Example
-     entryName: 8 fl oz
-     
-     */
-
+    var volumn: FluidVolume
+    var caffeineAmount: BrewWeight
 }
 
 
