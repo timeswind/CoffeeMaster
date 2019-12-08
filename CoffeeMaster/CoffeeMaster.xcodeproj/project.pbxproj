@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		136964F7D5A7776A50E8B4B3 /* Pods_CoffeeMasterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7107C432F0D5B3A7B32F7FE /* Pods_CoffeeMasterTests.framework */; };
 		5C02EB272385F8AB002A7A1E /* UIKitTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB262385F8AB002A7A1E /* UIKitTabView.swift */; };
 		5C02EB29238610D3002A7A1E /* BrewViewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB28238610D3002A7A1E /* BrewViewReducer.swift */; };
 		5C02EB2B238612F0002A7A1E /* AddBrewGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */; };
@@ -20,10 +19,6 @@
 		5C02EB502388E5FA002A7A1E /* RecordViewWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */; };
 		5C0C26992391D58A00F27180 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C26982391D58A00F27180 /* NoteDetailView.swift */; };
 		5C0C269C2391F18000F27180 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C0C269B2391F18000F27180 /* URLImage */; };
-		5C0CA67B239D7302007B786A /* CoffeeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD2238DF2330063CA13 /* CoffeeCollection.swift */; };
-		5C0CA693239D7358007B786A /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98A237462D900996D91 /* App.swift */; };
-		5C0CA695239D735F007B786A /* PermissionRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DF142396BF8500E2FD7F /* PermissionRequestService.swift */; };
-		5C0CA696239D735F007B786A /* StaticDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D76239D6E9E002D31D3 /* StaticDataService.swift */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
 		5C25798223837BA200976AE1 /* BrewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* BrewStep.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
@@ -63,7 +58,6 @@
 		5C80C96D23745F2900996D91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C80C96C23745F2900996D91 /* Assets.xcassets */; };
 		5C80C97023745F2900996D91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C80C96F23745F2900996D91 /* Preview Assets.xcassets */; };
 		5C80C97323745F2900996D91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C80C97123745F2900996D91 /* LaunchScreen.storyboard */; };
-		5C80C97E23745F2900996D91 /* CoffeeMasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C97D23745F2900996D91 /* CoffeeMasterTests.swift */; };
 		5C80C989237462A100996D91 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C988237462A100996D91 /* Store.swift */; };
 		5C80C98B237462D900996D91 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98A237462D900996D91 /* App.swift */; };
 		5C80C98D2374631C00996D91 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C98C2374631C00996D91 /* Dependencies.swift */; };
@@ -76,25 +70,8 @@
 		5C8F6E7B2381BC080010EE0E /* WebDatabaseQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */; };
 		5C9880052396B5F8003D4015 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9880042396B5F8003D4015 /* HealthKit.framework */; };
 		5C9C8011237F8C680060C10E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8010237F8C680060C10E /* Utilities.swift */; };
-		5C9C8012237F8C680060C10E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8010237F8C680060C10E /* Utilities.swift */; };
 		5C9C8017237F917B0060C10E /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C8016237F917B0060C10E /* SignInWithAppleDelegates.swift */; };
 		5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */; };
-		5CCF366D239D70B000F30145 /* CaffeineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */; };
-		5CCF366F239D70E900F30145 /* BrewWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7720238B785F002E0ED5 /* BrewWeight.swift */; };
-		5CCF3670239D70E900F30145 /* FluidVolumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D6B239D5255002D31D3 /* FluidVolumn.swift */; };
-		5CCF3675239D70ED00F30145 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E782381B6840010EE0E /* Post.swift */; };
-		5CCF3676239D70ED00F30145 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F46572382D219001CC647 /* Record.swift */; };
-		5CCF3677239D70ED00F30145 /* BrewMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8457E23836B950086EFC8 /* BrewMethod.swift */; };
-		5CCF3678239D70ED00F30145 /* BrewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7729238B927F002E0ED5 /* BrewGuide.swift */; };
-		5CCF3679239D70ED00F30145 /* BrewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* BrewStep.swift */; };
-		5CCF367A239D70ED00F30145 /* BrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63735238DA17D00C1DC49 /* BrewStepType.swift */; };
-		5CCF3688239D70F200F30145 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C988237462A100996D91 /* Store.swift */; };
-		5CCF3689239D70F200F30145 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E762381B5F70010EE0E /* State.swift */; };
-		5CCF3690239D70F700F30145 /* WebDatabaseQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6E7A2381BC080010EE0E /* WebDatabaseQueryService.swift */; };
-		5CCF3691239D70F700F30145 /* BrewViewWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */; };
-		5CCF3692239D70F700F30145 /* ConnectViewWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */; };
-		5CCF3693239D70F700F30145 /* RecordViewWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */; };
-		5CCF3694239D70F700F30145 /* UserDataWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF78BD4238DFC390063CA13 /* UserDataWebDatabaseService.swift */; };
 		5CD4B3DB238F14C100E5FB00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */; };
 		5CDA7721238B785F002E0ED5 /* BrewWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7720238B785F002E0ED5 /* BrewWeight.swift */; };
 		5CDA7723238B7889002E0ED5 /* BrewTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7722238B7889002E0ED5 /* BrewTemperature.swift */; };
@@ -141,13 +118,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5C80C97A23745F2900996D91 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5C80C95823745F2600996D91 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5C80C95F23745F2600996D91;
-			remoteInfo = CoffeeMaster;
-		};
 		5CE62D012399BEBD00BAE012 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C80C95823745F2600996D91 /* Project object */;
@@ -270,7 +240,6 @@
 		5C80C96F23745F2900996D91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5C80C97223745F2900996D91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C80C97423745F2900996D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C80C97923745F2900996D91 /* CoffeeMasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeMasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C80C97D23745F2900996D91 /* CoffeeMasterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMasterTests.swift; sourceTree = "<group>"; };
 		5C80C97F23745F2900996D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C80C988237462A100996D91 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -353,14 +322,6 @@
 				5C9880052396B5F8003D4015 /* HealthKit.framework in Frameworks */,
 				5C3DDDD623935187001A3B4F /* Shapes in Frameworks */,
 				A2C7E26F11D67E33D09F631C /* Pods_CoffeeMaster.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C80C97623745F2900996D91 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				136964F7D5A7776A50E8B4B3 /* Pods_CoffeeMasterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,7 +461,6 @@
 			isa = PBXGroup;
 			children = (
 				5C80C96023745F2600996D91 /* CoffeeMaster.app */,
-				5C80C97923745F2900996D91 /* CoffeeMasterTests.xctest */,
 				5CFE99182396CD0E00F78FE2 /* Coffee Master Widget.appex */,
 				5CE62CF32399BEBB00BAE012 /* CoffeeMasterWatch.app */,
 				5CE62CFF2399BEBD00BAE012 /* CoffeeMasterWatch Extension.appex */,
@@ -772,25 +732,6 @@
 			productReference = 5C80C96023745F2600996D91 /* CoffeeMaster.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5C80C97823745F2900996D91 /* CoffeeMasterTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5C80C98523745F2900996D91 /* Build configuration list for PBXNativeTarget "CoffeeMasterTests" */;
-			buildPhases = (
-				CE8D37AAAFFE6B219A2EBB50 /* [CP] Check Pods Manifest.lock */,
-				5C80C97523745F2900996D91 /* Sources */,
-				5C80C97623745F2900996D91 /* Frameworks */,
-				5C80C97723745F2900996D91 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5C80C97B23745F2900996D91 /* PBXTargetDependency */,
-			);
-			name = CoffeeMasterTests;
-			productName = CoffeeMasterTests;
-			productReference = 5C80C97923745F2900996D91 /* CoffeeMasterTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		5CE62CF22399BEBB00BAE012 /* CoffeeMasterWatch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CE62D1F2399BEBD00BAE012 /* Build configuration list for PBXNativeTarget "CoffeeMasterWatch" */;
@@ -856,10 +797,6 @@
 					5C80C95F23745F2600996D91 = {
 						CreatedOnToolsVersion = 11.2;
 					};
-					5C80C97823745F2900996D91 = {
-						CreatedOnToolsVersion = 11.2;
-						TestTargetID = 5C80C95F23745F2600996D91;
-					};
 					5CE62CF22399BEBB00BAE012 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
@@ -893,7 +830,6 @@
 			projectRoot = "";
 			targets = (
 				5C80C95F23745F2600996D91 /* CoffeeMaster */,
-				5C80C97823745F2900996D91 /* CoffeeMasterTests */,
 				5CFE99172396CD0E00F78FE2 /* Coffee Master Widget */,
 				5CE62CF22399BEBB00BAE012 /* CoffeeMasterWatch */,
 				5CE62CFE2399BEBD00BAE012 /* CoffeeMasterWatch Extension */,
@@ -913,13 +849,6 @@
 				5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */,
 				5C484D75239D6C73002D31D3 /* CaffeineEntries.json in Resources */,
 				5CD4B3DB238F14C100E5FB00 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C80C97723745F2900996D91 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -967,28 +896,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoffeeMaster/Pods-CoffeeMaster-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE8D37AAAFFE6B219A2EBB50 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CoffeeMasterTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EEDBD74699CED190F64CE8E3 /* [CP] Check Pods Manifest.lock */ = {
@@ -1101,35 +1008,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C80C97523745F2900996D91 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5CCF3678239D70ED00F30145 /* BrewGuide.swift in Sources */,
-				5CCF3690239D70F700F30145 /* WebDatabaseQueryService.swift in Sources */,
-				5CCF366D239D70B000F30145 /* CaffeineEntry.swift in Sources */,
-				5C0CA696239D735F007B786A /* StaticDataService.swift in Sources */,
-				5CCF3691239D70F700F30145 /* BrewViewWebservice.swift in Sources */,
-				5CCF367A239D70ED00F30145 /* BrewStepType.swift in Sources */,
-				5CCF3692239D70F700F30145 /* ConnectViewWebDatabaseService.swift in Sources */,
-				5C9C8012237F8C680060C10E /* Utilities.swift in Sources */,
-				5C80C97E23745F2900996D91 /* CoffeeMasterTests.swift in Sources */,
-				5CCF3688239D70F200F30145 /* Store.swift in Sources */,
-				5C0CA695239D735F007B786A /* PermissionRequestService.swift in Sources */,
-				5CCF3689239D70F200F30145 /* State.swift in Sources */,
-				5CCF3679239D70ED00F30145 /* BrewStep.swift in Sources */,
-				5C0CA693239D7358007B786A /* App.swift in Sources */,
-				5CCF366F239D70E900F30145 /* BrewWeight.swift in Sources */,
-				5CCF3693239D70F700F30145 /* RecordViewWebService.swift in Sources */,
-				5CCF3675239D70ED00F30145 /* Post.swift in Sources */,
-				5CCF3694239D70F700F30145 /* UserDataWebDatabaseService.swift in Sources */,
-				5CCF3676239D70ED00F30145 /* Record.swift in Sources */,
-				5C0CA67B239D7302007B786A /* CoffeeCollection.swift in Sources */,
-				5CCF3670239D70E900F30145 /* FluidVolumn.swift in Sources */,
-				5CCF3677239D70ED00F30145 /* BrewMethod.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5CE62CFB2399BEBD00BAE012 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1154,11 +1032,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5C80C97B23745F2900996D91 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5C80C95F23745F2600996D91 /* CoffeeMaster */;
-			targetProxy = 5C80C97A23745F2900996D91 /* PBXContainerItemProxy */;
-		};
 		5CE62D022399BEBD00BAE012 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5CE62CFE2399BEBD00BAE012 /* CoffeeMasterWatch Extension */;
@@ -1397,90 +1270,6 @@
 			};
 			name = Release;
 		};
-		5C80C98623745F2900996D91 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D19A749EB0D27D15943AA98 /* Pods-CoffeeMasterTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 397U443WJR;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/CoffeeMaster/Storage",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Firestore",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/DynamicLinks",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Functions",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Auth",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Database",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/InAppMessagingDisplay",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Messaging",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Analytics",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/InAppMessaging",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase",
-					"$(PROJECT_DIR)/CoffeeMaster",
-					"$(PROJECT_DIR)/CoffeeMaster/Auth",
-					"$(PROJECT_DIR)/CoffeeMaster/Firestore",
-				);
-				INFOPLIST_FILE = CoffeeMasterTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.sce.mky5089.CoffeeMasterTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffeeMaster.app/CoffeeMaster";
-				TVOS_DEPLOYMENT_TARGET = 13.0;
-			};
-			name = Debug;
-		};
-		5C80C98723745F2900996D91 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 008E8C2E916D5CACEE161D7D /* Pods-CoffeeMasterTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 397U443WJR;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/CoffeeMaster/Storage",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Firestore",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/DynamicLinks",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Functions",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Auth",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Database",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/InAppMessagingDisplay",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Messaging",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/Analytics",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase/InAppMessaging",
-					"$(PROJECT_DIR)/CoffeeMaster/Firebase",
-					"$(PROJECT_DIR)/CoffeeMaster",
-					"$(PROJECT_DIR)/CoffeeMaster/Auth",
-					"$(PROJECT_DIR)/CoffeeMaster/Firestore",
-				);
-				INFOPLIST_FILE = CoffeeMasterTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.sce.mky5089.CoffeeMasterTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffeeMaster.app/CoffeeMaster";
-				TVOS_DEPLOYMENT_TARGET = 13.0;
-			};
-			name = Release;
-		};
 		5CE62D192399BEBD00BAE012 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1624,15 +1413,6 @@
 			buildConfigurations = (
 				5C80C98323745F2900996D91 /* Debug */,
 				5C80C98423745F2900996D91 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5C80C98523745F2900996D91 /* Build configuration list for PBXNativeTarget "CoffeeMasterTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5C80C98623745F2900996D91 /* Debug */,
-				5C80C98723745F2900996D91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

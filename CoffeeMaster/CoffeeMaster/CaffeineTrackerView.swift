@@ -8,10 +8,49 @@
 
 import SwiftUI
 import HealthKit
+import QGrid
 
 struct CaffeineTrackerView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @State var selectedCategory: CaffeineEntry.Category?
+    @State var selectedEntry: CaffeineEntry?
+    
     var askPermission: Bool
+    
+    func selectCategory(_ category: CaffeineEntry.Category) {
+        self.selectedCategory = category
+    }
+    
+    func selectEntry(_ entry: CaffeineEntry) {
+        self.selectedEntry = entry
+    }
+    
+    func addRecord(_ entry: CaffeineEntry.Variation) {
+        let healthStore = store.state.settings.heathStore!
+        
+        //Caffeine in mg
+        let caffeineAmount = entry.caffeineAmount.getWeight() * 100
+        
+        let quantityType = HKQuantityType.quantityType(forIdentifier: .dietaryCaffeine)
+        let quanitytUnit = HKUnit(from: "mg")
+        let quantityAmount = HKQuantity(unit: quanitytUnit, doubleValue: caffeineAmount)
+        let now = Date()
+        let sample = HKQuantitySample(type: quantityType!, quantity: quantityAmount, start: now, end: now)
+        
+        let correlationType = HKObjectType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure)
+        
+        let bloodCorrelationCorrelationForWaterAmount = HKCorrelation(type: correlationType!, start: now, end: now, objects: [sample])
+        
+        healthStore.save(bloodCorrelationCorrelationForWaterAmount, withCompletion: { (success, error) in
+            if (error != nil) {
+                print(error)
+            } else {
+                print("save success")
+            }
+            
+        })
+    }
+    
     func checkPermission() {
         if (store.state.settings.isHealthKitEnabled == false) {
             // the app has no ability to add record into the health app
@@ -38,9 +77,38 @@ struct CaffeineTrackerView: View {
     }
     
     var body: some View {
+        let caffeineEntries = askPermission ? store.state.recordViewState.caffeineEntries : StaticDataService.caffeineEntries
+        
         return NavigationView {
             VStack {
-                Text("Hello, World!")
+                QGrid(caffeineEntries, columns: 3) { (entry) in
+                    VStack {
+                        Button(action: {
+                            self.selectEntry(entry)
+                        }){
+                            Text(LocalizedStringKey(entry.name))
+                        }
+                        
+                    }
+                }
+                
+                if (selectedEntry != nil) {
+                    QGrid(selectedEntry!.variation, columns: 3) { (entry) in
+                        Button(action: {
+                            if (self.askPermission) {
+                                self.addRecord(entry)
+                            }
+                        }){
+                            VStack {
+                                Text(LocalizedStringKey(self.selectedEntry!.name))
+                                Text("\(entry.volume.getVolumeInML())")
+                                Text("\(entry.caffeineAmount.getVolume() * 100)mg")
+                            }
+                        }
+                        
+                        
+                    }
+                }
             }.navigationBarTitle(Text(LocalizedStringKey("CaffeineTracker")))
         }.onAppear {
             if (self.askPermission) {

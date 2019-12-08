@@ -9,7 +9,9 @@
 import Foundation
 import SwiftUI
 
-struct CaffeineEntry: Codable {
+struct CaffeineEntry: Codable, Identifiable {
+    var id:String {category.rawValue + name}
+    
     var category: Category
     var name: String
     var variation: [Variation]
@@ -22,7 +24,8 @@ struct CaffeineEntry: Codable {
         case variation
     }
     
-    struct Variation: Codable {
+    struct Variation: Codable, Identifiable {
+        var id: String {"\(volume.getVolumeInML())\(caffeineAmount.getVolume())" }
         var volume: FluidVolume
         var caffeineAmount: BrewWeight
         
