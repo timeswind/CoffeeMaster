@@ -104,6 +104,7 @@ struct RecordListView: View {
                             RecordCardView(record: record)
                         }.padding(.horizontal)
                     }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+                    .buttonStyle(PlainButtonStyle())
                 } else {
                     EmptyView()
                 }

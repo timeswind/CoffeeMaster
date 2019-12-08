@@ -22,7 +22,7 @@ struct Record:Codable, Identifiable {
     var images_url: [String]?
     var tags: [String]?
     var caffeineRecord: CaffeineRecord?
-        
+
     // not include in coding and decoding
     var images: [Data] = []
     

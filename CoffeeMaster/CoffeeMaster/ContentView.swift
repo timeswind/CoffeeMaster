@@ -13,7 +13,8 @@ struct ContentView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     
     var body: some View {
-        MainTabView().environment(\.locale, .init(identifier: store.state.settings.localization))
+        MainTabView()
+            .environment(\.locale, .init(identifier: store.state.settings.localization))
     }
 }
 

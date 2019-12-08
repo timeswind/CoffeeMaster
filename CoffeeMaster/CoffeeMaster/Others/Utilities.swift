@@ -77,4 +77,12 @@ class Utilities: NSObject {
 
         return formatter.string(from: date as Date)
     }
+    
+    static func convertTimestampShort(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+
+        return formatter.string(from: date as Date)
+    }
 }

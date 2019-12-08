@@ -24,10 +24,27 @@ struct CaffeineEntry: Codable, Identifiable {
         case variation
     }
     
+    func displayVolumeUnit() -> WeightUnit {
+        switch category {
+        case .Espresso:
+            return WeightUnit.shot
+        default:
+            return WeightUnit.ml
+        }
+    }
+    
     struct Variation: Codable, Identifiable {
         var id: String {"\(volume.getVolumeInML())\(caffeineAmount.getVolume())" }
         var volume: FluidVolume
         var caffeineAmount: BrewWeight
+        
+        func displayVolume() -> String {
+            return String(format: "%.0f", volume.getVolume())
+        }
+        
+        func displayCaffeineAmount() -> String {
+            return String(format: "%.0f", caffeineAmount.getVolume())
+        }
         
         enum CodingKeys: String, CodingKey {
             case volume, caffeineAmount

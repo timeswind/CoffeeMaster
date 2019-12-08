@@ -16,6 +16,8 @@ enum WeightUnit: String, Codable {
     case mg = "mg"
     // Unit for espresso
     case shot = "shot"
+    // Standard Unit for fluid
+    case ml = "ml"
 
     static let standardWeightUnitTypes: [WeightUnit] = [g, oz]
 }
