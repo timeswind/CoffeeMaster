@@ -23,8 +23,26 @@ struct CaffeineEntry: Codable {
     }
     
     struct Variation: Codable {
-        var volumn: FluidVolume
+        var volume: FluidVolume
         var caffeineAmount: BrewWeight
+        
+        enum CodingKeys: String, CodingKey {
+            case volume, caffeineAmount
+        }
+        
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            let volumeValue = try values.decode(Double.self, forKey: .volume)
+            let caffeineAmountValue = try values.decode(Double.self, forKey: .caffeineAmount)
+            volume = FluidVolume(volumeValue)
+            caffeineAmount = BrewWeight(caffeineAmountValue)
+        }
+        
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(volume.getVolumeInML(), forKey: .volume)
+            try container.encode(caffeineAmount.getVolume(), forKey: .caffeineAmount)
+        }
     }
     
     enum Category: String, Codable {

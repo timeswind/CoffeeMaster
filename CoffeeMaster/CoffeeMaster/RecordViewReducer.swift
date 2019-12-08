@@ -14,6 +14,7 @@ enum RecordViewAction {
     case newRecordAdded(record: Record)
     case setRecords(records: [Record])
     case setAddRecordFormPresentStatus(isPresent: Bool)
+    case setCaffeineEntries(caffeineEntries: [CaffeineEntry])
 }
 
 struct RecordViewReducer {
@@ -26,6 +27,8 @@ struct RecordViewReducer {
         case let .newRecordAdded(record):
             state.addRecordFormPresented = false
             state.records.insert(record, at: 0)
+        case let .setCaffeineEntries(caffeineEntries):
+            state.caffeineEntries = caffeineEntries
         }
     }
 }

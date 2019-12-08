@@ -42,6 +42,7 @@ struct ConnectViewState {
 struct RecordViewState {
     var records: [Record] = []
     var addRecordFormPresented: Bool = false
+    var caffeineEntries: [CaffeineEntry] = []
 }
 
 struct BrewViewState {

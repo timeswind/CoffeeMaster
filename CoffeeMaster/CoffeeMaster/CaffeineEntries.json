@@ -1,17 +1,56 @@
-[{
-    category: "Coffee",
-    name: "Coffee",
-    variation: [{
-        volumn: 250,
-        caffeineAmount: 0.1
-    },
-    {
-        volumn: 350,
-        caffeineAmount: 0.15
-    },
-    {
-        volumn: 500,
-        caffeineAmount: 0.2
-    }
+[
+  {
+    "category": "Coffee",
+    "name": "Coffee",
+    "variation": [
+      {
+        "volume": 250,
+        "caffeineAmount": 0.1
+      },
+      {
+        "volume": 350,
+        "caffeineAmount": 0.15
+      },
+      {
+        "volume": 500,
+        "caffeineAmount": 0.2
+      }
     ]
-}]
+  },
+  {
+    "category": "Coffee",
+    "name": "Cold Brew",
+    "variation": [
+      {
+        "volume": 250,
+        "caffeineAmount": 0.1
+      },
+      {
+        "volume": 350,
+        "caffeineAmount": 0.15
+      },
+      {
+        "volume": 500,
+        "caffeineAmount": 0.2
+      }
+    ]
+  },
+  {
+    "category": "Espresso",
+    "name": "Americano",
+    "variation": [
+      {
+        "volume": 1,
+        "caffeineAmount": 0.05
+      },
+      {
+        "volume": 2,
+        "caffeineAmount": 0.1
+      },
+      {
+        "volume": 3,
+        "caffeineAmount": 0.15
+      }
+    ]
+  }
+]

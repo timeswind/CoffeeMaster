@@ -38,7 +38,6 @@ struct CaffeineTrackerView: View {
     }
     
     var body: some View {
-        
         return NavigationView {
             VStack {
                 Text("Hello, World!")

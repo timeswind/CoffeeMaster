@@ -49,6 +49,9 @@ struct EnvironmemtServices: ViewModifier {
             }
         }
         
+        //initialize caffeineEntries
+        store.send(.recordview(action: .setCaffeineEntries(caffeineEntries: StaticDataService.caffeineEntries)))
+        
         return content
             .environment(\.managedObjectContext, context)
             .environmentObject(store)
