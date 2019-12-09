@@ -26,6 +26,8 @@
 "NewCommentBody" = "Write Comment";
 "PostComment" = "Post";
 /*Settings View*/
+"LanguageEnglish" = "English";
+"LanguageChinese" = "Chinese 中文";
 "ChooseLanguage"="Choose Language";
 "Done" = "Done";
 "EditUsername" = "Username";

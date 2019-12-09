@@ -93,7 +93,7 @@ struct SettingsView: View {
                 Section(header: Text(LocalizedStringKey("General"))) {
                     Picker(selection: p, label: Text(LocalizedStringKey("ChooseLanguage"))) {
                         ForEach(supportedLanguages, id: \.value) { langugae in
-                            Text(langugae.key).tag(langugae.value)
+                            Text(LocalizedStringKey(langugae.key)).tag(langugae.value)
                         }
                     }
                 }

@@ -27,6 +27,8 @@
 "PostComment" = "发出";
 
 /*Settings View*/
+"LanguageEnglish" = "英文 English";
+"LanguageChinese" = "中文";
 "ChooseLanguage"="选择语言";
 "Done" = "完成";
 "EditUsername" = "用户名";

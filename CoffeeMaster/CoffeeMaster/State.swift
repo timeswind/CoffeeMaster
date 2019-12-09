@@ -22,7 +22,7 @@ struct SettingsState {
     var localization: String = ""
     var weightUnit: WeightUnit = .g
     var temperatureUnit: TemperatureUnit = .C
-    var supportedLanguages: [String: String] = ["English": "en", "中文": "zh-Hans"]
+    var supportedLanguages: [String: String] = ["LanguageEnglish": "en", "LanguageChinese": "zh-Hans"]
     var signedIn: Bool = false
     var nounce:String?
     var isHealthKitEnabled = false
