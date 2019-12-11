@@ -9,7 +9,7 @@
 import SwiftUI
 
 class EnvironmentWindowObject: ObservableObject {
-    @Published var window: UIWindow = nil
+    @Published var window: UIWindow = .init()
     
     init(window: UIWindow) {
         self.window = window
