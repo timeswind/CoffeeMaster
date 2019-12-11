@@ -9,39 +9,84 @@
 import SwiftUI
 import Mapbox
 
+extension MGLPointAnnotation {
+    convenience init(title: String, coordinate: CLLocationCoordinate2D) {
+        self.init()
+        self.title = title
+        self.coordinate = coordinate
+    }
+}
+
 struct ThemeMapView: UIViewRepresentable {
-    var center: CLLocationCoordinate2D
+    @Binding var annotations: [MGLPointAnnotation]
+
     
-    init() {
-        self.center = CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06)
+//    @State private var centerAnnotation = MGLPointAnnotation(title: "CenterAnnotation", coordinate: .init())
+
+    private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/timeswind/ck3dviev005p11co4czyb7ncc"))
+
+    
+    func centerCoordinate(_ centerCoordinate: CLLocationCoordinate2D) -> ThemeMapView {
+        mapView.centerCoordinate = centerCoordinate
+        return self
     }
     
-    init(center: CLLocationCoordinate2D) {
-        self.center = center
+    func zoomLevel(_ zoomLevel: Double) -> ThemeMapView {
+        mapView.zoomLevel = zoomLevel
+        return self
+    }
+    
+    func styleURL(_ styleURL: URL) -> ThemeMapView {
+        mapView.styleURL = styleURL
+        return self
+    }
+    
+    func makeCoordinator() -> ThemeMapView.Coordinator {
+        Coordinator(self)
     }
     
     func makeUIView(context: UIViewRepresentableContext<ThemeMapView>) -> MGLMapView {
-        let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/timeswind/ck3dviev005p11co4czyb7ncc"))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.setCenter(center, zoomLevel: 0, animated: false)
-        
+
         return mapView
     }
     
     func updateUIView(_ uiView: MGLMapView, context: UIViewRepresentableContext<ThemeMapView>) {
         
-        if let oldAnnotations = uiView.annotations {
-            uiView.removeAnnotations(oldAnnotations)
+        self.updateAnnotations()
+        
+    }
+    
+    private func updateAnnotations() {
+        if let currentAnnotations = mapView.annotations {
+            mapView.removeAnnotations(currentAnnotations)
+        }
+        mapView.addAnnotations(annotations)
+    }
+    
+    final class Coordinator: NSObject, MGLMapViewDelegate {
+        var control: ThemeMapView
+        
+        init(_ control: ThemeMapView) {
+            self.control = control
         }
         
-        uiView.setCenter(self.center, animated: true)
+        func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+            return nil
+        }
+            
+        func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+            return true
+        }
+        
     }
 }
 
+
 struct ThemeMapView_Previews: PreviewProvider {
     static var center = CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06)
-    
+    @State static var annotations:[MGLPointAnnotation] = []
     static var previews: some View {
-        ThemeMapView()
+        ThemeMapView(annotations: $annotations).centerCoordinate(center).zoomLevel(0)
     }
 }
