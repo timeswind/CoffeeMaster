@@ -20,6 +20,7 @@ struct LocationPickerView: View {
     }
     
     func done() {
+        print("Done")
         if let onPickLocation = self.onPickLocation {
             onPickLocation(Location(coordinate: Location.Coordinate(latitude: 0, longitude: 0)))
         }
@@ -48,7 +49,7 @@ struct LocationPickerView: View {
 
 struct LocationPickerView_Previews: PreviewProvider {
     static func onPickLocation (_ location: Location) {
-        
+        print(location)
     }
     
     static var previews: some View {
