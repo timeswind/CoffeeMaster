@@ -65,7 +65,8 @@ struct LocationPickerView: View {
         return VStack {
             TextField(LocalizedStringKey("SearchPlace"), text: $searchText, onCommit: {
                 self.search()
-            })
+            }).modifier(ClearButton(text:$searchText))
+                
                 .padding()
                 .background(Color.Theme.LightGrey)
                 .cornerRadius(5.0)

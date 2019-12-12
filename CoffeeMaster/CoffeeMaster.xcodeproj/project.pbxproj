@@ -78,6 +78,7 @@
 		5C9D973F23A19E80001300A9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D973E23A19E80001300A9 /* Location.swift */; };
 		5C9D974123A1BB20001300A9 /* LocationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D974023A1BB20001300A9 /* LocationCardView.swift */; };
 		5CA626D423A2AF5800264EC3 /* LocationPickerListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */; };
+		5CA626D623A2B17900264EC3 /* ClearButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA626D523A2B17900264EC3 /* ClearButtonModifier.swift */; };
 		5CC5DB4D239EE58800CFDDA4 /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5DB4C239EE58800CFDDA4 /* LocationPickerView.swift */; };
 		5CC5DB4F239EE5E100CFDDA4 /* ThemeMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5DB4E239EE5E100CFDDA4 /* ThemeMapView.swift */; };
 		5CD4B3DB238F14C100E5FB00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */; };
@@ -269,6 +270,7 @@
 		5C9D973E23A19E80001300A9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5C9D974023A1BB20001300A9 /* LocationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCardView.swift; sourceTree = "<group>"; };
 		5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerListRowView.swift; sourceTree = "<group>"; };
+		5CA626D523A2B17900264EC3 /* ClearButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonModifier.swift; sourceTree = "<group>"; };
 		5CC5DB4C239EE58800CFDDA4 /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		5CC5DB4E239EE5E100CFDDA4 /* ThemeMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMapView.swift; sourceTree = "<group>"; };
 		5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "CoffeeMaster/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -419,6 +421,7 @@
 				5C9D974023A1BB20001300A9 /* LocationCardView.swift */,
 				5CC5DB4E239EE5E100CFDDA4 /* ThemeMapView.swift */,
 				5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */,
+				5CA626D523A2B17900264EC3 /* ClearButtonModifier.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1011,6 +1014,7 @@
 				5CE6373E238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
 				5CC5DB4F239EE5E100CFDDA4 /* ThemeMapView.swift in Sources */,
+				5CA626D623A2B17900264EC3 /* ClearButtonModifier.swift in Sources */,
 				5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */,
 				5C80C96B23745F2600996D91 /* ContentView.swift in Sources */,
 				5C02EB332387785A002A7A1E /* KeyboardGuard.swift in Sources */,
