@@ -8,15 +8,41 @@
 
 import SwiftUI
 import Mapbox
+import MapboxGeocoder
 
 struct LocationPickerView: View {
     @State var searchText: String = ""
     @State var annotations: [MGLPointAnnotation] = []
+    @State var placemarks: [GeocodedPlacemark] = []
+    @State var centerLocation: CLLocationCoordinate2D = CLLocationCoordinate2D.init()
+    
+    let geocoder = Geocoder.shared
     
     private var onPickLocation: ((Location) -> Void)?
     
     init (onPickLocation: ((Location) -> Void)? = nil) {
         self.onPickLocation = onPickLocation
+    }
+    
+    func search() {
+        let options = ForwardGeocodeOptions(query: self.searchText)
+        options.allowedISOCountryCodes = ["US"]
+        options.focalLocation = CLLocation(latitude: 45.3, longitude: -66.1)
+        options.allowedScopes = [.address, .pointOfInterest]
+
+        let task = geocoder.geocode(options) { (placemarks, attribution, error) in
+
+            for placemark in placemarks! {
+                print(placemark.name)
+                    // 200 Queen St
+                print(placemark.qualifiedName)
+                    // 200 Queen St, Saint John, New Brunswick E2L 2X1, Canada
+
+                let coordinate = placemark.location!.coordinate
+                print("\(coordinate.latitude), \(coordinate.longitude)")
+                    // 45.270093, -66.050985
+            }
+        }
     }
     
     func done() {
@@ -28,7 +54,9 @@ struct LocationPickerView: View {
 
     var body: some View {
         return VStack {
-            TextField(LocalizedStringKey("SearchPlace"), text: $searchText)
+            TextField(LocalizedStringKey("SearchPlace"), text: $searchText, onCommit: {
+                self.search()
+            })
                 .padding()
                 .background(Color.Theme.LightGrey)
                 .cornerRadius(5.0)

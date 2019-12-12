@@ -19,7 +19,8 @@ extension MGLPointAnnotation {
 
 struct ThemeMapView: UIViewRepresentable {
     @Binding var annotations: [MGLPointAnnotation]
-
+    
+    var regionDidChange: ((CLLocationCoordinate2D) -> Void)?
     
 //    @State private var centerAnnotation = MGLPointAnnotation(title: "CenterAnnotation", coordinate: .init())
 
@@ -47,7 +48,7 @@ struct ThemeMapView: UIViewRepresentable {
     
     func makeUIView(context: UIViewRepresentableContext<ThemeMapView>) -> MGLMapView {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
+        mapView.delegate = context.coordinator
         return mapView
     }
     
@@ -64,7 +65,7 @@ struct ThemeMapView: UIViewRepresentable {
         mapView.addAnnotations(annotations)
     }
     
-    final class Coordinator: NSObject, MGLMapViewDelegate {
+    class Coordinator: NSObject, MGLMapViewDelegate {
         var control: ThemeMapView
         
         init(_ control: ThemeMapView) {
@@ -79,6 +80,13 @@ struct ThemeMapView: UIViewRepresentable {
             return true
         }
         
+        
+        func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
+            // map did moved
+            if let regionDidChange = self.control.regionDidChange {
+                regionDidChange(mapView.centerCoordinate)
+            }
+        }
     }
 }
 
@@ -87,6 +95,8 @@ struct ThemeMapView_Previews: PreviewProvider {
     static var center = CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06)
     @State static var annotations:[MGLPointAnnotation] = []
     static var previews: some View {
-        ThemeMapView(annotations: $annotations).centerCoordinate(center).zoomLevel(0)
+        ThemeMapView(annotations: $annotations, regionDidChange: { coor in
+            print(coor)
+        }).centerCoordinate(center).zoomLevel(0)
     }
 }

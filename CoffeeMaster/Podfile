@@ -12,11 +12,8 @@ target 'CoffeeMaster' do
   pod 'CodableFirebase'
   pod 'Mapbox-iOS-SDK', '~> 5.5'
   pod 'expanding-collection'
-  
-  target 'CoffeeMasterTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'MapboxGeocoder.swift', '~> 0.11'
+
   
 #  target 'CoffeeMasterWatch Extension' do
 #    inherit! :search_paths
