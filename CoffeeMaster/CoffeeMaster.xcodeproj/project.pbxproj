@@ -77,6 +77,7 @@
 		5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */; };
 		5C9D973F23A19E80001300A9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D973E23A19E80001300A9 /* Location.swift */; };
 		5C9D974123A1BB20001300A9 /* LocationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D974023A1BB20001300A9 /* LocationCardView.swift */; };
+		5CA626D423A2AF5800264EC3 /* LocationPickerListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */; };
 		5CC5DB4D239EE58800CFDDA4 /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5DB4C239EE58800CFDDA4 /* LocationPickerView.swift */; };
 		5CC5DB4F239EE5E100CFDDA4 /* ThemeMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5DB4E239EE5E100CFDDA4 /* ThemeMapView.swift */; };
 		5CD4B3DB238F14C100E5FB00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */; };
@@ -267,6 +268,7 @@
 		5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentWindowObject.swift; sourceTree = "<group>"; };
 		5C9D973E23A19E80001300A9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5C9D974023A1BB20001300A9 /* LocationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCardView.swift; sourceTree = "<group>"; };
+		5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerListRowView.swift; sourceTree = "<group>"; };
 		5CC5DB4C239EE58800CFDDA4 /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		5CC5DB4E239EE5E100CFDDA4 /* ThemeMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMapView.swift; sourceTree = "<group>"; };
 		5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "CoffeeMaster/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -416,6 +418,7 @@
 				5CC5DB4C239EE58800CFDDA4 /* LocationPickerView.swift */,
 				5C9D974023A1BB20001300A9 /* LocationCardView.swift */,
 				5CC5DB4E239EE5E100CFDDA4 /* ThemeMapView.swift */,
+				5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1003,6 +1006,7 @@
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
 				5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */,
 				5CE63740238DB69D00C1DC49 /* CoffeeRoasterType.swift in Sources */,
+				5CA626D423A2AF5800264EC3 /* LocationPickerListRowView.swift in Sources */,
 				5CF20A982390545000632A05 /* GridStack.swift in Sources */,
 				5CE6373E238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,

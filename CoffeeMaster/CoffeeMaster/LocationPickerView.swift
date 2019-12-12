@@ -13,6 +13,7 @@ import MapboxGeocoder
 struct LocationPickerView: View {
     @State var searchText: String = ""
     @State var annotations: [MGLPointAnnotation] = []
+    @State var locationObjects: [Location] = []
     @State var placemarks: [GeocodedPlacemark] = []
     @State var centerLocation: CLLocationCoordinate2D = CLLocationCoordinate2D.init()
     
@@ -24,25 +25,33 @@ struct LocationPickerView: View {
         self.onPickLocation = onPickLocation
     }
     
+    private func mapRegionDidChange(_ centerCoordinate: CLLocationCoordinate2D) {
+        self.centerLocation = centerCoordinate
+        if (self.searchText != "") {
+            self.search()
+        }
+    }
+    
     func search() {
         let options = ForwardGeocodeOptions(query: self.searchText)
-        options.allowedISOCountryCodes = ["US"]
-        options.focalLocation = CLLocation(latitude: 45.3, longitude: -66.1)
-        options.allowedScopes = [.address, .pointOfInterest]
+        options.allowedISOCountryCodes = ["US", "CN", "CA"]
+        let latitude = self.centerLocation.latitude
+        let longitude = self.centerLocation.longitude
+        
+        options.focalLocation = CLLocation(latitude: latitude, longitude: longitude)
+        options.allowedScopes = [.place, .pointOfInterest, .landmark]
 
-        let task = geocoder.geocode(options) { (placemarks, attribution, error) in
-
+        geocoder.geocode(options) { (placemarks, attribution, error) in
             for placemark in placemarks! {
-                print(placemark.name)
-                    // 200 Queen St
-                print(placemark.qualifiedName)
-                    // 200 Queen St, Saint John, New Brunswick E2L 2X1, Canada
-
-                let coordinate = placemark.location!.coordinate
-                print("\(coordinate.latitude), \(coordinate.longitude)")
-                    // 45.270093, -66.050985
+                if let location = placemark.location {
+                    let locationObject = Location(coordinate: Location.Coordinate(from: location), name: placemark.name, qualifiedName: placemark.qualifiedName)
+                    let annotation = MGLPointAnnotation(title: placemark.name, coordinate: location.coordinate)
+                    self.locationObjects.append(locationObject)
+                    self.annotations.append(annotation)
+                }
             }
         }
+        
     }
     
     func done() {
@@ -61,9 +70,16 @@ struct LocationPickerView: View {
                 .background(Color.Theme.LightGrey)
                 .cornerRadius(5.0)
                 .padding()
-            ThemeMapView(annotations: $annotations).frame(height: 200).overlay(
+            ThemeMapView(annotations: $annotations, regionDidChange: { center in
+                self.mapRegionDidChange(center)
+            }).frame(height: 200).overlay(
                 Image("icons8-marker-100")
             )
+            
+            List(0..<self.locationObjects.count, id:\.self) { index in
+                LocationPickerListRowView(locationObject: self.locationObjects[index])
+            }
+            
             Spacer()
         }.navigationBarItems(trailing: Button(action: {
             self.done()
