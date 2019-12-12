@@ -9,16 +9,29 @@
 import SwiftUI
 import FirebaseAuth
 import HealthKit
+import CoreData
 
-struct EnvironmemtServices: ViewModifier {
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let store = Store<AppState, AppAction>(initialState: AppState(settings: SettingsState(),brewViewState: BrewViewState(), connectViewState: ConnectViewState(), recordViewState: RecordViewState()), appReducer: appReducer)
-    let keyboard = KeyboardResponder()
-    
-    func body(content: Content) -> some View {
+class EnvironmentManager {
+
+    // MARK: - Properties
+
+    static let shared = EnvironmentManager()
+
+    // MARK: -
+
+    let context: NSManagedObjectContext
+    let store: Store<AppState, AppAction>
+    let keyboard: KeyboardResponder
+    let localization: String
+
+    // Initialization
+
+    private init() {
+        self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        self.store = Store<AppState, AppAction>(initialState: AppState(settings: SettingsState(),brewViewState: BrewViewState(), connectViewState: ConnectViewState(), recordViewState: RecordViewState()), appReducer: appReducer)
+        self.keyboard = KeyboardResponder()
         
-        let localization = getLocalization()
+        self.localization = getLocalization()
         let weightUnit = getWeightUnit()
         let temperatureUnit = getTemperatureUnit()
         
@@ -51,7 +64,21 @@ struct EnvironmemtServices: ViewModifier {
         
         //initialize caffeineEntries
         store.send(.recordview(action: .setCaffeineEntries(caffeineEntries: StaticDataService.caffeineEntries)))
-        
+    }
+
+}
+
+struct EnvironmemtServices: ViewModifier {
+    
+//    let environmentManager = EnvironmentManager.shared
+    
+    let context = EnvironmentManager.shared.context
+    let store = EnvironmentManager.shared.store
+    let keyboard = EnvironmentManager.shared.keyboard
+    let localization = EnvironmentManager.shared.localization
+    
+    func body(content: Content) -> some View {
+    
         return content
             .environment(\.managedObjectContext, context)
             .environmentObject(store)

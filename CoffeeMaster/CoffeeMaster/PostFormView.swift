@@ -97,3 +97,12 @@ struct PostFormView: View {
         
     }
 }
+
+struct PostFormView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        NavigationView {
+           PostFormView().modifier(EnvironmemtServices())
+        }.accentColor(Color.Theme.Accent)
+    }
+}

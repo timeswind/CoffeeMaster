@@ -27,6 +27,11 @@ struct Location: Codable {
             self.longitude = cllocation.coordinate.longitude
         }
         
+        init(from cllocationcoordinate2d: CLLocationCoordinate2D) {
+            self.latitude = cllocationcoordinate2d.latitude
+            self.longitude = cllocationcoordinate2d.longitude
+        }
+        
         init(latitude: Double, longitude: Double) {
             self.latitude = latitude
             self.longitude = longitude

@@ -16,6 +16,7 @@ struct LocationPickerView: View {
     @State var locationObjects: [Location] = []
     @State var placemarks: [GeocodedPlacemark] = []
     @State var centerLocation: CLLocationCoordinate2D = CLLocationCoordinate2D.init()
+    @State var selectLocationObjectIndex = 0
     
     let geocoder = Geocoder.shared
     
@@ -26,6 +27,7 @@ struct LocationPickerView: View {
     }
     
     private func mapRegionDidChange(_ centerCoordinate: CLLocationCoordinate2D) {
+        self.selectLocationObjectIndex = -1
         self.centerLocation = centerCoordinate
         if (self.searchText != "") {
             self.search()
@@ -57,6 +59,12 @@ struct LocationPickerView: View {
     func done() {
         print("Done")
         if let onPickLocation = self.onPickLocation {
+            if (self.selectLocationObjectIndex >= 0) {
+            onPickLocation(self.locationObjects[self.selectLocationObjectIndex])
+            } else {
+                let location = Location(coordinate: Location.Coordinate(from: self.centerLocation), name: "Customize Location", qualifiedName: nil)
+                onPickLocation(location)
+            }
             onPickLocation(Location(coordinate: Location.Coordinate(latitude: 0, longitude: 0)))
         }
     }
@@ -78,7 +86,9 @@ struct LocationPickerView: View {
             )
             
             List(0..<self.locationObjects.count, id:\.self) { index in
-                LocationPickerListRowView(locationObject: self.locationObjects[index])
+                LocationPickerListRowView(locationObject: self.locationObjects[index], isSelected: index == self.selectLocationObjectIndex).onTapGesture {
+                    self.selectLocationObjectIndex = index
+                }
             }
             
             Spacer()
