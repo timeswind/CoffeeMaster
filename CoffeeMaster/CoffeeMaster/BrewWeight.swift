@@ -82,4 +82,8 @@ class BrewWeight: Codable {
     func getVolume() -> Double {
         return self.weight
     }
+    
+    func getMilligram() -> Double {
+        return self.weight * 1000
+    }
 }

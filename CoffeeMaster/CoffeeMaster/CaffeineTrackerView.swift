@@ -45,7 +45,7 @@ struct CaffeineTrackerView: View {
         let healthStore = store.state.settings.heathStore!
         
         //Caffeine in mg
-        let caffeineAmount = entryVariation.caffeineAmount.getWeight() * 100
+        let caffeineAmount = entryVariation.caffeineAmount.getMilligram()
         
         let quantityType = HKQuantityType.quantityType(forIdentifier: .dietaryCaffeine)
         let quanitytUnit = HKUnit(from: "mg")
@@ -119,7 +119,7 @@ struct CaffeineTrackerView: View {
                             VStack {
                                 Text(LocalizedStringKey(self.selectedEntry!.name))
                                 Text("\(entry.volume.getVolumeInML())")
-                                Text("\(entry.caffeineAmount.getVolume() * 100)mg")
+                                Text("\(entry.caffeineAmount.getMilligram())mg")
                             }
                         }
                         

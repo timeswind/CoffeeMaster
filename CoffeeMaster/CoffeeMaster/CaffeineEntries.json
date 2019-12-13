@@ -5,15 +5,15 @@
     "variation": [
       {
         "volume": 250,
-        "caffeineAmount": 0.1
+        "caffeineAmount": 0.01
       },
       {
         "volume": 350,
-        "caffeineAmount": 0.15
+        "caffeineAmount": 0.015
       },
       {
         "volume": 500,
-        "caffeineAmount": 0.2
+        "caffeineAmount": 0.02
       }
     ]
   },
@@ -23,15 +23,15 @@
     "variation": [
       {
         "volume": 250,
-        "caffeineAmount": 0.1
+        "caffeineAmount": 0.01
       },
       {
         "volume": 350,
-        "caffeineAmount": 0.15
+        "caffeineAmount": 0.015
       },
       {
         "volume": 500,
-        "caffeineAmount": 0.2
+        "caffeineAmount": 0.02
       }
     ]
   },
@@ -41,15 +41,15 @@
     "variation": [
       {
         "volume": 1,
-        "caffeineAmount": 0.05
+        "caffeineAmount": 0.005
       },
       {
         "volume": 2,
-        "caffeineAmount": 0.1
+        "caffeineAmount": 0.01
       },
       {
         "volume": 3,
-        "caffeineAmount": 0.15
+        "caffeineAmount": 0.015
       }
     ]
   }

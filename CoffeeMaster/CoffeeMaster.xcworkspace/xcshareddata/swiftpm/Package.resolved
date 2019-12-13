@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "FASwiftUI",
+        "repositoryURL": "https://github.com/mattmaddux/FASwiftUI.git",
+        "state": {
+          "branch": null,
+          "revision": "1981fd1cf69d74346ac56f23267190abbf492dde",
+          "version": "1.0.2"
+        }
+      },
+      {
         "package": "Grid",
         "repositoryURL": "https://github.com/SwiftUIExtensions/Grid.git",
         "state": {
