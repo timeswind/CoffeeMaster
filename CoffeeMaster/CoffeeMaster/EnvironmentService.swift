@@ -61,6 +61,10 @@ class EnvironmentManager {
         //initialize default brew guides and methods
         store.send(.brewview(action: .setDefaultBrewGuides(guides: StaticDataService.defaultBrewGuides)))
         store.send(.brewview(action: .setDefaultBrewMethods(methods: StaticDataService.defaultBrewMethods)))
+        
+
+        // let test = DefaultBrewingGuides.init()
+
     }
 
 }

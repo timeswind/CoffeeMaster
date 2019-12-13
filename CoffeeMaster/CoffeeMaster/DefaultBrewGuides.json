@@ -217,5 +217,290 @@
       "instruction": ""
     },
     "guideName": "AeroPress"
+  },
+  {
+    "isPublic": false,
+    "baseBrewMethod": {
+      "descriptionKey": "HarioV60Description",
+      "brewTools": [
+        {
+          "count": 1,
+          "localizedNameKey": "HarioV60Dripper"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "PaperFilter"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Cup"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "KitchenScale"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Spoon"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Kettle"
+        }
+      ],
+      "baseBrewMethodType": "HarioV60",
+      "name": "Hario V60",
+      "description": ""
+    },
+    "brewSteps": [
+      {
+        "amount": 50,
+        "brewType": "Bloom",
+        "instruction": "Pour 50g of water until all the grounds are evenly saturated",
+        "description": "",
+        "duration": 10
+      },
+      {
+        "amount": 0,
+        "brewType": "Wait",
+        "instruction": "Wait for the coffee to bloom",
+        "description": "",
+        "duration": 20
+      },
+      {
+        "amount": 50,
+        "brewType": "Bloom",
+        "instruction": "Pour another 50g of water in spiral rotation",
+        "description": "",
+        "duration": 10
+      },
+      {
+        "amount": 0,
+        "brewType": "Wait",
+        "instruction": "Wait for the water to drain through the grounds",
+        "description": "",
+        "duration": 20
+      },
+      {
+        "amount": 120,
+        "brewType": "Bloom",
+        "instruction": "Pour the remaining 120g of water around the edges of the dripper",
+        "description": "",
+        "duration": 40
+      },
+      {
+        "amount": 0,
+        "brewType": "Wait",
+        "instruction": "Let the water drain through and when it's done, discard the filter and serve",
+        "description": "",
+        "duration": 15
+      }
+    ],
+    "brewStepBoilWater": {
+      "amount": 0,
+      "brewType": "BoilWater",
+      "waterTemperature": 94,
+      "description": "",
+      "duration": 0,
+      "waterAmount": 220,
+      "instruction": ""
+    },
+    "guideDescription": "The Hario V60 is the first coffee maker that combines affordability and simplicity with the ability to produce top quality coffee",
+    "brewStepGrindCoffee": {
+      "amount": 0,
+      "grindSize": "Medium",
+      "brewType": "GrindCoffee",
+      "duration": 0,
+      "description": "",
+      "coffeeAmount": 13,
+      "instruction": ""
+    },
+    "guideName": "Hario V60"
+  },
+  {
+    "isPublic": false,
+    "baseBrewMethod": {
+      "descriptionKey": "MokaPotDescription",
+      "brewTools": [
+        {
+          "count": 1,
+          "localizedNameKey": "MokaPot"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Cup"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Stove"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Kettle"
+        }
+      ],
+      "baseBrewMethodType": "MokaPot",
+      "name": "Moka Pot",
+      "description": ""
+    },
+    "brewSteps": [
+      {
+        "amount": 200,
+        "brewType": "Bloom",
+        "instruction": "Fill the lower chamber with boiling water just below the valve",
+        "description": "",
+        "duration": 5
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Insert the funnel and fill it with ground coffee",
+        "description": "",
+        "duration": 5
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Tightly screw the upper part of the pot on to the base",
+        "description": "",
+        "duration": 5
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Put the brewer on a stove and turn on medium heat",
+        "description": "",
+        "duration": 5
+      },
+      {
+        "amount": 0,
+        "brewType": "Wait",
+        "instruction": "Wait approx. 5 to 6 minutes for the water to boil",
+        "description": "",
+        "duration": 300
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Once the top of the pot is full, remove from the stove and pour into a cup. Enjoy!",
+        "description": "",
+        "duration": 10
+      }
+    ],
+    "brewStepBoilWater": {
+      "amount": 0,
+      "brewType": "BoilWater",
+      "waterTemperature": 94,
+      "description": "",
+      "duration": 0,
+      "waterAmount": 200,
+      "instruction": ""
+    },
+    "guideDescription": "The Moka Pot, also know as a macchinetta(literally\"small machine\"), is a stove_top or electric coffee maker that produces coffee by passing boiling water pressurized by steam through ground coffee.",
+    "brewStepGrindCoffee": {
+      "amount": 0,
+      "grindSize": "Medium",
+      "brewType": "GrindCoffee",
+      "duration": 0,
+      "description": "",
+      "coffeeAmount": 18,
+      "instruction": ""
+    },
+    "guideName": "Moka Pot"
+  },
+  {
+    "isPublic": false,
+    "baseBrewMethod": {
+      "descriptionKey": "FrenchPressDescription",
+      "brewTools": [
+        {
+          "count": 1,
+          "localizedNameKey": "FrenchPress"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Cup"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "KitchenScale"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Spoon"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Kettle"
+        }
+      ],
+      "baseBrewMethodType": "FrenchPress",
+      "name": "French Press",
+      "description": ""
+    },
+    "brewSteps": [
+      {
+        "amount": 60,
+        "brewType": "Bloom",
+        "instruction": "Pour 60g of water and evenly saturate the coffee",
+        "description": "",
+        "duration": 10
+      },
+      {
+        "amount": 0,
+        "brewType": "Stir",
+        "instruction": "Gently stir the grounds to ensure all coffee is immersed",
+        "description": "",
+        "duration": 5
+      },
+      {
+        "amount": 0,
+        "brewType": "Wait",
+        "instruction": "Wait for the coffee to bloom",
+        "description": "",
+        "duration": 15
+      },
+      {
+        "amount": 290,
+        "brewType": "Bloom",
+        "instruction": "Pour the remaining 290g of water in a spiral motion",
+        "description": "",
+        "duration": 30
+      },
+      {
+        "amount": 0,
+        "brewType": "Wait",
+        "instruction": "Allow the coffee to steep for 3 minutes",
+        "description": "",
+        "duration": 180
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Gently press the filter down and serve in a warm cup",
+        "description": "",
+        "duration": 5
+      }
+    ],
+    "brewStepBoilWater": {
+      "amount": 0,
+      "brewType": "BoilWater",
+      "waterTemperature": 94,
+      "description": "",
+      "duration": 0,
+      "waterAmount": 350,
+      "instruction": ""
+    },
+    "guideDescription": "A French Press is a coffee brewing device patented by italian designer Attilio Camlimani in 1929",
+    "brewStepGrindCoffee": {
+      "amount": 0,
+      "grindSize": "Medium",
+      "brewType": "GrindCoffee",
+      "duration": 0,
+      "description": "",
+      "coffeeAmount": 30,
+      "instruction": ""
+    },
+    "guideName": "French Press"
   }
 ]

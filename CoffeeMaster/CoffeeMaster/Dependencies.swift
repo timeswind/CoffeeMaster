@@ -20,3 +20,4 @@ let dependencies =
     Dependencies(webDatabaseQueryService: WebDatabaseQueryService(),
                                 permissionRequestService: PermissionRequestService(),
                                 staticDataService: StaticDataService())
+
