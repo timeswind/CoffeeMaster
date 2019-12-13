@@ -12,10 +12,11 @@ import Mapbox
 struct LocationCardView: View {
     var location: Location
     @State var annotations: [MGLPointAnnotation] = []
-    
+    @State var centerCoordinate: CLLocationCoordinate2D? = nil
     var body: some View {
         return VStack(alignment: .leading) {
-            ThemeMapView(annotations: $annotations).centerCoordinate(location.coordinate.toCLCoordinate2D()).zoomLevel(16).cornerRadius(5)
+            ThemeMapView(annotations: $annotations, centerCoordinate: $centerCoordinate, regionDidChange: nil)
+                .centerCoordinate(location.coordinate.toCLCoordinate2D()).zoomLevel(16).cornerRadius(5)
             Text(location.name)
                 .font(.headline)
                 .fontWeight(.bold)

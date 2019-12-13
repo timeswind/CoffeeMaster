@@ -15,8 +15,9 @@ struct LocationPickerView: View {
     @State var annotations: [MGLPointAnnotation] = []
     @State var locationObjects: [Location] = []
     @State var placemarks: [GeocodedPlacemark] = []
-    @State var centerLocation: CLLocationCoordinate2D = CLLocationCoordinate2D.init()
+    @State var centerCoordinate: CLLocationCoordinate2D? = CLLocationCoordinate2D.init()
     @State var selectLocationObjectIndex = 0
+    @State var updatingCenterCoordinate = false
     
     let geocoder = Geocoder.shared
     
@@ -28,20 +29,30 @@ struct LocationPickerView: View {
         self.onCancel = onCancel
     }
     
-    private func mapRegionDidChange(_ centerCoordinate: CLLocationCoordinate2D) {
-        self.selectLocationObjectIndex = -1
-        self.centerLocation = centerCoordinate
-        if (self.searchText != "") {
-            self.search()
-        }
+    func selectLocation(at Index: Int) {
+        self.updatingCenterCoordinate = true
+        self.centerCoordinate = self.locationObjects[Index].coordinate.toCLCoordinate2D()
+        self.selectLocationObjectIndex = Index
     }
+    
+    private func mapRegionDidChange() {
+        if (self.updatingCenterCoordinate) {
+            self.updatingCenterCoordinate = false
+        } else {
+            self.selectLocationObjectIndex = -1
+            if (self.searchText != "") {
+                self.search()
+            }
+        }
 
+    }
+    
     
     func search() {
         let options = ForwardGeocodeOptions(query: self.searchText)
         options.allowedISOCountryCodes = ["US", "CN", "CA"]
-        let latitude = self.centerLocation.latitude
-        let longitude = self.centerLocation.longitude
+        let latitude = self.centerCoordinate!.latitude
+        let longitude = self.centerCoordinate!.longitude
         
         options.focalLocation = CLLocation(latitude: latitude, longitude: longitude)
         options.allowedScopes = [.place, .pointOfInterest, .landmark]
@@ -72,7 +83,7 @@ struct LocationPickerView: View {
             if (self.selectLocationObjectIndex >= 0) {
             onPickLocation(self.locationObjects[self.selectLocationObjectIndex])
             } else {
-                let location = Location(coordinate: Location.Coordinate(from: self.centerLocation), name: "Customize Location", qualifiedName: nil)
+                let location = Location(coordinate: Location.Coordinate(from: self.centerCoordinate!), name: "Customize Location", qualifiedName: nil)
                 onPickLocation(location)
             }
             onPickLocation(Location(coordinate: Location.Coordinate(latitude: 0, longitude: 0)))
@@ -90,15 +101,18 @@ struct LocationPickerView: View {
                 .background(Color.Theme.LightGrey)
                 .cornerRadius(5.0)
                 .padding()
-            ThemeMapView(annotations: $annotations, regionDidChange: { center in
-                self.mapRegionDidChange(center)
-            }).frame(height: 200).overlay(
+                
+                ThemeMapView(annotations: $annotations, centerCoordinate: $centerCoordinate, regionDidChange: {
+                    self.mapRegionDidChange()
+                })
+                    .frame(height: 200).overlay(
                 Image("icons8-marker-100")
             )
             
             List(0..<self.locationObjects.count, id:\.self) { index in
                 LocationPickerListRowView(locationObject: self.locationObjects[index], isSelected: index == self.selectLocationObjectIndex).onTapGesture {
-                    self.selectLocationObjectIndex = index
+                    
+                    self.selectLocation(at: index)
                 }
             }
             

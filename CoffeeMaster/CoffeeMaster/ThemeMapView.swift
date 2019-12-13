@@ -19,8 +19,9 @@ extension MGLPointAnnotation {
 
 struct ThemeMapView: UIViewRepresentable {
     @Binding var annotations: [MGLPointAnnotation]
+    @Binding var centerCoordinate: CLLocationCoordinate2D?
     
-    var regionDidChange: ((CLLocationCoordinate2D) -> Void)?
+    var regionDidChange: (() -> Void)?
     
     private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/timeswind/ck3dviev005p11co4czyb7ncc"))
 
@@ -32,6 +33,7 @@ struct ThemeMapView: UIViewRepresentable {
     }
     
     func centerCoordinate(_ centerCoordinate: CLLocationCoordinate2D) -> ThemeMapView {
+        self.centerCoordinate = centerCoordinate
         mapView.centerCoordinate = centerCoordinate
         return self
     }
@@ -52,7 +54,9 @@ struct ThemeMapView: UIViewRepresentable {
     
     
     func updateUIView(_ uiView: MGLMapView, context: UIViewRepresentableContext<ThemeMapView>) {
-        
+        if let centerCoordinate = self.centerCoordinate {
+            uiView.setCenter(centerCoordinate, animated: true)
+        }
         if let currentAnnotations = uiView.annotations {
             uiView.removeAnnotations(currentAnnotations)
         }
@@ -104,8 +108,9 @@ class ThemeMapViewCoordinator: NSObject, MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
         // map did moved
+        self.control.centerCoordinate = mapView.centerCoordinate
         if let regionDidChange = self.control.regionDidChange {
-            regionDidChange(mapView.centerCoordinate)
+            regionDidChange()
         }
     }
 }
@@ -137,9 +142,9 @@ class CustomAnnotationView: MGLAnnotationView {
 struct ThemeMapView_Previews: PreviewProvider {
     static var center = CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06)
     @State static var annotations:[MGLPointAnnotation] = []
+    @State static var centerCoordinate: CLLocationCoordinate2D? = CLLocationCoordinate2D.init()
+
     static var previews: some View {
-        ThemeMapView(annotations: $annotations, regionDidChange: { coor in
-            print(coor)
-        }).centerCoordinate(center).zoomLevel(0)
+        ThemeMapView(annotations: $annotations, centerCoordinate: $centerCoordinate, regionDidChange:nil).centerCoordinate(center).zoomLevel(0)
     }
 }
