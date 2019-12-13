@@ -46,6 +46,7 @@ struct PostDetailView: View {
     
     var body: some View {
         let hasImage = post.images_url != nil && post.images_url!.count > 0
+        let hasLocation = post.location != nil
         let author_name = post.author_name ?? post.created_by_uid
         
         let comments = Binding<[Comment]>(
@@ -99,6 +100,10 @@ struct PostDetailView: View {
                             .padding(.vertical)
                             .font(.body)
                             .foregroundColor(.black)
+                        
+                        if (hasLocation) {
+                            LocationCardView(location: post.location!).frame(height: 200)
+                        }
                         
                         if (post.images_url?.count != nil) {
                             

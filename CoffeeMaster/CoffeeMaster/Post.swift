@@ -26,6 +26,7 @@ struct Post:Codable, Identifiable {
     var record: Record?
     
     var images_url: [String]?
+    var location: Location?
     
     // not include in coding and decoding
     var images: [Data] = []
@@ -42,6 +43,7 @@ struct Post:Codable, Identifiable {
         case brewGuide
         case record
         case images_url
+        case location
     }
     
     init(title: String, body: String, created_by_uid: String, allow_comment: Bool) {

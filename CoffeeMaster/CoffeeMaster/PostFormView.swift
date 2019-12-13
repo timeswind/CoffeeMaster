@@ -24,6 +24,7 @@ struct PostFormView: View {
         assert(store.state.settings.uid != nil)
         var post = Post(title: postTitle, body: postBody, created_by_uid: store.state.settings.uid!, allow_comment: self.postAllowComment)
         post.images = self.images.map { $0.jpegData(compressionQuality: 80)! }
+        post.location = self.location
         let updatePostAction: AppAction = .connectview(action: .setCurrentEditingPost(post: post))
         
         store.send(updatePostAction)
