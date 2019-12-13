@@ -86,29 +86,45 @@ class ThemeMapViewCoordinator: NSObject, MGLMapViewDelegate {
         print("MapViewDidFinishLoading")
     }
 
+    func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+        let reuseIdentifier = "\(annotation.coordinate.longitude)"
+        var imageView: MGLAnnotationImage!
+        if (annotation is PostPointAnnotation) {
+            imageView = MGLAnnotationImage(image: UIImage(named: "icons-chat-room-96")!, reuseIdentifier: reuseIdentifier)
+        } else if (annotation is RecordPointAnnotation) {
+            imageView = MGLAnnotationImage(image: UIImage(named: "icons-new-document-96")!, reuseIdentifier: reuseIdentifier)
+        } else {
+            imageView = MGLAnnotationImage(image: UIImage(named: "icons8-marker-100")!, reuseIdentifier: reuseIdentifier)
+        }
+
+        return imageView
+    }
 
 //    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
 //        print("viewFor annotation")
 //        let reuseIdentifier = "\(annotation.coordinate.longitude)"
 //
-//        guard annotation is MGLPointAnnotation else {
 //        return MGLAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-//        }
 //
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
 //
-//            // If there’s no reusable annotation view available, initialize a new one.
-//        if annotationView == nil {
-//            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-//            annotationView!.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
-//
-//            // Set the annotation view’s background color to a value determined by its longitude.
-//            let hue = CGFloat(annotation.coordinate.longitude) / 100
-//            annotationView!.backgroundColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
-//            annotationView?.annotation = annotation
-//        }
-//
-//        return annotationView
+////        guard annotation is MGLPointAnnotation else {
+////        return MGLAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+////        }
+////
+////        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+////
+////            // If there’s no reusable annotation view available, initialize a new one.
+////        if annotationView == nil {
+////            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+////            annotationView!.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
+////
+////            // Set the annotation view’s background color to a value determined by its longitude.
+////            let hue = CGFloat(annotation.coordinate.longitude) / 100
+////            annotationView!.backgroundColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
+////            annotationView?.annotation = annotation
+////        }
+////
+////        return annotationView
 //    }
         
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {

@@ -50,6 +50,8 @@
 		5C484D77239D6E9E002D31D3 /* StaticDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D76239D6E9E002D31D3 /* StaticDataService.swift */; };
 		5C5201C82389DB4F004F5736 /* String+isBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C72389DB4F004F5736 /* String+isBlank.swift */; };
 		5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */; };
+		5C587E6A23A32C8C008EFB11 /* PostPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C587E6923A32C8C008EFB11 /* PostPointAnnotation.swift */; };
+		5C587E6D23A33161008EFB11 /* RecordPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C587E6C23A33161008EFB11 /* RecordPointAnnotation.swift */; };
 		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
 		5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* ExploreMapView.swift */; };
 		5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926D237929FF006D8E0E /* ExploreView.swift */; };
@@ -240,6 +242,8 @@
 		5C484D76239D6E9E002D31D3 /* StaticDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticDataService.swift; sourceTree = "<group>"; };
 		5C5201C72389DB4F004F5736 /* String+isBlank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isBlank.swift"; sourceTree = "<group>"; };
 		5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewWebservice.swift; sourceTree = "<group>"; };
+		5C587E6923A32C8C008EFB11 /* PostPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointAnnotation.swift; sourceTree = "<group>"; };
+		5C587E6C23A33161008EFB11 /* RecordPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPointAnnotation.swift; sourceTree = "<group>"; };
 		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
 		5C6A926B2379291D006D8E0E /* ExploreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMapView.swift; sourceTree = "<group>"; };
 		5C6A926D237929FF006D8E0E /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -454,6 +458,15 @@
 			name = data;
 			sourceTree = "<group>";
 		};
+		5C587E6B23A32D90008EFB11 /* MapItems */ = {
+			isa = PBXGroup;
+			children = (
+				5C587E6923A32C8C008EFB11 /* PostPointAnnotation.swift */,
+				5C587E6C23A33161008EFB11 /* RecordPointAnnotation.swift */,
+			);
+			name = MapItems;
+			sourceTree = "<group>";
+		};
 		5C5F41192381E726005DBACE /* ConnectView */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +510,7 @@
 				5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */,
 				5CF20A91239052ED00632A05 /* Controllers */,
 				5CEEC7BD237F053700E3BDB0 /* Views */,
+				5C587E6B23A32D90008EFB11 /* MapItems */,
 				5C88DF162396BFB900E2FD7F /* OtherServices */,
 				5CDA7728238B8C28002E0ED5 /* WebServices */,
 				5CEEC7BF237F056500E3BDB0 /* Model */,
@@ -1022,6 +1036,7 @@
 				5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */,
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
 				5C02EB352387A97B002A7A1E /* AddBrewStepView.swift in Sources */,
+				5C587E6D23A33161008EFB11 /* RecordPointAnnotation.swift in Sources */,
 				5CC5DB4D239EE58800CFDDA4 /* LocationPickerView.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
 				5C5F41182381E718005DBACE /* PostFormView.swift in Sources */,
@@ -1031,6 +1046,7 @@
 				5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */,
 				5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */,
 				5CE6373C238DB67000C1DC49 /* CoffeeBeanSizeGrade.swift in Sources */,
+				5C587E6A23A32C8C008EFB11 /* PostPointAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
