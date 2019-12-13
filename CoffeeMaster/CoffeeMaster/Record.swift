@@ -22,6 +22,7 @@ struct Record:Codable, Identifiable {
     var images_url: [String]?
     var tags: [String]?
     var caffeineRecord: CaffeineRecord?
+    var location: Location?
 
     // not include in coding and decoding
     var images: [Data] = []
@@ -37,6 +38,7 @@ struct Record:Codable, Identifiable {
         case images_url
         case tags
         case caffeineRecord
+        case location
     }
     
     init(title: String, body: String, created_by_uid: String) {

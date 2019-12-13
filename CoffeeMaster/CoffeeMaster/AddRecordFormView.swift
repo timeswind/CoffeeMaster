@@ -12,16 +12,19 @@ struct AddRecordFormView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State private var recordTitle: String = ""
     @State private var recordBody: String = ""
-    
+    @State private var isLocationPickerPresented: Bool = false
+
     @State var showingImagePicker = false
     @State var images : [UIImage] = []
     
     @State var addCoffeeCollection = false
-    
+    @State private var location: Location?
+
     func record() {
         assert(store.state.settings.uid != nil)
         var record = Record(title: recordTitle, body: recordBody, created_by_uid: store.state.settings.uid!)
         record.images = self.images.map { $0.jpegData(compressionQuality: 80)! }
+        record.location = self.location
         store.send(RecordViewAsyncAction.addRecord(record: record))
         self.exit()
     }
@@ -35,6 +38,15 @@ struct AddRecordFormView: View {
     
     func removeImage(at Index: Int) {
         self.images.remove(at: Index)
+    }
+    
+    func showLocationPicker() {
+        self.isLocationPickerPresented = true
+    }
+    
+    func onPickLocation (_ location: Location) {
+        self.isLocationPickerPresented = false
+        self.location = location
     }
     
     //    func dismissSelf() {
@@ -59,6 +71,14 @@ struct AddRecordFormView: View {
                     Button("Show image picker") {
                         self.showingImagePicker = true
                     }
+                }
+                
+                if (self.location == nil) {
+                    Button("Show location picker") {
+                        self.showLocationPicker()
+                    }
+                } else {
+                    LocationCardView(location: self.location!).frame(height: 200)
                 }
                 
                 ZStack {
@@ -115,7 +135,14 @@ struct AddRecordFormView: View {
                     Text(LocalizedStringKey("NewRecordRecordAction"))
                 }
             )
-        }.accentColor(Color(UIColor.Theme.Accent))
+        }.sheet(isPresented: $isLocationPickerPresented) {
+            LocationPickerView(onPickLocation: { (location) in
+                self.onPickLocation(location)
+            }, onCancel: {
+                self.isLocationPickerPresented = false
+            }).modifier(EnvironmemtServices())
+        }
+        .accentColor(Color(UIColor.Theme.Accent))
         
     }
 }

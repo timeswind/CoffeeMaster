@@ -50,7 +50,6 @@ struct PostFormView: View {
     func onPickLocation (_ location: Location) {
         self.isLocationPickerPresented = false
         self.location = location
-        print(location)
     }
     
     func exit() {
@@ -74,7 +73,7 @@ struct PostFormView: View {
                 
                 if (self.location == nil) {
                     Button("Show location picker") {
-                        self.isLocationPickerPresented = true
+                        self.showLocationPicker()
                     }
                 } else {
                     LocationCardView(location: self.location!).frame(height: 200)
