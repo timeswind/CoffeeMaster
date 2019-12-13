@@ -14,8 +14,9 @@ struct PostDetailView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @EnvironmentObject var keyboard: KeyboardResponder
 
-    @State var my_comments: [Comment] = []
     var post: Post!
+    
+    @State var my_comments: [Comment] = []
     @State var newComment:String = ""
     
     func fetchComments() {

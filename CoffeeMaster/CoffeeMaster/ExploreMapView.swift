@@ -10,9 +10,17 @@ import SwiftUI
 import Mapbox
 
 struct ExploreMapView: View {
+    enum sheetViewType {
+        case Post, Record, None
+    }
+    
     @EnvironmentObject var store: Store<AppState, AppAction>
 //    @State var annotations: [MGLPointAnnotation] = []
     @State var centerCoordinate: CLLocationCoordinate2D? = CLLocationCoordinate2D.init()
+    @State private var showSheet = false
+    
+    @State var sheetView: sheetViewType = .None
+    @State var sheetData: Any? = nil
     
     func fetchLocationObjects() {
         store.send(ConnectViewAsyncAction.getAllPosts(query: ""))
@@ -21,6 +29,17 @@ struct ExploreMapView: View {
 
     private func mapRegionDidChange() {
         
+    }
+    
+    func annotationOnClick(_ annotation: MGLPointAnnotation) {
+        if (annotation is PostPointAnnotation) {
+            self.sheetView = .Post
+            self.sheetData = (annotation as! PostPointAnnotation).post
+        } else if (annotation is RecordPointAnnotation) {
+            self.sheetView = .Record
+            self.sheetData = (annotation as! RecordPointAnnotation).record
+        }
+        self.showSheet = true
     }
     
     func getAnnotations(posts: [Post], records: [Record]) -> [MGLPointAnnotation] {
@@ -53,10 +72,28 @@ struct ExploreMapView: View {
             return self.getAnnotations(posts: posts, records: records)
         }) { _ in }
         
-        return ThemeMapView(annotations: annotations, centerCoordinate: $centerCoordinate, regionDidChange: {
-            self.mapRegionDidChange()
-        }).onAppear {
+
+        
+        return ThemeMapView(annotations: annotations, centerCoordinate: $centerCoordinate, regionDidChange: {self.mapRegionDidChange()}, annotationOnClick: {(annotation) in self.annotationOnClick(annotation)}).onAppear {
             self.fetchLocationObjects()
+        }.sheet(isPresented: $showSheet, onDismiss: {
+            if (self.showSheet) {
+                self.showSheet = false
+            }
+        }) {
+            if (self.sheetView == .Post && self.sheetData != nil && self.sheetData is Post) {
+                NavigationView {
+                    PostDetailView(post: (self.sheetData as! Post)).navigationBarItems(leading: Button(action: {
+                        self.showSheet = false
+                    }){
+                        Text(LocalizedStringKey("Dismiss"))
+                    })
+                }.modifier(EnvironmemtServices())
+            } else  if (self.sheetView == .Record && self.sheetData != nil  && self.sheetData is Record) {
+                EmptyView()
+            } else {
+                EmptyView()
+            }
         }
     }
 }

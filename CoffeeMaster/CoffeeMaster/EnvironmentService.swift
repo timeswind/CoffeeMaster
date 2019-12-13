@@ -84,5 +84,6 @@ struct EnvironmemtServices: ViewModifier {
             .environmentObject(store)
             .environment(\.locale, .init(identifier: localization))
             .environmentObject(keyboard)
+            .accentColor(Color.Theme.Accent)
     }
 }

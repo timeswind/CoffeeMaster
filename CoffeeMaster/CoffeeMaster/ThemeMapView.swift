@@ -21,13 +21,17 @@ struct ThemeMapView: UIViewRepresentable {
     @Binding var annotations: [MGLPointAnnotation]
     @Binding var centerCoordinate: CLLocationCoordinate2D?
     private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/timeswind/ck3dviev005p11co4czyb7ncc"))
-    var regionDidChange: (() -> Void)?
     
-    init(annotations: Binding<[MGLPointAnnotation]>, centerCoordinate: Binding<CLLocationCoordinate2D?>, center: CLLocationCoordinate2D = CLLocationCoordinate2D.init(), regionDidChange: (() -> Void)? = nil) {
+    var regionDidChange: (() -> Void)?
+    var annotationOnClick: ((MGLPointAnnotation) -> Void)?
+
+    
+    init(annotations: Binding<[MGLPointAnnotation]>, centerCoordinate: Binding<CLLocationCoordinate2D?>, center: CLLocationCoordinate2D = CLLocationCoordinate2D.init(), regionDidChange: (() -> Void)? = nil, annotationOnClick: ((MGLPointAnnotation) -> Void)? = nil) {
         self._annotations = annotations
         self._centerCoordinate = centerCoordinate
         mapView.centerCoordinate = center
         self.regionDidChange = regionDidChange
+        self.annotationOnClick = annotationOnClick
     }
     
     func makeUIView(context: UIViewRepresentableContext<ThemeMapView>) -> MGLMapView {
@@ -98,6 +102,12 @@ class ThemeMapViewCoordinator: NSObject, MGLMapViewDelegate {
         }
 
         return imageView
+    }
+    
+    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+        if let annotationOnClick = self.control.annotationOnClick {
+            annotationOnClick(annotation as! MGLPointAnnotation)
+        }
     }
 
 //    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
