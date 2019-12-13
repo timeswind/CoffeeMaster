@@ -76,7 +76,7 @@ struct PostFormView: View {
                         self.isLocationPickerPresented = true
                     }
                 } else {
-                    LocationCardView(location: self.location!).frame(height: 200    )
+                    LocationCardView(location: self.location!).frame(height: 200)
                 }
                 
                 GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in

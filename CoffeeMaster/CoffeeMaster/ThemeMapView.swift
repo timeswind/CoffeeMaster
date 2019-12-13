@@ -20,20 +20,30 @@ extension MGLPointAnnotation {
 struct ThemeMapView: UIViewRepresentable {
     @Binding var annotations: [MGLPointAnnotation]
     @Binding var centerCoordinate: CLLocationCoordinate2D?
-    
+    private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/timeswind/ck3dviev005p11co4czyb7ncc"))
     var regionDidChange: (() -> Void)?
     
-    private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/timeswind/ck3dviev005p11co4czyb7ncc"))
-
+    init(annotations: Binding<[MGLPointAnnotation]>, centerCoordinate: Binding<CLLocationCoordinate2D?>, center: CLLocationCoordinate2D = CLLocationCoordinate2D.init(), regionDidChange: (() -> Void)? = nil) {
+        self._annotations = annotations
+        self._centerCoordinate = centerCoordinate
+        mapView.centerCoordinate = center
+        self.regionDidChange = regionDidChange
+    }
     
     func makeUIView(context: UIViewRepresentableContext<ThemeMapView>) -> MGLMapView {
         mapView.delegate = context.coordinator
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        if let centerCoordinate = self.centerCoordinate {
+            mapView.centerCoordinate = centerCoordinate
+        }
+//        if let centerCoordinate = self.centerCoordinate {
+//            print("inti center coordinate")
+//            mapView.centerCoordinate = centerCoordinate
+//        }
         return mapView
     }
     
     func centerCoordinate(_ centerCoordinate: CLLocationCoordinate2D) -> ThemeMapView {
-        self.centerCoordinate = centerCoordinate
         mapView.centerCoordinate = centerCoordinate
         return self
     }
@@ -76,31 +86,30 @@ class ThemeMapViewCoordinator: NSObject, MGLMapViewDelegate {
         print("MapViewDidFinishLoading")
     }
 
-    
 
-//        func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-//            print("viewFor annotation")
-//            let reuseIdentifier = "\(annotation.coordinate.longitude)"
+//    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+//        print("viewFor annotation")
+//        let reuseIdentifier = "\(annotation.coordinate.longitude)"
 //
-//            guard annotation is MGLPointAnnotation else {
-//            return MGLAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-//            }
-//
-//            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-//
-//                // If there’s no reusable annotation view available, initialize a new one.
-//            if annotationView == nil {
-//                annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-//                annotationView!.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
-//
-//                // Set the annotation view’s background color to a value determined by its longitude.
-//                let hue = CGFloat(annotation.coordinate.longitude) / 100
-//                annotationView!.backgroundColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
-//                annotationView?.annotation = annotation
-//            }
-//
-//            return annotationView
+//        guard annotation is MGLPointAnnotation else {
+//        return MGLAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
 //        }
+//
+//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+//
+//            // If there’s no reusable annotation view available, initialize a new one.
+//        if annotationView == nil {
+//            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+//            annotationView!.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
+//
+//            // Set the annotation view’s background color to a value determined by its longitude.
+//            let hue = CGFloat(annotation.coordinate.longitude) / 100
+//            annotationView!.backgroundColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
+//            annotationView?.annotation = annotation
+//        }
+//
+//        return annotationView
+//    }
         
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true

@@ -44,7 +44,6 @@ struct LocationPickerView: View {
                 self.search()
             }
         }
-
     }
     
     
@@ -81,12 +80,11 @@ struct LocationPickerView: View {
     func done() {
         if let onPickLocation = self.onPickLocation {
             if (self.selectLocationObjectIndex >= 0) {
-            onPickLocation(self.locationObjects[self.selectLocationObjectIndex])
+                onPickLocation(self.locationObjects[self.selectLocationObjectIndex])
             } else {
                 let location = Location(coordinate: Location.Coordinate(from: self.centerCoordinate!), name: "Customize Location", qualifiedName: nil)
                 onPickLocation(location)
             }
-            onPickLocation(Location(coordinate: Location.Coordinate(latitude: 0, longitude: 0)))
         }
     }
 
