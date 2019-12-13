@@ -9,6 +9,17 @@
 import SwiftUI
 import FASwiftUI
 
+extension View {
+    func animate(animation: Animation = Animation.easeInOut(duration: 1), _ action: @escaping () -> Void) -> some View {
+        return onAppear {
+            withAnimation(animation) {
+                action()
+            }
+        }
+    }
+}
+
+
 public struct AccentCircleTextViewModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content.frame(width: 100, height: 100, alignment: .center).background(Color(UIColor.Theme.Accent)).clipShape(Circle()).foregroundColor(.white)
@@ -20,6 +31,7 @@ struct BrewGuideDetailView: View {
     @ObservedObject var stopWatch = StopWatch()
     
     var brewGuide: BrewGuide!
+    
     @State var isBrewing = false
     @State var isInstructionWalkThrough = true
     @State var currentInstructionIndex = 0
@@ -85,7 +97,8 @@ struct BrewGuideDetailView: View {
         
         return ZStack {
             if (isInstructionWalkThrough) {
-                BrewGuideWalkThroughView(brewGuide: brewGuide).transition(.scale)
+                BrewGuideWalkThroughView(brewGuide: brewGuide)
+                    .transition(.scale)
             } else {
                 VStack {
                     BrewGuideTimerInstructionView(stopWatchTime: timerTime, brewPercent: progressPercent)
@@ -93,7 +106,8 @@ struct BrewGuideDetailView: View {
                         self.updateTimerTime(timeInSec)
                     })
                     Spacer()
-                }.transition(.scale)
+                }
+                .transition(.scale)
             }
             
             // control panel with buttons
@@ -138,6 +152,9 @@ struct BrewGuideDetailView: View {
 struct BrewGuideWalkThroughView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     var brewGuide: BrewGuide!
+    @State var scale: CGFloat = 0.5
+    @State var opacity: Double = 0
+    @State var offset: CGSize = CGSize(width: 100, height: 0)
     
     var body: some View {
         let weightUnit = store.state.settings.weightUnit.rawValue
@@ -156,6 +173,10 @@ struct BrewGuideWalkThroughView: View {
                     VStack {
                         Image("\(brewGuide.baseBrewMethod.baseBrewMethodType.rawValue)-icon").resizable().scaledToFit().frame(width: 106.0, height: 106.0)
                             .aspectRatio(CGSize(width:100, height: 100), contentMode: .fit)
+                            .scaleEffect(self.scale)
+                            .animate(animation: Animation.spring(dampingFraction: 0.5)) {
+                                self.scale = 1
+                        }
                         Text(self.brewGuide.guideDescription).padding(.all, 18)
                     }
                     
@@ -168,31 +189,41 @@ struct BrewGuideWalkThroughView: View {
                     VStack {
                         Text(LocalizedStringKey(grindSize)).fontWeight(.bold).modifier(AccentCircleTextViewModifier())
                         Text(LocalizedStringKey("GrindSize")).font(.caption).fontWeight(.bold).padding(.top, 8)
-                    }
+                    }.scaleEffect(self.scale)
                     VStack {
                         Text(String(format: "%.0f \(weightUnit)", self.brewGuide.getBrewStepGrindCoffee()?.getCoffeeAmount().getWeight() ?? 0)).fontWeight(.bold).modifier(AccentCircleTextViewModifier())
                         Text(LocalizedStringKey("GroundCoffee")).font(.caption).fontWeight(.bold).padding(.top, 8)
-                    }
+                    }.scaleEffect(self.scale)
                     VStack {
                         Text(String(format: "%.0f ml \n %.0f\(temperatureUnit)", waterVolumn, waterTemperature)).fontWeight(.bold).modifier(AccentCircleTextViewModifier())
                         Text(LocalizedStringKey("Water")).font(.caption).fontWeight(.bold).padding(.top, 8)
-                    }
+                    }.scaleEffect(self.scale)
                     Spacer()
                 }
                 
                 
                 HStack(alignment: .bottom, spacing: 0) {
                     FAText(iconName: "list", size: 20, style: .solid).padding([.leading,], 36).padding(.trailing, 8)
-
-                Text(LocalizedStringKey("Steps")).font(.headline).fontWeight(.black).padding([.top], 36)
+                    
+                    Text(LocalizedStringKey("Steps")).font(.headline).fontWeight(.black).padding([.top], 36)
                     
                     
                     Spacer()
                 }.padding(.bottom, 8).foregroundColor(Color.Theme.Accent)
                 VStack(alignment: .leading, spacing: 12) {
                     ForEach(0..<brewSteps.count, id: \.self) { index in
-                        //                     Text(brewSteps[index].brewType!.rawValue)
-                        Text(brewSteps[index].instruction)
+                        GeometryReader { geometry in
+                            
+                            Text(brewSteps[index].instruction)
+                                .opacity(self.opacity)
+                                .offset(self.offset)
+                                .animation(Animation.easeInOut(duration: 0.5).delay(Double(index) * 0.1))
+                                .animate() {
+                                    self.offset = CGSize.zero
+                                    
+                                    self.opacity = 1
+                            }
+                        }
                     }
                 }.padding(.horizontal, 36)
                 

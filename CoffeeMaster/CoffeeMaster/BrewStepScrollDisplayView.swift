@@ -15,7 +15,7 @@ struct BrewStepScrollDisplayView: View {
     @State var i_index: Int = 0
     
     @State var scrollViewOffset: CGFloat = 0
-    @State private var offset: CGPoint = .zero
+    @State private var offset: CGSize = CGSize(width: -60, height: 0)
     @State private var paddingBottom: CGFloat = .zero
     
     private var onUpdateTime: ((_ timeInSec: Int) -> Void)?
@@ -39,11 +39,14 @@ struct BrewStepScrollDisplayView: View {
     }
     
     func prevInstruction() {
+        self.offset = CGSize(width: 60, height: 0)
+
         if (self.i_index != 0) {
             let newIndex = self.i_index - 1
             self.updateCurrentInstructionIndex(newIndex)
         } else {
             // reset time to start time
+            self.offset = CGSize(width: -60, height: 0)
             if let onUpdateTime = self.onUpdateTime {
                 onUpdateTime(0)
             }
@@ -83,7 +86,7 @@ struct BrewStepScrollDisplayView: View {
                         Text(brewSteps[self.i_index].instruction)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.black)
-                            .transition(.asymmetric(insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.3)), removal: .scale))
+                            .transition(.asymmetric(insertion: AnyTransition.opacity.combined(with: .scale).animation(.easeInOut(duration: 0.5)), removal: AnyTransition.opacity.combined(with: .offset(self.offset)).animation(.easeInOut(duration: 0.5))))
                     } else {
                         EmptyView()
                     }
@@ -94,6 +97,7 @@ struct BrewStepScrollDisplayView: View {
             Spacer()
             Button(action: {
                 withAnimation {
+                    self.offset = CGSize(width: -60, height: 0)
                     self.nextInstruction()
                 }
             }) {
