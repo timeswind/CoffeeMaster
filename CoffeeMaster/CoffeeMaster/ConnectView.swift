@@ -46,7 +46,7 @@ struct ConnectView: View {
             }
 
         }.sheet(isPresented: $isNewPostFormPresented) {
-            PostFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            PostFormView().modifier(EnvironmemtServices())
         }
     }
 }

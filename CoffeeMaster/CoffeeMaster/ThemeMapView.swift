@@ -22,10 +22,14 @@ struct ThemeMapView: UIViewRepresentable {
     
     var regionDidChange: ((CLLocationCoordinate2D) -> Void)?
     
-//    @State private var centerAnnotation = MGLPointAnnotation(title: "CenterAnnotation", coordinate: .init())
-
     private let mapView: MGLMapView = MGLMapView(frame: .zero, styleURL: URL(string: "mapbox://styles/timeswind/ck3dviev005p11co4czyb7ncc"))
 
+    
+    func makeUIView(context: UIViewRepresentableContext<ThemeMapView>) -> MGLMapView {
+        mapView.delegate = context.coordinator
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        return mapView
+    }
     
     func centerCoordinate(_ centerCoordinate: CLLocationCoordinate2D) -> ThemeMapView {
         mapView.centerCoordinate = centerCoordinate
@@ -42,51 +46,90 @@ struct ThemeMapView: UIViewRepresentable {
         return self
     }
     
-    func makeCoordinator() -> ThemeMapView.Coordinator {
-        Coordinator(self)
+    func makeCoordinator() -> ThemeMapViewCoordinator {
+        ThemeMapViewCoordinator(self)
     }
     
-    func makeUIView(context: UIViewRepresentableContext<ThemeMapView>) -> MGLMapView {
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.delegate = context.coordinator
-        return mapView
-    }
     
     func updateUIView(_ uiView: MGLMapView, context: UIViewRepresentableContext<ThemeMapView>) {
         
-        self.updateAnnotations()
-        
+        if let currentAnnotations = uiView.annotations {
+            uiView.removeAnnotations(currentAnnotations)
+        }
+        uiView.addAnnotations(self.annotations)
+    }
+
+}
+
+class ThemeMapViewCoordinator: NSObject, MGLMapViewDelegate {
+    var control: ThemeMapView
+    
+    init(_ control: ThemeMapView) {
+        self.control = control
     }
     
-    private func updateAnnotations() {
-        if let currentAnnotations = mapView.annotations {
-            mapView.removeAnnotations(currentAnnotations)
-        }
-        mapView.addAnnotations(annotations)
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        print("MapViewDidFinishLoading")
+    }
+
+    
+
+//        func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+//            print("viewFor annotation")
+//            let reuseIdentifier = "\(annotation.coordinate.longitude)"
+//
+//            guard annotation is MGLPointAnnotation else {
+//            return MGLAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+//            }
+//
+//            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+//
+//                // If there’s no reusable annotation view available, initialize a new one.
+//            if annotationView == nil {
+//                annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+//                annotationView!.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
+//
+//                // Set the annotation view’s background color to a value determined by its longitude.
+//                let hue = CGFloat(annotation.coordinate.longitude) / 100
+//                annotationView!.backgroundColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
+//                annotationView?.annotation = annotation
+//            }
+//
+//            return annotationView
+//        }
+        
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
     }
     
-    class Coordinator: NSObject, MGLMapViewDelegate {
-        var control: ThemeMapView
-        
-        init(_ control: ThemeMapView) {
-            self.control = control
+    func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
+        // map did moved
+        if let regionDidChange = self.control.regionDidChange {
+            regionDidChange(mapView.centerCoordinate)
         }
-        
-        func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-            return nil
+    }
+}
+
+//
+// MGLAnnotationView subclass
+class CustomAnnotationView: MGLAnnotationView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+         
+        // Use CALayer’s corner radius to turn this view into a circle.
+        layer.cornerRadius = bounds.width / 2
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.white.cgColor
         }
-            
-        func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-            return true
-        }
-        
-        
-        func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
-            // map did moved
-            if let regionDidChange = self.control.regionDidChange {
-                regionDidChange(mapView.centerCoordinate)
-            }
-        }
+ 
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+         
+        // Animate the border width in/out, creating an iris effect.
+        let animation = CABasicAnimation(keyPath: "borderWidth")
+        animation.duration = 0.1
+        layer.borderWidth = selected ? bounds.width / 4 : 2
+        layer.add(animation, forKey: "borderWidth")
     }
 }
 

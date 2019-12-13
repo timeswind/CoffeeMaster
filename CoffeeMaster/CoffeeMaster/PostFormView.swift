@@ -13,9 +13,12 @@ struct PostFormView: View {
     @State private var postTitle: String = ""
     @State private var postBody: String = ""
     @State private var postAllowComment: Bool = true
+    @State private var isLocationPickerPresented: Bool = false
     
-    @State var showingImagePicker = false
-    @State var images : [UIImage] = []
+    @State private var showingImagePicker = false
+    @State private var images : [UIImage] = []
+    
+    @State private var location: Location?
     
     func post() {
         assert(store.state.settings.uid != nil)
@@ -39,6 +42,16 @@ struct PostFormView: View {
         self.images.remove(at: Index)
     }
     
+    func showLocationPicker() {
+        self.isLocationPickerPresented = true
+    }
+    
+    func onPickLocation (_ location: Location) {
+        self.isLocationPickerPresented = false
+        self.location = location
+        print(location)
+    }
+    
     func exit() {
         UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
     }
@@ -56,6 +69,14 @@ struct PostFormView: View {
                     Button("Show image picker") {
                         self.showingImagePicker = true
                     }
+                }
+                
+                if (self.location == nil) {
+                    Button("Show location picker") {
+                        self.isLocationPickerPresented = true
+                    }
+                } else {
+                    LocationCardView(location: self.location!).frame(height: 200    )
                 }
                 
                 GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
@@ -93,7 +114,14 @@ struct PostFormView: View {
                         self.addImage(image: image!)
                     }
             }
-        }.accentColor(Color(UIColor.Theme.Accent))
+        }.sheet(isPresented: $isLocationPickerPresented) {
+            LocationPickerView(onPickLocation: { (location) in
+                self.onPickLocation(location)
+            }, onCancel: {
+                self.isLocationPickerPresented = false
+            }).modifier(EnvironmemtServices())
+        }
+        .accentColor(Color(UIColor.Theme.Accent))
         
     }
 }
@@ -101,8 +129,6 @@ struct PostFormView: View {
 struct PostFormView_Previews: PreviewProvider {
     
     static var previews: some View {
-        NavigationView {
            PostFormView().modifier(EnvironmemtServices())
-        }.accentColor(Color.Theme.Accent)
     }
 }
