@@ -44,6 +44,7 @@ struct LocationCardView: View {
             Text(location.name)
                 .font(.headline)
                 .fontWeight(.bold)
+                
         }.padding()
     }
 }

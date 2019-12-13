@@ -17,14 +17,6 @@
 		5C02EB352387A97B002A7A1E /* AddBrewStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB342387A97B002A7A1E /* AddBrewStepView.swift */; };
 		5C02EB372388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */; };
 		5C02EB502388E5FA002A7A1E /* RecordViewWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */; };
-		5C079CC423A40B9900DC740C /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C079CC023A40B9900DC740C /* Font Awesome 5 Brands-Regular-400.otf */; };
-		5C079CC523A40B9900DC740C /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C079CC123A40B9900DC740C /* icons.json */; };
-		5C079CC623A40B9900DC740C /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C079CC223A40B9900DC740C /* Font Awesome 5 Free-Solid-900.otf */; };
-		5C079CC723A40B9900DC740C /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C079CC323A40B9900DC740C /* Font Awesome 5 Free-Regular-400.otf */; };
-		5C079CC823A40BB400DC740C /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C079CC023A40B9900DC740C /* Font Awesome 5 Brands-Regular-400.otf */; };
-		5C079CC923A40BB400DC740C /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C079CC323A40B9900DC740C /* Font Awesome 5 Free-Regular-400.otf */; };
-		5C079CCA23A40BB400DC740C /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C079CC223A40B9900DC740C /* Font Awesome 5 Free-Solid-900.otf */; };
-		5C079CCB23A40BB400DC740C /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C079CC123A40B9900DC740C /* icons.json */; };
 		5C0C26992391D58A00F27180 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C26982391D58A00F27180 /* NoteDetailView.swift */; };
 		5C0C269C2391F18000F27180 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C0C269B2391F18000F27180 /* URLImage */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
@@ -33,6 +25,10 @@
 		5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */; };
 		5C25FA43237F314B0082CFBD /* String+Bundle+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */; };
 		5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25FA44237F385C0082CFBD /* EnvironmentService.swift */; };
+		5C271E2723A414FF00158160 /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C271E2323A414FF00158160 /* Font Awesome 5 Free-Regular-400.otf */; };
+		5C271E2823A414FF00158160 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C271E2423A414FF00158160 /* icons.json */; };
+		5C271E2923A414FF00158160 /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C271E2523A414FF00158160 /* Font Awesome 5 Brands-Regular-400.otf */; };
+		5C271E2A23A414FF00158160 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C271E2623A414FF00158160 /* Font Awesome 5 Free-Solid-900.otf */; };
 		5C2E476A23960FB80064226A /* BrewGuideTimerInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */; };
 		5C2E476E23962C1A0064226A /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E476D23962C1A0064226A /* StopWatch.swift */; };
 		5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */; };
@@ -221,10 +217,6 @@
 		5C02EB342387A97B002A7A1E /* AddBrewStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBrewStepView.swift; sourceTree = "<group>"; };
 		5C02EB362388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewWebDatabaseService.swift; sourceTree = "<group>"; };
 		5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewWebService.swift; sourceTree = "<group>"; };
-		5C079CC023A40B9900DC740C /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
-		5C079CC123A40B9900DC740C /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
-		5C079CC223A40B9900DC740C /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
-		5C079CC323A40B9900DC740C /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		5C0C26982391D58A00F27180 /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
 		5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideDetailView.swift; sourceTree = "<group>"; };
 		5C25798123837BA200976AE1 /* BrewStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStep.swift; sourceTree = "<group>"; };
@@ -234,6 +226,10 @@
 		5C25FA42237F314B0082CFBD /* String+Bundle+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Bundle+Localization.swift"; sourceTree = "<group>"; };
 		5C25FA44237F385C0082CFBD /* EnvironmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentService.swift; sourceTree = "<group>"; };
 		5C25FAF6237F83EC0082CFBD /* CoffeeMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeMaster.entitlements; sourceTree = "<group>"; };
+		5C271E2323A414FF00158160 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Regular-400.otf"; path = "CoffeeMaster/Font Awesome 5 Free-Regular-400.otf"; sourceTree = SOURCE_ROOT; };
+		5C271E2423A414FF00158160 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = icons.json; path = CoffeeMaster/icons.json; sourceTree = SOURCE_ROOT; };
+		5C271E2523A414FF00158160 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Brands-Regular-400.otf"; path = "CoffeeMaster/Font Awesome 5 Brands-Regular-400.otf"; sourceTree = SOURCE_ROOT; };
+		5C271E2623A414FF00158160 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Font Awesome 5 Free-Solid-900.otf"; path = "CoffeeMaster/Font Awesome 5 Free-Solid-900.otf"; sourceTree = SOURCE_ROOT; };
 		5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideTimerInstructionView.swift; sourceTree = "<group>"; };
 		5C2E476D23962C1A0064226A /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineTrackerView.swift; sourceTree = "<group>"; };
@@ -469,10 +465,6 @@
 		5C484D73239D6C4D002D31D3 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				5C079CC023A40B9900DC740C /* Font Awesome 5 Brands-Regular-400.otf */,
-				5C079CC323A40B9900DC740C /* Font Awesome 5 Free-Regular-400.otf */,
-				5C079CC223A40B9900DC740C /* Font Awesome 5 Free-Solid-900.otf */,
-				5C079CC123A40B9900DC740C /* icons.json */,
 				5C484D74239D6C73002D31D3 /* CaffeineEntries.json */,
 				5C587E6F23A342CD008EFB11 /* DefaultBrewGuides.json */,
 			);
@@ -698,6 +690,10 @@
 		5CEEC7C0237F057E00E3BDB0 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				5C271E2523A414FF00158160 /* Font Awesome 5 Brands-Regular-400.otf */,
+				5C271E2323A414FF00158160 /* Font Awesome 5 Free-Regular-400.otf */,
+				5C271E2623A414FF00158160 /* Font Awesome 5 Free-Solid-900.otf */,
+				5C271E2423A414FF00158160 /* icons.json */,
 				5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */,
 				5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */,
 				5C80C96323745F2600996D91 /* AppDelegate.swift */,
@@ -897,16 +893,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C80C97323745F2900996D91 /* LaunchScreen.storyboard in Resources */,
-				5C079CC723A40B9900DC740C /* Font Awesome 5 Free-Regular-400.otf in Resources */,
 				5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */,
 				5C80C97023745F2900996D91 /* Preview Assets.xcassets in Resources */,
+				5C271E2A23A414FF00158160 /* Font Awesome 5 Free-Solid-900.otf in Resources */,
+				5C271E2923A414FF00158160 /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				5C80C96D23745F2900996D91 /* Assets.xcassets in Resources */,
-				5C079CC523A40B9900DC740C /* icons.json in Resources */,
+				5C271E2823A414FF00158160 /* icons.json in Resources */,
 				5C587E7023A342CD008EFB11 /* DefaultBrewGuides.json in Resources */,
-				5C079CC623A40B9900DC740C /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 				5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */,
 				5C484D75239D6C73002D31D3 /* CaffeineEntries.json in Resources */,
-				5C079CC423A40B9900DC740C /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
+				5C271E2723A414FF00158160 /* Font Awesome 5 Free-Regular-400.otf in Resources */,
 				5CD4B3DB238F14C100E5FB00 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,10 +930,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CFE99202396CD0E00F78FE2 /* MainInterface.storyboard in Resources */,
-				5C079CC923A40BB400DC740C /* Font Awesome 5 Free-Regular-400.otf in Resources */,
-				5C079CC823A40BB400DC740C /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
-				5C079CCA23A40BB400DC740C /* Font Awesome 5 Free-Solid-900.otf in Resources */,
-				5C079CCB23A40BB400DC740C /* icons.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

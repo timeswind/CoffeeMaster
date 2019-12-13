@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 public struct AccentCircleTextViewModifier: ViewModifier {
     public func body(content: Content) -> some View {
@@ -67,7 +68,7 @@ struct BrewGuideDetailView: View {
     
     var body: some View {
         
-        let mainControlIcon = (isInstructionWalkThrough || (!isInstructionWalkThrough && !isBrewing)) ? ">" : "||"
+        let mainControlIcon = (isInstructionWalkThrough || (!isInstructionWalkThrough && !isBrewing)) ? "play" : "pause"
         let title = isInstructionWalkThrough ? LocalizedStringKey(self.brewGuide.guideName) : ""
         
         let timerTime = Binding<String>(get: { () -> String in
@@ -106,11 +107,11 @@ struct BrewGuideDetailView: View {
                             self.toggleBrew()
                         }
                     }, label: {
-                        Text(mainControlIcon)
-                            .font(.system(.largeTitle))
-                            .frame(width: 77, height: 70)
+                        
+                        FAText(iconName: mainControlIcon, size: 24, style: .solid)
+//                            .font(.system(.largeTitle))
+                            .frame(width: 70, height: 70)
                             .foregroundColor(Color.white)
-                            .padding(.bottom, 7)
                     })
                         .background(Color(UIColor.Theme.Accent))
                         .cornerRadius(38.5)
@@ -180,7 +181,15 @@ struct BrewGuideWalkThroughView: View {
                     Spacer()
                 }
                 
-                Text(LocalizedStringKey("Steps")).font(.headline).fontWeight(.black).padding([.leading, .top], 36)
+                
+                HStack(alignment: .bottom, spacing: 0) {
+                    FAText(iconName: "list", size: 20, style: .solid).padding([.leading,], 36).padding(.trailing, 8)
+
+                Text(LocalizedStringKey("Steps")).font(.headline).fontWeight(.black).padding([.top], 36)
+                    
+                    
+                    Spacer()
+                }.padding(.bottom, 8).foregroundColor(Color.Theme.Accent)
                 VStack(alignment: .leading, spacing: 12) {
                     ForEach(0..<brewSteps.count, id: \.self) { index in
                         //                     Text(brewSteps[index].brewType!.rawValue)
@@ -192,5 +201,13 @@ struct BrewGuideWalkThroughView: View {
                 Spacer()
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         }
+    }
+}
+
+struct BrewGuideDetailView_Previews: PreviewProvider {
+    static var sample_brew_guide = StaticDataService.defaultBrewGuides.first!
+    
+    static var previews: some View {
+        BrewGuideDetailView(brewGuide: sample_brew_guide).modifier(EnvironmemtServices())
     }
 }
