@@ -60,7 +60,7 @@ struct AddRecordFormView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(.vertical) {
+            VStack(alignment: .leading) {
                 TextField(LocalizedStringKey("NewRecordTitle"), text: $recordTitle)
                 MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {
                     print("Final text: \(self.recordBody)")
@@ -81,16 +81,14 @@ struct AddRecordFormView: View {
                     LocationCardView(location: self.location!).frame(height: 200)
                 }
                 
-                ZStack {
-                    GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
-                        Image(uiImage: self.images[index])
-                            .resizable()
-                            .frame(width: cellWidth, height: cellWidth)
-                            .onTapGesture {
-                                self.removeImage(at: index)
-                        }
+                GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
+                    Image(uiImage: self.images[index])
+                        .resizable()
+                        .frame(width: cellWidth, height: cellWidth)
+                        .onTapGesture {
+                            self.removeImage(at: index)
                     }
-                }.scaledToFill()
+                }
                 
 
                 
@@ -112,7 +110,8 @@ struct AddRecordFormView: View {
                 }
                 
                 Spacer()
-            }.sheet(isPresented: $showingImagePicker,
+            }.padding(20)
+            .sheet(isPresented: $showingImagePicker,
                     onDismiss: {
                         // do whatever you need here
                         // if ImagePicker.shared.image != nil {
@@ -125,7 +124,6 @@ struct AddRecordFormView: View {
                     self.addImage(image: image!)
                 }
             }
-            .padding(20)
             .navigationBarTitle(Text(LocalizedStringKey("NewRecord")))
             .navigationBarItems(leading:
                 Button(action: {self.exit()}) {
@@ -146,3 +144,11 @@ struct AddRecordFormView: View {
         
     }
 }
+
+struct AddRecordFormView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+           AddRecordFormView().modifier(EnvironmemtServices())
+    }
+}
+
