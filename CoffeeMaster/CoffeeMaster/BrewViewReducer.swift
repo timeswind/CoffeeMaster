@@ -13,6 +13,8 @@ import SwiftUI
 enum BrewViewAction {
     case newBrewGuideAdded(brewGuide: BrewGuide)
     case setMyBrewGuides(guides: [BrewGuide])
+    case setDefaultBrewGuides(guides: [BrewGuide])
+    case setDefaultBrewMethods(methods: [BrewMethod])
 }
 
 struct BrewViewReducer {
@@ -22,6 +24,10 @@ struct BrewViewReducer {
             state.myBrewGuides.insert(brewGuide, at: 0)
         case let .setMyBrewGuides(guides):
             state.myBrewGuides = guides
+        case let .setDefaultBrewGuides(guides):
+            state.defaultBrewGuides = guides
+        case let .setDefaultBrewMethods(methods):
+            state.defaultBrewMethods = methods
         }
     }
 }

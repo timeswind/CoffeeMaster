@@ -13,18 +13,12 @@ import CoreData
 
 class EnvironmentManager {
 
-    // MARK: - Properties
-
     static let shared = EnvironmentManager()
-
-    // MARK: -
 
     let context: NSManagedObjectContext
     let store: Store<AppState, AppAction>
     let keyboard: KeyboardResponder
     let localization: String
-
-    // Initialization
 
     private init() {
         self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -64,6 +58,9 @@ class EnvironmentManager {
         
         //initialize caffeineEntries
         store.send(.recordview(action: .setCaffeineEntries(caffeineEntries: StaticDataService.caffeineEntries)))
+        //initialize default brew guides and methods
+        store.send(.brewview(action: .setDefaultBrewGuides(guides: StaticDataService.defaultBrewGuides)))
+        store.send(.brewview(action: .setDefaultBrewMethods(methods: StaticDataService.defaultBrewMethods)))
     }
 
 }

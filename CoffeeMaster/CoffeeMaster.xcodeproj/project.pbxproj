@@ -52,6 +52,7 @@
 		5C5201CA2389DBF6004F5736 /* BrewViewWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */; };
 		5C587E6A23A32C8C008EFB11 /* PostPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C587E6923A32C8C008EFB11 /* PostPointAnnotation.swift */; };
 		5C587E6D23A33161008EFB11 /* RecordPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C587E6C23A33161008EFB11 /* RecordPointAnnotation.swift */; };
+		5C587E7023A342CD008EFB11 /* DefaultBrewGuides.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C587E6F23A342CD008EFB11 /* DefaultBrewGuides.json */; };
 		5C5F41182381E718005DBACE /* PostFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F41172381E718005DBACE /* PostFormView.swift */; };
 		5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926B2379291D006D8E0E /* ExploreMapView.swift */; };
 		5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A926D237929FF006D8E0E /* ExploreView.swift */; };
@@ -244,6 +245,7 @@
 		5C5201C92389DBF5004F5736 /* BrewViewWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewWebservice.swift; sourceTree = "<group>"; };
 		5C587E6923A32C8C008EFB11 /* PostPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPointAnnotation.swift; sourceTree = "<group>"; };
 		5C587E6C23A33161008EFB11 /* RecordPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPointAnnotation.swift; sourceTree = "<group>"; };
+		5C587E6F23A342CD008EFB11 /* DefaultBrewGuides.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultBrewGuides.json; sourceTree = "<group>"; };
 		5C5F41172381E718005DBACE /* PostFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormView.swift; sourceTree = "<group>"; };
 		5C6A926B2379291D006D8E0E /* ExploreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMapView.swift; sourceTree = "<group>"; };
 		5C6A926D237929FF006D8E0E /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				5C484D74239D6C73002D31D3 /* CaffeineEntries.json */,
+				5C587E6F23A342CD008EFB11 /* DefaultBrewGuides.json */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */,
 				5C80C97023745F2900996D91 /* Preview Assets.xcassets in Resources */,
 				5C80C96D23745F2900996D91 /* Assets.xcassets in Resources */,
+				5C587E7023A342CD008EFB11 /* DefaultBrewGuides.json in Resources */,
 				5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */,
 				5C484D75239D6C73002D31D3 /* CaffeineEntries.json in Resources */,
 				5CD4B3DB238F14C100E5FB00 /* GoogleService-Info.plist in Resources */,

@@ -30,72 +30,76 @@ let aeropressBrewMethod = BrewMethod(.AeroPress, name: "AeroPress", image: "aero
 //let mokapotBrewMethod = BrewMethod(name: "Moka Pot", image: "moka-pot", descriptionKey: "MokaPotDescription", description: nil)
 //let FrenchPressBrewMethod = BrewMethod(name: "French Press", image: "french-press", descriptionKey: "FrenchPressDescription", description: nil)
 
-class DefaultBrewingGuides {
-    //Sample data fow preview and debug
-    static var sampleBrewSteps: [BrewStep] = []
-    
-    static var guides: [BrewGuide] = []
-    static var methods: [BrewMethod] = []
-    
-    init() {
-        DefaultBrewingGuides.self.defaultChemex()
-        DefaultBrewingGuides.self.defaultAeroPress()
-    }
-    
-    static func defaultChemex() {
-        let grindCoffee = BrewStepGrindCoffee()
-            .amount(25).grindSize(.Medium)
-        let boilWater = BrewStepBoilWater()
-            .water(340).temperatue(forWater: 94)
-        
-        let chemexBrewGuide = BrewGuide(baseBrewMethod: chemexBrewMethod)
-            .grindCoffee(step: grindCoffee)
-            .boilWater(step: boilWater)
-            .add(brewStep: BrewStepBloom().water(50).duration(10).instruction("Pour in 50ml of water and bloom for 10 secs"))
-            .add(brewStep: BrewStepOther().instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
-            .add(brewStep: BrewStepOther().instruction("Wait for the coffee to bloom").duration(15))
-            .add(brewStep: BrewStepBloom().water(130).instruction("Pour 130g of water in a spiral motion over the dark areas").duration(30))
-            .add(brewStep: BrewStepWait().instruction("Wait for the water to drain through the grounds").duration(20))
-            .add(brewStep: BrewStepBloom().water(160).instruction("Slowly top up the brewer with another 160g of water").duration(30))
-            .add(brewStep: BrewStepOther().instruction("Wait for the water to drain through the grounds. When done remove the filter and serve").duration(20))
-        
-        chemexBrewGuide.guideDescription = "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes"
-        chemexBrewGuide.guideName = chemexBrewMethod.name
-        DefaultBrewingGuides.methods.append(chemexBrewMethod)
-        DefaultBrewingGuides.guides.append(chemexBrewGuide)
-        DefaultBrewingGuides.sampleBrewSteps = chemexBrewGuide.getBrewSteps()
-    }
-    
-    static func defaultAeroPress() {
-        let grindCoffee = BrewStepGrindCoffee()
-            .amount(15).grindSize(.Fine)
-        let boilWater = BrewStepBoilWater()
-            .water(240).temperatue(forWater: 94)
-        
-        let aeropressBrewGuide = BrewGuide(baseBrewMethod: aeropressBrewMethod)
-            .grindCoffee(step: grindCoffee)
-            .boilWater(step: boilWater)
-            .add(brewStep: BrewStepBloom().water(30).instruction("Pour 30g of water and evenly saturate the coffee").duration(10))
-            .add(brewStep: BrewStepStir().instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
-            .add(brewStep: BrewStepOther().instruction("Wait for the coffee to bloom").duration(15))
-            .add(brewStep: BrewStepBloom().water(210).instruction("Pour 210g of water in a spiral motion over the dark areas").duration(30))
-            .add(brewStep: BrewStepOther().instruction("Place the plunger on the brewer and pull up slightly to create a pressure seal").duration(5))
-            .add(brewStep: BrewStepWait().instruction("Wait fot the coffee to brew").duration(30))
-            .add(brewStep: BrewStepOther().instruction("Gently press down on the plunger with steady pressure").duration(20))
-            .add(brewStep: BrewStepOther().instruction("When done simply tale off the bottom cap, pop the grounds and the filter"))
-
-        
-        aeropressBrewGuide.guideDescription = "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee"
-        aeropressBrewGuide.guideName = aeropressBrewMethod.name
-        DefaultBrewingGuides.methods.append(aeropressBrewMethod)
-        DefaultBrewingGuides.guides.append(aeropressBrewGuide)
-    }
-    
-    func getGuides() -> [BrewGuide] {
-        return DefaultBrewingGuides.guides
-    }
-    
-    func getMethods() -> [BrewMethod] {
-        return DefaultBrewingGuides.methods
-    }
-}
+//class DefaultBrewingGuides {
+//    //Sample data fow preview and debug
+//    static var sampleBrewSteps: [BrewStep] = []
+//    
+//    static var guides: [BrewGuide] = []
+//    static var methods: [BrewMethod] = []
+//    
+//    init() {
+//        DefaultBrewingGuides.self.defaultChemex()
+//        DefaultBrewingGuides.self.defaultAeroPress()
+//    }
+//    
+//    static func defaultChemex() {
+//        let grindCoffee = BrewStepGrindCoffee()
+//            .amount(25).grindSize(.Medium)
+//        let boilWater = BrewStepBoilWater()
+//            .water(340).temperatue(forWater: 94)
+//        
+//        let chemexBrewGuide = BrewGuide(baseBrewMethod: chemexBrewMethod)
+//            .grindCoffee(step: grindCoffee)
+//            .boilWater(step: boilWater)
+//            .add(brewStep: BrewStepBloom().water(50).duration(10).instruction("Pour in 50ml of water and bloom for 10 secs"))
+//            .add(brewStep: BrewStepOther().instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
+//            .add(brewStep: BrewStepOther().instruction("Wait for the coffee to bloom").duration(15))
+//            .add(brewStep: BrewStepBloom().water(130).instruction("Pour 130g of water in a spiral motion over the dark areas").duration(30))
+//            .add(brewStep: BrewStepWait().instruction("Wait for the water to drain through the grounds").duration(20))
+//            .add(brewStep: BrewStepBloom().water(160).instruction("Slowly top up the brewer with another 160g of water").duration(30))
+//            .add(brewStep: BrewStepOther().instruction("Wait for the water to drain through the grounds. When done remove the filter and serve").duration(20))
+//        
+//        chemexBrewGuide.guideDescription = "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes"
+//        chemexBrewGuide.guideName = chemexBrewMethod.name
+//        DefaultBrewingGuides.methods.append(chemexBrewMethod)
+//        DefaultBrewingGuides.guides.append(chemexBrewGuide)
+//        DefaultBrewingGuides.sampleBrewSteps = chemexBrewGuide.getBrewSteps()
+//    }
+//    
+//    static func defaultAeroPress() {
+//        let grindCoffee = BrewStepGrindCoffee()
+//            .amount(15).grindSize(.Fine)
+//        let boilWater = BrewStepBoilWater()
+//            .water(240).temperatue(forWater: 94)
+//        
+//        let aeropressBrewGuide = BrewGuide(baseBrewMethod: aeropressBrewMethod)
+//            .grindCoffee(step: grindCoffee)
+//            .boilWater(step: boilWater)
+//            .add(brewStep: BrewStepBloom().water(30).instruction("Pour 30g of water and evenly saturate the coffee").duration(10))
+//            .add(brewStep: BrewStepStir().instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
+//            .add(brewStep: BrewStepOther().instruction("Wait for the coffee to bloom").duration(15))
+//            .add(brewStep: BrewStepBloom().water(210).instruction("Pour 210g of water in a spiral motion over the dark areas").duration(30))
+//            .add(brewStep: BrewStepOther().instruction("Place the plunger on the brewer and pull up slightly to create a pressure seal").duration(5))
+//            .add(brewStep: BrewStepWait().instruction("Wait fot the coffee to brew").duration(30))
+//            .add(brewStep: BrewStepOther().instruction("Gently press down on the plunger with steady pressure").duration(20))
+//            .add(brewStep: BrewStepOther().instruction("When done simply tale off the bottom cap, pop the grounds and the filter"))
+//
+//        
+//        aeropressBrewGuide.guideDescription = "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee"
+//        aeropressBrewGuide.guideName = aeropressBrewMethod.name
+//        DefaultBrewingGuides.methods.append(aeropressBrewMethod)
+//        DefaultBrewingGuides.guides.append(aeropressBrewGuide)
+//        
+//        let jsonData = try! JSONEncoder().encode(aeropressBrewGuide)
+//        let jsonString = String(data: jsonData, encoding: .utf8)!
+//        print(jsonString)
+//    }
+//    
+//    func getGuides() -> [BrewGuide] {
+//        return DefaultBrewingGuides.guides
+//    }
+//    
+//    func getMethods() -> [BrewMethod] {
+//        return DefaultBrewingGuides.methods
+//    }
+//}

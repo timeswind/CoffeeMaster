@@ -102,9 +102,11 @@ struct BrewStepScrollDisplayView: View {
 struct BrewStepScrollDisplayView_Previews: PreviewProvider {
     @State static var currentInstructionIndex = 1
     
+    static var StaticData = StaticDataService.defaultBrewGuides
+
     static var previews: some View {
-        print("parent \(self.currentInstructionIndex)")
-        let sample_brew_guide = dependencies.defaultBrewingGuides.getGuides().first!
+        _ = StaticDataService()
+        let sample_brew_guide = StaticDataService.defaultBrewGuides.first!
         return BrewStepScrollDisplayView(brewGuide: sample_brew_guide, currentInstructionIndex: $currentInstructionIndex).previewLayout(.sizeThatFits)
     }
 }

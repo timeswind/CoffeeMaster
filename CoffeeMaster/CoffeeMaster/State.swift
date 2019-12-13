@@ -47,7 +47,7 @@ struct RecordViewState {
 }
 
 struct BrewViewState {
-    var defaultBrewGuides: [BrewGuide] = dependencies.defaultBrewingGuides.getGuides()
-    var defaultBrewMethods: [BrewMethod] = dependencies.defaultBrewingGuides.getMethods()
+    var defaultBrewGuides: [BrewGuide] = []
+    var defaultBrewMethods: [BrewMethod] = []
     var myBrewGuides: [BrewGuide] = []
 }

@@ -1,0 +1,221 @@
+[
+  {
+    "isPublic": false,
+    "baseBrewMethod": {
+      "descriptionKey": "ChemexDescription",
+      "brewTools": [
+        {
+          "count": 1,
+          "localizedNameKey": "ChemexCoffeemaker"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "ChemexPaperFilter"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Cup"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "KitchenScale"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Spoon"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Kettle"
+        }
+      ],
+      "baseBrewMethodType": "Chemex",
+      "name": "Chemex",
+      "description": ""
+    },
+    "brewSteps": [
+      {
+        "amount": 50,
+        "brewType": "Bloom",
+        "instruction": "Pour in 50ml of water and bloom for 10 secs",
+        "description": "",
+        "duration": 10
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Stir the grounds to ensure all coffee is fully immersed",
+        "description": "",
+        "duration": 5
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Wait for the coffee to bloom",
+        "description": "",
+        "duration": 15
+      },
+      {
+        "amount": 130,
+        "brewType": "Bloom",
+        "instruction": "Pour 130g of water in a spiral motion over the dark areas",
+        "description": "",
+        "duration": 30
+      },
+      {
+        "amount": 0,
+        "brewType": "Wait",
+        "instruction": "Wait for the water to drain through the grounds",
+        "description": "",
+        "duration": 20
+      },
+      {
+        "amount": 160,
+        "brewType": "Bloom",
+        "instruction": "Slowly top up the brewer with another 160g of water",
+        "description": "",
+        "duration": 30
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Wait for the water to drain through the grounds. When done remove the filter and serve",
+        "description": "",
+        "duration": 20
+      }
+    ],
+    "brewStepBoilWater": {
+      "amount": 0,
+      "brewType": "BoilWater",
+      "waterTemperature": 94,
+      "description": "",
+      "duration": 0,
+      "waterAmount": 340,
+      "instruction": ""
+    },
+    "guideDescription": "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes",
+    "brewStepGrindCoffee": {
+      "amount": 0,
+      "grindSize": "Medium",
+      "brewType": "GrindCoffee",
+      "duration": 0,
+      "description": "",
+      "coffeeAmount": 25,
+      "instruction": ""
+    },
+    "guideName": "Chemex"
+  },
+  {
+    "isPublic": false,
+    "baseBrewMethod": {
+      "descriptionKey": "AeroPressDescription",
+      "brewTools": [
+        {
+          "count": 1,
+          "localizedNameKey": "AeropressCoffeemaker"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "AeropressPaperFilter"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Cup"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "KitchenScale"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Spoon"
+        },
+        {
+          "count": 1,
+          "localizedNameKey": "Kettle"
+        }
+      ],
+      "baseBrewMethodType": "AeroPress",
+      "name": "AeroPress",
+      "description": ""
+    },
+    "brewSteps": [
+      {
+        "amount": 30,
+        "brewType": "Bloom",
+        "instruction": "Pour 30g of water and evenly saturate the coffee",
+        "description": "",
+        "duration": 10
+      },
+      {
+        "amount": 0,
+        "brewType": "Stir",
+        "instruction": "Stir the grounds to ensure all coffee is fully immersed",
+        "description": "",
+        "duration": 5
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Wait for the coffee to bloom",
+        "description": "",
+        "duration": 15
+      },
+      {
+        "amount": 210,
+        "brewType": "Bloom",
+        "instruction": "Pour 210g of water in a spiral motion over the dark areas",
+        "description": "",
+        "duration": 30
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Place the plunger on the brewer and pull up slightly to create a pressure seal",
+        "description": "",
+        "duration": 5
+      },
+      {
+        "amount": 0,
+        "brewType": "Wait",
+        "instruction": "Wait fot the coffee to brew",
+        "description": "",
+        "duration": 30
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "Gently press down on the plunger with steady pressure",
+        "description": "",
+        "duration": 20
+      },
+      {
+        "amount": 0,
+        "brewType": "Other",
+        "instruction": "When done simply tale off the bottom cap, pop the grounds and the filter",
+        "description": "",
+        "duration": 0
+      }
+    ],
+    "brewStepBoilWater": {
+      "amount": 0,
+      "brewType": "BoilWater",
+      "waterTemperature": 94,
+      "description": "",
+      "duration": 0,
+      "waterAmount": 240,
+      "instruction": ""
+    },
+    "guideDescription": "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee",
+    "brewStepGrindCoffee": {
+      "amount": 0,
+      "grindSize": "Fine",
+      "brewType": "GrindCoffee",
+      "duration": 0,
+      "description": "",
+      "coffeeAmount": 15,
+      "instruction": ""
+    },
+    "guideName": "AeroPress"
+  }
+]
