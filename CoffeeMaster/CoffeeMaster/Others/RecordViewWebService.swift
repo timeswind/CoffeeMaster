@@ -16,6 +16,7 @@ import CodableFirebase
 extension WebDatabaseQueryService {
     // record
     func getMyRecords(query: String) -> AnyPublisher<[Record], Error> {
+        
         let recordsRef = db.collection("records")
         
         let subject = PassthroughSubject<[Record], Error>()

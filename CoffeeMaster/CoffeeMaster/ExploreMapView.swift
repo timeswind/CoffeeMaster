@@ -23,8 +23,10 @@ struct ExploreMapView: View {
     @State var sheetData: Any? = nil
     
     func fetchLocationObjects() {
-        store.send(ConnectViewAsyncAction.getAllPosts(query: ""))
-        store.send(RecordViewAsyncAction.getMyRecords(query: ""))
+        if (store.state.settings.signedIn) {
+            store.send(ConnectViewAsyncAction.getAllPosts(query: ""))
+            store.send(RecordViewAsyncAction.getMyRecords(query: ""))
+        }
     }
 
     private func mapRegionDidChange() {
@@ -98,7 +100,7 @@ struct ExploreMapView: View {
     }
 }
 
-struct AExploreMapView_Previews: PreviewProvider {
+struct ExploreMapView_Previews: PreviewProvider {
     
     static var previews: some View {
            ExploreMapView().modifier(EnvironmemtServices())
