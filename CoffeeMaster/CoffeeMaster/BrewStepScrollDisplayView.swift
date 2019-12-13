@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct BrewStepScrollDisplayView: View {
     var brewGuide: BrewGuide
@@ -64,8 +65,16 @@ struct BrewStepScrollDisplayView: View {
                     self.prevInstruction()
                 }
             }) {
-                Text("prev")
-            }
+                FAText(iconName: "Backward", size: 24, style: .solid)
+                    .frame(width: 70, height: 70)
+                    .foregroundColor(Color.white)
+                }                        .background(Color(UIColor.Theme.Accent))
+                .cornerRadius(38.5)
+                .padding()
+                .shadow(color: Color.black.opacity(0.3),
+                        radius: 3,
+                        x: 3,
+                        y: 3)
             Spacer()
 
             ForEach(0..<brewSteps.count, id:\.self) { index in
@@ -74,7 +83,7 @@ struct BrewStepScrollDisplayView: View {
                         Text(brewSteps[self.i_index].instruction)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.black)
-                            .transition(.scale)
+                            .transition(.asymmetric(insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.3)), removal: .scale))
                     } else {
                         EmptyView()
                     }
@@ -88,8 +97,16 @@ struct BrewStepScrollDisplayView: View {
                     self.nextInstruction()
                 }
             }) {
-                Text("next")
-            }
+                FAText(iconName: "Forward", size: 24, style: .solid)
+                .frame(width: 70, height: 70)
+                .foregroundColor(Color.white)
+            }                        .background(Color(UIColor.Theme.Accent))
+            .cornerRadius(38.5)
+            .padding()
+            .shadow(color: Color.black.opacity(0.3),
+                    radius: 3,
+                    x: 3,
+                    y: 3)
             
         }.multilineTextAlignment(.center)
         
@@ -107,6 +124,6 @@ struct BrewStepScrollDisplayView_Previews: PreviewProvider {
     static var previews: some View {
         _ = StaticDataService()
         let sample_brew_guide = StaticDataService.defaultBrewGuides.first!
-        return BrewStepScrollDisplayView(brewGuide: sample_brew_guide, currentInstructionIndex: $currentInstructionIndex).previewLayout(.sizeThatFits)
+        return BrewStepScrollDisplayView(brewGuide: sample_brew_guide, currentInstructionIndex: $currentInstructionIndex).modifier(EnvironmemtServices()).previewLayout(.sizeThatFits)
     }
 }

@@ -109,7 +109,6 @@ struct BrewGuideDetailView: View {
                     }, label: {
                         
                         FAText(iconName: mainControlIcon, size: 24, style: .solid)
-//                            .font(.system(.largeTitle))
                             .frame(width: 70, height: 70)
                             .foregroundColor(Color.white)
                     })
