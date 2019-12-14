@@ -7,12 +7,14 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct AddBrewStepView: View {
     @EnvironmentObject var keyboard: KeyboardResponder
     @EnvironmentObject var store: Store<AppState, AppAction>
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var brewSteps: [BrewStep]
+    
     @State var brewStepType: BrewStepType = .Bloom
     @State var amount: Double = 0
     @State var duration:Int = 0
@@ -76,63 +78,96 @@ struct AddBrewStepView: View {
         }
         )
         
-        return VStack {
-            Text(LocalizedStringKey("ChooseTheStepType"))
-            
-            Picker(selection: $brewStepType, label: Text("AddBrewStepTypePickerLabel")) {
-                ForEach(repeatBrewStepTypes, id: \.self) { brewStepType in
-                    VStack {
-                        Text(LocalizedStringKey(brewStepType.rawValue))
-                    }
+        return
+            VStack(alignment: .leading) {
+                Text("").padding(.top, 60)
+
+                HStack(alignment: .bottom, spacing: 0) {
+                    FAText(iconName: "tools", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                    Text(LocalizedStringKey("ChooseTheStepType")).font(.headline).fontWeight(.bold).padding(.top, 16)
                 }
                 
-            }.pickerStyle(SegmentedPickerStyle())
-            
-            Text(LocalizedStringKey("EnterStepDetails"))
-            
-            if (self.brewStepType == .Other) {
-                MultilineTextField(LocalizedStringKey("AddStepInstruction"), text: $instruction)
-            }
-            
-            if (self.brewStepType == .Bloom || self.brewStepType == .Other ) {
-                
-                HStack {
-                    Text(LocalizedStringKey("StepAmountTitle"))
-                    
-                    TextField(LocalizedStringKey("StepAmountTitle"), text: amountProxy)
-                        .padding()
-                        .background(Color.white)
-                        .foregroundColor(Color.black)
-                        .keyboardType(.decimalPad)
-                    
-                    Picker(selection: weightUnitValueBind, label: Text("StepAmountPickerLabel")) {
-                        ForEach(allWeightUnitTypes, id: \.self) { grindType in
+                VStack {
+                    Picker(selection: $brewStepType, label: Text("AddBrewStepTypePickerLabel")) {
+                        ForEach(repeatBrewStepTypes, id: \.self) { brewStepType in
                             VStack {
-                                Text(LocalizedStringKey(grindType.rawValue))
+                                Text(LocalizedStringKey(brewStepType.rawValue))
                             }
                         }
                         
-                    }.pickerStyle(SegmentedPickerStyle())
+                    }.pickerStyle(SegmentedPickerStyle()).padding()
                 }
-            }
-            
-            
-            HStack {
-                Text(LocalizedStringKey("StepDurationTitle"))
+                .background(Color.white).cornerRadius(10)
                 
-                TextField(LocalizedStringKey("StepDurationTitle"), text: durationProxy)
-                    .padding()
-                    .background(Color.white)
-                    .foregroundColor(Color.black)
-                    .keyboardType(.numberPad)
                 
-            }
-            
-            MultilineTextField(LocalizedStringKey("AddStepDescription"), text: $description)
-            
-            Spacer()
-        }.padding(.horizontal).navigationBarItems(trailing: Button(action: { self.submit() }) {
-            Text(LocalizedStringKey("Done"))
-        }).padding(.bottom, self.keyboard.currentHeight).animation(.easeInOut(duration: 0.16)).edgesIgnoringSafeArea(.bottom)
+                
+                
+                
+                Text(LocalizedStringKey("EnterStepDetails")).font(.headline).fontWeight(.bold).padding(.top, 16)
+                
+                VStack(alignment: .leading) {
+                    
+                    
+                    if (self.brewStepType == .Other) {
+                        MultilineTextField(LocalizedStringKey("AddStepInstruction"), text: $instruction)
+                    }
+                    
+                    if (self.brewStepType == .Bloom || self.brewStepType == .Other ) {
+                        
+                        HStack {
+                            FAText(iconName: "weight", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("StepAmountTitle")).font(.headline).fontWeight(.bold)
+                            
+                            TextField(LocalizedStringKey("StepAmountTitle"), text: amountProxy)
+                                .padding()
+                                .background(Color.white)
+                                .foregroundColor(Color.black)
+                                .keyboardType(.decimalPad)
+                            
+                            Picker(selection: weightUnitValueBind, label: Text("StepAmountPickerLabel")) {
+                                ForEach(allWeightUnitTypes, id: \.self) { grindType in
+                                    VStack {
+                                        Text(LocalizedStringKey(grindType.rawValue))
+                                    }
+                                }
+                                
+                            }.pickerStyle(SegmentedPickerStyle())
+                        }
+                    }
+                    
+                    
+                    HStack {
+                        
+                        FAText(iconName: "clock", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                        Text(LocalizedStringKey("StepDurationTitle")).font(.headline).fontWeight(.bold)
+                        
+                        
+                        TextField(LocalizedStringKey("StepDurationTitle"), text: durationProxy)
+                            .padding()
+                            .foregroundColor(Color.black)
+                            .keyboardType(.numberPad)
+                        
+                        
+                    }.background(Color.white)
+                    
+                    MultilineTextField(LocalizedStringKey("AddStepDescription"), text: $description)
+                    
+                }.padding(.horizontal)
+                    .background(Color.white).cornerRadius(10)
+                Spacer()
+                
+            }.padding(.horizontal).navigationBarItems(trailing: Button(action: { self.submit() }) {
+                Text(LocalizedStringKey("Done"))
+            }).background(Color.Theme.TableViewGrey)
+                .padding(.bottom, self.keyboard.currentHeight).animation(.easeInOut(duration: 0.16)).background(Color.Theme.TableViewGrey).edgesIgnoringSafeArea(.all)
     }
 }
+
+struct AddBrewStepView_Previews: PreviewProvider {
+    @State static var brewSteps: [BrewStep] = []
+    
+    static var previews: some View {
+        AddBrewStepView(brewSteps: $brewSteps).modifier(EnvironmemtServices())
+    }
+}
+

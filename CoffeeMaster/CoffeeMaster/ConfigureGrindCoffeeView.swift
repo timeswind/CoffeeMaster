@@ -65,15 +65,24 @@ struct ConfigureGrindCoffeeView: View {
         return
             
             VStack(alignment: .leading) {
+                Text("").padding(.top, 60)
                 Section(header: HStack(alignment: .bottom, spacing: 0) {
                     FAText(iconName: "balance-scale-left", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
                     Text(LocalizedStringKey("ConfigureCoffeeAmountTitle")).font(.headline).fontWeight(.bold).padding(.top, 16)
                 }) {
                     
-                    Text(LocalizedStringKey("ConfigureCoffeeAmountDescription"))
+                    
+                    
+                    VStack {
+                        Text(LocalizedStringKey("ConfigureCoffeeAmountDescription"))
                         .padding(.vertical)
+                    }.padding(.horizontal)
+                        .background(Color.white).cornerRadius(10).padding(.top)
+                    
                 }
                 
+                VStack(alignment: .leading) {
+                    
                 
                 
                 HStack {
@@ -96,23 +105,30 @@ struct ConfigureGrindCoffeeView: View {
                     }.pickerStyle(SegmentedPickerStyle())
                 }
                 
+                    }.padding(.horizontal)
+                    .background(Color.white).cornerRadius(10)
                 
                 HStack(alignment: .bottom, spacing: 0) {
                     FAText(iconName: "sliders-h", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
                     Text(LocalizedStringKey("ConfigureCoffeeGrindSizeTypeHeader")).font(.headline).fontWeight(.bold).padding(.top, 16)
                 }
-                Picker(selection: $coffeeGrindSizeType, label: Text("ConfigureCoffeeGrindSizeTypePickerLabel")) {
-                    ForEach(allGrindTypes, id: \.self) { grindType in
-                        VStack {
-                            Text(LocalizedStringKey(grindType.localizableString))
+                
+                VStack {
+                    Picker(selection: $coffeeGrindSizeType, label: Text("ConfigureCoffeeGrindSizeTypePickerLabel")) {
+                        ForEach(allGrindTypes, id: \.self) { grindType in
+                            VStack {
+                                Text(LocalizedStringKey(grindType.localizableString))
+                            }
                         }
-                    }
-                    
-                }.pickerStyle(SegmentedPickerStyle())
+                        
+                    }.pickerStyle(SegmentedPickerStyle())
+                }.padding()
+                .background(Color.white).cornerRadius(10)
+                
                 Spacer()
             }.padding(.horizontal).navigationBarItems(trailing: Button(action: { self.submit() }) {
                 Text(LocalizedStringKey("Done"))
-            })
+            }).background(Color.Theme.TableViewGrey).edgesIgnoringSafeArea(.all)
         
         
     }
@@ -122,7 +138,10 @@ struct ConfigureGrindCoffeeView_Previews: PreviewProvider {
     @State static var brewStepGrindCoffee: BrewStepGrindCoffee?
     
     static var previews: some View {
-        ConfigureGrindCoffeeView(brewStepGrindCoffee: $brewStepGrindCoffee).modifier(EnvironmemtServices())
+        NavigationView {
+                    ConfigureGrindCoffeeView(brewStepGrindCoffee: $brewStepGrindCoffee).modifier(EnvironmemtServices())
+        }
+
     }
 }
 

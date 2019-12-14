@@ -79,13 +79,20 @@ struct ConfigureBoilWaterView: View {
         
         return
             VStack(alignment: .leading) {
+                Text("").padding(.top, 60)
+
                 Section(header: HStack(alignment: .bottom, spacing: 0) {
                     FAText(iconName: "tint", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
                     Text(LocalizedStringKey("ConfigureBoilWaterTitle")).font(.headline).fontWeight(.bold).padding(.top, 16)
                 }) {
                     
-                    Text(LocalizedStringKey("ConfigureBoilWaterDescription"))
+                    VStack {
+                        Text(LocalizedStringKey("ConfigureBoilWaterDescription"))
                         .padding(.vertical)
+                    }.padding(.horizontal)
+                        .background(Color.white).cornerRadius(10).padding(.top)
+                    
+                   
                 }
             
                 
@@ -95,7 +102,7 @@ struct ConfigureBoilWaterView: View {
                     Text(LocalizedStringKey("ConfigureWaterAmountHeader")).font(.headline).fontWeight(.bold).padding(.top, 16)
                 }
                 
-                
+                VStack {
                 HStack {
                         FAText(iconName: "weight", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
                     Text(LocalizedStringKey("ConfigureWaterAmountInputTitle")).font(.headline).fontWeight(.bold)
@@ -119,7 +126,7 @@ struct ConfigureBoilWaterView: View {
                 
                 HStack {
                         FAText(iconName: "temperature-high", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
-                    Text(LocalizedStringKey("ConfigureWaterTemperatureInputTitle")).font(.headline).fontWeight(.bold)
+                    Text(LocalizedStringKey("ConfigureWaterTemperatureInputTitle")).font(.headline).fontWeight(.bold).multilineTextAlignment(.leading)
                     
                     TextField(LocalizedStringKey("ConfigureWaterTemperatureInputTitle"), text: waterTemperatureProxy)
                         .padding()
@@ -136,10 +143,12 @@ struct ConfigureBoilWaterView: View {
                         
                     }.pickerStyle(SegmentedPickerStyle())
                 }
+                    }.padding()
+                    .background(Color.white).cornerRadius(10)
                 Spacer()
             }.padding(.horizontal).navigationBarItems(trailing: Button(action: { self.submit() }) {
                 Text(LocalizedStringKey("Done"))
-            })
+            }).background(Color.Theme.TableViewGrey).edgesIgnoringSafeArea(.all)
         
         
     }
