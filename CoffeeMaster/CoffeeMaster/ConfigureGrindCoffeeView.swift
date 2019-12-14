@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct ConfigureGrindCoffeeView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
@@ -17,7 +18,7 @@ struct ConfigureGrindCoffeeView: View {
     @State var coffeeGrindSizeType: GrindSizeType = .Coarse
     @State var coffeeAmount: Double = 0
     
-//    var onDismiss: () -> Void
+    //    var onDismiss: () -> Void
     
     var decimalFormatter: NumberFormatter = {
         let f = NumberFormatter()
@@ -36,7 +37,7 @@ struct ConfigureGrindCoffeeView: View {
         print(self.coffeeGrindSizeType.rawValue)
         print(self.coffeeAmount)
         
-//        self.onDismiss()
+        //        self.onDismiss()
         self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -63,16 +64,21 @@ struct ConfigureGrindCoffeeView: View {
         
         return
             
-            VStack {
-                Section {
-                    Text(LocalizedStringKey("ConfigureCoffeeAmountTitle"))
+            VStack(alignment: .leading) {
+                Section(header: HStack(alignment: .bottom, spacing: 0) {
+                    FAText(iconName: "balance-scale-left", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                    Text(LocalizedStringKey("ConfigureCoffeeAmountTitle")).font(.headline).fontWeight(.bold).padding(.top, 16)
+                }) {
+                    
                     Text(LocalizedStringKey("ConfigureCoffeeAmountDescription"))
+                        .padding(.vertical)
                 }
                 
-                Text(LocalizedStringKey("ConfigureCoffeeAmountHeader"))
+                
                 
                 HStack {
-                    Text(LocalizedStringKey("ConfigureCoffeeAmountInputTitle"))
+                    FAText(iconName: "weight", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                Text(LocalizedStringKey("ConfigureCoffeeAmountInputTitle")).font(.headline).fontWeight(.bold)
                     
                     TextField(LocalizedStringKey("ConfigureCoffeeAmountInputTitle"), text: someNumberProxy)
                         .padding()
@@ -90,8 +96,11 @@ struct ConfigureGrindCoffeeView: View {
                     }.pickerStyle(SegmentedPickerStyle())
                 }
                 
-                Text(LocalizedStringKey("ConfigureCoffeeGrindSizeTypeHeader"))
                 
+                HStack(alignment: .bottom, spacing: 0) {
+                    FAText(iconName: "sliders-h", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                    Text(LocalizedStringKey("ConfigureCoffeeGrindSizeTypeHeader")).font(.headline).fontWeight(.bold).padding(.top, 16)
+                }
                 Picker(selection: $coffeeGrindSizeType, label: Text("ConfigureCoffeeGrindSizeTypePickerLabel")) {
                     ForEach(allGrindTypes, id: \.self) { grindType in
                         VStack {
@@ -108,3 +117,12 @@ struct ConfigureGrindCoffeeView: View {
         
     }
 }
+
+struct ConfigureGrindCoffeeView_Previews: PreviewProvider {
+    @State static var brewStepGrindCoffee: BrewStepGrindCoffee?
+    
+    static var previews: some View {
+        ConfigureGrindCoffeeView(brewStepGrindCoffee: $brewStepGrindCoffee).modifier(EnvironmemtServices())
+    }
+}
+

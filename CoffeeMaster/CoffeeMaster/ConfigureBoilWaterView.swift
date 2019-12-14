@@ -7,12 +7,13 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct ConfigureBoilWaterView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    @Binding var brewStepboilWater: BrewStepBoilWater?
+    @Binding var brewStepBoilWater: BrewStepBoilWater?
     
     @State var waterAmount: Double = 0
     @State var waterTemperature: Double = 0
@@ -29,7 +30,7 @@ struct ConfigureBoilWaterView: View {
     }
     
     func submit() {
-        self.brewStepboilWater = BrewStepBoilWater().water(self.waterAmount).temperatue(forWater: self.waterTemperature)
+        self.brewStepBoilWater = BrewStepBoilWater().water(self.waterAmount).temperatue(forWater: self.waterTemperature)
         print(self.waterAmount)
         print(self.waterTemperature)
         self.presentationMode.wrappedValue.dismiss()
@@ -76,16 +77,29 @@ struct ConfigureBoilWaterView: View {
         }
         )
         
-        return VStack {
-                Section {
-                    Text(LocalizedStringKey("ConfigureBoilWaterTitle"))
+        return
+            VStack(alignment: .leading) {
+                Section(header: HStack(alignment: .bottom, spacing: 0) {
+                    FAText(iconName: "tint", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                    Text(LocalizedStringKey("ConfigureBoilWaterTitle")).font(.headline).fontWeight(.bold).padding(.top, 16)
+                }) {
+                    
                     Text(LocalizedStringKey("ConfigureBoilWaterDescription"))
+                        .padding(.vertical)
+                }
+            
+                
+                
+                HStack(alignment: .bottom, spacing: 0) {
+                    FAText(iconName: "sliders-h", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                    Text(LocalizedStringKey("ConfigureWaterAmountHeader")).font(.headline).fontWeight(.bold).padding(.top, 16)
                 }
                 
                 
-                Text(LocalizedStringKey("ConfigureWaterAmountHeader"))
                 HStack {
-                    Text(LocalizedStringKey("ConfigureWaterAmountInputTitle"))
+                        FAText(iconName: "weight", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                    Text(LocalizedStringKey("ConfigureWaterAmountInputTitle")).font(.headline).fontWeight(.bold)
+                                    
                     
                     TextField(LocalizedStringKey("ConfigureWaterAmountInputTitle"), text: waterAmountProxy)
                         .padding()
@@ -104,7 +118,8 @@ struct ConfigureBoilWaterView: View {
                 }
                 
                 HStack {
-                    Text(LocalizedStringKey("ConfigureWaterTemperatureInputTitle"))
+                        FAText(iconName: "temperature-high", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                    Text(LocalizedStringKey("ConfigureWaterTemperatureInputTitle")).font(.headline).fontWeight(.bold)
                     
                     TextField(LocalizedStringKey("ConfigureWaterTemperatureInputTitle"), text: waterTemperatureProxy)
                         .padding()
@@ -129,3 +144,12 @@ struct ConfigureBoilWaterView: View {
         
     }
 }
+
+struct ConfigureBoilWaterView_Previews: PreviewProvider {
+    @State static var brewStepBoilWater: BrewStepBoilWater?
+    
+    static var previews: some View {
+        ConfigureBoilWaterView(brewStepBoilWater: $brewStepBoilWater).modifier(EnvironmemtServices())
+    }
+}
+

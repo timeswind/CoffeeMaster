@@ -85,6 +85,7 @@
 		5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */; };
 		5C9D973F23A19E80001300A9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D973E23A19E80001300A9 /* Location.swift */; };
 		5C9D974123A1BB20001300A9 /* LocationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D974023A1BB20001300A9 /* LocationCardView.swift */; };
+		5C9FCFFC23A55D71009EDFD5 /* BrewMethodPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FCFFB23A55D71009EDFD5 /* BrewMethodPickerView.swift */; };
 		5CA626D423A2AF5800264EC3 /* LocationPickerListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */; };
 		5CA626D623A2B17900264EC3 /* ClearButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA626D523A2B17900264EC3 /* ClearButtonModifier.swift */; };
 		5CC5DB4D239EE58800CFDDA4 /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5DB4C239EE58800CFDDA4 /* LocationPickerView.swift */; };
@@ -284,6 +285,7 @@
 		5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentWindowObject.swift; sourceTree = "<group>"; };
 		5C9D973E23A19E80001300A9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5C9D974023A1BB20001300A9 /* LocationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCardView.swift; sourceTree = "<group>"; };
+		5C9FCFFB23A55D71009EDFD5 /* BrewMethodPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewMethodPickerView.swift; sourceTree = "<group>"; };
 		5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerListRowView.swift; sourceTree = "<group>"; };
 		5CA626D523A2B17900264EC3 /* ClearButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonModifier.swift; sourceTree = "<group>"; };
 		5CC5DB4C239EE58800CFDDA4 /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */,
 				5CE62D212399DA5B00BAE012 /* BrewStepScrollDisplayView.swift */,
 				5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */,
+				5C9FCFFB23A55D71009EDFD5 /* BrewMethodPickerView.swift */,
 				5C02EB2C238661FD002A7A1E /* ConfigureGrindCoffeeView.swift */,
 				5C02EB2E23866209002A7A1E /* ConfigureBoilWaterView.swift */,
 				5C02EB342387A97B002A7A1E /* AddBrewStepView.swift */,
@@ -1065,6 +1068,7 @@
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
 				5C5F41182381E718005DBACE /* PostFormView.swift in Sources */,
 				5C2FEFB1239DB04A000C4854 /* WidgetView.swift in Sources */,
+				5C9FCFFC23A55D71009EDFD5 /* BrewMethodPickerView.swift in Sources */,
 				5CDA7727238B8B24002E0ED5 /* RecordCardView.swift in Sources */,
 				5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */,
 				5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */,

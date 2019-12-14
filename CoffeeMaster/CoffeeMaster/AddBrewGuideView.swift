@@ -70,13 +70,12 @@ struct AddBrewGuideView: View {
                     FAText(iconName: "toolbox", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
                     Text(LocalizedStringKey("ChooseBrewMethod")).font(.headline).fontWeight(.bold).padding(.top, 16)
                 }) {
-                    Picker(selection: $baseBrewMethod, label: Text(LocalizedStringKey("ChooseBrewMethod"))) {
-                        ForEach(defaultBrewMethods, id: \.self) { method in
-                            Text(LocalizedStringKey(method.name))
-                        }
-                    }.pickerStyle(SegmentedPickerStyle())
+                    
+                    BrewMethodPickerView(methods: defaultBrewMethods, selectedBrewMethod: $baseBrewMethod)
+
                     Text(LocalizedStringKey(baseBrewMethod.descriptionKey ?? ""))
                 }
+                
                 Section(header: HStack(alignment: .bottom, spacing: 0) {
                     FAText(iconName: "list", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
                 Text(LocalizedStringKey("NewBrewGuideStepEdit")).font(.headline).fontWeight(.bold)
@@ -90,7 +89,7 @@ struct AddBrewGuideView: View {
                         Text("Grind Type: \(self.brewStepGrindCoffee!.grindSize.rawValue)")
                     }
                     if (self.brewStepBoilWater == nil) {
-                        NavigationLink(destination: ConfigureBoilWaterView(brewStepboilWater: $brewStepBoilWater)) {
+                        NavigationLink(destination: ConfigureBoilWaterView(brewStepBoilWater: $brewStepBoilWater)) {
                             Text("Configure Water")
                         }
                     } else {
@@ -158,7 +157,6 @@ struct AddBrewGuideView: View {
 }
 
 struct AddBrewGuideView_Previews: PreviewProvider {
-    
     static var previews: some View {
            AddBrewGuideView().modifier(EnvironmemtServices())
     }
