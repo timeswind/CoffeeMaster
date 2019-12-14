@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct AddBrewGuideView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
@@ -65,7 +66,10 @@ struct AddBrewGuideView: View {
         
         return NavigationView {
             Form {
-                Section(header: Text(LocalizedStringKey("ChooseBrewMethod"))) {
+                Section(header: HStack(alignment: .bottom, spacing: 0) {
+                    FAText(iconName: "toolbox", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                    Text(LocalizedStringKey("ChooseBrewMethod")).font(.headline).fontWeight(.bold).padding(.top, 16)
+                }) {
                     Picker(selection: $baseBrewMethod, label: Text(LocalizedStringKey("ChooseBrewMethod"))) {
                         ForEach(defaultBrewMethods, id: \.self) { method in
                             Text(LocalizedStringKey(method.name))
@@ -73,7 +77,10 @@ struct AddBrewGuideView: View {
                     }.pickerStyle(SegmentedPickerStyle())
                     Text(LocalizedStringKey(baseBrewMethod.descriptionKey ?? ""))
                 }
-                Section(header: Text(LocalizedStringKey("NewBrewGuideStepEdit"))) {
+                Section(header: HStack(alignment: .bottom, spacing: 0) {
+                    FAText(iconName: "list", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                Text(LocalizedStringKey("NewBrewGuideStepEdit")).font(.headline).fontWeight(.bold)
+                }) {
                     if (self.brewStepGrindCoffee == nil) {
                         NavigationLink(destination: ConfigureGrindCoffeeView(brewStepGrindCoffee: $brewStepGrindCoffee)) {
                             Text("Configure Coffee")
@@ -102,11 +109,18 @@ struct AddBrewGuideView: View {
                         }
                     }
                 }
-                Section(header: Text(LocalizedStringKey("NewBrewGuideInfo"))) {
+                Section(header: HStack(alignment: .bottom, spacing: 0) {
+                    FAText(iconName: "info", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                    Text(LocalizedStringKey("NewBrewGuideInfo")).font(.headline).fontWeight(.bold)
+                }) {
                     TextField(LocalizedStringKey("NewBrewGuideName"), text: $guideName)
                     MultilineTextField(LocalizedStringKey("NewBrewGuideDescription"), text: $guideDescription)
                     Toggle(isOn: $guideIsPublic) {
-                        Text(LocalizedStringKey("NewBrewGuideIsPublicToggle"))
+                        
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: self.guideIsPublic ? "eye" : "eye-slash", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                        Text(LocalizedStringKey("NewBrewGuideIsPublicToggle")).fontWeight(.bold)
+                        }
                     }
                 }
                 
@@ -119,18 +133,33 @@ struct AddBrewGuideView: View {
                 Button(action: {
                     self.exit()
                 }) {
-                    Text(LocalizedStringKey("Dismiss"))
+                    
+                    HStack(alignment: .bottom, spacing: 0) {
+                        FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                        Text(LocalizedStringKey("Dismiss")).fontWeight(.bold)
+                    }
                 },
                                 trailing:
                 Button(action: {
                     self.finishedEditing()
                 }) {
-                    Text(LocalizedStringKey("Done"))
+                    HStack(alignment: .bottom, spacing: 0) {
+                        FAText(iconName: "check", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                        Text(LocalizedStringKey("Done")).fontWeight(.bold)
+                    }
+                    
             })
                 .alert(isPresented: self.$showsAlert, content: {
                     Alert(title: Text("Form not complete"))
                 })
             
         }.accentColor(Color(UIColor.Theme.Accent))
+    }
+}
+
+struct AddBrewGuideView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+           AddBrewGuideView().modifier(EnvironmemtServices())
     }
 }
