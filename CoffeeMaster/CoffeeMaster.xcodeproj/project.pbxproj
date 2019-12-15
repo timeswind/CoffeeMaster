@@ -46,6 +46,8 @@
 		5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466423830D02001CC647 /* SettingsReducer.swift */; };
 		5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F4666238316CF001CC647 /* PostCardView.swift */; };
 		5C3F466923831AF8001CC647 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466823831AF8001CC647 /* PostDetailView.swift */; };
+		5C4776A823A6DD3C00D114A1 /* UIColor+ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */; };
+		5C4776AA23A6DD9E00D114A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C80C96C23745F2900996D91 /* Assets.xcassets */; };
 		5C484D6A239D4B5B002D31D3 /* CaffeineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */; };
 		5C484D6C239D5255002D31D3 /* FluidVolumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D6B239D5255002D31D3 /* FluidVolumn.swift */; };
 		5C484D70239D6B5C002D31D3 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C484D6F239D6B5C002D31D3 /* QGrid */; };
@@ -951,6 +953,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C4776AA23A6DD9E00D114A1 /* Assets.xcassets in Resources */,
 				5CFE99202396CD0E00F78FE2 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1121,6 +1124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C4776A823A6DD3C00D114A1 /* UIColor+ThemeColor.swift in Sources */,
 				5CFE992A23970FBD00F78FE2 /* WidgetView.swift in Sources */,
 				5CFE991D2396CD0E00F78FE2 /* TodayViewController.swift in Sources */,
 			);
