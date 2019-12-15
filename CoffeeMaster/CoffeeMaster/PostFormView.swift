@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct PostFormView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
@@ -95,18 +96,23 @@ struct PostFormView: View {
                 .navigationBarTitle(Text(LocalizedStringKey("NewPost")))
                 .navigationBarItems(leading:
                     Button(action: {self.exit()}) {
-                        Text(LocalizedStringKey("Dismiss"))
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("Dismiss")).fontWeight(.bold)
+                        }
                     }
                     ,trailing: Button(action: {self.post()}) {
-                        Text(LocalizedStringKey("NewPostPostAction"))
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: "feather-alt", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("NewPostPostAction")).fontWeight(.bold)
+                        }
                     }
             )
                 .sheet(isPresented: $showingImagePicker,
                        onDismiss: {
-                        // do whatever you need here
-                        // if ImagePicker.shared.image != nil {
-                        //    shownNextScreen = true
-                        // }
+                        if self.showingImagePicker == true {
+                            self.showingImagePicker = false
+                        }
                 }, content: {
                     ImagePicker.shared.view
                 }).onReceive(ImagePicker.shared.$image) { image in

@@ -33,7 +33,7 @@ struct BrewView: View {
                     FAText(iconName: "plus", size: 22, style: .solid)
             }).onAppear(perform: fetchMyBrewGuides)
         }.sheet(isPresented: $isAddBrewGuideViewPresented) {
-            AddBrewGuideView().environmentObject(self.store).environmentObject(self.keyboard).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            AddBrewGuideView().modifier(EnvironmemtServices())
         }
     }
 }

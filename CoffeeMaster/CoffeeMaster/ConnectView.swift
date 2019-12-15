@@ -24,7 +24,11 @@ struct ConnectView: View {
     }
     
     var body: some View {
+        #if DEBUG
+        let isLoggedIn = true
+        #else
         let isLoggedIn = store.state.settings.signedIn
+        #endif
 //        let isNewPostFormPresenting = Binding<Bool>(get: { () -> Bool in
 //            return self.store.state.connectViewState.newPostFormPresented
 //        }) { (isPresented) in
@@ -49,7 +53,11 @@ struct ConnectView: View {
                 }
             }
 
-        }.sheet(isPresented: $isNewPostFormPresented) {
+        }.sheet(isPresented: $isNewPostFormPresented, onDismiss: {
+            if (self.isNewPostFormPresented == true) {
+                self.isNewPostFormPresented = false
+            }
+        }) {
             PostFormView().modifier(EnvironmemtServices())
         }
     }

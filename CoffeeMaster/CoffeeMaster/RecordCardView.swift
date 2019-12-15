@@ -26,11 +26,9 @@ struct RecordCardView: View {
                     ProgressView($0) { progress in
                         ZStack {
                             if progress > 0.0 {
-                                // The download has started. CircleProgressView displays the progress.
                                 CircleProgressView(progress).stroke(lineWidth: 8.0)
                             }
                             else {
-                                // The download has not yet started. CircleActivityView is animated activity indicator that suits this case.
                                 CircleActivityView().stroke(lineWidth: 50.0)
                             }
                         }
@@ -87,8 +85,8 @@ struct RecordCardView: View {
                             Text("\(caffeineRecord!.caffeineEntry.variation[0].displayVolume())")
                             Text(LocalizedStringKey(caffeineRecord!.caffeineEntry.displayVolumeUnit().rawValue))
                         }
-
-
+                        
+                        
                     }
                     .layoutPriority(100)
                     

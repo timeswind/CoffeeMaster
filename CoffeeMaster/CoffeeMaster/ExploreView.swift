@@ -24,7 +24,11 @@ struct ExploreView: View {
                             Button(action: {self.showSettingsView()}) {
                                FAText(iconName: "user-cog", size: 22, style: .solid)
                             })
-        }.sheet(isPresented: $isSettingPresented) {
+        }.sheet(isPresented: $isSettingPresented, onDismiss: {
+            if (self.isSettingPresented == true) {
+                self.isSettingPresented = false
+            }
+        }) {
             SettingsView(settingsState: self.store.state.settings).modifier(EnvironmemtServices())
         }
 

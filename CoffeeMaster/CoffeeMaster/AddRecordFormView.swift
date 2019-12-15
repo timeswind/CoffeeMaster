@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct AddRecordFormView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
@@ -127,10 +128,16 @@ struct AddRecordFormView: View {
             .navigationBarTitle(Text(LocalizedStringKey("NewRecord")))
             .navigationBarItems(leading:
                 Button(action: {self.exit()}) {
-                    Text(LocalizedStringKey("Dismiss"))
+                    HStack(alignment: .bottom, spacing: 0) {
+                        FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                        Text(LocalizedStringKey("Dismiss")).fontWeight(.bold)
+                    }
                 }
                 ,trailing: Button(action: {self.record()}) {
-                    Text(LocalizedStringKey("NewRecordRecordAction"))
+                    HStack(alignment: .bottom, spacing: 0) {
+                        FAText(iconName: "paper-plane", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                        Text(LocalizedStringKey("NewRecordRecordAction")).fontWeight(.bold)
+                    }
                 }
             )
         }.sheet(isPresented: $isLocationPickerPresented) {

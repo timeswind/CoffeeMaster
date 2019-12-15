@@ -9,6 +9,7 @@
 import SwiftUI
 import HealthKit
 import QGrid
+import FASwiftUI
 
 struct CaffeineTrackerView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
@@ -127,6 +128,14 @@ struct CaffeineTrackerView: View {
                     }
                 }
             }.navigationBarTitle(Text(LocalizedStringKey("CaffeineTracker")))
+            .navigationBarItems(trailing:
+                    Button(action: {self.exit()}) {
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("Dismiss")).fontWeight(.bold)
+                        }
+                    }
+            )
         }.onAppear {
             if (self.askPermission) {
                 self.checkPermission()
@@ -137,6 +146,6 @@ struct CaffeineTrackerView: View {
 
 struct CaffeineTrackerView_Previews: PreviewProvider {
     static var previews: some View {
-        CaffeineTrackerView(askPermission: false)
+        CaffeineTrackerView(askPermission: false).modifier(EnvironmemtServices())
     }
 }

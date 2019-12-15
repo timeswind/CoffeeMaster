@@ -7,21 +7,21 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    //    @State var isAddRecordFormPresented: Bool = false
-    //    @State var isCaffeineTrackerPresented: Bool = false
     @State var isActionSheetShow: Bool = false
+    
     var recordTypeActionSheet: ActionSheet {
         ActionSheet(
             title: Text(LocalizedStringKey("RecordTypeActionSheetTitle")),
             message: Text(LocalizedStringKey("RecordTypeActionSheetMessage")),
             buttons: [
-                .default(Text("RecordTypeActionSheetNewRecord"), action: {
+                .default(Text(LocalizedStringKey("RecordTypeActionSheetNewRecord")), action: {
                     self.showRecordForm()
                 }),
-                .default(Text("RecordTypeActionSheetTrackCaffeine"), action: {
+                .default(Text(LocalizedStringKey("RecordTypeActionSheetTrackCaffeine")), action: {
                     self.showCaffeineTracker()
                 }),
                 .cancel()
@@ -36,8 +36,16 @@ struct RecordView: View {
         store.send(.recordview(action: .setCaffeineTrackerIsPresent(status: true)))
     }
     
+    func hideCaffeineTracker() {
+        store.send(.recordview(action: .setCaffeineTrackerIsPresent(status: false)))
+    }
+    
     func showRecordForm() {
         store.send(.recordview(action: .setRecordFormIsPresent(status: true)))
+    }
+    
+    func hideRecordForm() {
+        store.send(.recordview(action: .setRecordFormIsPresent(status: false)))
     }
     
     func showRecordTypeActionSheet() {
@@ -54,15 +62,18 @@ struct RecordView: View {
         }
         
         let isAddRecordNoteFormPresented = self.store.state.recordViewState.isAddRecordNoteFormPresented
-        
+        let isCaffeineTrackerPresented = self.store.state.recordViewState.isCaffeineTrackerPresented
+
         return NavigationView {
             if (isLoggedIn) {
                 RecordListView().navigationBarTitle(Text(LocalizedStringKey("Record"))).navigationBarItems(
                     trailing: Button(action: {
-                        // change country setting
                         self.showRecordTypeActionSheet()
                     }) {
-                        Text(LocalizedStringKey("NewRecord"))
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: "plus", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("NewRecord")).fontWeight(.bold)
+                        }
                 }).onAppear(perform: fetch)
             } else {
                 VStack {
@@ -73,11 +84,19 @@ struct RecordView: View {
             }
         }
         .actionSheet(isPresented: $isActionSheetShow, content: {self.recordTypeActionSheet})
-        .sheet(isPresented: isSheetPresented) {
+        .sheet(isPresented: isSheetPresented, onDismiss: {
+            if (isAddRecordNoteFormPresented == true) {
+                self.hideRecordForm()
+            }
+            
+            if (isCaffeineTrackerPresented == true) {
+                self.hideCaffeineTracker()
+            }
+        }) {
             if (isAddRecordNoteFormPresented) {
-                AddRecordFormView().environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+                AddRecordFormView().modifier(EnvironmemtServices())
             } else {
-                CaffeineTrackerView(askPermission: true).environmentObject(self.store).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+                CaffeineTrackerView(askPermission: true).modifier(EnvironmemtServices())
             }
         }
     }
