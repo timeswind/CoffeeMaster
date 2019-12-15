@@ -46,9 +46,10 @@ struct SettingsReducer {
         switch action {
         case let .setName(name):
             state.name = name
-        case let .setLocalization(string):
-            Bundle.setLanguage(lang: string)
-            state.localization = string
+        case let .setLocalization(localization):
+            Bundle.setLanguage(lang: localization)
+            state.localization = localization
+            EnvironmentManager.updateLocalization(localization)
         case let .setWeightUnit(weightUnit):
             setWeightUnit(weightUnit: weightUnit)
             state.weightUnit = weightUnit

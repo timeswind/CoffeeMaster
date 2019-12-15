@@ -9,23 +9,6 @@
 import SwiftUI
 import FASwiftUI
 
-extension View {
-    func animate(animation: Animation = Animation.easeInOut(duration: 1), _ action: @escaping () -> Void) -> some View {
-        return onAppear {
-            withAnimation(animation) {
-                action()
-            }
-        }
-    }
-}
-
-
-public struct AccentCircleTextViewModifier: ViewModifier {
-    public func body(content: Content) -> some View {
-        content.frame(width: 100, height: 100, alignment: .center).background(Color(UIColor.Theme.Accent)).clipShape(Circle()).foregroundColor(.white)
-    }
-}
-
 struct BrewGuideDetailView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @ObservedObject var stopWatch = StopWatch()

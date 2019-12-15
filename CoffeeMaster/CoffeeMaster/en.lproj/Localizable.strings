@@ -13,6 +13,7 @@
 "Quiz"="Quiz";
 "Settings"="Settings";
 "Dismiss"="Dismiss";
+"Cancel"="Cancel";
 "Logout" = "Logout";
 "Account" = "Account";
 "General" = "General";
@@ -121,3 +122,6 @@
 "RecordTypeActionSheetNewRecord" = "Record Note";
 "RecordTypeActionSheetTrackCaffeine" = "Record Caffeine";
 "CaffeineTracker" = "Caffeine Tracker";
+
+/*LocationPicker*/
+"LocationPicker" = "Pick Location";

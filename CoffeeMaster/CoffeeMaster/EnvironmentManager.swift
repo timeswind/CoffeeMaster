@@ -18,11 +18,15 @@ class EnvironmentManager {
     let context: NSManagedObjectContext
     let store: Store<AppState, AppAction>
     let keyboard: KeyboardResponder
-    let localization: String
+    var localization: String
     var window: EnvironmentWindowObject = EnvironmentWindowObject.init(window: .init())
     
     static func addEnvironmentWindowObject(_ environmentWindowObject: EnvironmentWindowObject) {
         EnvironmentManager.shared.window = environmentWindowObject
+    }
+    
+    static func updateLocalization(_ newLocalization: String) {
+        EnvironmentManager.shared.localization = newLocalization
     }
     
     private init() {

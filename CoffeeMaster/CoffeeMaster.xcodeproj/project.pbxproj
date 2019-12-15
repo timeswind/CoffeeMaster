@@ -47,7 +47,6 @@
 		5C3F466523830D02001CC647 /* SettingsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466423830D02001CC647 /* SettingsReducer.swift */; };
 		5C3F4667238316CF001CC647 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F4666238316CF001CC647 /* PostCardView.swift */; };
 		5C3F466923831AF8001CC647 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466823831AF8001CC647 /* PostDetailView.swift */; };
-		5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466A23831E71001CC647 /* ViewModifier.swift */; };
 		5C484D6A239D4B5B002D31D3 /* CaffeineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */; };
 		5C484D6C239D5255002D31D3 /* FluidVolumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D6B239D5255002D31D3 /* FluidVolumn.swift */; };
 		5C484D70239D6B5C002D31D3 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C484D6F239D6B5C002D31D3 /* QGrid */; };
@@ -89,6 +88,10 @@
 		5C9FCFFC23A55D71009EDFD5 /* BrewMethodPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FCFFB23A55D71009EDFD5 /* BrewMethodPickerView.swift */; };
 		5CA626D423A2AF5800264EC3 /* LocationPickerListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */; };
 		5CA626D623A2B17900264EC3 /* ClearButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA626D523A2B17900264EC3 /* ClearButtonModifier.swift */; };
+		5CABF21E23A6813D00D32096 /* View+animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CABF21D23A6813D00D32096 /* View+animate.swift */; };
+		5CABF22023A6817800D32096 /* AccentCircleTextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CABF21F23A6817800D32096 /* AccentCircleTextViewModifier.swift */; };
+		5CABF22223A6819D00D32096 /* View+listSeparatorStyleNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CABF22123A6819D00D32096 /* View+listSeparatorStyleNone.swift */; };
+		5CABF22423A681C100D32096 /* ListSeparatorStyleNoneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CABF22323A681C100D32096 /* ListSeparatorStyleNoneModifier.swift */; };
 		5CC5DB4D239EE58800CFDDA4 /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5DB4C239EE58800CFDDA4 /* LocationPickerView.swift */; };
 		5CC5DB4F239EE5E100CFDDA4 /* ThemeMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5DB4E239EE5E100CFDDA4 /* ThemeMapView.swift */; };
 		5CD4B3DB238F14C100E5FB00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */; };
@@ -248,7 +251,6 @@
 		5C3F466423830D02001CC647 /* SettingsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducer.swift; sourceTree = "<group>"; };
 		5C3F4666238316CF001CC647 /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
 		5C3F466823831AF8001CC647 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
-		5C3F466A23831E71001CC647 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineEntry.swift; sourceTree = "<group>"; };
 		5C484D6B239D5255002D31D3 /* FluidVolumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidVolumn.swift; sourceTree = "<group>"; };
 		5C484D74239D6C73002D31D3 /* CaffeineEntries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CaffeineEntries.json; sourceTree = "<group>"; };
@@ -290,6 +292,10 @@
 		5C9FCFFB23A55D71009EDFD5 /* BrewMethodPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewMethodPickerView.swift; sourceTree = "<group>"; };
 		5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerListRowView.swift; sourceTree = "<group>"; };
 		5CA626D523A2B17900264EC3 /* ClearButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonModifier.swift; sourceTree = "<group>"; };
+		5CABF21D23A6813D00D32096 /* View+animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+animate.swift"; sourceTree = "<group>"; };
+		5CABF21F23A6817800D32096 /* AccentCircleTextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentCircleTextViewModifier.swift; sourceTree = "<group>"; };
+		5CABF22123A6819D00D32096 /* View+listSeparatorStyleNone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+listSeparatorStyleNone.swift"; sourceTree = "<group>"; };
+		5CABF22323A681C100D32096 /* ListSeparatorStyleNoneModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSeparatorStyleNoneModifier.swift; sourceTree = "<group>"; };
 		5CC5DB4C239EE58800CFDDA4 /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		5CC5DB4E239EE5E100CFDDA4 /* ThemeMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMapView.swift; sourceTree = "<group>"; };
 		5CD4B3DA238F14C100E5FB00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "CoffeeMaster/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -443,6 +449,8 @@
 				5CC5DB4E239EE5E100CFDDA4 /* ThemeMapView.swift */,
 				5CA626D323A2AF5800264EC3 /* LocationPickerListRowView.swift */,
 				5CA626D523A2B17900264EC3 /* ClearButtonModifier.swift */,
+				5CABF21D23A6813D00D32096 /* View+animate.swift */,
+				5CABF22123A6819D00D32096 /* View+listSeparatorStyleNone.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -566,7 +574,8 @@
 		5C8A7DE42396B94B0035CDC8 /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
-				5C3F466A23831E71001CC647 /* ViewModifier.swift */,
+				5CABF22323A681C100D32096 /* ListSeparatorStyleNoneModifier.swift */,
+				5CABF21F23A6817800D32096 /* AccentCircleTextViewModifier.swift */,
 			);
 			name = ViewModifier;
 			sourceTree = "<group>";
@@ -1034,6 +1043,7 @@
 				5C02EB2B238612F0002A7A1E /* AddBrewGuideView.swift in Sources */,
 				5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */,
 				5C80C96923745F2600996D91 /* CoffeeMaster.xcdatamodeld in Sources */,
+				5CABF22023A6817800D32096 /* AccentCircleTextViewModifier.swift in Sources */,
 				5C8F6E752381B0420010EE0E /* RecordView.swift in Sources */,
 				5C0C26992391D58A00F27180 /* NoteDetailView.swift in Sources */,
 				5C02EB372388E1FC002A7A1E /* ConnectViewWebDatabaseService.swift in Sources */,
@@ -1051,10 +1061,12 @@
 				5C6A926C2379291D006D8E0E /* ExploreMapView.swift in Sources */,
 				5CF20A8F23904E6F00632A05 /* ImagePicker.swift in Sources */,
 				5C8F6E732381AEDC0010EE0E /* ConnectView.swift in Sources */,
+				5CABF22223A6819D00D32096 /* View+listSeparatorStyleNone.swift in Sources */,
 				5C3F466023830A83001CC647 /* RecordViewReducer.swift in Sources */,
 				5CE63740238DB69D00C1DC49 /* CoffeeRoasterType.swift in Sources */,
 				5CA626D423A2AF5800264EC3 /* LocationPickerListRowView.swift in Sources */,
 				5CF20A982390545000632A05 /* GridStack.swift in Sources */,
+				5CABF22423A681C100D32096 /* ListSeparatorStyleNoneModifier.swift in Sources */,
 				5CE6373E238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift in Sources */,
 				5C14B29523A6793100C9C156 /* EnvironmentManager.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
@@ -1070,11 +1082,11 @@
 				5C587E6D23A33161008EFB11 /* RecordPointAnnotation.swift in Sources */,
 				5CC5DB4D239EE58800CFDDA4 /* LocationPickerView.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,
+				5CABF21E23A6813D00D32096 /* View+animate.swift in Sources */,
 				5C5F41182381E718005DBACE /* PostFormView.swift in Sources */,
 				5C2FEFB1239DB04A000C4854 /* WidgetView.swift in Sources */,
 				5C9FCFFC23A55D71009EDFD5 /* BrewMethodPickerView.swift in Sources */,
 				5CDA7727238B8B24002E0ED5 /* RecordCardView.swift in Sources */,
-				5C3F466B23831E71001CC647 /* ViewModifier.swift in Sources */,
 				5C2F6A22239D4A16004E8459 /* CaffeineTrackerView.swift in Sources */,
 				5C9C801D237FA4AF0060C10E /* EnvironmentWindowObject.swift in Sources */,
 				5CE6373C238DB67000C1DC49 /* CoffeeBeanSizeGrade.swift in Sources */,
