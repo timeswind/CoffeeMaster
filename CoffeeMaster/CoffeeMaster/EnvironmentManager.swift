@@ -45,13 +45,13 @@ class EnvironmentManager {
         let weightUnit = getWeightUnit()
         let temperatureUnit = getTemperatureUnit()
         
-        store.send(.settings(action: .setLocalization(localization: localization)))
-        store.send(.settings(action: .setWeightUnit(weightUnit: weightUnit)))
-        store.send(.settings(action: .setTemperatureUnit(temperatureUnit: temperatureUnit)))
+        store.sendSync(.settings(action: .setLocalization(localization: localization)))
+        store.sendSync(.settings(action: .setWeightUnit(weightUnit: weightUnit)))
+        store.sendSync(.settings(action: .setTemperatureUnit(temperatureUnit: temperatureUnit)))
         
         if Auth.auth().currentUser != nil {
-            store.send(.settings(action: .setUserInfo(currentUser: Auth.auth().currentUser!)))
-            store.send(.settings(action: .setUserSignInStatus(isSignedIn: true)))
+            store.sendSync(.settings(action: .setUserInfo(currentUser: Auth.auth().currentUser!)))
+            store.sendSync(.settings(action: .setUserSignInStatus(isSignedIn: true)))
         }
         
         if HKHealthStore.isHealthDataAvailable() {

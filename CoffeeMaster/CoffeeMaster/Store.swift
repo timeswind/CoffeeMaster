@@ -28,7 +28,11 @@ final class Store<State, Action>: ObservableObject {
         self.state = initialState
         self.appReducer = appReducer
     }
-
+    
+    func sendSync(_ action: Action) {
+        self.appReducer.reduce(&self.state, action)
+    }
+    
     func send(_ action: Action) {
         DispatchQueue.main.async {
             self.appReducer.reduce(&self.state, action)

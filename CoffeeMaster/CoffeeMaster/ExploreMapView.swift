@@ -15,7 +15,6 @@ struct ExploreMapView: View {
     }
     
     @EnvironmentObject var store: Store<AppState, AppAction>
-//    @State var annotations: [MGLPointAnnotation] = []
     @State var centerCoordinate: CLLocationCoordinate2D? = CLLocationCoordinate2D.init()
     @State private var showSheet = false
     
@@ -28,9 +27,13 @@ struct ExploreMapView: View {
             store.send(RecordViewAsyncAction.getMyRecords(query: ""))
         }
     }
-
+    
+    func viewDidAppear() {
+        self.fetchLocationObjects()
+    }
+    
     private func mapRegionDidChange() {
-        
+       // self.fetchLocationObjects()
     }
     
     func annotationOnClick(_ annotation: MGLPointAnnotation) {
@@ -74,11 +77,11 @@ struct ExploreMapView: View {
             return self.getAnnotations(posts: posts, records: records)
         }) { _ in }
         
-
-        
-        return ThemeMapView(annotations: annotations, centerCoordinate: $centerCoordinate, regionDidChange: {self.mapRegionDidChange()}, annotationOnClick: {(annotation) in self.annotationOnClick(annotation)}).onAppear {
-            self.fetchLocationObjects()
-        }.sheet(isPresented: $showSheet, onDismiss: {
+        return ThemeMapView(annotations: annotations, centerCoordinate: $centerCoordinate, regionDidChange: {self.mapRegionDidChange()}, annotationOnClick: {(annotation) in self.annotationOnClick(annotation)}).onAppear(perform: {
+            self.viewDidAppear()
+        })
+            
+            .sheet(isPresented: $showSheet, onDismiss: {
             if (self.showSheet) {
                 self.showSheet = false
             }
@@ -103,7 +106,7 @@ struct ExploreMapView: View {
 struct ExploreMapView_Previews: PreviewProvider {
     
     static var previews: some View {
-           ExploreMapView().modifier(EnvironmemtServices())
+        ExploreMapView().modifier(EnvironmemtServices())
     }
 }
 

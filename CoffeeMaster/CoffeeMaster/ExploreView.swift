@@ -17,21 +17,22 @@ struct ExploreView: View {
     func showSettingsView() {
         self.isSettingPresented = true;
     }
-
+    
     var body: some View {
         NavigationView {
             ExploreMapView().navigationBarTitle(Text(LocalizedStringKey("Explore"))).navigationBarItems(leading:
-                            Button(action: {self.showSettingsView()}) {
-                               FAText(iconName: "user-cog", size: 22, style: .solid)
-                            })
-        }.sheet(isPresented: $isSettingPresented, onDismiss: {
+                Button(action: {self.showSettingsView()}) {
+                    FAText(iconName: "user-cog", size: 22, style: .solid)
+            })
+        }
+        .sheet(isPresented: $isSettingPresented, onDismiss: {
             if (self.isSettingPresented == true) {
                 self.isSettingPresented = false
             }
         }) {
             SettingsView(settingsState: self.store.state.settings).modifier(EnvironmemtServices())
         }
-
+        
     }
 }
 
