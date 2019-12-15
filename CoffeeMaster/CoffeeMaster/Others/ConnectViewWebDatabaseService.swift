@@ -25,11 +25,9 @@ extension WebDatabaseQueryService {
                 var posts: [Post] = []
                 for document in querySnapshot!.documents {
                     var post = try! FirestoreDecoder().decode(Post.self, from: document.data())
-                    print("Post: \(post)")
                     post.id = document.documentID
                     posts.append(post)
                 }
-                print(posts)
                 subject.send(posts)
                 
             }
@@ -52,7 +50,6 @@ extension WebDatabaseQueryService {
                     comment.id = document.documentID
                     comments.append(comment)
                 }
-                print(comments)
                 subject.send(comments)
             }
         }

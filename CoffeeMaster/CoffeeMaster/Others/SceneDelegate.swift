@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     lazy var environmemtServices = EnvironmemtServices()
     
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {        
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
@@ -35,30 +35,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()
+            let URLContexts = connectionOptions.urlContexts
+            self.handleUrl(URLContexts)
         }
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        self.handleUrl(URLContexts)
+    }
+    
+    func handleUrl(_ URLContexts: Set<UIOpenURLContext>) {
         for urlContext in URLContexts {
             let url = urlContext.url
-            print(url)
             if let scheme = url.scheme {
                 if scheme == "coffeemaster"
                  {
                      switch url.host
                      {
                      case "brew":
-                        print("open brew view")
                         environmemtServices.store.send(.settings(action: .setMainTabViewSelectedTab(index: 1)))
                         break
 
-                     case "record":
+                     case "record.note":
                          //Open Record View
-                        print("open record view")
+                        environmemtServices.store.send(.recordview(action: .setRecordFormIsPresent(status: true)))
                         environmemtServices.store.send(.settings(action: .setMainTabViewSelectedTab(index: 3)))
                         break
                      case "record.caffeine":
-                        print("open record caffeine view")
                         environmemtServices.store.send(.recordview(action: .setCaffeineTrackerIsPresent(status: true)))
                         environmemtServices.store.send(.settings(action: .setMainTabViewSelectedTab(index: 3)))
                         break
@@ -67,7 +70,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                      }
                  }
             }
-
         }
     }
 
