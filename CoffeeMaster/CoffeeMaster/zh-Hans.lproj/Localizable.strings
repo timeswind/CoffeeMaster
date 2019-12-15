@@ -83,6 +83,7 @@
 "Kettle" = "Kettle";
 
 /* Create Brew Method */
+"BrewGuide" = "咖啡秘籍";
 "ConfigureCoffee" = "准备以及研磨咖啡豆";
 "ConfigureWater" = "准备适量的水以及加热";
 "WaterTemperature" = "水温";
@@ -93,6 +94,7 @@
 "NewBrewGuideName" = "秘籍名称";
 "NewBrewGuideDescription" = "基本介绍";
 "NewBrewGuideIsPublicToggle" = "对他人可见";
+"TotalBrewTime" = "制作时间";
 
 
 /* Configrue Grind Coffee View*/
@@ -128,6 +130,8 @@
 
 /*ConnectView*/
 "SignInToJoinOurCommunity" = "现在就用AppleID登入，加入我们的社群吧！";
+"Comments" = "评论";
+"WrittenBy" = "作者";
 
 /*RecordView*/
 "SignInToRecordSyncedAcrossDevices" = "现在就用AppleID登入，记录你的奇思妙想并与多款设备保持同步";

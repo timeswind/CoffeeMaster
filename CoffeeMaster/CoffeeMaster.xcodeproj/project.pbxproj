@@ -124,6 +124,7 @@
 		5CE63742238DB6B100C1DC49 /* CoffeeTastingTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63741238DB6B100C1DC49 /* CoffeeTastingTraits.swift */; };
 		5CE63744238DB6DE00C1DC49 /* CoffeeOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63743238DB6DE00C1DC49 /* CoffeeOrigin.swift */; };
 		5CE8457F23836B950086EFC8 /* BrewMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8457E23836B950086EFC8 /* BrewMethod.swift */; };
+		5CE9C16223A6D545001AEDD6 /* BrewGuideCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9C16123A6D545001AEDD6 /* BrewGuideCardView.swift */; };
 		5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEEC7B7237EFBEA00E3BDB0 /* Localizable.strings */; };
 		5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEC7BB237F052800E3BDB0 /* SettingsView.swift */; };
 		5CF20A8F23904E6F00632A05 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF20A8E23904E6F00632A05 /* ImagePicker.swift */; };
@@ -332,6 +333,7 @@
 		5CE63741238DB6B100C1DC49 /* CoffeeTastingTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTastingTraits.swift; sourceTree = "<group>"; };
 		5CE63743238DB6DE00C1DC49 /* CoffeeOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeOrigin.swift; sourceTree = "<group>"; };
 		5CE8457E23836B950086EFC8 /* BrewMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewMethod.swift; sourceTree = "<group>"; };
+		5CE9C16123A6D545001AEDD6 /* BrewGuideCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideCardView.swift; sourceTree = "<group>"; };
 		5CEEC7B2237EF63900E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5CEEC7B6237EFBEA00E3BDB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5CEEC7B8237EFBEF00E3BDB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 			children = (
 				5C6A926F23792CDA006D8E0E /* BrewView.swift */,
 				5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */,
+				5CE9C16123A6D545001AEDD6 /* BrewGuideCardView.swift */,
 				5C2E476923960FB80064226A /* BrewGuideTimerInstructionView.swift */,
 				5CE62D212399DA5B00BAE012 /* BrewStepScrollDisplayView.swift */,
 				5C02EB2A238612F0002A7A1E /* AddBrewGuideView.swift */,
@@ -1010,6 +1013,7 @@
 				5C6A926E237929FF006D8E0E /* ExploreView.swift in Sources */,
 				5C80C9972374818D00996D91 /* UIColor+ThemeColor.swift in Sources */,
 				5CF20A932390531D00632A05 /* BrewGuideExpensionViewController.swift in Sources */,
+				5CE9C16223A6D545001AEDD6 /* BrewGuideCardView.swift in Sources */,
 				5C484D77239D6E9E002D31D3 /* StaticDataService.swift in Sources */,
 				5C3F466923831AF8001CC647 /* PostDetailView.swift in Sources */,
 				5C3F46582382D219001CC647 /* Record.swift in Sources */,

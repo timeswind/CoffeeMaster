@@ -115,7 +115,7 @@ struct PostFormView: View {
                 
                 VStack {
                     if (self.brewGuide != nil) {
-                        Text("BrewGuide: \(self.brewGuide!.guideName)")
+                        BrewGuideCardView(brewGuide: self.brewGuide!)
                     }
                 }
                 

@@ -49,15 +49,15 @@ struct PostCardView: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Tag")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
+//                    Text("Tag")
+//                        .font(.headline)
+//                        .foregroundColor(.secondary)
                     Text(post.title ?? "")
                         .font(.title)
                         .fontWeight(.black)
                         .foregroundColor(Color(UIColor.Theme.Accent))
                         .lineLimit(3)
-                    Text("Written by \(author_name)".uppercased())
+                    Text("\("WrittenBy".localized()) \(author_name ?? "")".uppercased())
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }

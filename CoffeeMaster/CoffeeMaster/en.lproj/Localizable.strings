@@ -83,6 +83,7 @@
 "Kettle" = "Kettle";
 
 /* Create Brew Method */
+"BrewGuide" = "Brew Guide";
 "ConfigureCoffee" = "Configure Coffee";
 "ConfigureWater" = "Prepare Water";
 "WaterTemperature" = "Water Temperature";
@@ -93,6 +94,7 @@
 "NewBrewGuideName" = "Name";
 "NewBrewGuideDescription" = "Description";
 "NewBrewGuideIsPublicToggle" = "Show to public";
+"TotalBrewTime" = "Total Brew Time";
 
 /* Configrue Grind Coffee View*/
 "ConfigureCoffeeAmountTitle" = "Enter Coffee Amount";
@@ -128,6 +130,8 @@
 
 /*ConnectView*/
 "SignInToJoinOurCommunity" = "Sign in with Apple ID to join our community";
+"Comments" = "Comments";
+"WrittenBy" = "Written by";
 
 /*RecordView*/
 "SignInToRecordSyncedAcrossDevices" = "Sign in with Apple ID to sync your thoughts across devices";

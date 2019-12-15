@@ -48,6 +48,7 @@ struct PostDetailView: View {
     var body: some View {
         let hasImage = post.images_url != nil && post.images_url!.count > 0
         let hasLocation = post.location != nil
+        let hasBrewGuide = post.brewGuide != nil
         let author_name = post.author_name ?? post.created_by_uid ?? "Author name"
         
         let comments = Binding<[Comment]>(
@@ -84,15 +85,15 @@ struct PostDetailView: View {
                 
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Tag")
-                            .font(.headline)
-                            .foregroundColor(.secondary)
+//                        Text("Tag")
+//                            .font(.headline)
+//                            .foregroundColor(.secondary)
                         Text(post.title ?? "")
                             .font(.title)
                             .fontWeight(.black)
                             .foregroundColor(Color(UIColor.Theme.Accent))
                             .lineLimit(3)
-                        Text("Written by \(author_name)".uppercased())
+                        Text("\("WrittenBy".localized()) \(author_name ?? "")".uppercased())
                             .font(.caption)
                             .foregroundColor(.secondary)
                         
@@ -103,6 +104,12 @@ struct PostDetailView: View {
                         
                         if (hasLocation) {
                             LocationCardView(location: post.location!).frame(height: 200)
+                        }
+                        
+                        if (hasBrewGuide) {
+                            NavigationLink(destination: BrewGuideDetailView(brewGuide: post.brewGuide!)) {
+                                BrewGuideCardView(brewGuide: post.brewGuide!)
+                            }.buttonStyle(PlainButtonStyle())
                         }
                         
                         if (post.images_url?.count != nil) {
