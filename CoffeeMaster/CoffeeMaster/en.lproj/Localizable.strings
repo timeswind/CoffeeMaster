@@ -52,18 +52,22 @@
 "Wait" = "Wait";
 "Stir" = "Stir";
 "Other" = "Other";
-"gUnit" = "g";
-"ozUnit" = "oz";
+"g" = "g";
+"oz" = "oz";
+"ml" = "ml";
+"secUnit" = "s";
 
 /* Brew Methods */
 "Chemex" = "Chemex";
 "ChemexDescription" = "An iconic brewer with a timeless design invented in 1941, the Chemex is easy to use and easy on the eyes";
 "AeroPress" = "AreoPress";
 "AeroPressDescription" = "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee";
-
 "Hario V60" = "Hario V60";
+"HarioV60Description" = "The Hario V60 is the first coffee maker that combines affordability and simplicity with the ability to produce top quality coffee";
 "Moka Pot" = "Moka Pot";
+"MokaPotDescription" = "The Moka Pot, also know as a macchinetta(literally\"small machine\"), is a stove_top or electric coffee maker that produces coffee by passing boiling water pressurized by steam through ground coffee.";
 "French Press" = "French Press";
+"FrenchPressDescription" = "A French Press is a coffee brewing device patented by italian designer Attilio Camlimani in 1929";
 
 /* Brew Tools */
 "ChemexCoffeemaker" = "Chemex Coffeemaker";
@@ -76,6 +80,9 @@
 "Kettle" = "Kettle";
 
 /* Create Brew Method */
+"ConfigureCoffee" = "Configure Coffee";
+"ConfigureWater" = "Prepare Water";
+"WaterTemperature" = "Water Temperature";
 "CreateBrewGuide" = "Create Brew Guide";
 "ChooseBrewMethod" = "Choose Brew Method";
 "NewBrewGuideStepEdit" = "Edit Steps";
@@ -91,6 +98,7 @@
 "ConfigureCoffeeAmountInputTitle" = "Amount";
 "ConfigureCoffeeGrindSizeTypeHeader" = "Choose Grind Size";
 "ConfigureCoffeeGrindTypeInformation" = "Information";
+"GrindSize" = "Grind Size";
 
 /*Configure Boil Water View*/
 "ConfigureBoilWaterTitle" = "Enter Water Amount";
@@ -125,3 +133,7 @@
 
 /*LocationPicker*/
 "LocationPicker" = "Pick Location";
+
+
+"Grind %@ of coffee" = "Grind %@ of coffee";
+"Boil %@ of water" = "Boil %@ of water";

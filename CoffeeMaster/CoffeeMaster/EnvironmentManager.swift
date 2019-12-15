@@ -45,9 +45,9 @@ class EnvironmentManager {
         let weightUnit = getWeightUnit()
         let temperatureUnit = getTemperatureUnit()
         
-        store.sendSync(.settings(action: .setLocalization(localization: localization)))
-        store.sendSync(.settings(action: .setWeightUnit(weightUnit: weightUnit)))
-        store.sendSync(.settings(action: .setTemperatureUnit(temperatureUnit: temperatureUnit)))
+        store.send(.settings(action: .setLocalization(localization: localization)))
+        store.send(.settings(action: .setWeightUnit(weightUnit: weightUnit)))
+        store.send(.settings(action: .setTemperatureUnit(temperatureUnit: temperatureUnit)))
         
         if Auth.auth().currentUser != nil {
             store.sendSync(.settings(action: .setUserInfo(currentUser: Auth.auth().currentUser!)))

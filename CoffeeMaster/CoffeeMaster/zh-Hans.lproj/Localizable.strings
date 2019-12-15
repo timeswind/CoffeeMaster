@@ -53,8 +53,10 @@
 "Wait" = "等待";
 "Stir" = "搅拌";
 "Other" = "其他";
-"gUnit" = "克";
-"ozUnit" = "盎司";
+"g" = "克";
+"oz" = "盎司";
+"ml" = "毫升";
+"secUnit" = "秒";
 
 /* Brew Methods */
 "Chemex" = "美式滤泡壶";
@@ -62,8 +64,11 @@
 "AeroPress" = "爱乐压";
 "AeroPressDescription" = "爱乐压还具有体积短小轻便、不易损坏的优点，相当适合作为外出使用的咖啡冲煮器具。";
 "Hario V60" = "好璃奥V60";
+"HarioV60Description" = "以倾斜六十度角而命名的 HARIO V60咖啡滤杯,近年来受到世界各地咖啡职人们的关注";
+"MokaPotDescription" = "卡壶（Moka Pot）是一种用于萃取浓缩咖啡的工具，在欧洲和拉丁美洲国家普遍使用，在美国被称为“意式滴滤壶”";
 "Moka Pot" = "摩卡壶";
 "French Press" = "法式压壶";
+"FrenchPressDescription" = "又名法式滤压壶、冲茶器、French Press法式压滤壶：大约于1850年左右发源于法国的一种由耐热玻璃瓶身（或者是透明塑料）和带压杆的金属滤网组成了简单冲泡器具";
 
 /* Brew Tools */
 "ChemexCoffeemaker" = "Chemex咖啡制作容器";
@@ -76,6 +81,9 @@
 "Kettle" = "Kettle";
 
 /* Create Brew Method */
+"ConfigureCoffee" = "准备以及研磨咖啡豆";
+"ConfigureWater" = "准备适量的水以及加热";
+"WaterTemperature" = "水温";
 "CreateBrewGuide" = "创建你的咖啡秘籍";
 "ChooseBrewMethod" = "选择基本制作工具";
 "NewBrewGuideStepEdit" = "制作步骤";
@@ -92,6 +100,7 @@
 "ConfigureCoffeeAmountInputTitle" = "重量";
 "ConfigureCoffeeGrindSizeTypeHeader" = "选择咖啡豆的研磨程度";
 "ConfigureCoffeeGrindTypeInformation" = "研磨程度简介";
+"GrindSize" = "研磨程度";
 
 /*Configure Boil Water View*/
 "ConfigureBoilWaterTitle" = "选择需要多少水以及水的温度";
@@ -125,3 +134,6 @@
 
 /*LocationPicker*/
 "LocationPicker" = "选择地点";
+
+"Grind %@ of coffee" = "研磨 %@ 咖啡";
+"Boil %@ of water" = "烧煮 %@ 水";

@@ -49,8 +49,8 @@ struct BrewMethodPickerView: View {
                             .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 40) / -20), axis: (x: 0, y: 10, z: 0))
                     }
                 }.frame(width: 100, height: 246).padding(.leading, 40)
+                Text("").frame(width: 200)
             }
-            Text("").frame(width: 200)
         }
     }
 }

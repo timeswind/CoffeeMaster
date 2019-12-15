@@ -79,6 +79,10 @@ class BrewWeight: Codable {
         }
     }
     
+    func getWeightWholeNumber() -> String {
+        return String(format: "%.0f", self.getWeight())
+    }
+    
     func getVolume() -> Double {
         return self.weight
     }

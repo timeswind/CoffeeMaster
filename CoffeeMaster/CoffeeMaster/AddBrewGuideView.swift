@@ -13,6 +13,8 @@ struct AddBrewGuideView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @EnvironmentObject var keyboard: KeyboardResponder
     
+    
+    
     @State var baseBrewMethod: BrewMethod = chemexBrewMethod
     @State var guideName: String = ""
     @State var guideDescription: String = ""
@@ -82,23 +84,22 @@ struct AddBrewGuideView: View {
                 }) {
                     if (self.brewStepGrindCoffee == nil) {
                         NavigationLink(destination: ConfigureGrindCoffeeView(brewStepGrindCoffee: $brewStepGrindCoffee)) {
-                            Text("Configure Coffee")
+                            Text(LocalizedStringKey("ConfigureCoffee"))
                         }
                     } else {
-                        Text("Coffee Amount: \(self.brewStepGrindCoffee!.getCoffeeAmount().getWeight())")
-                        Text("Grind Type: \(self.brewStepGrindCoffee!.grindSize.rawValue)")
+                        BrewStepConfigrueCoffeeRow(self.brewStepGrindCoffee!)
                     }
                     if (self.brewStepBoilWater == nil) {
                         NavigationLink(destination: ConfigureBoilWaterView(brewStepBoilWater: $brewStepBoilWater)) {
-                            Text("Configure Water")
+                            Text(LocalizedStringKey("ConfigureWater"))
                         }
                     } else {
-                        Text("Brew Step Water")
+                        BrewStepConfigureWaterRow(self.brewStepBoilWater!)
                     }
                     
                     if (self.brewSteps.count > 0) {
                         ForEach(0..<self.brewSteps.count, id: \.self) { index in
-                            Text(self.brewSteps[index].brewType!.rawValue)
+                            BrewStepRow(self.brewSteps[index])
                         }
                     }
                     
@@ -157,7 +158,10 @@ struct AddBrewGuideView: View {
 }
 
 struct AddBrewGuideView_Previews: PreviewProvider {
+    
+//    static var sample_brew_guide = StaticDataService.defaultBrewGuides.first!
+
     static var previews: some View {
-           AddBrewGuideView().modifier(EnvironmemtServices())
+        AddBrewGuideView().modifier(EnvironmemtServices())
     }
 }

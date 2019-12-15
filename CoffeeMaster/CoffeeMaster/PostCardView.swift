@@ -25,25 +25,26 @@ struct PostCardView: View {
         let author_name = post.author_name ?? post.created_by_uid
         return VStack {
             if (hasImage) {
-                URLImage(URL(string: post.images_url![0])!, placeholder: {
-                    ProgressView($0) { progress in
-                        ZStack {
-                            if progress > 0.0 {
-                                // The download has started. CircleProgressView displays the progress.
-                                CircleProgressView(progress).stroke(lineWidth: 8.0)
-                            }
-                            else {
-                                // The download has not yet started. CircleActivityView is animated activity indicator that suits this case.
-                                CircleActivityView().stroke(lineWidth: 50.0)
+                    URLImage(URL(string: self.post.images_url![0])!, placeholder: {
+                        ProgressView($0) { progress in
+                            ZStack {
+                                if progress > 0.0 {
+                                    // The download has started. CircleProgressView displays the progress.
+                                    CircleProgressView(progress).stroke(lineWidth: 8.0)
+                                }
+                                else {
+                                    // The download has not yet started. CircleActivityView is animated activity indicator that suits this case.
+                                    CircleActivityView().stroke(lineWidth: 50.0)
+                                }
                             }
                         }
-                    }
-                        .frame(width: 50.0, height: 50.0)
-                    }, content: {
-                    $0.image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                })
+                            .frame(width: 50.0, height: 50.0)
+                        }, content: {
+                        $0.image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    })
+
             }
             
             HStack {

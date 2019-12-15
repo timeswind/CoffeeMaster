@@ -105,7 +105,7 @@ struct BrewGuidesSelectionView: View {
                             }.frame(width: 100, height: 246).padding(.leading, 40)
                         }
                         FAText(iconName: "plus", size: 40, style: .solid).foregroundColor(Color.gray)
-                            .frame(width: 200, height: 200)
+                            .frame(width: 100, height: 100)
                             .background(Color.white)
                         .cornerRadius(20)
                             .shadow(color: Color.black.opacity(0.3),

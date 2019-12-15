@@ -195,20 +195,10 @@ struct BrewGuideWalkThroughView: View {
                 }.padding(.bottom, 8).foregroundColor(Color.Theme.Accent)
                 VStack(alignment: .leading, spacing: 12) {
                     ForEach(0..<brewSteps.count, id: \.self) { index in
-                        GeometryReader { geometry in
-                            
-                            Text(brewSteps[index].instruction)
-                                .opacity(self.opacity)
-                                .offset(self.offset)
-                                .animation(Animation.easeInOut(duration: 0.5).delay(Double(index) * 0.1))
-                                .animate() {
-                                    self.offset = CGSize.zero
-                                    
-                                    self.opacity = 1
-                            }
-                        }
+                            BrewStepRow(brewSteps[index])
+
                     }
-                }.padding(.horizontal, 36)
+                }
                 
                 
                 Spacer()

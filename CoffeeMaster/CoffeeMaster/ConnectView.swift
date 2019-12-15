@@ -24,11 +24,7 @@ struct ConnectView: View {
     }
     
     var body: some View {
-        #if DEBUG
-        let isLoggedIn = true
-        #else
         let isLoggedIn = store.state.settings.signedIn
-        #endif
 //        let isNewPostFormPresenting = Binding<Bool>(get: { () -> Bool in
 //            return self.store.state.connectViewState.newPostFormPresented
 //        }) { (isPresented) in
@@ -82,9 +78,15 @@ struct ConnectListView: View {
     }
 }
 
-struct ConnectView_Previews: PreviewProvider {
-    
+struct ConnectListView_Previews: PreviewProvider {
     static var previews: some View {
-           ConnectView().modifier(EnvironmemtServices())
+           ConnectListView().modifier(EnvironmemtServices())
     }
 }
+
+
+//struct ConnectView_Previews: PreviewProvider {
+//    static var previews: some View {
+//           ConnectView().modifier(EnvironmemtServices())
+//    }
+//}
