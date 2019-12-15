@@ -33,6 +33,8 @@
 "ChooseLanguage"="选择语言";
 "Done" = "完成";
 "EditUsername" = "用户名";
+"SettingsWeightUnit" = "设置重量单位";
+"SettingsTemperatureUnit" = "设置温度单位";
 
 /*AddRecordForm View*/
 "NewRecordTitle" = "笔记标题";
@@ -114,12 +116,15 @@
 "EnterStepDetails" = "编辑步骤信息";
 "StepAmountTitle" = "重量";
 "StepDurationTitle" = "时长";
+"Duration" = "时长";
 "AddStepDescription" = "步骤简介";
 "AddStepInstruction" = "步骤描述";
 
 /*BrewView*/
 "MyBrewGuidesTitle" = "我的咖啡秘籍";
 "DefaultBrewGuidesTitle" = "经典咖啡秘籍";
+"ExitBrew" = "退出";
+"ShareBrew" = "分享";
 
 /*ConnectView*/
 "SignInToJoinOurCommunity" = "现在就用AppleID登入，加入我们的社群吧！";

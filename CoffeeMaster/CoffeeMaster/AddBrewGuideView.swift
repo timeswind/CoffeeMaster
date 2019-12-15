@@ -13,8 +13,6 @@ struct AddBrewGuideView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @EnvironmentObject var keyboard: KeyboardResponder
     
-    
-    
     @State var baseBrewMethod: BrewMethod = chemexBrewMethod
     @State var guideName: String = ""
     @State var guideDescription: String = ""

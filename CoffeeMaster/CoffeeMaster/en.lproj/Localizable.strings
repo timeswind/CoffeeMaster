@@ -26,12 +26,15 @@
 "NewPostPostAction" = "Post";
 "NewCommentBody" = "Write Comment";
 "PostComment" = "Post";
+
 /*Settings View*/
 "LanguageEnglish" = "English";
 "LanguageChinese" = "Chinese 中文";
 "ChooseLanguage"="Choose Language";
 "Done" = "Done";
 "EditUsername" = "Username";
+"SettingsWeightUnit" = "Set Weight Unit";
+"SettingsTemperatureUnit" = "Set Temperature Unit";
 
 /*AddRecordForm View*/
 "NewRecordTitle" = "Record Title";
@@ -112,6 +115,7 @@
 "EnterStepDetails" = "Enter Step Details";
 "StepAmountTitle" = "Amount";
 "StepDurationTitle" = "Duration";
+"Duration" = "Duration";
 "AddStepDescription" = "Description";
 "AddStepInstruction" = "Instruction";
 
@@ -119,6 +123,8 @@
 /*BrewView*/
 "MyBrewGuidesTitle" = "My brew guides";
 "DefaultBrewGuidesTitle" = "Classic brew guides";
+"ExitBrew" = "Exit Brew";
+"ShareBrew" = "Share";
 
 /*ConnectView*/
 "SignInToJoinOurCommunity" = "Sign in with Apple ID to join our community";

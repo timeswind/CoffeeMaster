@@ -13,11 +13,11 @@ import CodableFirebase
 
 struct Post:Codable, Identifiable {
     var id: String?
-    var title: String
-    var body: String
+    var title: String?
+    var body: String?
     var created_at: Timestamp?
     var updated_at: Timestamp?
-    var created_by_uid: String
+    var created_by_uid: String?
     var author_name: String?
     var allow_comment: Bool?
     var likes: Int?
@@ -51,6 +51,13 @@ struct Post:Codable, Identifiable {
         self.body = body
         self.created_by_uid = created_by_uid
         self.allow_comment = allow_comment
+    }
+    
+    init(brewGuide: BrewGuide) {
+        self.brewGuide = brewGuide
+    }
+    
+    init() {
     }
 }
 

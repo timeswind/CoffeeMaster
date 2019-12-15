@@ -21,9 +21,32 @@ struct PostFormView: View {
     
     @State private var location: Location?
     
+    @State private var brewGuide: BrewGuide?
+    
+    func viewDidAppear() {
+        if let composting_post = store.state.connectViewState.composing_post {
+            if let brewGuide = composting_post.brewGuide {
+                self.brewGuide = brewGuide
+            }
+        }
+    }
+    
     func post() {
         assert(store.state.settings.uid != nil)
-        var post = Post(title: postTitle, body: postBody, created_by_uid: store.state.settings.uid!, allow_comment: self.postAllowComment)
+        
+        var post: Post!
+        
+        if let composting_post = store.state.connectViewState.composing_post {
+            post = composting_post
+            post.title = postTitle
+            post.body = postBody
+            post.created_by_uid = store.state.settings.uid!
+            post.allow_comment = self.postAllowComment
+        } else {
+            post = Post(title: postTitle, body: postBody, created_by_uid: store.state.settings.uid!, allow_comment: self.postAllowComment)
+        }
+        
+        
         post.images = self.images.map { $0.jpegData(compressionQuality: 80)! }
         post.location = self.location
         let updatePostAction: AppAction = .connectview(action: .setCurrentEditingPost(post: post))
@@ -54,7 +77,8 @@ struct PostFormView: View {
     }
     
     func exit() {
-        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
+        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: false)))
+        //        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
     }
     
     var body: some View {
@@ -88,6 +112,13 @@ struct PostFormView: View {
                             self.removeImage(at: index)
                     }
                 }
+                
+                VStack {
+                    if (self.brewGuide != nil) {
+                        Text("BrewGuide: \(self.brewGuide!.guideName)")
+                    }
+                }
+                
                 Toggle(isOn: $postAllowComment) {
                     Text(LocalizedStringKey("NewPostAllowComment"))
                 }
@@ -120,7 +151,10 @@ struct PostFormView: View {
                         self.addImage(image: image!)
                     }
             }
-        }.sheet(isPresented: $isLocationPickerPresented) {
+        }.onAppear(perform: {
+            self.viewDidAppear()
+        })
+        .sheet(isPresented: $isLocationPickerPresented) {
             LocationPickerView(onPickLocation: { (location) in
                 self.onPickLocation(location)
             }, onCancel: {

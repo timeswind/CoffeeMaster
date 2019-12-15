@@ -52,7 +52,7 @@ struct PostCardView: View {
                     Text("Tag")
                         .font(.headline)
                         .foregroundColor(.secondary)
-                    Text(post.title)
+                    Text(post.title ?? "")
                         .font(.title)
                         .fontWeight(.black)
                         .foregroundColor(Color(UIColor.Theme.Accent))

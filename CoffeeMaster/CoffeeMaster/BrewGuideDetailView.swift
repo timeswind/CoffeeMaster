@@ -24,7 +24,6 @@ struct BrewGuideDetailView: View {
     }
     
     func start() {
-        print("Start")
         isBrewing = true
         self.stopWatch.start()
     }
@@ -59,6 +58,12 @@ struct BrewGuideDetailView: View {
     
     func updateTimerTime(_ timeInSec: Int) {
         self.stopWatch.setTimeInSet(timeInSet: timeInSec)
+    }
+    
+    func share() {
+        store.sendSync(.connectview(action: .setCurrentEditingPost(post: Post(brewGuide: self.brewGuide))))
+        store.send(.settings(action: .setMainTabViewSelectedTab(index: 2)))
+        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: true)))
     }
     
     var body: some View {
@@ -122,12 +127,30 @@ struct BrewGuideDetailView: View {
         }.navigationBarTitle(title).navigationBarItems(
             trailing:
             Button(action: {
-                withAnimation {
-                    self.exitBrew()
+                if (self.isInstructionWalkThrough) {
+                    self.share()
+                } else {
+                    withAnimation {
+                        self.exitBrew()
+                    }
                 }
                 
             }) {
-                Text(isInstructionWalkThrough ? "" :LocalizedStringKey("ExitBrew"))
+                Group {
+                    if (self.isInstructionWalkThrough) {
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: "share-square", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("ShareBrew")).fontWeight(.bold)
+                        }
+                    } else {
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: "sign-out-alt", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("ExitBrew")).fontWeight(.bold)
+                        }
+                    }
+
+                }
+
         })
     }
 }
@@ -196,13 +219,13 @@ struct BrewGuideWalkThroughView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     ForEach(0..<brewSteps.count, id: \.self) { index in
                             BrewStepRow(brewSteps[index])
-
                     }
                 }
                 
                 
                 Spacer()
-            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         }
     }
 }

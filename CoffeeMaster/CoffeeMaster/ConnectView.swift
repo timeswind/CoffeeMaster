@@ -11,7 +11,7 @@ import FASwiftUI
 
 struct ConnectView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    @State var isNewPostFormPresented: Bool = false
+//    @State var isNewPostFormPresented: Bool = false
 
     
     private func fetch() {
@@ -19,17 +19,24 @@ struct ConnectView: View {
     }
     
     func post() {
-//        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: true)))
-        self.isNewPostFormPresented = true
+        store.sendSync(.connectview(action: .setCurrentEditingPost(post: Post())))
+        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: true)))
+//        self.isNewPostFormPresented = true
+    }
+    
+    func hidePostForm() {
+        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: false)))
     }
     
     var body: some View {
         let isLoggedIn = store.state.settings.signedIn
-//        let isNewPostFormPresenting = Binding<Bool>(get: { () -> Bool in
-//            return self.store.state.connectViewState.newPostFormPresented
-//        }) { (isPresented) in
-//
-//        }
+        let isNewPostFormPresenting = Binding<Bool>(get: { () -> Bool in
+            return self.store.state.connectViewState.newPostFormPresented
+        }) { (isPresented) in
+            if (isPresented == false) {
+                self.hidePostForm()
+            }
+        }
         
         return NavigationView {
             if (isLoggedIn) {
@@ -49,10 +56,8 @@ struct ConnectView: View {
                 }
             }
 
-        }.sheet(isPresented: $isNewPostFormPresented, onDismiss: {
-            if (self.isNewPostFormPresented == true) {
-                self.isNewPostFormPresented = false
-            }
+        }.sheet(isPresented: isNewPostFormPresenting, onDismiss: {
+                self.hidePostForm()
         }) {
             PostFormView().modifier(EnvironmemtServices())
         }

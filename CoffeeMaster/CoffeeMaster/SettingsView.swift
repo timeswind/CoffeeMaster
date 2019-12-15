@@ -18,6 +18,8 @@ struct keyValue<T1, T2> {
 
 struct SettingsView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @EnvironmentObject var keyboard: KeyboardResponder
+
     @State var selectedLanguage = ""
     @EnvironmentObject var environmentWindowObject: EnvironmentWindowObject
     @State var appleSignInDelegates: SignInWithAppleDelegates! = nil
@@ -141,7 +143,8 @@ struct SettingsView: View {
                     }
                 }
             
-            }.navigationBarTitle(LocalizedStringKey("Settings"))
+            }.padding(.bottom, keyboard.currentHeight)
+                .navigationBarTitle(LocalizedStringKey("Settings"))
                 .navigationBarItems(trailing:
                     Button(action: {
                         self.exit()

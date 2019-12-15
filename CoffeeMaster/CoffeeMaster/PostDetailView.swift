@@ -48,7 +48,7 @@ struct PostDetailView: View {
     var body: some View {
         let hasImage = post.images_url != nil && post.images_url!.count > 0
         let hasLocation = post.location != nil
-        let author_name = post.author_name ?? post.created_by_uid
+        let author_name = post.author_name ?? post.created_by_uid ?? "Author name"
         
         let comments = Binding<[Comment]>(
             get: {
@@ -58,7 +58,6 @@ struct PostDetailView: View {
                 self.my_comments = $0
         }
         )
-        
         
         
         return ScrollView(.vertical, showsIndicators: true) {
@@ -88,7 +87,7 @@ struct PostDetailView: View {
                         Text("Tag")
                             .font(.headline)
                             .foregroundColor(.secondary)
-                        Text(post.title)
+                        Text(post.title ?? "")
                             .font(.title)
                             .fontWeight(.black)
                             .foregroundColor(Color(UIColor.Theme.Accent))
@@ -97,7 +96,7 @@ struct PostDetailView: View {
                             .font(.caption)
                             .foregroundColor(.secondary)
                         
-                        Text(post.body)
+                        Text(post.body ?? "")
                             .padding(.vertical)
                             .font(.body)
                             .foregroundColor(.black)
@@ -142,8 +141,6 @@ struct PostDetailView: View {
                             self.postComment()
                         }) {
                             HStack {
-                                //                            Image(systemName: "trash")
-                                //                                .font(.title)
                                 Text(LocalizedStringKey("PostComment"))
                                     .fontWeight(.bold)
                                     .font(.body)
