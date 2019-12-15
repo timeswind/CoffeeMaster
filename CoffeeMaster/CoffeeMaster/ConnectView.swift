@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct ConnectView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
@@ -35,7 +36,10 @@ struct ConnectView: View {
                 ConnectListView().navigationBarTitle(Text(LocalizedStringKey("Connect"))).navigationBarItems(
                     trailing:
                     Button(action: {self.post()}) {
-                        Text(LocalizedStringKey("Post"))
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: "feather-alt", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("Post")).fontWeight(.bold)
+                        }
                 }).onAppear(perform: fetch)
             } else {
                 VStack {
@@ -67,5 +71,12 @@ struct ConnectListView: View {
             }
         }
 
+    }
+}
+
+struct ConnectView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+           ConnectView().modifier(EnvironmemtServices())
     }
 }

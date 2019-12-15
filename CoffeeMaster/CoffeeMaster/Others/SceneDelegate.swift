@@ -28,6 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             let environmentWindowObject = EnvironmentWindowObject(window: window)
+            EnvironmentManager.addEnvironmentWindowObject(environmentWindowObject)
+            
             let contentView = ContentView().environmentObject(environmentWindowObject).modifier(environmemtServices)
 
             window.rootViewController = UIHostingController(rootView: contentView)

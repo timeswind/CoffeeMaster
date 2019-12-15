@@ -20,6 +20,7 @@
 		5C0C26992391D58A00F27180 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0C26982391D58A00F27180 /* NoteDetailView.swift */; };
 		5C0C269C2391F18000F27180 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C0C269B2391F18000F27180 /* URLImage */; };
 		5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */; };
+		5C14B29523A6793100C9C156 /* EnvironmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14B29423A6793100C9C156 /* EnvironmentManager.swift */; };
 		5C25798223837BA200976AE1 /* BrewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25798123837BA200976AE1 /* BrewStep.swift */; };
 		5C25798523837F5600976AE1 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5C25798723837F5600976AE1 /* Localizable.stringsdict */; };
 		5C25798A2383887900976AE1 /* DefaultBrewingMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2579892383887900976AE1 /* DefaultBrewingMethods.swift */; };
@@ -220,6 +221,7 @@
 		5C02EB4F2388E5FA002A7A1E /* RecordViewWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewWebService.swift; sourceTree = "<group>"; };
 		5C0C26982391D58A00F27180 /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
 		5C0D0F482384508800FA7952 /* BrewGuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideDetailView.swift; sourceTree = "<group>"; };
+		5C14B29423A6793100C9C156 /* EnvironmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentManager.swift; sourceTree = "<group>"; };
 		5C25798123837BA200976AE1 /* BrewStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStep.swift; sourceTree = "<group>"; };
 		5C25798623837F5600976AE1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 		5C25798823837F5B00976AE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 		5C8A7DE52396B9620035CDC8 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				5C14B29423A6793100C9C156 /* EnvironmentManager.swift */,
 				5C25FA44237F385C0082CFBD /* EnvironmentService.swift */,
 				5C9C801C237FA4AF0060C10E /* EnvironmentWindowObject.swift */,
 				5C80C98C2374631C00996D91 /* Dependencies.swift */,
@@ -1053,6 +1056,7 @@
 				5CA626D423A2AF5800264EC3 /* LocationPickerListRowView.swift in Sources */,
 				5CF20A982390545000632A05 /* GridStack.swift in Sources */,
 				5CE6373E238DB68500C1DC49 /* CoffeeBeanRoastingStage.swift in Sources */,
+				5C14B29523A6793100C9C156 /* EnvironmentManager.swift in Sources */,
 				5C25FA45237F385C0082CFBD /* EnvironmentService.swift in Sources */,
 				5CC5DB4F239EE5E100CFDDA4 /* ThemeMapView.swift in Sources */,
 				5CA626D623A2B17900264EC3 /* ClearButtonModifier.swift in Sources */,

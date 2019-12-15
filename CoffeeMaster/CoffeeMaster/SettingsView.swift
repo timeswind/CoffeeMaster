@@ -9,6 +9,7 @@
 import SwiftUI
 import AuthenticationServices
 import FirebaseAuth
+import FASwiftUI
 
 struct keyValue<T1, T2> {
     var key: T1
@@ -145,7 +146,10 @@ struct SettingsView: View {
                     Button(action: {
                         self.exit()
                     }) {
-                        Text(LocalizedStringKey("Dismiss"))
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("Dismiss")).fontWeight(.bold)
+                        }
                 })
         }.accentColor(Color(UIColor.Theme.Accent)).onAppear(perform: {self.onAppear()})
     }

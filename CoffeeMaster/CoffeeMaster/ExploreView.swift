@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FASwiftUI
 
 struct ExploreView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
@@ -21,10 +22,10 @@ struct ExploreView: View {
         NavigationView {
             ExploreMapView().navigationBarTitle(Text(LocalizedStringKey("Explore"))).navigationBarItems(leading:
                             Button(action: {self.showSettingsView()}) {
-                                Text("Settings")
+                               FAText(iconName: "user-cog", size: 22, style: .solid)
                             })
         }.sheet(isPresented: $isSettingPresented) {
-            SettingsView(settingsState: self.store.state.settings).environmentObject(self.store).environmentObject(self.environmentWindowObject).environment(\.locale, .init(identifier: self.store.state.settings.localization))
+            SettingsView(settingsState: self.store.state.settings).modifier(EnvironmemtServices())
         }
 
     }
@@ -32,6 +33,6 @@ struct ExploreView: View {
 
 struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView()
+        ExploreView().modifier(EnvironmemtServices())
     }
 }

@@ -21,7 +21,6 @@ struct BrewMethodPickerView: View {
     }
     
     func select(_ brewMethod: BrewMethod) {
-        print(brewMethod)
         self.selectedBrewMethod = brewMethod
         self.brewMethodSelected = brewMethod
     }
