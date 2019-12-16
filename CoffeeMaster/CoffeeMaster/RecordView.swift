@@ -12,7 +12,8 @@ import FASwiftUI
 struct RecordView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @State var isActionSheetShow: Bool = false
-    
+    @State private var viewSegment = 0
+
     var recordTypeActionSheet: ActionSheet {
         ActionSheet(
             title: Text(LocalizedStringKey("RecordTypeActionSheetTitle")),
@@ -33,6 +34,7 @@ struct RecordView: View {
     }
     
     func showCaffeineTracker() {
+        self.viewSegment = 1
         store.send(.recordview(action: .setCaffeineTrackerIsPresent(status: true)))
     }
     
@@ -41,6 +43,7 @@ struct RecordView: View {
     }
     
     func showRecordForm() {
+        self.viewSegment = 0
         store.send(.recordview(action: .setRecordFormIsPresent(status: true)))
     }
     
@@ -63,10 +66,10 @@ struct RecordView: View {
         
         let isAddRecordNoteFormPresented = self.store.state.recordViewState.isAddRecordNoteFormPresented
         let isCaffeineTrackerPresented = self.store.state.recordViewState.isCaffeineTrackerPresented
-
+        
         return NavigationView {
             if (isLoggedIn) {
-                RecordListView().navigationBarTitle(Text(LocalizedStringKey("Record"))).navigationBarItems(
+                RecordListView(viewSegment: $viewSegment).navigationBarTitle(Text(LocalizedStringKey("Record"))).navigationBarItems(
                     trailing: Button(action: {
                         self.showRecordTypeActionSheet()
                     }) {
@@ -106,31 +109,25 @@ struct RecordView: View {
 
 struct RecordListView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    @State private var viewSegment = 0
+    @Binding var viewSegment: Int
     
     var body: some View {
-        let records = store.state.recordViewState.records
+        let recordType: Record.RecordType = (viewSegment == 0) ? Record.RecordType.Note : Record.RecordType.Caffeine
+        let records = store.state.recordViewState.records.filter { $0.recordType == recordType}
         
         return ScrollView(.vertical, showsIndicators: false) {
             Picker(selection: $viewSegment, label: Text("RecordViewSegmentLabel")) {
                 Text("Note").tag(0)
-                Text("Collection").tag(1)
-                Text("Tasting").tag(2)
+                Text("Caffeine").tag(1)
             }.pickerStyle(SegmentedPickerStyle()).padding(.horizontal)
             
-            if (viewSegment == 0) {
-                if (self.store.state.recordViewState.records.count > 0) {
-                    ForEach(records, id: \.id) { record in
-                        return RecordCardView(record: record).padding([.top, .horizontal])
-                    }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+            if (self.store.state.recordViewState.records.count > 0) {
+                ForEach(records, id: \.id) { record in
+                    return RecordCardView(record: record).padding([.top, .horizontal])
+                }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
                     .buttonStyle(PlainButtonStyle())
-                } else {
-                    EmptyView()
-                }
-            } else if (viewSegment == 1) {
-                Text("CoffeeCollectionView")
             } else {
-                Text("Tasting View")
+                EmptyView()
             }
         }
     }
