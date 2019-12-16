@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Mapbox
+import MapKit
 
 struct LocationCardView: View {
     var location: Location
@@ -25,6 +26,24 @@ struct LocationCardView: View {
         let annotation = MGLPointAnnotation(title: self.location.name, coordinate: coordinate)
         return [annotation]
     }
+
+    func openMapForPlace() {
+
+        let latitude: CLLocationDegrees = self.location.coordinate.toCLCoordinate2D().latitude
+        let longitude: CLLocationDegrees = self.location.coordinate.toCLCoordinate2D().longitude
+
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = location.name
+        mapItem.openInMaps(launchOptions: options)
+    }
     
     var body: some View {
         let center = self.location.coordinate.toCLCoordinate2D()
@@ -39,9 +58,17 @@ struct LocationCardView: View {
         
         return VStack(alignment: .leading) {
             ThemeMapView(annotations: annotations, centerCoordinate: $centerCoordinate, center: center, regionDidChange: nil).zoomLevel(14).cornerRadius(5)
-            Text(location.name)
+            HStack {
+                Text(location.name)
                 .font(.headline)
                 .fontWeight(.bold)
+                Spacer()
+                Button(LocalizedStringKey("OpenInMap")) {
+                    self.openMapForPlace()
+                }
+            }
+            
+            
                 
         }
     }
