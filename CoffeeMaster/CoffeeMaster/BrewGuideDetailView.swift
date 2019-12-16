@@ -94,7 +94,7 @@ struct BrewGuideDetailView: View {
                         self.updateTimerTime(timeInSec)
                     })
                     Spacer()
-                }
+                }.padding(.top, 80)
                 .transition(.scale)
             }
             
@@ -123,8 +123,8 @@ struct BrewGuideDetailView: View {
                                 y: 3)
                     Spacer()
                 }
-            }
-        }.navigationBarTitle(title).navigationBarItems(
+            }.padding(.bottom, 80)
+        }.edgesIgnoringSafeArea(.all).navigationBarTitle(title).navigationBarItems(
             trailing:
             Button(action: {
                 if (self.isInstructionWalkThrough) {
@@ -173,6 +173,7 @@ struct BrewGuideWalkThroughView: View {
         let brewSteps = self.brewGuide.getBrewSteps()
         
         return ScrollView(.vertical, showsIndicators: true) {
+            Text("").padding(.top, 160)
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Spacer()
@@ -219,7 +220,7 @@ struct BrewGuideWalkThroughView: View {
                     ForEach(0..<brewSteps.count, id: \.self) { index in
                         BrewStepRow(brewSteps[index])
                     }
-                }.padding(.bottom, 60)
+                }.padding(.bottom, 160)
                 
                 
                 Spacer()
@@ -233,6 +234,8 @@ struct BrewGuideDetailView_Previews: PreviewProvider {
     static var sample_brew_guide = StaticDataService.defaultBrewGuides.first!
     
     static var previews: some View {
-        BrewGuideDetailView(brewGuide: sample_brew_guide).modifier(EnvironmemtServices())
+        NavigationView {
+            BrewGuideDetailView(brewGuide: sample_brew_guide)
+        }.modifier(EnvironmemtServices())
     }
 }

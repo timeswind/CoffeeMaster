@@ -65,7 +65,7 @@ struct BrewGuidesSelectionView: View {
                                     VStack {
                                         Image("\(brewGuide.baseBrewMethod.baseBrewMethodType.rawValue)-icon").resizable().scaledToFit().frame(width: 106.0, height: 106.0)
                                             .aspectRatio(CGSize(width:100, height: 100), contentMode: .fit)
-                                        Text(brewGuide.guideName).foregroundColor(Color.white).fontWeight(.bold)
+                                        Text(LocalizedStringKey(brewGuide.guideName)).foregroundColor(Color.white).fontWeight(.bold)
                                         
                                         }.padding()
                                         .background(Color.Theme.Accent)
@@ -91,7 +91,7 @@ struct BrewGuidesSelectionView: View {
                                     VStack {
                                         Image("\(brewGuide.baseBrewMethod.baseBrewMethodType.rawValue)-icon").resizable().scaledToFit().frame(width: 106.0, height: 106.0)
                                             .aspectRatio(CGSize(width:100, height: 100), contentMode: .fit)
-                                        Text(brewGuide.guideName).foregroundColor(Color.white).fontWeight(.bold)
+                                        Text(LocalizedStringKey(brewGuide.guideName)).foregroundColor(Color.white).fontWeight(.bold)
                                         
                                         }.padding()
                                         .background(Color.Theme.Accent)

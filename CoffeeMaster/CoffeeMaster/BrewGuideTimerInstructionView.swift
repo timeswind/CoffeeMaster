@@ -16,8 +16,8 @@ struct BrewGuideTimerInstructionView: View {
         return ZStack {
             VStack {
                 Indicator(pct: self.brewPercent, time: self.stopWatchTime)
-                    .frame(width: UIScreen.main.bounds.size.width,
-                           height: 350,
+                    .frame(width: 320,
+                           height: 320,
                            alignment: .center)
             }
         }

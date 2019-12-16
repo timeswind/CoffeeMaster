@@ -11,6 +11,7 @@ import FASwiftUI
 
 struct BrewStepScrollDisplayView: View {
     var brewGuide: BrewGuide
+    
     @Binding var currentInstructionIndex: Int
     @State var i_index: Int = 0
     
@@ -40,7 +41,7 @@ struct BrewStepScrollDisplayView: View {
     
     func prevInstruction() {
         self.offset = CGSize(width: 60, height: 0)
-
+        
         if (self.i_index != 0) {
             let newIndex = self.i_index - 1
             self.updateCurrentInstructionIndex(newIndex)
@@ -62,58 +63,83 @@ struct BrewStepScrollDisplayView: View {
     
     var body: some View {
         let brewSteps = brewGuide.getBrewSteps()
-        return HStack{
-            Button(action: {
-                withAnimation {
-                    self.prevInstruction()
-                }
-            }) {
-                FAText(iconName: "Backward", size: 24, style: .solid)
-                    .frame(width: 70, height: 70)
-                    .foregroundColor(Color.white)
-                }                        .background(Color(UIColor.Theme.Accent))
-                .cornerRadius(38.5)
-                .padding()
-                .shadow(color: Color.black.opacity(0.3),
-                        radius: 3,
-                        x: 3,
-                        y: 3)
-            Spacer()
-
-            ForEach(0..<brewSteps.count, id:\.self) { index in
-                Group {
-                    if (index == self.i_index) {
-                        Text(brewSteps[self.i_index].instruction)
+        
+        let currentBrewStep = brewSteps[self.i_index]
+        var currentBrewStepImageKey = "icons-coffee-beans-500"
+        
+        switch currentBrewStep.brewType {
+        case .Bloom:
+            currentBrewStepImageKey = "icons-teapot-500"
+        case .Stir:
+            currentBrewStepImageKey = "icons-sticks-500"
+            
+        case .Wait:
+            currentBrewStepImageKey = "icons-clock-500"
+        case .Other:
+            currentBrewStepImageKey = "icons-coffee-beans-500"
+        default:
+            currentBrewStepImageKey = "icons-coffee-beans-500"
+        }
+        
+        return
+            VStack{
+                Image(currentBrewStepImageKey).resizable()
+                    .aspectRatio(contentMode: .fit).frame(width: 60)
+                
+                HStack{
+                    Button(action: {
+                        withAnimation {
+                            self.prevInstruction()
+                        }
+                    }) {
+                        FAText(iconName: "Backward", size: 24, style: .solid)
+                            .frame(width: 70, height: 70)
+                            .foregroundColor(Color.white)
+                    }                        .background(Color(UIColor.Theme.Accent))
+                        .cornerRadius(38.5)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+                    Spacer()
+                    
+                    ForEach(0..<brewSteps.count, id:\.self) { index in
+                        Group {
+                            if (index == self.i_index) {
+                                Text(brewSteps[self.i_index].instruction)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.black)
-                            .transition(.asymmetric(insertion: AnyTransition.opacity.combined(with: .scale).animation(.easeInOut(duration: 0.5)), removal: AnyTransition.opacity.combined(with: .offset(self.offset)).animation(.easeInOut(duration: 0.5))))
-                    } else {
-                        EmptyView()
+                                    .multilineTextAlignment(.center)
+                                    .lineLimit(10)
+                                    .transition(.asymmetric(insertion: AnyTransition.opacity.combined(with: .scale).animation(.easeInOut(duration: 0.5)), removal: AnyTransition.opacity.combined(with: .offset(self.offset)).animation(.easeInOut(duration: 0.5))))
+                            } else {
+                                EmptyView()
+                            }
+                        }
+                        
                     }
-                }
-
-            }
-            
-            Spacer()
-            Button(action: {
-                withAnimation {
-                    self.offset = CGSize(width: -60, height: 0)
-                    self.nextInstruction()
-                }
-            }) {
-                FAText(iconName: "Forward", size: 24, style: .solid)
-                .frame(width: 70, height: 70)
-                .foregroundColor(Color.white)
-            }                        .background(Color(UIColor.Theme.Accent))
-            .cornerRadius(38.5)
-            .padding()
-            .shadow(color: Color.black.opacity(0.3),
-                    radius: 3,
-                    x: 3,
-                    y: 3)
-            
-        }.multilineTextAlignment(.center)
-        
+                    
+                    Spacer()
+                    Button(action: {
+                        withAnimation {
+                            self.offset = CGSize(width: -60, height: 0)
+                            self.nextInstruction()
+                        }
+                    }) {
+                        FAText(iconName: "Forward", size: 24, style: .solid)
+                            .frame(width: 70, height: 70)
+                            .foregroundColor(Color.white)
+                    }                        .background(Color(UIColor.Theme.Accent))
+                        .cornerRadius(38.5)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+                    
+                }.multilineTextAlignment(.center)
+        }
         
     }
 }
@@ -123,10 +149,8 @@ struct BrewStepScrollDisplayView: View {
 struct BrewStepScrollDisplayView_Previews: PreviewProvider {
     @State static var currentInstructionIndex = 1
     
-    static var StaticData = StaticDataService.defaultBrewGuides
-
+    
     static var previews: some View {
-        _ = StaticDataService()
         let sample_brew_guide = StaticDataService.defaultBrewGuides.first!
         return BrewStepScrollDisplayView(brewGuide: sample_brew_guide, currentInstructionIndex: $currentInstructionIndex).modifier(EnvironmemtServices()).previewLayout(.sizeThatFits)
     }
