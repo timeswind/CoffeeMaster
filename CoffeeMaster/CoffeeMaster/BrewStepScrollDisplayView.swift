@@ -8,6 +8,7 @@
 
 import SwiftUI
 import FASwiftUI
+import AVFoundation
 
 struct BrewStepScrollDisplayView: View {
     var brewGuide: BrewGuide
@@ -19,6 +20,8 @@ struct BrewStepScrollDisplayView: View {
     @State private var offset: CGSize = CGSize(width: -60, height: 0)
     @State private var paddingBottom: CGFloat = .zero
     
+    @State private var sound: AVAudioPlayer!
+
     private var onUpdateTime: ((_ timeInSec: Int) -> Void)?
     
     
@@ -29,6 +32,19 @@ struct BrewStepScrollDisplayView: View {
         self.onUpdateTime = onUpdateTime
     }
     
+    func playSound() {
+        
+        let path = Bundle.main.path(forResource: "ding-sound-effect_2", ofType: "mp3")
+
+        do {
+            try sound =  AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
+        } catch {
+            print("error")
+        }
+        sound.prepareToPlay()
+        sound.play()
+    }
+    
     func updateCurrentInstructionIndex(_ index:Int) {
         self.i_index = index
         self.currentInstructionIndex = index
@@ -37,6 +53,8 @@ struct BrewStepScrollDisplayView: View {
         if let onUpdateTime = self.onUpdateTime {
             onUpdateTime(passedTimeInSec)
         }
+        
+        self.playSound()
     }
     
     func prevInstruction() {
@@ -102,13 +120,13 @@ struct BrewStepScrollDisplayView: View {
                                 radius: 3,
                                 x: 3,
                                 y: 3)
-                    .opacity((self.i_index == 0) ? 0 : 1)
+                        .opacity((self.i_index == 0) ? 0 : 1)
                     Spacer()
                     
                     VStack {
                         ForEach(0..<brewSteps.count, id:\.self) { index in
                             Group {
-                                if (index == self.i_index) { 
+                                if (index == self.i_index) {
                                     Text(brewSteps[self.i_index].instruction)
                                         .fontWeight(.bold)
                                         .foregroundColor(Color.black)
@@ -136,13 +154,13 @@ struct BrewStepScrollDisplayView: View {
                             .foregroundColor(Color.white)
                     }
                     .background(Color(UIColor.Theme.Accent))
-                        .cornerRadius(38.5)
-                        .padding([.vertical, .trailing])
-                        .shadow(color: Color.black.opacity(0.3),
-                                radius: 3,
-                                x: 3,
-                                y: 3)
-                    .opacity((self.i_index == (brewSteps.count - 1)) ? 0 : 1)
+                    .cornerRadius(38.5)
+                    .padding([.vertical, .trailing])
+                    .shadow(color: Color.black.opacity(0.3),
+                            radius: 3,
+                            x: 3,
+                            y: 3)
+                        .opacity((self.i_index == (brewSteps.count - 1)) ? 0 : 1)
                     
                 }
         }

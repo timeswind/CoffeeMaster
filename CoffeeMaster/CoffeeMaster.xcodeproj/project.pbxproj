@@ -48,6 +48,7 @@
 		5C3F466923831AF8001CC647 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F466823831AF8001CC647 /* PostDetailView.swift */; };
 		5C4776A823A6DD3C00D114A1 /* UIColor+ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80C9962374818D00996D91 /* UIColor+ThemeColor.swift */; };
 		5C4776AA23A6DD9E00D114A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C80C96C23745F2900996D91 /* Assets.xcassets */; };
+		5C4776AC23A71BBA00D114A1 /* ding-sound-effect_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5C4776AB23A71BBA00D114A1 /* ding-sound-effect_2.mp3 */; };
 		5C484D6A239D4B5B002D31D3 /* CaffeineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */; };
 		5C484D6C239D5255002D31D3 /* FluidVolumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C484D6B239D5255002D31D3 /* FluidVolumn.swift */; };
 		5C484D70239D6B5C002D31D3 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C484D6F239D6B5C002D31D3 /* QGrid */; };
@@ -215,6 +216,7 @@
 		5C3F466423830D02001CC647 /* SettingsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducer.swift; sourceTree = "<group>"; };
 		5C3F4666238316CF001CC647 /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
 		5C3F466823831AF8001CC647 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		5C4776AB23A71BBA00D114A1 /* ding-sound-effect_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ding-sound-effect_2.mp3"; sourceTree = "<group>"; };
 		5C484D69239D4B5B002D31D3 /* CaffeineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineEntry.swift; sourceTree = "<group>"; };
 		5C484D6B239D5255002D31D3 /* FluidVolumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidVolumn.swift; sourceTree = "<group>"; };
 		5C484D74239D6C73002D31D3 /* CaffeineEntries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CaffeineEntries.json; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 		5C484D73239D6C4D002D31D3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5C4776AB23A71BBA00D114A1 /* ding-sound-effect_2.mp3 */,
 				5C484D74239D6C73002D31D3 /* CaffeineEntries.json */,
 				5C587E6F23A342CD008EFB11 /* DefaultBrewGuides.json */,
 			);
@@ -770,6 +773,7 @@
 				5CEEC7B5237EFBEA00E3BDB0 /* Localizable.strings in Resources */,
 				5C80C97023745F2900996D91 /* Preview Assets.xcassets in Resources */,
 				5C271E2A23A414FF00158160 /* Font Awesome 5 Free-Solid-900.otf in Resources */,
+				5C4776AC23A71BBA00D114A1 /* ding-sound-effect_2.mp3 in Resources */,
 				5C271E2923A414FF00158160 /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
 				5C80C96D23745F2900996D91 /* Assets.xcassets in Resources */,
 				5C271E2823A414FF00158160 /* icons.json in Resources */,
