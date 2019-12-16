@@ -61,9 +61,14 @@ struct BrewGuideDetailView: View {
     }
     
     func share() {
-        store.sendSync(.connectview(action: .setCurrentEditingPost(post: Post(brewGuide: self.brewGuide))))
-        store.send(.settings(action: .setMainTabViewSelectedTab(index: 2)))
-        store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: true)))
+        if (store.state.settings.signedIn) {
+            store.sendSync(.connectview(action: .setCurrentEditingPost(post: Post(brewGuide: self.brewGuide))))
+            store.send(.settings(action: .setMainTabViewSelectedTab(index: 2)))
+            store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: true)))
+        } else {
+            store.send(.settings(action: .setMainTabViewSelectedTab(index: 2)))
+        }
+
     }
     
     var body: some View {
