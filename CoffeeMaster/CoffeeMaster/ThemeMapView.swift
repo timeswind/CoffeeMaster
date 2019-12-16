@@ -87,7 +87,7 @@ class ThemeMapViewCoordinator: NSObject, MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        print("MapViewDidFinishLoading")
+//        print("MapViewDidFinishLoading")
     }
 
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {

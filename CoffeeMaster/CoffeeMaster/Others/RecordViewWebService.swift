@@ -110,7 +110,6 @@ extension WebDatabaseQueryService {
                 subject.send(false)
             } else {
                 subject.send(true)
-                print("Document successfully written!")
             }
             
         }

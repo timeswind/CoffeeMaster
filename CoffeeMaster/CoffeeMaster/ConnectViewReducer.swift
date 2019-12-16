@@ -51,6 +51,7 @@ enum ConnectViewAsyncAction: Effect {
     case newPost(post: Post)
     case getComments(id: String)
     case postComment(comment: Comment)
+    case updatePost(post: Post)
     
     func mapToAction() -> AnyPublisher<AppAction, Never> {
         switch self {
@@ -96,6 +97,14 @@ enum ConnectViewAsyncAction: Effect {
                     } else {
                         return AppAction.emptyAction(action: .nilAction(nil: true))
                     }
+            }
+            .eraseToAnyPublisher()
+        case let.updatePost(post):
+            return dependencies.webDatabaseQueryService
+                .updatePost(post: post)
+                .replaceError(with: false)
+                .map{ _ in
+                    return AppAction.emptyAction(action: .nilAction(nil: true))
             }
             .eraseToAnyPublisher()
         }

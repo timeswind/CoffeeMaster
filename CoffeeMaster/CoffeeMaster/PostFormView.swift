@@ -85,9 +85,7 @@ struct PostFormView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 TextField(LocalizedStringKey("NewPostTitle"), text: $postTitle)
-                MultilineTextField(LocalizedStringKey("NewPostBody"), text: $postBody, onCommit: {
-                    print("Final text: \(self.postBody)")
-                })
+                MultilineTextField(LocalizedStringKey("NewPostBody"), text: $postBody, onCommit: {})
                 
                 if (self.images.count < 9) {
                     

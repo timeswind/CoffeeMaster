@@ -28,7 +28,6 @@ class StaticDataService {
             let decoder = JSONDecoder()
             StaticDataService.caffeineEntries = try decoder.decode([CaffeineEntry].self, from: data)
         } catch {
-            // Handle error
             print(error)
             StaticDataService.caffeineEntries = []
         }
@@ -51,9 +50,7 @@ class StaticDataService {
             
             StaticDataService.defaultBrewMethods = defaultBrewMethods
             
-            //            print(self.caffeineEntries)
         } catch {
-            // Handle error
             print(error)
             StaticDataService.caffeineEntries = []
         }

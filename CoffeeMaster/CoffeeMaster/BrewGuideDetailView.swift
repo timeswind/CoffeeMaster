@@ -219,7 +219,7 @@ struct BrewGuideWalkThroughView: View {
                     ForEach(0..<brewSteps.count, id: \.self) { index in
                         BrewStepRow(brewSteps[index])
                     }
-                }
+                }.padding(.bottom, 60)
                 
                 
                 Spacer()

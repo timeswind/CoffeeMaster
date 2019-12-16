@@ -21,6 +21,7 @@ struct Post:Codable, Identifiable {
     var author_name: String?
     var allow_comment: Bool?
     var likes: Int?
+    var commont_count: Int?
     
     var brewGuide: BrewGuide?
     var record: Record?
@@ -40,6 +41,7 @@ struct Post:Codable, Identifiable {
         case created_by_uid
         case allow_comment
         case likes
+        case commont_count
         case brewGuide
         case record
         case images_url
@@ -57,8 +59,9 @@ struct Post:Codable, Identifiable {
         self.brewGuide = brewGuide
     }
     
-    init() {
-    }
+    init() {}
+    
+    static var Default = Post.init()
 }
 
 struct Comment:Codable, Identifiable {

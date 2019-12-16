@@ -67,9 +67,7 @@ struct AddRecordFormView: View {
         return
             VStack(alignment: .leading) {
                 TextField(LocalizedStringKey("NewRecordTitle"), text: $recordTitle)
-                MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {
-                    print("Final text: \(self.recordBody)")
-                })
+                MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {})
                 
                 if (self.images.count < 9) {
                     

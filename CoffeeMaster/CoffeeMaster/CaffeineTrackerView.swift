@@ -62,7 +62,6 @@ struct CaffeineTrackerView: View {
             if (error != nil) {
 
             } else {
-                print("save success")
                 self.addRecord(variation: entryVariation)
             }
             

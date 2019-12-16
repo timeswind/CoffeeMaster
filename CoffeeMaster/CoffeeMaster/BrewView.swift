@@ -15,7 +15,6 @@ struct BrewView: View {
     @State var isAddBrewGuideViewPresented = false
     
     private func fetchMyBrewGuides() {
-        print(store.state.settings.signedIn)
         if store.state.settings.signedIn {
             store.send(BrewViewAsyncAction.getMyBrewGuides(query: ""))
         }

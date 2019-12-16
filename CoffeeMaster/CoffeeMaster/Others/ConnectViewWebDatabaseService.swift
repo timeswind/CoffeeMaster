@@ -142,4 +142,23 @@ extension WebDatabaseQueryService {
         }
         return subject.eraseToAnyPublisher()
     }
+    
+    func updatePost(post: Post) -> AnyPublisher<Bool, Error> {
+        let postRef = db.collection("posts").document(post.id!)
+        let docData = try! FirestoreEncoder().encode(post)
+        
+        let subject = PassthroughSubject<Bool, Error>()
+        
+        postRef.setData(docData) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                subject.send(false)
+            } else {
+                subject.send(true)
+            }
+            
+        }
+        
+        return subject.eraseToAnyPublisher()
+    }
 }

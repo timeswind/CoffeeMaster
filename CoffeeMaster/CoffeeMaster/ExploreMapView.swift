@@ -95,7 +95,13 @@ struct ExploreMapView: View {
                     })
                 }.modifier(EnvironmemtServices())
             } else  if (self.sheetView == .Record && self.sheetData != nil  && self.sheetData is Record) {
-                EmptyView()
+                  NavigationView {
+                    NoteDetailView(record: (self.sheetData as! Record)).navigationBarItems(leading: Button(action: {
+                        self.showSheet = false
+                    }){
+                        Text(LocalizedStringKey("Dismiss"))
+                    })
+                }.modifier(EnvironmemtServices())
             } else {
                 EmptyView()
             }

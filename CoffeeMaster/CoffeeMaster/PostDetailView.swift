@@ -13,11 +13,13 @@ import Grid
 struct PostDetailView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
     @EnvironmentObject var keyboard: KeyboardResponder
-
+    
     var post: Post!
     
     @State var my_comments: [Comment] = []
     @State var newComment:String = ""
+    @State var liked: Bool = false
+    @State var editPost: Post = .Default
     
     func fetchComments() {
         if let postid = self.post.id {
@@ -33,16 +35,39 @@ struct PostDetailView: View {
             let newCommentAction: ConnectViewAsyncAction = .postComment(comment: comment)
             store.send(newCommentAction)
             self.newComment = ""
+            self.updatePostCommentCount()
             UIApplication.shared.endEditing()
         }
     }
     
-    func voidCall() {
-        
+    func viewDidAppear() {
+        self.editPost = self.post
+        self.fetchComments()
     }
     
     func likePost() {
         
+        var updatedPost = self.post!
+        if (updatedPost.likes == nil) {
+            updatedPost.likes = 1
+            self.editPost.likes = 1
+        } else {
+            updatedPost.likes = updatedPost.likes! + 1
+            self.editPost.likes = updatedPost.likes
+        }
+        self.liked = true
+        store.send(ConnectViewAsyncAction.updatePost(post: updatedPost))
+        
+    }
+    
+    func updatePostCommentCount() {
+        var updatedPost = self.post!
+        if (updatedPost.commont_count == nil) {
+            updatedPost.commont_count = 1
+        } else {
+            updatedPost.commont_count = updatedPost.commont_count! + 1
+        }
+        store.send(ConnectViewAsyncAction.updatePost(post: updatedPost))
     }
     
     var body: some View {
@@ -173,11 +198,14 @@ struct PostDetailView: View {
             .padding(.bottom, keyboard.currentHeight).navigationBarItems(
             trailing:
             Button(action: {self.likePost()}) {
-                Image("espresso-cup-outline")
+                HStack {
+                    Image(self.liked ? "espresso-cup-fill" :"espresso-cup-outline")
+                    Text("\(self.editPost.likes ?? 0)").fontWeight(.bold)
+                }
         })
             .edgesIgnoringSafeArea(.top)
             .onAppear {
-            self.fetchComments()
+                self.viewDidAppear()
         }
     }
 }
@@ -203,7 +231,7 @@ struct PostCommentsListView: View {
                     HStack {
                         Spacer()
                         Text(Utilities.convertTimestamp(date: comment.created_at!.dateValue())).font(.footnote).foregroundColor(.gray)
-                    }
+                    }.padding(.top)
                     
                 }.padding(.all).overlay(
                     RoundedRectangle(cornerRadius: 10)

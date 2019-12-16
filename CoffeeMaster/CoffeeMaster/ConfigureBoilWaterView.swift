@@ -31,8 +31,6 @@ struct ConfigureBoilWaterView: View {
     
     func submit() {
         self.brewStepBoilWater = BrewStepBoilWater().water(self.waterAmount).temperatue(forWater: self.waterTemperature)
-        print(self.waterAmount)
-        print(self.waterTemperature)
         self.presentationMode.wrappedValue.dismiss()
     }
     

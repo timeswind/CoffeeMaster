@@ -34,10 +34,6 @@ struct ConfigureGrindCoffeeView: View {
     
     func submit() {
         self.brewStepGrindCoffee = BrewStepGrindCoffee().amount(self.coffeeAmount).grindSize(self.coffeeGrindSizeType)
-        print(self.coffeeGrindSizeType.rawValue)
-        print(self.coffeeAmount)
-        
-        //        self.onDismiss()
         self.presentationMode.wrappedValue.dismiss()
     }
     

@@ -128,6 +128,7 @@
 "DefaultBrewGuidesTitle" = "经典咖啡秘籍";
 "ExitBrew" = "退出";
 "ShareBrew" = "分享";
+"Steps" = "步骤";
 
 /*ConnectView*/
 "SignInToJoinOurCommunity" = "现在就用AppleID登入，加入我们的社群吧！";
