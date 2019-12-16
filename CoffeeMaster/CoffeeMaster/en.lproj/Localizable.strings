@@ -151,3 +151,7 @@
 
 "Grind %@ of coffee" = "Grind %@ of coffee";
 "Boil %@ of water" = "Boil %@ of water";
+
+"AddImage" = "Add Image";
+"AddLocation" = "Add Location";
+"RemoveLocation" = "Remove Location";

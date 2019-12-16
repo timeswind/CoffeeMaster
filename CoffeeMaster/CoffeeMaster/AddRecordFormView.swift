@@ -52,6 +52,10 @@ struct AddRecordFormView: View {
         self.location = location
     }
     
+    func removeLocation() {
+        self.location = nil
+    }
+    
     //    func dismissSelf() {
     //        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: false)))
     //    }
@@ -70,18 +74,58 @@ struct AddRecordFormView: View {
                 MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {})
                 
                 if (self.images.count < 9) {
-                    
-                    Button("Show image picker") {
+                    Button(action: {
                         self.showingImagePicker = true
-                    }
+                    }) {
+                        HStack {
+                            FAText(iconName: "images", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+
+                            Text(LocalizedStringKey("AddImage"))
+                                .fontWeight(.bold)
+                                .font(.body)
+                                .padding(.all, 8)
+                                .background(Color(UIColor.Theme.Accent))
+                                .cornerRadius(5)
+                                .foregroundColor(.white)
+                        }
+                    }.padding(.bottom)
+
                 }
                 
                 if (self.location == nil) {
-                    Button("Show location picker") {
+                    Button(action: {
                         self.showLocationPicker()
+                    }) {
+                        HStack {
+                            FAText(iconName: "location-arrow", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("AddLocation"))
+                                .fontWeight(.bold)
+                                .font(.body)
+                                .padding(.all, 8)
+                                .background(Color(UIColor.Theme.Accent))
+                                .cornerRadius(5)
+                                .foregroundColor(.white)
+                        }
                     }
+
                 } else {
-                    LocationCardView(location: self.location!).frame(height: 200)
+                    VStack(alignment: .leading, spacing: 8) {
+                        LocationCardView(location: self.location!).frame(height: 200)
+                        Button(action: {
+                            self.removeLocation()
+                        }) {
+                            HStack {
+                                FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                                Text(LocalizedStringKey("RemoveLocation"))
+                                    .fontWeight(.bold)
+                                    .font(.body)
+                                    .padding(.all, 8)
+                                    .background(Color(UIColor.Theme.Accent))
+                                    .cornerRadius(5)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }
                 }
                 
                 GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
@@ -95,19 +139,7 @@ struct AddRecordFormView: View {
                 
                 Spacer()
             }.padding(20)
-            .sheet(isPresented: $showingImagePicker,
-                    onDismiss: {
-                        // do whatever you need here
-                        // if ImagePicker.shared.image != nil {
-                        //    shownNextScreen = true
-                        // }
-            }, content: {
-                ImagePicker.shared.view
-            }).onReceive(ImagePicker.shared.$image) { image in
-                if (image != nil) {
-                    self.addImage(image: image!)
-                }
-            }
+
             .navigationBarTitle(Text(LocalizedStringKey(isEditMode ? "EditRecord" : "NewRecord")))
             .navigationBarItems(leading:
                 Button(action: {self.exit()}) {
@@ -122,15 +154,28 @@ struct AddRecordFormView: View {
                         Text(LocalizedStringKey("NewRecordRecordAction")).fontWeight(.bold)
                     }
                 }
-            )
-        .sheet(isPresented: $isLocationPickerPresented) {
-            LocationPickerView(onPickLocation: { (location) in
-                self.onPickLocation(location)
-            }, onCancel: {
-                self.isLocationPickerPresented = false
-            }).modifier(EnvironmemtServices())
-        }
-        .accentColor(Color(UIColor.Theme.Accent))
+            ).background(EmptyView().sheet(isPresented: $isLocationPickerPresented) {
+                LocationPickerView(onPickLocation: { (location) in
+                    self.onPickLocation(location)
+                }, onCancel: {
+                    self.isLocationPickerPresented = false
+                }).modifier(EnvironmemtServices())
+            }
+            .background(EmptyView()                .sheet(isPresented: $showingImagePicker,
+                    onDismiss: {
+                        // do whatever you need here
+                        // if ImagePicker.shared.image != nil {
+                        //    shownNextScreen = true
+                        // }
+            }, content: {
+                ImagePicker.shared.view
+            }).onReceive(ImagePicker.shared.$image) { image in
+                if (image != nil) {
+                    self.addImage(image: image!)
+                }
+            }))
+                
+
         
     }
 }

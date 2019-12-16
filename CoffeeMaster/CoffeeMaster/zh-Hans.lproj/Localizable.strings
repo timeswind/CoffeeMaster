@@ -150,3 +150,7 @@
 
 "Grind %@ of coffee" = "研磨 %@ 咖啡";
 "Boil %@ of water" = "烧煮 %@ 水";
+
+"AddImage" = "添加图片";
+"AddLocation" = "添加地点";
+"RemoveLocation" = "移除地点";

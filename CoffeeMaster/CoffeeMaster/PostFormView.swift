@@ -76,6 +76,10 @@ struct PostFormView: View {
         self.location = location
     }
     
+    func removeLocation() {
+        self.location = nil
+    }
+    
     func exit() {
         store.send(.connectview(action: .setNewPostFormPresentStatus(isPresent: false)))
         //        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
@@ -88,18 +92,58 @@ struct PostFormView: View {
                 MultilineTextField(LocalizedStringKey("NewPostBody"), text: $postBody, onCommit: {})
                 
                 if (self.images.count < 9) {
-                    
-                    Button("Show image picker") {
+                    Button(action: {
                         self.showingImagePicker = true
-                    }
+                    }) {
+                        HStack {
+                            FAText(iconName: "images", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+
+                            Text(LocalizedStringKey("AddImage"))
+                                .fontWeight(.bold)
+                                .font(.body)
+                                .padding(.all, 8)
+                                .background(Color(UIColor.Theme.Accent))
+                                .cornerRadius(5)
+                                .foregroundColor(.white)
+                        }
+                    }.padding(.bottom)
+
                 }
                 
                 if (self.location == nil) {
-                    Button("Show location picker") {
+                    Button(action: {
                         self.showLocationPicker()
+                    }) {
+                        HStack {
+                            FAText(iconName: "location-arrow", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("AddLocation"))
+                                .fontWeight(.bold)
+                                .font(.body)
+                                .padding(.all, 8)
+                                .background(Color(UIColor.Theme.Accent))
+                                .cornerRadius(5)
+                                .foregroundColor(.white)
+                        }
                     }
+
                 } else {
-                    LocationCardView(location: self.location!).frame(height: 200)
+                    VStack(alignment: .leading, spacing: 8) {
+                        LocationCardView(location: self.location!).frame(height: 200)
+                        Button(action: {
+                            self.removeLocation()
+                        }) {
+                            HStack {
+                                FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                                Text(LocalizedStringKey("RemoveLocation"))
+                                    .fontWeight(.bold)
+                                    .font(.body)
+                                    .padding(.all, 8)
+                                    .background(Color(UIColor.Theme.Accent))
+                                    .cornerRadius(5)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }
                 }
                 
                 GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
