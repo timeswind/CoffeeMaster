@@ -44,6 +44,10 @@ struct ThemeMapView: UIViewRepresentable {
 //            print("inti center coordinate")
 //            mapView.centerCoordinate = centerCoordinate
 //        }
+        
+         
+        // Enable the permanent heading indicator, which will appear when the tracking mode is not `.followWithHeading`.
+        mapView.showsUserLocation = true
         return mapView
     }
     

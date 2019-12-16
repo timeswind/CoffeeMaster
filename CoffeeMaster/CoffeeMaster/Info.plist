@@ -49,6 +49,8 @@
 	<string>Shows your location on the map and helps improve the map.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Share your photos and save photo to your note</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Help you find placees around you</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
