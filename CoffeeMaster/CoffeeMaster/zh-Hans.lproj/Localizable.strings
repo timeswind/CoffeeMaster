@@ -39,7 +39,7 @@
 /*AddRecordForm View*/
 "NewRecordTitle" = "笔记标题";
 "NewRecordBody" = "写下你的想法";
-"NewRecord" = "新笔记";
+"NewRecord" = "添加新记录";
 "EditRecord" = "编辑笔记";
 "NewRecordRecordAction" = "创建";
 
@@ -155,3 +155,9 @@
 "AddLocation" = "添加地点";
 "RemoveLocation" = "移除地点";
 "OpenInMap" = "在地图中打开";
+
+"Coffee" = "鲜煮咖啡";
+"Americano" = "美式咖啡";
+"Latte" = "拿铁";
+"Cold Brew" = "冷萃";
+"Green Tea" = "绿茶";

@@ -82,7 +82,7 @@ struct LocationPickerView: View {
             if (self.selectLocationObjectIndex >= 0) {
                 onPickLocation(self.locationObjects[self.selectLocationObjectIndex])
             } else {
-                let location = Location(coordinate: Location.Coordinate(from: self.centerCoordinate!), name: "Customize Location", qualifiedName: nil)
+                let location = Location(coordinate: Location.Coordinate(from: self.centerCoordinate!), name: "Location", qualifiedName: nil)
                 onPickLocation(location)
             }
         }

@@ -118,6 +118,8 @@ struct ConfigureGrindCoffeeView: View {
                         }
                         
                     }.pickerStyle(SegmentedPickerStyle())
+                    
+                    Text(LocalizedStringKey(coffeeGrindSizeType.localizableString)).bold().padding(.top)
                 }.padding()
                 .background(Color.white).cornerRadius(10)
                 
