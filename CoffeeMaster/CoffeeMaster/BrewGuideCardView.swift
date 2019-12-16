@@ -14,7 +14,7 @@ struct BrewGuideCardView: View {
     var body: some View {
     
         return VStack(alignment: .leading, spacing: 0) {
-            Text("BrewGuide").font(.headline).fontWeight(.bold).padding(.leading).padding(.bottom, 4)
+            Text("BrewGuide").font(.headline).fontWeight(.bold).padding(.bottom, 4)
             HStack {
                     VStack {
                         Image("\(brewGuide.baseBrewMethod.baseBrewMethodType.rawValue)-icon").resizable().scaledToFit().frame(width: 106.0, height: 106.0)
@@ -34,7 +34,7 @@ struct BrewGuideCardView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-            ).padding([.bottom, .leading, .trailing])
+            )
             }
         }
 }

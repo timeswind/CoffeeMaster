@@ -43,23 +43,24 @@ struct RecordCardView: View {
             
             if (recordType == .Note) {
                 
-                HStack {
-                    VStack(alignment: .leading) {
+                NavigationLink(destination: NoteDetailView(record: record)) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            
+                            Text(record.title)
+                                .font(.title)
+                                .fontWeight(.black)
+                                .foregroundColor(Color(UIColor.Theme.Accent))
+                                .lineLimit(3)
+                            Text("Created at by \(record.created_by_uid)")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .layoutPriority(100)
                         
-                        Text(record.title)
-                            .font(.title)
-                            .fontWeight(.black)
-                            .foregroundColor(Color(UIColor.Theme.Accent))
-                            .lineLimit(3)
-                        Text("Created at by \(record.created_by_uid)")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                        Spacer()
                     }
-                    .layoutPriority(100)
-                    
-                    Spacer()
-                }
-                .padding()
+                }.padding()
             }
             
             if (recordType == .Caffeine) {
@@ -97,10 +98,14 @@ struct RecordCardView: View {
         }
         .background(Color.white)
         .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
+        .shadow(color: Color.black.opacity(0.1),
+                radius: 5,
+                x: 3,
+                y: 3)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
         )
-            .padding([.top])
+        
     }
 }

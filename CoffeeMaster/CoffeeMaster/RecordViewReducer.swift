@@ -31,15 +31,15 @@ struct RecordViewReducer {
             state.caffeineEntries = caffeineEntries
         case let .setRecordFormIsPresent(status):
             state.isAddRecordNoteFormPresented = status
-//            if (status == true) {
-//                state.isCaffeineTrackerPresented = false
-//            }
+            //            if (status == true) {
+            //                state.isCaffeineTrackerPresented = false
+        //            }
         case let .setCaffeineTrackerIsPresent(status):
             print("setCaffeineTrackerIsPresent\(status)")
             state.isCaffeineTrackerPresented = status
-//            if (status == true) {
-//                state.isAddRecordNoteFormPresented = false
-//            }
+            //            if (status == true) {
+            //                state.isAddRecordNoteFormPresented = false
+            //            }
         }
     }
 }
@@ -47,19 +47,20 @@ struct RecordViewReducer {
 enum RecordViewAsyncAction: Effect {
     case getMyRecords(query: String)
     case addRecord(record: Record)
+    case updateRecord(record: Record)
     
     func mapToAction() -> AnyPublisher<AppAction, Never> {
         switch self {
         case let .getMyRecords(query):
             return dependencies.webDatabaseQueryService
                 .getMyRecords(query: query)
-            .replaceError(with: [])
+                .replaceError(with: [])
                 .map { let recordViewAction: RecordViewAction = .setRecords(records: $0)
                     return AppAction.recordview(action: recordViewAction) }
-            .eraseToAnyPublisher()
+                .eraseToAnyPublisher()
         case let .addRecord(record):
             return dependencies.webDatabaseQueryService
-            .addRecord(record: record)
+                .addRecord(record: record)
                 .replaceError(with: nil)
                 .map {
                     if ($0 != nil) {
@@ -70,6 +71,15 @@ enum RecordViewAsyncAction: Effect {
                     }
             }
             .eraseToAnyPublisher()
+        case let.updateRecord(record):
+            return dependencies.webDatabaseQueryService
+                .updateRecord(record: record)
+                .replaceError(with: false)
+                .map{ _ in
+                    return AppAction.emptyAction(action: .nilAction(nil: true))
+            }
+            .eraseToAnyPublisher()
+
         }
     }
 }

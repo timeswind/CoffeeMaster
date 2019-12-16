@@ -27,8 +27,6 @@ struct LocationCardView: View {
     }
     
     var body: some View {
-        print("LocationCardView")
-        print(self.location.coordinate)
         let center = self.location.coordinate.toCLCoordinate2D()
         
         let annotations = Binding<[MGLPointAnnotation]>(get: { () -> [MGLPointAnnotation] in
@@ -45,7 +43,7 @@ struct LocationCardView: View {
                 .font(.headline)
                 .fontWeight(.bold)
                 
-        }.padding()
+        }
     }
 }
 
@@ -53,6 +51,6 @@ struct LocationCardView_Previews: PreviewProvider {
     
     static var location: Location = Location(coordinate: Location.Coordinate(latitude: 34.435947, longitude: 108.757622), name: "Starbucks")
     static var previews: some View {
-        LocationCardView(location: location).frame(height: 200).previewLayout(.sizeThatFits)
+        LocationCardView(location: location).frame(height: 200).previewLayout(.sizeThatFits).padding()
     }
 }

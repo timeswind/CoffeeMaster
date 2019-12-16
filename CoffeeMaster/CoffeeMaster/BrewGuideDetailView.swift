@@ -148,9 +148,9 @@ struct BrewGuideDetailView: View {
                             Text(LocalizedStringKey("ExitBrew")).fontWeight(.bold)
                         }
                     }
-
+                    
                 }
-
+                
         })
     }
 }
@@ -213,12 +213,11 @@ struct BrewGuideWalkThroughView: View {
                     
                     Text(LocalizedStringKey("Steps")).font(.headline).fontWeight(.black).padding([.top], 36)
                     
-                    
                     Spacer()
                 }.padding(.bottom, 8).foregroundColor(Color.Theme.Accent)
                 VStack(alignment: .leading, spacing: 12) {
                     ForEach(0..<brewSteps.count, id: \.self) { index in
-                            BrewStepRow(brewSteps[index])
+                        BrewStepRow(brewSteps[index])
                     }
                 }
                 

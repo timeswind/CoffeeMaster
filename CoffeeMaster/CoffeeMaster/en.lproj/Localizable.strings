@@ -40,6 +40,7 @@
 "NewRecordTitle" = "Record Title";
 "NewRecordBody" = "Write anything you want";
 "NewRecord" = "New Record";
+"EditRecord" = "Edit Record";
 "NewRecordRecordAction" = "Create";
 
 /* Coffee Brew Steps */
@@ -132,6 +133,7 @@
 "SignInToJoinOurCommunity" = "Sign in with Apple ID to join our community";
 "Comments" = "Comments";
 "WrittenBy" = "Written by";
+"CommentDisabled" = "Comment is disabled by author";
 
 /*RecordView*/
 "SignInToRecordSyncedAcrossDevices" = "Sign in with Apple ID to sync your thoughts across devices";
@@ -140,6 +142,7 @@
 "RecordTypeActionSheetNewRecord" = "Record Note";
 "RecordTypeActionSheetTrackCaffeine" = "Record Caffeine";
 "CaffeineTracker" = "Caffeine Tracker";
+"Edit" = "Edit";
 
 /*LocationPicker*/
 "LocationPicker" = "Pick Location";

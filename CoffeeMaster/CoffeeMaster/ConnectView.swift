@@ -73,7 +73,7 @@ struct ConnectListView: View {
                 ForEach(self.store.state.connectViewState.posts, id: \.id) { post in
                         NavigationLink(destination: PostDetailView(post: post)) {
                             PostCardView(post: post)
-                        }.padding(.horizontal).buttonStyle(PlainButtonStyle())
+                        }.padding([.horizontal, .top]).buttonStyle(PlainButtonStyle())
                 }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
             } else {
                 EmptyView()

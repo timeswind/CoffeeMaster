@@ -11,6 +11,8 @@ import FASwiftUI
 
 struct AddRecordFormView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @Environment(\.editMode) var mode
+
     @State private var recordTitle: String = ""
     @State private var recordBody: String = ""
     @State private var isLocationPickerPresented: Bool = false
@@ -18,9 +20,9 @@ struct AddRecordFormView: View {
     @State var showingImagePicker = false
     @State var images : [UIImage] = []
     
-    @State var addCoffeeCollection = false
     @State private var location: Location?
-
+    
+    
     func record() {
         assert(store.state.settings.uid != nil)
         var record = Record(title: recordTitle, body: recordBody, created_by_uid: store.state.settings.uid!)
@@ -60,7 +62,9 @@ struct AddRecordFormView: View {
     }
     
     var body: some View {
-        NavigationView {
+        let isEditMode = !(self.mode?.wrappedValue == .inactive)
+        
+        return
             VStack(alignment: .leading) {
                 TextField(LocalizedStringKey("NewRecordTitle"), text: $recordTitle)
                 MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {
@@ -91,25 +95,6 @@ struct AddRecordFormView: View {
                     }
                 }
                 
-
-                
-                if (self.addCoffeeCollection) {
-                    VStack {
-                        Text("CoffeeCollectionForm")
-                        Text("CoffeeCollectionForm")
-                        Text("CoffeeCollectionForm")
-                        Text("CoffeeCollectionForm")
-                        Text("CoffeeCollectionForm")
-                        Text("CoffeeCollectionForm")
-                        Text("CoffeeCollectionForm")
-                        Text("CoffeeCollectionForm")
-                    }
-                }
-                
-                Toggle(isOn: $addCoffeeCollection) {
-                    Text(LocalizedStringKey("AddCoffeeCollection"))
-                }
-                
                 Spacer()
             }.padding(20)
             .sheet(isPresented: $showingImagePicker,
@@ -125,7 +110,7 @@ struct AddRecordFormView: View {
                     self.addImage(image: image!)
                 }
             }
-            .navigationBarTitle(Text(LocalizedStringKey("NewRecord")))
+            .navigationBarTitle(Text(LocalizedStringKey(isEditMode ? "EditRecord" : "NewRecord")))
             .navigationBarItems(leading:
                 Button(action: {self.exit()}) {
                     HStack(alignment: .bottom, spacing: 0) {
@@ -140,7 +125,7 @@ struct AddRecordFormView: View {
                     }
                 }
             )
-        }.sheet(isPresented: $isLocationPickerPresented) {
+        .sheet(isPresented: $isLocationPickerPresented) {
             LocationPickerView(onPickLocation: { (location) in
                 self.onPickLocation(location)
             }, onCancel: {
@@ -155,7 +140,9 @@ struct AddRecordFormView: View {
 struct AddRecordFormView_Previews: PreviewProvider {
     
     static var previews: some View {
-           AddRecordFormView().modifier(EnvironmemtServices())
+        NavigationView {
+            AddRecordFormView()
+        }.modifier(EnvironmemtServices())
     }
 }
 

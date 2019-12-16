@@ -50,6 +50,7 @@ struct PostDetailView: View {
         let hasLocation = post.location != nil
         let hasBrewGuide = post.brewGuide != nil
         let author_name = post.author_name ?? post.created_by_uid ?? "Author name"
+        let allowComment = post.allow_comment ?? true
         
         let comments = Binding<[Comment]>(
             get: {
@@ -93,7 +94,7 @@ struct PostDetailView: View {
                             .fontWeight(.black)
                             .foregroundColor(Color(UIColor.Theme.Accent))
                             .lineLimit(3)
-                        Text("\("WrittenBy".localized()) \(author_name ?? "")".uppercased())
+                        Text("\("WrittenBy".localized()) \(author_name)".uppercased())
                             .font(.caption)
                             .foregroundColor(.secondary)
                         
@@ -138,30 +139,38 @@ struct PostDetailView: View {
                     }
                 }
                 
-                Text(LocalizedStringKey("Comments")).font(.title).fontWeight(.bold).padding(.top, 10)
-                TextField(LocalizedStringKey("NewCommentBody"), text: $newComment).padding(.bottom)
-                
-                if (!self.newComment.isEmpty) {
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            self.postComment()
-                        }) {
-                            HStack {
-                                Text(LocalizedStringKey("PostComment"))
-                                    .fontWeight(.bold)
-                                    .font(.body)
-                                    .padding(.all, 8)
-                                    .background(Color(UIColor.Theme.Accent))
-                                    .cornerRadius(5)
-                                    .foregroundColor(.white)
+                if (allowComment) {
+                    Text(LocalizedStringKey("Comments")).font(.title).fontWeight(.bold).padding(.top, 10)
+                    TextField(LocalizedStringKey("NewCommentBody"), text: $newComment).padding(.bottom)
+                    
+                    if (!self.newComment.isEmpty) {
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                self.postComment()
+                            }) {
+                                HStack {
+                                    Text(LocalizedStringKey("PostComment"))
+                                        .fontWeight(.bold)
+                                        .font(.body)
+                                        .padding(.all, 8)
+                                        .background(Color(UIColor.Theme.Accent))
+                                        .cornerRadius(5)
+                                        .foregroundColor(.white)
+                                }
                             }
-                        }
-                    }.padding(.bottom)
+                        }.padding(.bottom)
+                    }
+                    PostCommentsListView(comments: comments)
+                } else {
+                    Text(LocalizedStringKey("CommentDisabled")).font(.title).fontWeight(.bold).padding(.top, 10)
+
                 }
-                PostCommentsListView(comments: comments)
+                
+
             }.padding(.init(top: 100, leading: 16, bottom: 0, trailing: 16))
-        }.padding(.bottom, keyboard.currentHeight).navigationBarItems(
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: Alignment.topLeading)
+            .padding(.bottom, keyboard.currentHeight).navigationBarItems(
             trailing:
             Button(action: {self.likePost()}) {
                 Image("espresso-cup-outline")

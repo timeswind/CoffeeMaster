@@ -57,4 +57,6 @@ struct Record:Codable, Identifiable {
         case Note
         case Caffeine
     }
+    
+    static var Default = Record(title: "", body: "", created_by_uid: "")
 }

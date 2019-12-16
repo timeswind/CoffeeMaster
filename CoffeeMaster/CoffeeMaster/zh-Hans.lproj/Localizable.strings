@@ -40,6 +40,7 @@
 "NewRecordTitle" = "笔记标题";
 "NewRecordBody" = "写下你的想法";
 "NewRecord" = "新笔记";
+"EditRecord" = "编辑笔记";
 "NewRecordRecordAction" = "创建";
 
 /* Coffee Brew Steps */
@@ -132,6 +133,7 @@
 "SignInToJoinOurCommunity" = "现在就用AppleID登入，加入我们的社群吧！";
 "Comments" = "评论";
 "WrittenBy" = "作者";
+"CommentDisabled" = "帖子评论已关闭";
 
 /*RecordView*/
 "SignInToRecordSyncedAcrossDevices" = "现在就用AppleID登入，记录你的奇思妙想并与多款设备保持同步";
@@ -140,6 +142,7 @@
 "RecordTypeActionSheetNewRecord" = "想法";
 "RecordTypeActionSheetTrackCaffeine" = "咖啡因摄入";
 "CaffeineTracker" = "咖啡因记录";
+"Edit" = "编辑";
 
 /*LocationPicker*/
 "LocationPicker" = "选择地点";

@@ -38,7 +38,7 @@ extension WebDatabaseQueryService {
         return subject.eraseToAnyPublisher()
     }
     
-    func addRecord(record: Record)  -> AnyPublisher<Record?, Error> {
+    func addRecord(record: Record) -> AnyPublisher<Record?, Error> {
         let recordsRef = db.collection("records")
         var newDocRef: DocumentReference? = nil
         
@@ -78,7 +78,7 @@ extension WebDatabaseQueryService {
                     }
                 }
             }
-           
+            
         } else {
             let docData = try! FirestoreEncoder().encode(modifyRecord)
             
@@ -95,7 +95,27 @@ extension WebDatabaseQueryService {
         }
         
         return subject.eraseToAnyPublisher()
-
+        
     }
     
+    func updateRecord(record: Record) -> AnyPublisher<Bool, Error> {
+        let recordRef = db.collection("records").document(record.id!)
+        let docData = try! FirestoreEncoder().encode(record)
+        
+        let subject = PassthroughSubject<Bool, Error>()
+        
+        recordRef.setData(docData) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                subject.send(false)
+            } else {
+                subject.send(true)
+                print("Document successfully written!")
+            }
+            
+        }
+        
+        return subject.eraseToAnyPublisher()
+    }
+        
 }

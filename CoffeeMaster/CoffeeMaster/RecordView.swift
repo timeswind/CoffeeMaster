@@ -94,7 +94,9 @@ struct RecordView: View {
             }
         }) {
             if (isAddRecordNoteFormPresented) {
-                AddRecordFormView().modifier(EnvironmemtServices())
+                NavigationView {
+                    AddRecordFormView()
+                }.modifier(EnvironmemtServices())
             } else {
                 CaffeineTrackerView(askPermission: true).modifier(EnvironmemtServices())
             }
@@ -119,9 +121,7 @@ struct RecordListView: View {
             if (viewSegment == 0) {
                 if (self.store.state.recordViewState.records.count > 0) {
                     ForEach(records, id: \.id) { record in
-                        NavigationLink(destination: Text("Record Detail")) {
-                            RecordCardView(record: record)
-                        }.padding(.horizontal)
+                        return RecordCardView(record: record).padding([.top, .horizontal])
                     }.listRowInsets(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
                     .buttonStyle(PlainButtonStyle())
                 } else {
