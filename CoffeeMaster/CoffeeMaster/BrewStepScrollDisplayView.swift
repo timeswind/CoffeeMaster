@@ -97,28 +97,32 @@ struct BrewStepScrollDisplayView: View {
                             .foregroundColor(Color.white)
                     }                        .background(Color(UIColor.Theme.Accent))
                         .cornerRadius(38.5)
-                        .padding()
+                        .padding([.vertical, .leading])
                         .shadow(color: Color.black.opacity(0.3),
                                 radius: 3,
                                 x: 3,
                                 y: 3)
+                    .opacity((self.i_index == 0) ? 0 : 1)
                     Spacer()
                     
-                    ForEach(0..<brewSteps.count, id:\.self) { index in
-                        Group {
-                            if (index == self.i_index) {
-                                Text(brewSteps[self.i_index].instruction)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color.black)
-                                    .multilineTextAlignment(.center)
-                                    .lineLimit(10)
-                                    .transition(.asymmetric(insertion: AnyTransition.opacity.combined(with: .scale).animation(.easeInOut(duration: 0.5)), removal: AnyTransition.opacity.combined(with: .offset(self.offset)).animation(.easeInOut(duration: 0.5))))
-                            } else {
-                                EmptyView()
+                    VStack {
+                        ForEach(0..<brewSteps.count, id:\.self) { index in
+                            Group {
+                                if (index == self.i_index) { 
+                                    Text(brewSteps[self.i_index].instruction)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color.black)
+                                        .multilineTextAlignment(.center)
+                                        .lineLimit(10)
+                                        .transition(.asymmetric(insertion: AnyTransition.opacity.combined(with: .scale).animation(.easeInOut(duration: 0.5)), removal: AnyTransition.opacity.combined(with: .offset(self.offset)).animation(.easeInOut(duration: 0.5))))
+                                } else {
+                                    EmptyView()
+                                }
                             }
+                            
                         }
-                        
-                    }
+                    }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: Alignment.topLeading)
+                    
                     
                     Spacer()
                     Button(action: {
@@ -130,15 +134,17 @@ struct BrewStepScrollDisplayView: View {
                         FAText(iconName: "Forward", size: 24, style: .solid)
                             .frame(width: 70, height: 70)
                             .foregroundColor(Color.white)
-                    }                        .background(Color(UIColor.Theme.Accent))
+                    }
+                    .background(Color(UIColor.Theme.Accent))
                         .cornerRadius(38.5)
-                        .padding()
+                        .padding([.vertical, .trailing])
                         .shadow(color: Color.black.opacity(0.3),
                                 radius: 3,
                                 x: 3,
                                 y: 3)
+                    .opacity((self.i_index == (brewSteps.count - 1)) ? 0 : 1)
                     
-                }.multilineTextAlignment(.center)
+                }
         }
         
     }

@@ -91,8 +91,8 @@ class DefaultBrewingGuides {
         let harioV60BrewGuide = BrewGuide(baseBrewMethod: hariov60BrewMethod)
             .grindCoffee(step: grindCoffee)
             .boilWater(step: boilWater)
-            .add(brewStep: BrewStepBloom().water(50).duration(10).instruction("Pour 50g of water until all the grounds are evenly saturated"))
-            .add(brewStep: BrewStepWait().duration(20).instruction("Wait for the coffee to bloom"))
+            .add(brewStep: BrewStepBloom().water(50).instruction("Pour 50g of water until all the grounds are evenly saturated").duration(10))
+            .add(brewStep: BrewStepWait().instruction("Wait for the coffee to bloom").duration(20))
             .add(brewStep: BrewStepBloom().water(50).instruction("Pour another 50g of water in spiral rotation").duration(10))
             .add(brewStep: BrewStepWait().instruction("Wait for the water to drain through the grounds").duration(20))
             .add(brewStep: BrewStepBloom().water(120).instruction("Pour the remaining 120g of water around the edges of the dripper").duration(40))
@@ -115,7 +115,7 @@ class DefaultBrewingGuides {
         let chemexBrewGuide = BrewGuide(baseBrewMethod: chemexBrewMethod)
             .grindCoffee(step: grindCoffee)
             .boilWater(step: boilWater)
-            .add(brewStep: BrewStepBloom().water(50).duration(10).instruction("Pour in 50ml of water and bloom for 10 secs"))
+            .add(brewStep: BrewStepBloom().water(50).instruction("Pour in 50ml of water and bloom for 10 secs").duration(10))
             .add(brewStep: BrewStepOther().instruction("Stir the grounds to ensure all coffee is fully immersed").duration(5))
             .add(brewStep: BrewStepOther().instruction("Wait for the coffee to bloom").duration(15))
             .add(brewStep: BrewStepBloom().water(130).instruction("Pour 130g of water in a spiral motion over the dark areas").duration(30))
@@ -144,7 +144,7 @@ class DefaultBrewingGuides {
             .add(brewStep: BrewStepOther().instruction("Place the plunger on the brewer and pull up slightly to create a pressure seal").duration(5))
             .add(brewStep: BrewStepWait().instruction("Wait fot the coffee to brew").duration(30))
             .add(brewStep: BrewStepOther().instruction("Gently press down on the plunger with steady pressure").duration(20))
-            .add(brewStep: BrewStepOther().instruction("When done simply tale off the bottom cap, pop the grounds and the filter"))
+            .add(brewStep: BrewStepOther().instruction("When done simply tale off the bottom cap, pop the grounds and the filter").duration(5))
 
         
         aeropressBrewGuide.guideDescription = "The AeroPress is the first coffee maker that combine affordability and simplicity with the ability to produce top quality coffee"

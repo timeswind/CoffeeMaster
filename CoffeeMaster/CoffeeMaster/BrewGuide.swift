@@ -100,8 +100,11 @@ class BrewGuide: Codable {
     }
     
     func getPassedTimeInSecForStep(at index: Int) ->Int {
+        if index == 0 {
+            return 0
+        }
         var total = 0
-        for step in self.brewSteps[...index] {
+        for step in self.brewSteps[...(index - 1)] {
             total += step.duration
         }
         return total

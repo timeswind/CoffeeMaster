@@ -194,7 +194,7 @@
         "brewType": "Other",
         "instruction": "When done simply tale off the bottom cap, pop the grounds and the filter",
         "description": "",
-        "duration": 0
+        "duration": 5
       }
     ],
     "brewStepBoilWater": {
