@@ -14,7 +14,9 @@ This project use cocoapods to download dependency
 
 4.Open CoffeeMaster.xcworkspace
 
-5.compile and run
+5.Wait for Swift Package Manager to load dependencies
+
+6.Clear Build Folder if fail to compile
 
 Account
 =======
