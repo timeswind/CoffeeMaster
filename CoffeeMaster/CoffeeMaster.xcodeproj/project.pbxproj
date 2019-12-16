@@ -105,6 +105,7 @@
 		5CDA7725238B7B0D002E0ED5 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7724238B7B0D002E0ED5 /* SignInWithAppleView.swift */; };
 		5CDA7727238B8B24002E0ED5 /* RecordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */; };
 		5CDA772A238B927F002E0ED5 /* BrewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA7729238B927F002E0ED5 /* BrewGuide.swift */; };
+		5CE4FC4F23A7387600D49E2A /* CoffeeVariationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4FC4E23A7387600D49E2A /* CoffeeVariationCell.swift */; };
 		5CE62D222399DA5B00BAE012 /* BrewStepScrollDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE62D212399DA5B00BAE012 /* BrewStepScrollDisplayView.swift */; };
 		5CE62D242399F87800BAE012 /* OffsetScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE62D232399F87800BAE012 /* OffsetScrollView.swift */; };
 		5CE63736238DA17D00C1DC49 /* BrewStepType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63735238DA17D00C1DC49 /* BrewStepType.swift */; };
@@ -273,6 +274,7 @@
 		5CDA7724238B7B0D002E0ED5 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
 		5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCardView.swift; sourceTree = "<group>"; };
 		5CDA7729238B927F002E0ED5 /* BrewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuide.swift; sourceTree = "<group>"; };
+		5CE4FC4E23A7387600D49E2A /* CoffeeVariationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeVariationCell.swift; sourceTree = "<group>"; };
 		5CE62D212399DA5B00BAE012 /* BrewStepScrollDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStepScrollDisplayView.swift; sourceTree = "<group>"; };
 		5CE62D232399F87800BAE012 /* OffsetScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetScrollView.swift; sourceTree = "<group>"; };
 		5CE63735238DA17D00C1DC49 /* BrewStepType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStepType.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 			children = (
 				5C8F6E742381B0420010EE0E /* RecordView.swift */,
 				5C2F6A21239D4A16004E8459 /* CaffeineTrackerView.swift */,
+				5CE4FC4E23A7387600D49E2A /* CoffeeVariationCell.swift */,
 				5C0C26982391D58A00F27180 /* NoteDetailView.swift */,
 				5CDA7726238B8B24002E0ED5 /* RecordCardView.swift */,
 				5C3F465A23830903001CC647 /* AddRecordFormView.swift */,
@@ -928,6 +931,7 @@
 				5C0D0F492384508800FA7952 /* BrewGuideDetailView.swift in Sources */,
 				5C80C96623745F2600996D91 /* SceneDelegate.swift in Sources */,
 				5C02EB352387A97B002A7A1E /* AddBrewStepView.swift in Sources */,
+				5CE4FC4F23A7387600D49E2A /* CoffeeVariationCell.swift in Sources */,
 				5C587E6D23A33161008EFB11 /* RecordPointAnnotation.swift in Sources */,
 				5CC5DB4D239EE58800CFDDA4 /* LocationPickerView.swift in Sources */,
 				5CEEC7BC237F052800E3BDB0 /* SettingsView.swift in Sources */,

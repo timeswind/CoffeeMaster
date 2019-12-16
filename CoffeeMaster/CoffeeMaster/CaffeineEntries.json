@@ -52,5 +52,41 @@
         "caffeineAmount": 0.015
       }
     ]
+  },
+  {
+    "category": "Espresso",
+    "name": "Latte",
+    "variation": [
+      {
+        "volume": 1,
+        "caffeineAmount": 0.005
+      },
+      {
+        "volume": 2,
+        "caffeineAmount": 0.01
+      },
+      {
+        "volume": 3,
+        "caffeineAmount": 0.015
+      }
+    ]
+  },
+  {
+    "category": "Tea",
+    "name": "Green Tea",
+    "variation": [
+      {
+        "volume": 250,
+        "caffeineAmount": 0.003
+      },
+      {
+        "volume": 350,
+        "caffeineAmount": 0.0043
+      },
+      {
+        "volume": 480,
+        "caffeineAmount": 0.0057
+      }
+    ]
   }
 ]

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct CaffeineEntry: Codable, Identifiable {
+struct CaffeineEntry: Codable, Identifiable, Hashable {
     var id:String {category.rawValue + name}
     
     var category: Category
@@ -24,6 +24,14 @@ struct CaffeineEntry: Codable, Identifiable {
         case variation
     }
     
+    static func == (lhs: CaffeineEntry, rhs: CaffeineEntry) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
     func displayVolumeUnit() -> WeightUnit {
         switch category {
         case .Espresso:
@@ -33,10 +41,18 @@ struct CaffeineEntry: Codable, Identifiable {
         }
     }
     
-    struct Variation: Codable, Identifiable {
+    struct Variation: Codable, Identifiable, Hashable {
         var id: String {"\(volume.getVolumeInML())\(caffeineAmount.getVolume())" }
         var volume: FluidVolume
         var caffeineAmount: BrewWeight
+        
+        static func == (lhs: CaffeineEntry.Variation, rhs: CaffeineEntry.Variation) -> Bool {
+            return lhs.id == rhs.id
+        }
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(id)
+        }
         
         func displayVolume() -> String {
             return String(format: "%.0f", volume.getVolume())
@@ -75,4 +91,6 @@ struct CaffeineEntry: Codable, Identifiable {
         
         static let allValues: [Category] = [Coffee, Espresso, Tea, SoftDrink, EnergyDrink]
     }
+    
+    static var Default = CaffeineEntry(category: .Coffee, name: "Coffee", variation: [], image: nil)
 }

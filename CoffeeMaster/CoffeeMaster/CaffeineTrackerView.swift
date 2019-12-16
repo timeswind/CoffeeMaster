@@ -13,27 +13,17 @@ import FASwiftUI
 
 struct CaffeineTrackerView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
-    @State var selectedCategory: CaffeineEntry.Category?
-    @State var selectedEntry: CaffeineEntry?
+    @State var selectedEntryIndex = 0
     
     var askPermission: Bool
     
     func exit() {
-//        UIApplication.shared.windows[0].rootViewController?.dismiss(animated: true, completion: { })
         store.send(.recordview(action: .setCaffeineTrackerIsPresent(status: false)))
     }
     
-    func selectCategory(_ category: CaffeineEntry.Category) {
-        self.selectedCategory = category
-    }
-    
-    func selectEntry(_ entry: CaffeineEntry) {
-        self.selectedEntry = entry
-    }
-    
-    func addRecord(variation: CaffeineEntry.Variation) {
+    func addRecord(_ selectedEntry: CaffeineEntry, variation: CaffeineEntry.Variation) {
         assert(store.state.settings.uid != nil)
-        let entry = self.selectedEntry!
+        let entry = selectedEntry
         let caffeineEntry = CaffeineEntry(category: entry.category, name: entry.name, variation: [variation], image: nil)
         let caffeineRecord = CaffeineRecord(caffeineEntry: caffeineEntry)
         
@@ -42,7 +32,7 @@ struct CaffeineTrackerView: View {
         self.exit()
     }
     
-    func addRecordToHealtApp(_ entryVariation: CaffeineEntry.Variation) {
+    func addRecordToHealtApp(_ selectedEntry: CaffeineEntry, entryVariation: CaffeineEntry.Variation) {
         let healthStore = store.state.settings.heathStore!
         
         //Caffeine in mg
@@ -60,9 +50,9 @@ struct CaffeineTrackerView: View {
         
         healthStore.save(bloodCorrelationCorrelationForWaterAmount, withCompletion: { (success, error) in
             if (error != nil) {
-
+                
             } else {
-                self.addRecord(variation: entryVariation)
+                self.addRecord(selectedEntry, variation: entryVariation)
             }
             
         })
@@ -95,39 +85,49 @@ struct CaffeineTrackerView: View {
     
     var body: some View {
         let caffeineEntries = askPermission ? store.state.recordViewState.caffeineEntries : StaticDataService.caffeineEntries
+        let selectedEntry = caffeineEntries[self.selectedEntryIndex]
         
         return NavigationView {
             VStack {
-                QGrid(caffeineEntries, columns: 3) { (entry) in
-                    VStack {
-                        Button(action: {
-                            self.selectEntry(entry)
-                        }){
-                            Text(LocalizedStringKey(entry.name))
+                
+                VStack {
+                    Picker(selection: $selectedEntryIndex, label: Text("CaffeineTrackerCategoryPicker")) {
+                        ForEach(0 ..< caffeineEntries.count) { index in
+                            VStack {
+                                Text(LocalizedStringKey(caffeineEntries[index].name))
+                            }
                         }
                         
+                    }.pickerStyle(SegmentedPickerStyle()).padding()
+                }
+                .background(Color.white).cornerRadius(10)
+                
+                //                QGrid(caffeineEntries, columns: 3) { (entry) in
+                //                    VStack {
+                //                        Button(action: {
+                //                            self.selectEntry(entry)
+                //                        }){
+                //                            Text(LocalizedStringKey(entry.name))
+                //                        }
+                //
+                //                    }
+                //                }
+                
+                QGrid(selectedEntry.variation, columns: 3) { (variation) in
+                    Button(action: {
+                        if (self.askPermission) {
+                            self.addRecordToHealtApp(selectedEntry, entryVariation: variation)
+                        }
+                    }){
+                        
+                        CoffeeVariationCell(selectedEntry, variation: variation)
                     }
                 }
                 
-                if (selectedEntry != nil) {
-                    QGrid(selectedEntry!.variation, columns: 3) { (entry) in
-                        Button(action: {
-                            if (self.askPermission) {
-                                self.addRecordToHealtApp(entry)
-                            }
-                        }){
-                            VStack {
-                                Text(LocalizedStringKey(self.selectedEntry!.name))
-                                Text("\(entry.volume.getVolumeInML())")
-                                Text("\(entry.caffeineAmount.getMilligram())mg")
-                            }
-                        }
-                        
-                        
-                    }
-                }
-            }.navigationBarTitle(Text(LocalizedStringKey("CaffeineTracker")))
-            .navigationBarItems(trailing:
+            }.padding(.top, 160)
+                .edgesIgnoringSafeArea(.all)
+                .navigationBarTitle(Text(LocalizedStringKey("CaffeineTracker")))
+                .navigationBarItems(trailing:
                     Button(action: {self.exit()}) {
                         HStack(alignment: .bottom, spacing: 0) {
                             FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
