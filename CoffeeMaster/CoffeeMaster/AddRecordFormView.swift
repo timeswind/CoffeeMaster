@@ -10,6 +10,7 @@ import SwiftUI
 import FASwiftUI
 
 struct AddRecordFormView: View {
+    @EnvironmentObject var keyboard: KeyboardResponder
     @EnvironmentObject var store: Store<AppState, AppAction>
     @Environment(\.editMode) var mode
 
@@ -21,7 +22,6 @@ struct AddRecordFormView: View {
     @State var images : [UIImage] = []
     
     @State private var location: Location?
-    
     
     func record() {
         assert(store.state.settings.uid != nil)
@@ -56,127 +56,131 @@ struct AddRecordFormView: View {
         self.location = nil
     }
     
-    //    func dismissSelf() {
-    //        store.send(.recordview(action: .setAddRecordFormPresentStatus(isPresent: false)))
-    //    }
-    
     func exit() {
         self.images = []
         store.send(.recordview(action: .setRecordFormIsPresent(status: false)))
+    }
+    
+    private func endEditing() {
+        UIApplication.shared.endEditing()
     }
     
     var body: some View {
         let isEditMode = !(self.mode?.wrappedValue == .inactive)
         
         return
-            VStack(alignment: .leading) {
-                TextField(LocalizedStringKey("NewRecordTitle"), text: $recordTitle)
-                MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {})
-                
-                if (self.images.count < 9) {
-                    Button(action: {
-                        self.showingImagePicker = true
-                    }) {
-                        HStack {
-                            FAText(iconName: "images", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+            NavigationView {
+                ScrollView(.vertical, showsIndicators: true) {
+                    VStack(alignment: .leading) {
+                        TextField(LocalizedStringKey("NewRecordTitle"), text: $recordTitle)
+                        MultilineTextField(LocalizedStringKey("NewRecordBody"), text: $recordBody, onCommit: {})
+                        
+                        if (self.images.count < 9) {
+                            Button(action: {
+                                self.showingImagePicker = true
+                            }) {
+                                HStack {
+                                    FAText(iconName: "images", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
 
-                            Text(LocalizedStringKey("AddImage"))
-                                .fontWeight(.bold)
-                                .font(.body)
-                                .padding(.all, 8)
-                                .background(Color(UIColor.Theme.Accent))
-                                .cornerRadius(5)
-                                .foregroundColor(.white)
+                                    Text(LocalizedStringKey("AddImage"))
+                                        .fontWeight(.bold)
+                                        .font(.body)
+                                        .padding(.all, 8)
+                                        .background(Color(UIColor.Theme.Accent))
+                                        .cornerRadius(5)
+                                        .foregroundColor(.white)
+                                }
+                            }.padding(.bottom)
+
                         }
-                    }.padding(.bottom)
+                        
+                        if (self.location == nil) {
+                            Button(action: {
+                                self.showLocationPicker()
+                            }) {
+                                HStack {
+                                    FAText(iconName: "location-arrow", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                                    Text(LocalizedStringKey("AddLocation"))
+                                        .fontWeight(.bold)
+                                        .font(.body)
+                                        .padding(.all, 8)
+                                        .background(Color(UIColor.Theme.Accent))
+                                        .cornerRadius(5)
+                                        .foregroundColor(.white)
+                                }
+                            }
 
-                }
-                
-                if (self.location == nil) {
-                    Button(action: {
-                        self.showLocationPicker()
-                    }) {
-                        HStack {
-                            FAText(iconName: "location-arrow", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
-                            Text(LocalizedStringKey("AddLocation"))
-                                .fontWeight(.bold)
-                                .font(.body)
-                                .padding(.all, 8)
-                                .background(Color(UIColor.Theme.Accent))
-                                .cornerRadius(5)
-                                .foregroundColor(.white)
-                        }
-                    }
-
-                } else {
-                    VStack(alignment: .leading, spacing: 8) {
-                        LocationCardView(location: self.location!).frame(height: 200)
-                        Button(action: {
-                            self.removeLocation()
-                        }) {
-                            HStack {
-                                FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
-                                Text(LocalizedStringKey("RemoveLocation"))
-                                    .fontWeight(.bold)
-                                    .font(.body)
-                                    .padding(.all, 8)
-                                    .background(Color(UIColor.Theme.Accent))
-                                    .cornerRadius(5)
-                                    .foregroundColor(.white)
+                        } else {
+                            VStack(alignment: .leading, spacing: 8) {
+                                LocationCardView(location: self.location!).frame(height: 200)
+                                Button(action: {
+                                    self.removeLocation()
+                                }) {
+                                    HStack {
+                                        FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                                        Text(LocalizedStringKey("RemoveLocation"))
+                                            .fontWeight(.bold)
+                                            .font(.body)
+                                            .padding(.all, 8)
+                                            .background(Color(UIColor.Theme.Accent))
+                                            .cornerRadius(5)
+                                            .foregroundColor(.white)
+                                    }
+                                }
                             }
                         }
+                        
+                        GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
+                            Image(uiImage: self.images[index])
+                                .resizable()
+                                .frame(width: cellWidth, height: cellWidth)
+                                .onTapGesture {
+                                    self.removeImage(at: index)
+                            }
+                        }
+                        
+                        Spacer()
+                    }.onTapGesture {
+                        self.endEditing()
                     }
-                }
-                
-                GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
-                    Image(uiImage: self.images[index])
-                        .resizable()
-                        .frame(width: cellWidth, height: cellWidth)
-                        .onTapGesture {
-                            self.removeImage(at: index)
+                    .padding([.horizontal, .top],20)
+                    .navigationBarTitle(Text(LocalizedStringKey(isEditMode ? "EditRecord" : "NewRecord")))
+                    .navigationBarItems(leading:
+                        Button(action: {self.exit()}) {
+                            HStack(alignment: .bottom, spacing: 0) {
+                                FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                                Text(LocalizedStringKey("Dismiss")).fontWeight(.bold)
+                            }
+                        }
+                        ,trailing: Button(action: {self.record()}) {
+                            HStack(alignment: .bottom, spacing: 0) {
+                                FAText(iconName: "paper-plane", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                                Text(LocalizedStringKey("NewRecordRecordAction")).fontWeight(.bold)
+                            }
+                        }
+                    ).background(EmptyView().sheet(isPresented: $isLocationPickerPresented) {
+                        LocationPickerView(onPickLocation: { (location) in
+                            self.onPickLocation(location)
+                        }, onCancel: {
+                            self.isLocationPickerPresented = false
+                        }).modifier(EnvironmemtServices())
                     }
-                }
-                
-                Spacer()
-            }.padding(20)
+                    .background(EmptyView()                .sheet(isPresented: $showingImagePicker,
+                            onDismiss: {
+                                // do whatever you need here
+                                // if ImagePicker.shared.image != nil {
+                                //    shownNextScreen = true
+                                // }
+                    }, content: {
+                        ImagePicker.shared.view
+                    }).onReceive(ImagePicker.shared.$image) { image in
+                        if (image != nil) {
+                            self.addImage(image: image!)
+                        }
+                }))
+            }.padding(.bottom, self.keyboard.currentHeight + 40)
+        }.edgesIgnoringSafeArea(.bottom)
 
-            .navigationBarTitle(Text(LocalizedStringKey(isEditMode ? "EditRecord" : "NewRecord")))
-            .navigationBarItems(leading:
-                Button(action: {self.exit()}) {
-                    HStack(alignment: .bottom, spacing: 0) {
-                        FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
-                        Text(LocalizedStringKey("Dismiss")).fontWeight(.bold)
-                    }
-                }
-                ,trailing: Button(action: {self.record()}) {
-                    HStack(alignment: .bottom, spacing: 0) {
-                        FAText(iconName: "paper-plane", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
-                        Text(LocalizedStringKey("NewRecordRecordAction")).fontWeight(.bold)
-                    }
-                }
-            ).background(EmptyView().sheet(isPresented: $isLocationPickerPresented) {
-                LocationPickerView(onPickLocation: { (location) in
-                    self.onPickLocation(location)
-                }, onCancel: {
-                    self.isLocationPickerPresented = false
-                }).modifier(EnvironmemtServices())
-            }
-            .background(EmptyView()                .sheet(isPresented: $showingImagePicker,
-                    onDismiss: {
-                        // do whatever you need here
-                        // if ImagePicker.shared.image != nil {
-                        //    shownNextScreen = true
-                        // }
-            }, content: {
-                ImagePicker.shared.view
-            }).onReceive(ImagePicker.shared.$image) { image in
-                if (image != nil) {
-                    self.addImage(image: image!)
-                }
-            }))
-                
-
-        
     }
 }
 

@@ -39,7 +39,8 @@ struct UIKitTabView: View {
         
         init<V: View>(view: V, title: String?, image: String, selectedImage: String? = nil) {
             let selectedImage = selectedImage != nil ? UIImage(named: selectedImage!) : nil
-            let barItem = UITabBarItem(title: title?.localized(), image: UIImage(named: image), selectedImage: selectedImage)
+            let barItem = UITabBarItem(title: "", image: UIImage(named: image), selectedImage: selectedImage)
+            barItem.accessibilityLabel = title
             self.init(view: view, barItem: barItem)
         }
     }

@@ -16,6 +16,7 @@ class StopWatch: ObservableObject {
     var maxTimeInSec:Int?
     
     @Published private(set) var stopWatchTime = "00:00:00"
+    @Published private(set) var stopWatchTimeInSec = 0
     @Published private(set) var progressPercent = CGFloat(1)
     
     var paused = true
@@ -31,6 +32,7 @@ class StopWatch: ObservableObject {
             DispatchQueue.main.async {
                 self.progressPercent = StopWatch.calculateProgressPercent(counter: self.counter, maxTimeInSec: self.maxTimeInSec)
                 self.stopWatchTime = StopWatch.convertCountToTimeString(counter: self.counter)
+                self.stopWatchTimeInSec = self.counter / 100
             }
         }
     }
@@ -59,6 +61,7 @@ class StopWatch: ObservableObject {
     func reset() {
         self.timer?.invalidate()
         self.stopWatchTime = "00:00:00"
+        self.stopWatchTimeInSec = 0
         self.progressPercent = CGFloat(0)
         self.counter = 0
     }

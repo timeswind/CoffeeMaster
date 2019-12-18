@@ -69,6 +69,14 @@ class BrewStep: Codable {
     func setDuration(duration: Int) {
         self.duration = duration
     }
+    
+    func getInstructionText() -> String {
+        if (self.instruction.isEmpty) {
+            return self.description
+        } else {
+            return self.instruction
+        }
+    }
 }
 
 class BrewStepGrindCoffee: BrewStep {

@@ -144,6 +144,8 @@
 "RecordTypeActionSheetTrackCaffeine" = "咖啡因摄入";
 "CaffeineTracker" = "咖啡因记录";
 "Edit" = "编辑";
+"Note" = "笔记";
+"Caffeine" = "咖啡因";
 
 /*LocationPicker*/
 "LocationPicker" = "选择地点";

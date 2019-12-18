@@ -11,6 +11,8 @@ import FASwiftUI
 
 struct PostFormView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>
+    @EnvironmentObject var keyboard: KeyboardResponder
+    
     @State private var postTitle: String = ""
     @State private var postBody: String = ""
     @State private var postAllowComment: Bool = true
@@ -29,6 +31,10 @@ struct PostFormView: View {
                 self.brewGuide = brewGuide
             }
         }
+    }
+    
+    private func endEditing() {
+        UIApplication.shared.endEditing()
     }
     
     func post() {
@@ -87,54 +93,37 @@ struct PostFormView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                TextField(LocalizedStringKey("NewPostTitle"), text: $postTitle)
-                MultilineTextField(LocalizedStringKey("NewPostBody"), text: $postBody, onCommit: {})
-                
-                if (self.images.count < 9) {
-                    Button(action: {
-                        self.showingImagePicker = true
-                    }) {
-                        HStack {
-                            FAText(iconName: "images", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
-
-                            Text(LocalizedStringKey("AddImage"))
-                                .fontWeight(.bold)
-                                .font(.body)
-                                .padding(.all, 8)
-                                .background(Color(UIColor.Theme.Accent))
-                                .cornerRadius(5)
-                                .foregroundColor(.white)
-                        }
-                    }.padding(.bottom)
-
-                }
-                
-                if (self.location == nil) {
-                    Button(action: {
-                        self.showLocationPicker()
-                    }) {
-                        HStack {
-                            FAText(iconName: "location-arrow", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
-                            Text(LocalizedStringKey("AddLocation"))
-                                .fontWeight(.bold)
-                                .font(.body)
-                                .padding(.all, 8)
-                                .background(Color(UIColor.Theme.Accent))
-                                .cornerRadius(5)
-                                .foregroundColor(.white)
-                        }
-                    }
-
-                } else {
-                    VStack(alignment: .leading, spacing: 8) {
-                        LocationCardView(location: self.location!).frame(height: 200)
+            ScrollView(.vertical, showsIndicators: true) {
+                VStack(alignment: .leading) {
+                    TextField(LocalizedStringKey("NewPostTitle"), text: $postTitle)
+                    MultilineTextField(LocalizedStringKey("NewPostBody"), text: $postBody, onCommit: {})
+                    
+                    if (self.images.count < 9) {
                         Button(action: {
-                            self.removeLocation()
+                            self.showingImagePicker = true
                         }) {
                             HStack {
-                                FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
-                                Text(LocalizedStringKey("RemoveLocation"))
+                                FAText(iconName: "images", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                                
+                                Text(LocalizedStringKey("AddImage"))
+                                    .fontWeight(.bold)
+                                    .font(.body)
+                                    .padding(.all, 8)
+                                    .background(Color(UIColor.Theme.Accent))
+                                    .cornerRadius(5)
+                                    .foregroundColor(.white)
+                            }
+                        }.padding(.bottom)
+                        
+                    }
+                    
+                    if (self.location == nil) {
+                        Button(action: {
+                            self.showLocationPicker()
+                        }) {
+                            HStack {
+                                FAText(iconName: "location-arrow", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                                Text(LocalizedStringKey("AddLocation"))
                                     .fontWeight(.bold)
                                     .font(.body)
                                     .padding(.all, 8)
@@ -143,29 +132,53 @@ struct PostFormView: View {
                                     .foregroundColor(.white)
                             }
                         }
+                        
+                    } else {
+                        VStack(alignment: .leading, spacing: 8) {
+                            LocationCardView(location: self.location!).frame(height: 200)
+                            Button(action: {
+                                self.removeLocation()
+                            }) {
+                                HStack {
+                                    FAText(iconName: "times", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                                    Text(LocalizedStringKey("RemoveLocation"))
+                                        .fontWeight(.bold)
+                                        .font(.body)
+                                        .padding(.all, 8)
+                                        .background(Color(UIColor.Theme.Accent))
+                                        .cornerRadius(5)
+                                        .foregroundColor(.white)
+                                }
+                            }
+                        }
                     }
-                }
-                
-                GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
-                    Image(uiImage: self.images[index])
-                        .resizable()
-                        .frame(width: cellWidth, height: cellWidth)
-                        .onTapGesture {
-                            self.removeImage(at: index)
+                    
+                    GridStack(minCellWidth: 100, spacing: 2, numItems: self.images.count) { index, cellWidth in
+                        Image(uiImage: self.images[index])
+                            .resizable()
+                            .frame(width: cellWidth, height: cellWidth)
+                            .onTapGesture {
+                                self.removeImage(at: index)
+                        }
                     }
-                }
-                
-                VStack {
-                    if (self.brewGuide != nil) {
-                        BrewGuideCardView(brewGuide: self.brewGuide!)
+                    
+                    VStack {
+                        if (self.brewGuide != nil) {
+                            BrewGuideCardView(brewGuide: self.brewGuide!)
+                        }
                     }
+                    
+                    Toggle(isOn: $postAllowComment) {
+                        HStack(alignment: .bottom, spacing: 0) {
+                            FAText(iconName: self.postAllowComment ? "comment" : "comment-slash", size: 20, style: .solid).padding([.leading,], 0).padding(.trailing, 8)
+                            Text(LocalizedStringKey("NewPostAllowComment")).fontWeight(.bold)
+                        }
+                    }
+                    Spacer()
+                }.onTapGesture {
+                    self.endEditing()
                 }
-                
-                Toggle(isOn: $postAllowComment) {
-                    Text(LocalizedStringKey("NewPostAllowComment"))
-                }
-                Spacer()
-            }.padding(20)
+                .padding([.horizontal, .top],20)
                 .navigationBarTitle(Text(LocalizedStringKey("NewPost")))
                 .navigationBarItems(leading:
                     Button(action: {self.exit()}) {
@@ -180,30 +193,33 @@ struct PostFormView: View {
                             Text(LocalizedStringKey("NewPostPostAction")).fontWeight(.bold)
                         }
                     }
-            )
-                .sheet(isPresented: $showingImagePicker,
-                       onDismiss: {
-                        if self.showingImagePicker == true {
-                            self.showingImagePicker = false
+                )
+                    .sheet(isPresented: $showingImagePicker,
+                           onDismiss: {
+                            if self.showingImagePicker == true {
+                                self.showingImagePicker = false
+                            }
+                    }, content: {
+                        ImagePicker.shared.view
+                    }).onReceive(ImagePicker.shared.$image) { image in
+                        if (image != nil) {
+                            self.addImage(image: image!)
                         }
-                }, content: {
-                    ImagePicker.shared.view
-                }).onReceive(ImagePicker.shared.$image) { image in
-                    if (image != nil) {
-                        self.addImage(image: image!)
-                    }
-            }
+                }
+            }.padding(.bottom, self.keyboard.currentHeight + 40)
+
         }.onAppear(perform: {
             self.viewDidAppear()
         })
-        .sheet(isPresented: $isLocationPickerPresented) {
-            LocationPickerView(onPickLocation: { (location) in
-                self.onPickLocation(location)
-            }, onCancel: {
-                self.isLocationPickerPresented = false
-            }).modifier(EnvironmemtServices())
+            .sheet(isPresented: $isLocationPickerPresented) {
+                LocationPickerView(onPickLocation: { (location) in
+                    self.onPickLocation(location)
+                }, onCancel: {
+                    self.isLocationPickerPresented = false
+                }).modifier(EnvironmemtServices())
         }
         .accentColor(Color(UIColor.Theme.Accent))
+        .edgesIgnoringSafeArea(.bottom)
         
     }
 }
@@ -211,6 +227,6 @@ struct PostFormView: View {
 struct PostFormView_Previews: PreviewProvider {
     
     static var previews: some View {
-           PostFormView().modifier(EnvironmemtServices())
+        PostFormView().modifier(EnvironmemtServices())
     }
 }

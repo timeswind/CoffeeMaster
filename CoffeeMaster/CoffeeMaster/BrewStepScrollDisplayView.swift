@@ -14,28 +14,26 @@ struct BrewStepScrollDisplayView: View {
     var brewGuide: BrewGuide
     
     @Binding var currentInstructionIndex: Int
-    @State var i_index: Int = 0
     
     @State var scrollViewOffset: CGFloat = 0
     @State private var offset: CGSize = CGSize(width: -60, height: 0)
     @State private var paddingBottom: CGFloat = .zero
     
     @State private var sound: AVAudioPlayer!
-
+    
     private var onUpdateTime: ((_ timeInSec: Int) -> Void)?
     
     
     init(brewGuide: BrewGuide, currentInstructionIndex: Binding<Int>, onUpdateTime: ((_ timeInSec: Int) -> Void)? = nil) {
         self.brewGuide = brewGuide
         self._currentInstructionIndex = currentInstructionIndex
-        self.i_index = currentInstructionIndex.wrappedValue
         self.onUpdateTime = onUpdateTime
     }
     
     func playSound() {
         
         let path = Bundle.main.path(forResource: "ding-sound-effect_2", ofType: "mp3")
-
+        
         do {
             try sound =  AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
         } catch {
@@ -46,7 +44,6 @@ struct BrewStepScrollDisplayView: View {
     }
     
     func updateCurrentInstructionIndex(_ index:Int) {
-        self.i_index = index
         self.currentInstructionIndex = index
         
         let passedTimeInSec = self.brewGuide.getPassedTimeInSecForStep(at: index)
@@ -54,14 +51,13 @@ struct BrewStepScrollDisplayView: View {
             onUpdateTime(passedTimeInSec)
         }
         
-        self.playSound()
     }
     
     func prevInstruction() {
         self.offset = CGSize(width: 60, height: 0)
         
-        if (self.i_index != 0) {
-            let newIndex = self.i_index - 1
+        if (self.currentInstructionIndex != 0) {
+            let newIndex = self.currentInstructionIndex - 1
             self.updateCurrentInstructionIndex(newIndex)
         } else {
             // reset time to start time
@@ -73,8 +69,8 @@ struct BrewStepScrollDisplayView: View {
     }
     
     func nextInstruction() {
-        if (self.i_index != self.brewGuide.getBrewSteps().count - 1) {
-            let newIndex = self.i_index + 1
+        if (self.currentInstructionIndex != self.brewGuide.getBrewSteps().count - 1) {
+            let newIndex = self.currentInstructionIndex + 1
             self.updateCurrentInstructionIndex(newIndex)
         }
     }
@@ -82,7 +78,7 @@ struct BrewStepScrollDisplayView: View {
     var body: some View {
         let brewSteps = brewGuide.getBrewSteps()
         
-        let currentBrewStep = brewSteps[self.i_index]
+        let currentBrewStep = brewSteps[self.currentInstructionIndex]
         var currentBrewStepImageKey = "icons-coffee-beans-500"
         
         switch currentBrewStep.brewType {
@@ -120,26 +116,29 @@ struct BrewStepScrollDisplayView: View {
                                 radius: 3,
                                 x: 3,
                                 y: 3)
-                        .opacity((self.i_index == 0) ? 0 : 1)
+                        .opacity((self.currentInstructionIndex == 0) ? 0 : 1)
                     Spacer()
                     
-                    VStack {
+                    VStack(alignment: .center) {
                         ForEach(0..<brewSteps.count, id:\.self) { index in
                             Group {
-                                if (index == self.i_index) {
-                                    Text(brewSteps[self.i_index].instruction)
+                                if (index == self.currentInstructionIndex) {
+                                    Text(brewSteps[self.currentInstructionIndex].getInstructionText())
                                         .fontWeight(.bold)
                                         .foregroundColor(Color.black)
                                         .multilineTextAlignment(.center)
                                         .lineLimit(10)
                                         .transition(.asymmetric(insertion: AnyTransition.opacity.combined(with: .scale).animation(.easeInOut(duration: 0.5)), removal: AnyTransition.opacity.combined(with: .offset(self.offset)).animation(.easeInOut(duration: 0.5))))
+                                        .onAppear{
+                                            self.playSound()
+                                    }
                                 } else {
                                     EmptyView()
                                 }
                             }
                             
                         }
-                    }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: Alignment.topLeading)
+                    }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: Alignment.top)
                     
                     
                     Spacer()
@@ -160,7 +159,7 @@ struct BrewStepScrollDisplayView: View {
                             radius: 3,
                             x: 3,
                             y: 3)
-                        .opacity((self.i_index == (brewSteps.count - 1)) ? 0 : 1)
+                        .opacity((self.currentInstructionIndex == (brewSteps.count - 1)) ? 0 : 1)
                     
                 }
         }
@@ -172,8 +171,7 @@ struct BrewStepScrollDisplayView: View {
 
 struct BrewStepScrollDisplayView_Previews: PreviewProvider {
     @State static var currentInstructionIndex = 1
-    
-    
+
     static var previews: some View {
         let sample_brew_guide = StaticDataService.defaultBrewGuides.first!
         return BrewStepScrollDisplayView(brewGuide: sample_brew_guide, currentInstructionIndex: $currentInstructionIndex).modifier(EnvironmemtServices()).previewLayout(.sizeThatFits)

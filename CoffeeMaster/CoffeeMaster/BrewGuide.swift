@@ -109,5 +109,20 @@ class BrewGuide: Codable {
         }
         return total
     }
+    
+    func getStepIndexByTimeInSec(_ time: Int) -> Int {
+        if time == 0 {
+            return 0
+        }
+        var total = 0
+        for (index, step) in self.brewSteps.enumerated() {
+            total += step.duration
+            if total > time {
+                return index
+            }
+        }
+        
+        return self.brewSteps.count - 1
+    }
 
  }

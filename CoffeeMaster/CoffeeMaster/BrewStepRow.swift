@@ -40,11 +40,13 @@ struct BrewStepRow: View {
     }
     
     var body: some View {
-        HStack {
+        let instruction_text = self.brewStep.getInstructionText()
+        
+        return HStack {
             Image(imageKey).resizable()
                 .aspectRatio(contentMode: .fit).frame(width: 44).padding(.leading)
             VStack(alignment: .leading, spacing: 0) {
-                Text(instruction).fontWeight(.bold)
+                Text(instruction_text).fontWeight(.bold)
                 Text(duration)
             }.padding()
             

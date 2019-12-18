@@ -23,7 +23,8 @@ struct ExploreView: View {
             ExploreMapView().navigationBarTitle(Text(LocalizedStringKey("Explore"))).navigationBarItems(leading:
                 Button(action: {self.showSettingsView()}) {
                     FAText(iconName: "user-cog", size: 22, style: .solid)
-            })
+                }.accessibility(label: Text(LocalizedStringKey("Settings")))
+            )
         }
         .sheet(isPresented: $isSettingPresented, onDismiss: {
             if (self.isSettingPresented == true) {

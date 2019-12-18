@@ -97,9 +97,7 @@ struct RecordView: View {
             }
         }) {
             if (isAddRecordNoteFormPresented) {
-                NavigationView {
-                    AddRecordFormView()
-                }.modifier(EnvironmemtServices())
+                AddRecordFormView().modifier(EnvironmemtServices())
             } else {
                 CaffeineTrackerView(askPermission: true).modifier(EnvironmemtServices())
             }
@@ -117,8 +115,8 @@ struct RecordListView: View {
         
         return ScrollView(.vertical, showsIndicators: false) {
             Picker(selection: $viewSegment, label: Text("RecordViewSegmentLabel")) {
-                Text("Note").tag(0)
-                Text("Caffeine").tag(1)
+                Text(LocalizedStringKey("Note")).tag(0)
+                Text(LocalizedStringKey("Caffeine")).tag(1)
             }.pickerStyle(SegmentedPickerStyle()).padding(.horizontal)
             
             if (self.store.state.recordViewState.records.count > 0) {

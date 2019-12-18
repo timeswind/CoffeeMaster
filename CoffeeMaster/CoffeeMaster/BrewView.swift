@@ -30,7 +30,7 @@ struct BrewView: View {
                 trailing:
                 Button(action: {self.createBrewGuide()}) {
                     FAText(iconName: "plus", size: 22, style: .solid)
-            }).onAppear(perform: fetchMyBrewGuides)
+            }.accessibility(label: Text(LocalizedStringKey("CreateBrewGuide")))).onAppear(perform: fetchMyBrewGuides)
         }.sheet(isPresented: $isAddBrewGuideViewPresented) {
             AddBrewGuideView().modifier(EnvironmemtServices())
         }

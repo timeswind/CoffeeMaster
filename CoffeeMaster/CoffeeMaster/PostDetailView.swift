@@ -8,7 +8,6 @@
 
 import SwiftUI
 import URLImage
-import Grid
 
 struct PostDetailView: View {
     @EnvironmentObject var store: Store<AppState, AppAction>

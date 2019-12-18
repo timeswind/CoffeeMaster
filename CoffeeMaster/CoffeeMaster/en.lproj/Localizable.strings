@@ -144,6 +144,8 @@
 "RecordTypeActionSheetTrackCaffeine" = "Record Caffeine";
 "CaffeineTracker" = "Caffeine Tracker";
 "Edit" = "Edit";
+"Note" = "Note";
+"Caffeine" = "Caffeine";
 
 /*LocationPicker*/
 "LocationPicker" = "Pick Location";

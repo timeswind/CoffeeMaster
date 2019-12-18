@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MGLMapboxAccessToken</key>
@@ -39,18 +39,24 @@
 	<string>Share your photos and save photo to your note</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Use Camera to take picitures</string>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>Access Health Record for caffeine</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>Access Health Record for caffeine</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Access Health Record for caffeine</string>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>Access Health Record for caffeine</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Shows your location on the map and helps improve the map.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Share your photos and save photo to your note</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Help you find placees around you</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Share your photos and save photo to your note</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Font Awesome 5 Brands-Regular-400.otf</string>
+		<string>Font Awesome 5 Free-Regular-400.otf</string>
+		<string>Font Awesome 5 Free-Solid-900.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -87,12 +93,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Font Awesome 5 Brands-Regular-400.otf</string>
-		<string>Font Awesome 5 Free-Regular-400.otf</string>
-		<string>Font Awesome 5 Free-Solid-900.otf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

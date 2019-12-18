@@ -29,10 +29,10 @@ struct MainTabView : View {
         }
         
         return UIKitTabView([
-            UIKitTabView.Tab(view: ExploreView(), title: NSLocalizedString("", comment: ""), image: "explore-icon-unselect-100"),
-            UIKitTabView.Tab(view: BrewView(), title: NSLocalizedString("", comment: ""), image: "make-icon-unselect-100"),
-            UIKitTabView.Tab(view: ConnectView(), title: NSLocalizedString("", comment: ""), image: "community-icon-unselect-100"),
-            UIKitTabView.Tab(view: RecordView(), title: NSLocalizedString("", comment: ""), image: "record-icon-unselect-100")
+            UIKitTabView.Tab(view: ExploreView(), title: "Explore".localized(), image: "explore-icon-unselect-100"),
+            UIKitTabView.Tab(view: BrewView(), title: "Brew".localized(), image: "make-icon-unselect-100"),
+            UIKitTabView.Tab(view: ConnectView(), title: "Connect".localized(), image: "community-icon-unselect-100"),
+            UIKitTabView.Tab(view: RecordView(), title: "Record".localized(), image: "record-icon-unselect-100")
         ], selectedIndex: selectedTabIndex).accentColor(Color(UIColor.Theme.Accent))
     }
 }

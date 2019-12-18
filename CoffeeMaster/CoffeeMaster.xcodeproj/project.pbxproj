@@ -35,7 +35,6 @@
 		5C2FEFAD239D963D000C4854 /* CaffeineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FEFAC239D963D000C4854 /* CaffeineRecord.swift */; };
 		5C2FEFB1239DB04A000C4854 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE992923970FBD00F78FE2 /* WidgetView.swift */; };
 		5C2FEFB2239DB04F000C4854 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE991C2396CD0E00F78FE2 /* TodayViewController.swift */; };
-		5C3DDDD323935147001A3B4F /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD223935147001A3B4F /* Grid */; };
 		5C3DDDD623935187001A3B4F /* Shapes in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD523935187001A3B4F /* Shapes */; };
 		5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3DDDD8239351A1001A3B4F /* Sliders */; };
 		5C3F46582382D219001CC647 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F46572382D219001CC647 /* Record.swift */; };
@@ -317,7 +316,6 @@
 			files = (
 				5C3DDDD9239351A1001A3B4F /* Sliders in Frameworks */,
 				5C0C269C2391F18000F27180 /* URLImage in Frameworks */,
-				5C3DDDD323935147001A3B4F /* Grid in Frameworks */,
 				5C587E7323A3D59C008EFB11 /* FASwiftUI in Frameworks */,
 				5C484D70239D6B5C002D31D3 /* QGrid in Frameworks */,
 				5C9880052396B5F8003D4015 /* HealthKit.framework in Frameworks */,
@@ -694,7 +692,6 @@
 			name = CoffeeMaster;
 			packageProductDependencies = (
 				5C0C269B2391F18000F27180 /* URLImage */,
-				5C3DDDD223935147001A3B4F /* Grid */,
 				5C3DDDD523935187001A3B4F /* Shapes */,
 				5C3DDDD8239351A1001A3B4F /* Sliders */,
 				5C484D6F239D6B5C002D31D3 /* QGrid */,
@@ -751,7 +748,6 @@
 			mainGroup = 5C80C95723745F2600996D91;
 			packageReferences = (
 				5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */,
-				5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */,
 				5C3DDDD423935187001A3B4F /* XCRemoteSwiftPackageReference "Shapes" */,
 				5C3DDDD7239351A1001A3B4F /* XCRemoteSwiftPackageReference "Sliders" */,
 				5C484D6E239D6B5C002D31D3 /* XCRemoteSwiftPackageReference "QGrid" */,
@@ -1123,6 +1119,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoffeeMaster/CoffeeMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffeeMaster/Preview Content\"";
 				DEVELOPMENT_TEAM = 397U443WJR;
 				ENABLE_PREVIEWS = YES;
@@ -1132,6 +1129,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.3;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.sce.mky5089.CoffeeMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1151,6 +1149,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoffeeMaster/CoffeeMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"CoffeeMaster/Preview Content\"";
 				DEVELOPMENT_TEAM = 397U443WJR;
 				ENABLE_PREVIEWS = YES;
@@ -1160,6 +1159,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.3;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.psu.sce.mky5089.CoffeeMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1176,6 +1176,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Coffee Master Widget/Coffee Master Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 397U443WJR;
 				INFOPLIST_FILE = "Coffee Master Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1184,6 +1185,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.psu.sce.mky5089.CoffeeMaster.Coffee-Master-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1197,6 +1199,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Coffee Master Widget/Coffee Master Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 397U443WJR;
 				INFOPLIST_FILE = "Coffee Master Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1205,6 +1208,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.psu.sce.mky5089.CoffeeMaster.Coffee-Master-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1254,14 +1258,6 @@
 				minimumVersion = 0.9.9;
 			};
 		};
-		5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftUIExtensions/Grid.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.2;
-			};
-		};
 		5C3DDDD423935187001A3B4F /* XCRemoteSwiftPackageReference "Shapes" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIExtensions/Shapes.git";
@@ -1301,11 +1297,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C0C269A2391F18000F27180 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
-		};
-		5C3DDDD223935147001A3B4F /* Grid */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C3DDDD123935147001A3B4F /* XCRemoteSwiftPackageReference "Grid" */;
-			productName = Grid;
 		};
 		5C3DDDD523935187001A3B4F /* Shapes */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -71,6 +71,11 @@ struct BrewGuideDetailView: View {
 
     }
     
+    func getCurrentInstructionIndex() -> Int {
+        let index = self.brewGuide.getStepIndexByTimeInSec(self.stopWatch.stopWatchTimeInSec)
+        return index
+    }
+    
     var body: some View {
         
         let mainControlIcon = (isInstructionWalkThrough || (!isInstructionWalkThrough && !isBrewing)) ? "play" : "pause"
@@ -88,6 +93,12 @@ struct BrewGuideDetailView: View {
             return
         }
         
+        let currentInstructionIndexProxy = Binding<Int>(get: { () -> Int in
+            return self.getCurrentInstructionIndex()
+        }) { (index) in
+            self.currentInstructionIndex = index
+        }
+        
         return ZStack {
             if (isInstructionWalkThrough) {
                 BrewGuideWalkThroughView(brewGuide: brewGuide)
@@ -95,7 +106,7 @@ struct BrewGuideDetailView: View {
             } else {
                 VStack {
                     BrewGuideTimerInstructionView(stopWatchTime: timerTime, brewPercent: progressPercent)
-                    BrewStepScrollDisplayView(brewGuide: self.brewGuide, currentInstructionIndex: $currentInstructionIndex, onUpdateTime: { timeInSec in
+                    BrewStepScrollDisplayView(brewGuide: self.brewGuide, currentInstructionIndex: currentInstructionIndexProxy, onUpdateTime: { timeInSec in
                         self.updateTimerTime(timeInSec)
                     })
                     Spacer()
